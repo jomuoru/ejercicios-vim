@@ -1,0 +1,63 @@
+Repetición granular
+.       Repetir edición
+u       Deshacer edición
+
+
+Ejercicio 1: Borre todas las apariciones de "Amet"
+Amet voluptate magnam
+harus Amet ad
+accusantium ipsum Amet
+                                                    Borrar palabra  => daw
+
+
+Ejercicio 2: Cambiar todas las apariciones de "neque" por "accusantium"
+Quisquam neque rem.
+neque voluptate nulla.
+Alias sit neque.
+                                                    Cambiar palabra => caw
+
+
+Ejercicio 3: Inserte punto y coma al final
+printf("Amet soluta")
+printf("Lorem accusamus")
+if (ipsum) {
+    printf("Ipsum sint")
+}
+                                                    Insertar al final => A
+
+
+Ejercicio 4: Numere las siguientes líneas
+Consectetur cumque?
+Consectetur fuga
+Dolor dolore
+Amet alias
+Amet iure
+                                                 Insertar al principio => I
+                                                 Modo bloque visual => <C-v>
+                                                 Conteo en columnas => g<C-A>
+
+
+Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
+Lorem deserunt quaerat voluptas rem.
+Amet voluptate magnam excepturi nulla.
+Amet accusantium neque quibusdam ad.
+Amet distinctio soluta harum alias?
+Sit ipsum quisquam asperiores accusantium.
+
+
+Repetición por argumento numérico
+{num}{comando}      El {comando} se repetirá {num} veces
+
+
+Ejercicio 6:
+====
+|  |
+====
+Haga una caja como la de arriba pero con dimensiones de 70 X 10
+
+
+                                                    Insertar abajo =>  o
+                                                    Insertar arriba => O
+
+Para mayor referencia sobre como repetir comandos en vim, consultese el
+libro "Practical Vim"

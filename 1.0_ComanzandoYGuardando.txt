@@ -1,0 +1,29 @@
+
+
+Bases:
+i      Entrar a modo inserción                 Teclas de movimiento:
+                                                        ↑
+<C-c>                                                   k
+<Esc>     Regresar a modo normal                    ← h   l →
+<C-[>                                                   j
+                                                        ↓
+
+Guardando y saliendo
+:w     Guardar
+:q     Cerrar (solo si el documento ya fue guardado o no tiene cambios)
+:q!    Cerrar sin guardar
+:wq    Guardar y cerrar
+:x     Guardar y cerrar
+
+
+Operadores básicos
+d       Borrar
+c       Cambiar
+y       Copiar
+
+
+Obteniendo ayuda
+:Tutor          Abrir el tutorial interno, también se puede abrir de afuera con
+                el comando "vimtutor"
+:help <algo>    Buscar ayuda de <algo>
+www.openvim.com Tutorial online (abrir con "gx")

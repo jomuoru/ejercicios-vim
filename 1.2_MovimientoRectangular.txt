@@ -1,0 +1,21 @@
+    Consectetur qui expedita laborum doloremque      
+    Adipisicing facilis consectetur dolorem doloribus
+    Ipsum dignissimos accusantium eos illum          
+    Dolor exercitationem quae voluptatem deleniti    
+    Lorem dolorem unde illum amet!                   
+
+Amet consequuntur?        T{char} ←       k       → t{char}
+Dolor a voluptates                        ↑
+Sit architecto nobis     0  ←  ^  ←  h  ← + →  l  →  g_  →  $ 
+Amet earum dolores                        ↓
+Dolor eos recusandae.     F{char} ←       k       → f{char}
+
+
+    Dolor voluptatibus accusamus facere labore quia.        
+    Consectetur numquam labore consequuntur alias aspernatur
+    Ipsum dolor ut sunt molestiae esse!                     
+    Dolor ducimus dignissimos ipsam temporibus animi        
+    Amet blanditiis quo incidunt qui nobis.                 
+
+
+La mejor forma de memorizar los comandos, jugar: https://vim-adventures.com/

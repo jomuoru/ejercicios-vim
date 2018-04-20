@@ -1,0 +1,32 @@
+Movimiento de palabras:
+    'b' <- 'ge' <-+-> 'e' -> 'w'
+
+Movimiento de sentencias:
+            '(' <-+-> ')'
+
+Adipisicing facilis magni esse quasi?
+Dolor cumque amet error aspernatur
+Sit ducimus autem deleniti accusamus.
+Dolor explicabo officia alias perferendis
+Consectetur nemo obcaecati provident qui.
+
+Movimiento de párrafos:
+            '{' <-+-> '}'
+
+Amet saepe asperiores odio hic
+Ipsum doloremque magnam accusamus perferendis.
+Consectetur numquam qui itaque reprehenderit
+Adipisicing inventore adipisci praesentium animi.
+Adipisicing magnam dolore quod eveniet
+
+Sit tempora aliquam voluptatum eos?
+Ipsum libero illum at voluptatum
+Amet libero tempora laboriosam ullam.
+Amet eum magnam nulla architecto.
+Consectetur sit ad explicabo porro
+
+Elit rerum suscipit voluptatum blanditiis
+Sit asperiores unde saepe expedita.
+Elit aperiam quod neque impedit?
+Amet dolore necessitatibus cumque ipsa.
+Adipisicing dolor veritatis repellat illum
