@@ -1,0 +1,55 @@
+                ** Aprendiendo a hablar con vim **
+
+El venerable vi tenia una estructura para los comandos de edición similar
+a la siguiente:
+
+    {operador}{movimiento}
+
+De forma general, el comando anterior se interpreta como "aplica la acción
+de {operador} desde la posición actual hasta donde se mueva el cursor si
+hago {movimiento}"
+
+Ejercicio 1: Elimine las apariciones de 'provident' del siguiente párrafo
+con 'dw'
+    Amet provident deleniti
+    aliquam amet provident
+    Amet provident voluptatem.
+                                                    d => Operador eliminar
+                                                    w => Moverse a la siguiente
+                                                         palabra
+
+===========================================================================
+
+Vim introduce la idea de 'objetos de texto' que proporciona una forma
+mucho más natural de trabajar con los operadores. La sintaxis que se sigue
+es:
+    {operador}a{objeto}
+    {operador}i{objeto}
+
+Las letras 'a' e 'i' deben interpretarse como 'around' y como 'inside'.
+Al usar esta sintaxis siempre se afecta el objeto completo (y posiblemente
+sus alrededores si se usa 'a'). No se requiere preocuparse de la ubicación
+del cursor en ningún momento.
+
+Ejercicio 2: Elimine las apariciones de 'provident' del siguiente párrafo
+con 'daw' (delete around word)
+    Amet provident deleniti
+    aliquam amet provident
+    Amet provident voluptatem.
+                                                    d => Operador eliminar
+                                                    w => Moverse a la siguiente
+                                                         palabra
+
+Siempre que sea posible, preferir la estructura de comandos de
+vim sobre de vi; Aunque puedan requerir un poco más de tecleo son
+más fáciles de aprender y recordar ya que se asemejan a un 'lenguaje'
+humano. Asimismo, suelen ser mucho más fáciles de repetir.
+
+Nota: No confundir el objeto de texto 'w' (palabra) con el comando
+'w' (ir al principio de la siguiente palabra). Se trata de una una
+(deliberada) coincidencia que se llamen igual, pero no puede asumirse
+la misma interrelación entre los objetos que se mueven entre 'x' cosa
+y el objeto 'x'.
+Por ejemplo, los caracteres '{' y '}' se mueven entre párrafos pero el
+objeto de texto párrafo se llama 'p'.
+

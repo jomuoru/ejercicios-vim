@@ -1,0 +1,133 @@
+                        ** Comenzando a moverse **
+
+Nuevamente, el movimiento básico se hace mediante hjkl
+                             k
+                             ↑
+                        h  ←   →  l
+                             ↓
+                             k
+
+Ejercicio 1: Camine a través del laberinto usando las teclas de vim
+
+        *  ****************************
+        *  *******           **********
+        *  *******  *******  **********
+        *        *  *     *  **       *
+        *******  *  *  *  *  **  ***  *
+        *        *     *  *  **  ***  *
+        *  *************  *      ***  *
+        *  *              **********  *
+        *  *  *************           *
+        *  *            ***  **********
+        *  ***********  ***  **********
+        *               ***            
+        *******************************
+
+Por defecto, los comandos 'h' y 'l' se detienen en los extremos de la
+sin moverse automáticamente a la anterior como en un editor tradicional.
+Dicho comportamiento se puede cambiar con el comando:
+
+        :set whichwrap+=h,l
+
+*NOTA* La opción whichwrap es una cadena separada por comas que controla que
+caracteres pueden moverse a las lineas siguientes
+
+===========================================================================
+
+Para moverse entre palabras puede usar w, b, e, ge. A diferencia de
+del movimiento por letras, el movimiento por palabras te cambia de línea
+por defecto cuando llegas al final o al principio de una.
+
+        ↱ b  ge     w   e
+       ← -------- -------- →
+                          ↲
+
+Los comandos b y w dan saltos a los inicios de las palabras mientras que
+los comandos ge y e dan saltos a los finales de las palabras,
+hacia atrás y hacia adelante respectivamente.
+
+       Palabra0     Palabra1    Palabra2    Palabra3
+                    ^      ^    ^      ^
+                    |      |    |      |
+                   w,b   e,ge  w,b    e,ge
+
+Ejercicio 2: Llega a todos los sitios marcados por un '|'
+
+    Consectetur qui expedita | laborum doloremque
+    Adipisicing facilis | consectetur dolorem doloribus
+    Ipsum dignissimos accusantium eos illum
+    Dolor | exercitationem quae voluptatem | deleniti
+    Lorem dolorem unde illum amet!
+
+Ejercicio 3: Cambio los adjetivos del siguiente texto por adverbios
+añadiendo el sufijo "mente"
+
+    Fuerte suspiró. La abrazó temblorosa.
+    Paró en seco, enorme asustado.
+    Gritó firme a la persona frente de si.
+                                                    Insertar enfrente => a
+
+===========================================================================
+
+Aunque extraña, la forma más eficiente de moverse entre líneas es usando la
+búsqueda de caracteres.
+La letra 'f' seguida de un carácter te mueve a la siguiente aparición de
+dicho carácter y la letra 'F' mueve a la aparición anterior. Las letras 't' y
+'T' hacen prácticamente lo mismo, pero avanzan un carácter menos.
+
+      ↱  ,                                      ,  ↰
+      ⬑ ←    ;  ←  T{char} ←   → t{char}  →  ;    →⬏
+      ⬐ ←    ;  ←  F{char} ←   → f{char}  →  ;    →⬎
+      ↳  ,                                      ,  ↲
+
+Una vez realizada una búsqueda por caracteres, dicha búsqueda se puede
+repetir usando el carácter ';' (punto y coma). 
+La ',' hace la misma búsqueda en dirección contraria.
+
+Ejercicio 3: Cambie todas las apariciones de punto con coma
+
+    Dolor voluptatibus. accusamus facere. labore quia.
+    .Consectetur. numquam labore. consequuntur alias aspernatur
+    Ipsum dolor ut sunt. molestiae esse!
+    Dolor. ducimus dignissimos. ipsam temporibus animi.
+    .Amet blanditiis. quo incidunt qui nobis.
+                                                    Insertar enfrente => a
+
+Ejercicio 4: Elimine las comas y ponga cada número en una línea distinta
+102,25,4096,-10,22.5,55,999,123123,2
+
+Ejercicio 5: Quite la inicialización a las siguientes declaraciones.
+    Integer i = new Integer("1234");
+    FileInputStream fis = new FileInputStream("nombres.txt");
+    IdentityHashMap odhm = new IdentityHashMap(1 << 8);
+    Date fch = Calendar.getInstance().getTime();
+                                                    Operador eliminar => d
+
+Por último, es posible moverse entre el principio y el final de una línea
+a partir de varios comandos.
+Los comandos '0' y '$' permiten moverse entre el inicio y el final absolutos.
+Los comandos '^' y 'g_' se mueven al primer y último carácter visible
+respectivamente.
+
+                  0  ←  ^  ←   →  g_  →  $
+
+Ejercicio 6: Pruebe las diferencias entre '0' y '^' así como entre 'g_' y '$'
+en la siguiente línea
+
+    Dolor voluptatibus accusamus facere labore quia.        
+
+Ejercicio 7: Arregle el siguiente recuadro para que se vea regular
++----------------------------------------------------------------+
+*                  ============================                  |
+|                  $                          $                  *
+                   *                          $                  |
+|                  $                          *                   
+                   *                          $                  |
+|                  $                          $                  *
+*                  ============================                  |
++----------------------------------------------------------------+
+                                                    Reemplazar carácter => r
+
+___________________________________________________________________________
+https://vim-adventures.com  Página que sabe La mejor forma de memorizar
+                            los comandos: jugando

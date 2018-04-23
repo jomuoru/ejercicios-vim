@@ -1,4 +1,6 @@
-Repetición granular
+                        ** Repitiendo ediciones **
+
+Repetición granular: Los 
 .       Repetir edición
 u       Deshacer edición
 
@@ -10,14 +12,13 @@ accusantium ipsum Amet
                                                     Borrar palabra  => daw
 
 
-Ejercicio 2: Cambiar todas las apariciones de "neque" por "accusantium"
+Ejercicio 2: Cambiar todas las apariciones de "neque" por "algo"
 Quisquam neque rem.
 neque voluptate nulla.
-Alias sit neque.
+Alias sit neque accusantium.
                                                     Cambiar palabra => caw
 
-
-Ejercicio 3: Inserte punto y coma al final
+Ejercicio 3: Inserte punto y coma al final de las líneas que lo requieren
 printf("Amet soluta")
 printf("Lorem accusamus")
 if (ipsum) {
@@ -44,9 +45,13 @@ Amet accusantium neque quibusdam ad.
 Amet distinctio soluta harum alias?
 Sit ipsum quisquam asperiores accusantium.
 
+===========================================================================
 
 Repetición por argumento numérico
-{num}{comando}      El {comando} se repetirá {num} veces
+{num}{comando}      {comando} se repetirá {num} veces
+
+Este tipo de repetición funciona también con algunos comandos que no
+se consideran "edición"
 
 
 Ejercicio 6:
@@ -59,5 +64,6 @@ Haga una caja como la de arriba pero con dimensiones de 70 X 10
                                                     Insertar abajo =>  o
                                                     Insertar arriba => O
 
+___________________________________________________________________________
 Para mayor referencia sobre como repetir comandos en vim, consultese el
-libro "Practical Vim"
+libro "Practical Vim" de Drew Neil

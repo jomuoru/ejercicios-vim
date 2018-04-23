@@ -1,0 +1,117 @@
+                    ** Objetos de texto **
+
+En el lenguaje de vim, los 'objetos de texto' son los sustantivos sobre
+los que un verbo (operador) toma acción. Todos ellos se usad después de
+las letras 'i' e 'a'. Como regla general, cuando quieres mover cosas de
+lugar es mejor utilizar 'a' y cuando quiere sustituir el texto por otra
+cosa es mejor utilizar 'i'.
+
+Los objetos de texto son:
+
+word => w -> iw : Palabra sin símbolos especiales
+          -> aw : Parecido a 'iw' pero también toma un espacio de alrededor.
+
+Ejercicio 1: Elimine la palabra 'trabajo' en las siguientes líneas con daw y
+observe de que lado se toma el espacio extra.
+    Un trabajo duro
+    que cuesta trabajo
+
+Word => W -> iW : Palabra con símbolos especiales.
+             aW : Como 'iW' pero más un espacio de alrededor.
+
+sentence => s -> is : Sentencia
+                 as : Sentencia más un espacio de alrededor.
+
+paren => ( ó ) ó b -> i(, i) : Dentro de los paréntesis sin tomar en cuenta los
+                               mismos
+                      a(, a) : Todo lo de dentro de los paréntesis incluyendo
+                               los mismos
+
+Ejercicio 2: Cambia el contenido de los paréntesis por la variable 'mensaje'.
+    const char mensaje[] = "Bienvenido al juego";
+    puts("Bienvenido al juego");
+    while (!game_over) {
+        puts("Bienvenido al juego");
+    }
+                                                    Operador 'cambio' => c
+bracket => { ó } ó B -> i{, i} : Dentro de llaves sin contar las mismas
+                        a{, a} : Dentro de llaves contando las mismas
+
+block => [ ó ] -> i[, i] : Dentro de corchetes sin contar los mismos
+                  a[, a] : Dentro de corchetes contando los mismos
+
+paragraph => p -> ip : Todo un párrafo
+                  ap : Un párrafo más una línea en blanco aledaña
+
+<> block => < ó > -> i<, i> : Dentro de pico-paréntesis sin contar los mismos
+                     a<, i> : Dentro de pico-paréntesis contando los mismos
+
+Ejercicio 3: Mueva el primer párrafo al centro de los 3
+
+    Lorem alias iusto illo natus?
+    Lorem necessitatibus modi soluta temporibus?
+    Adipisicing consectetur eaque dicta cum?
+    Consectetur delectus expedita ipsum deleniti
+
+    Sit voluptatum repellat sapiente officia?
+    Ipsum vitae consectetur consequatur.
+    Ipsum iste possimus obcaecati beatae.
+    Adipisicing accusamus expedita recusandae nesciunt
+
+    Adipisicing modi necessitatibus similique molestiae
+    Lorem sint omnis iure nemo
+    Adipisicing cupiditate repellat eaque eius.
+    Sit eos molestias ea et?
+                                                    Pegar enfrente => p
+
+" string => " -> i" : Dentro de cadena delimitada por " sin dichos símbolos
+                 a" : Dentro de cadena delimitada por " contando dichos símbolos
+
+' string => ' -> i' : Dentro de cadena delimitada por ' sin dichos símbolos
+                 a' : Dentro de cadena delimitada por ' contando dichos símbolos
+
+` string => ` -> i` : Dentro de cadena delimitada por ` sin dichos símbolos
+                 a` : Dentro de cadena delimitada por ` contando dichos símbolos
+
+tag => t -> it : Dentro de una etiqueta html/xml
+            at : Contenido de una etiqueta html/xml más los delimitadores
+
+Ejercicio 4: Cambie el contenido de la etiqueta title y de h1 por
+'Editando en vim' y elimine el div con todo su contenido
+    <head>
+        <title>Amet dolore officiis!</title>
+    </head>
+    <body>
+        <h1>Amet dolore officiis!</h1>
+        <div>
+            Sit aliquam laudantium eaque repellat facilis deleniti
+            Lorem similique nemo animi dignissimos officiis unde.
+            Amet saepe ea ullam animi porro Qui?
+            Consectetur numquam est cum maxime at saepe.
+            Sit eius quae quis iste recusandae. Modi
+            Sit nihil maxime eum explicabo eos Quae
+            Elit quis suscipit eos nihil commodi! Facere!
+            Lorem mollitia sequi accusamus est repudiandae quod?
+            Elit ipsa perferendis quia rerum architecto perspiciatis?
+            Consectetur at pariatur eaque voluptatem voluptate! Qui?
+        </div>
+    </body>
+
+Aunque (por defecto) no existe el objeto de texto 'línea', el símbolo
+'_' (guión bajo) funciona de manera similar a lo que algunos plugins toman
+como el objeto de texto 'al' ó "línea entera"
+
+Ejercicio 5: Copie la línea con el mensaje después de haber ordenado la lista
+y cambie la palabra 'original' por 'ordenada'
+
+    lista = [5, 12, 55, 34, 98, 20]
+    print('La lista original es:', lista)
+    lista.sort()
+                                                    Operador copiar => y
+___________________________________________________________________________
+Más objetos texto pueden añadirse a través de plugins, algunos de los más
+útiles son:
+    * PeterRincker/vim-argumentative: Para trabajar con argumentos de función
+    * vim-indent-object: Trabajar con lineas con misma indentación
+    * kana/vim-textobj-function: Trabajar con funciones completas
+    * glts/vim-textobj-comment: Trabajar con comentarios

@@ -1,29 +1,35 @@
+                            ** Comenzando **
 
+i      *Entrar* a modo inserción                 Teclas de movimiento:
+                                                             ↑
+<Ctrl-C>                                                     k
+<Esc>          Regresar a modo normal                    ← h   l →
+<Ctrl-[>                                                     j
+                                                             ↓
+                                         (También se pueden usar las flechas)
 
-Bases:
-i      Entrar a modo inserción                 Teclas de movimiento:
-                                                        ↑
-<C-c>                                                   k
-<Esc>     Regresar a modo normal                    ← h   l →
-<C-[>                                                   j
-                                                        ↓
+===========================================================================
+
+Reglas de vim:
+    - El modo en que estas importa
+    - Las mayúsculas y minúsculas en los comandos importan excepto
+      cuando se usan con teclas modificadores (Control, Alt).
+
+===========================================================================
 
 Guardando y saliendo
-:w     Guardar
-:q     Cerrar (solo si el documento ya fue guardado o no tiene cambios)
-:q!    Cerrar sin guardar
-:wq    Guardar y cerrar
-:x     Guardar y cerrar
+:w      Guardar
+:q      Cerrar (solo si el documento ya fue guardado o no tiene cambios)
+:q!     Cerrar sin guardar
+:wq     Guardar y cerrar
+:x      Guardar y cerrar
 
+Ejercicio: Escribe algo en la siguiente línea. Guarda y cierra el archivo.
 
-Operadores básicos
-d       Borrar
-c       Cambiar
-y       Copiar
-
+===========================================================================
 
 Obteniendo ayuda
-:Tutor          Abrir el tutorial interno, también se puede abrir de afuera con
+:Tutor          Abrir el tutorial interno, también se puede abrir desde fuera con
                 el comando "vimtutor"
-:help <algo>    Buscar ayuda de <algo>
+:help {algo}    Buscar ayuda de {algo}
 www.openvim.com Tutorial online (abrir con "gx")

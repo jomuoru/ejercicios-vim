@@ -1,12 +1,13 @@
+                ** Diferentes formas de empezar a editar **
 
-Inserción en la misma línea:
+Comenzar a editar sobre la misma línea:
 i       Insertar en el lugar actual
 a       Insertar en la siguiente posición
 I       Insertar al principio de la línea
 A       Insertar al final de la línea
 
 Ejercicio 1: Entre en modo de inserción en la posición señalada por
-pico-paréntesis
+pico-paréntesis y escriba algo
 <
 Adipisicing >< amet nobis error obcaecati impedit
 Amet soluta.>
@@ -29,11 +30,14 @@ return this
 }
 })(corporis, illo, sequi)
 
+===========================================================================
+
 Insertar en otras líneas:
 o       Insertar en la línea de abajo
 O       Insertar en la línea de arriba
 
-Ejercicio 2: Escriba el texto 'Lorem nam magnam' en medio de las siguientes líneas
+Ejercicio 2: Escriba el texto 'Lorem nam magnam' en medio de las siguientes
+líneas:
 Dolor fuga quidem iure commodi
 Elit eum aliquam ratione alias.
 
