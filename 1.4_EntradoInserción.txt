@@ -19,16 +19,8 @@ Ipsum tempore?
 Sit alias.
 Elit maxime?
 
-Ejercicio 3: Indente el código y coloque punto y coma donde se pueda
-(function(magnam) {
-if (quidem) {
-let lorem = 'lipsum dolom'
-let nam   =  document.getElementById('repellat')
-const Dolor = (amet) => ({ 'Consectetur': 'sit' })
-} else {
-return this
-}
-})(corporis, illo, sequi)
+Ejercicio 3: (Abrir con 'gx')
+    1.4_Ejercicio3.js
 
 ===========================================================================
 

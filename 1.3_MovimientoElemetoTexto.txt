@@ -104,26 +104,6 @@ int funcion4()
 
 }
 
-Ejercicio 3: Mover la función 'unafuncion' abajo del main y poner un
-prototipo de la misma en su lugar original.
+Ejercicio 3: (Abrir con 'gf')
 
-static inline long double
-unafuncion(int a, float b)
-{
-    if (a == 42)
-    {
-        return b * b * 3.141592;
-    }
-    else
-    {
-        return 1 / sqrt(b);
-    }
-}
-
-int
-main(void)
-{
-    unafuncion(rand() % 100, 10);
-}
-                                                    Selección por líneas => V
-                                                    Operador copiar => y
+    1.3_Ejercicio3.c

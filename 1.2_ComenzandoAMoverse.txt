@@ -5,7 +5,7 @@ Nuevamente, el movimiento básico se hace mediante hjkl
                              ↑
                         h  ←   →  l
                              ↓
-                             k
+                             j
 
 Ejercicio 1: Camine a través del laberinto usando las teclas de vim
 
@@ -32,6 +32,35 @@ Dicho comportamiento se puede cambiar con el comando:
 *NOTA* La opción whichwrap es una cadena separada por comas que controla que
 caracteres pueden moverse a las lineas siguientes
 
+Ejercicio 2: Activar la opción 'relativenumber' y usarla para eliminar las
+líneas marcadas con '>>>>'
+
+    Ipsum quidem architecto sunt consequuntur voluptatem. Dicta laboriosam?
+    Elit rem labore qui hic dolorum? Quos laboriosam?
+    Lorem repellat fugiat dolor distinctio inventore? Omnis ipsa?
+    Dolor dolorum reprehenderit minus perferendis aliquid. Consequatur quaerat
+    Amet accusantium ducimus repudiandae id perferendis minus? Vitae
+    >>>>
+    Elit earum natus quis dolorum porro? Ipsum commodi
+    Lorem doloremque eveniet nobis quo ipsum fugit, placeat.
+    Amet distinctio cupiditate suscipit ad eos? Saepe voluptatem
+    Adipisicing voluptatem aspernatur quisquam corporis earum Sequi distinctio?
+    Consectetur modi atque eveniet dignissimos voluptates atque. Autem
+    Ipsum ad eaque rerum hic nam Amet optio!
+    Adipisicing reiciendis aperiam sit ullam unde totam Cupiditate
+    Ipsum voluptatum consectetur optio quos cupiditate? Facere eius
+    Consectetur fugit unde provident quam nulla nesciunt. In?
+    >>>>
+    Adipisicing omnis ipsa laboriosam rerum omnis? Vel repudiandae.
+    Adipisicing nostrum assumenda nisi impedit aperiam Numquam voluptas!
+    Elit possimus voluptatem ad eveniet sunt, quam consequuntur
+    >>>>
+    Consectetur unde veniam tempora cum obcaecati. Sunt omnis
+    Consectetur harum quis officiis impedit eum exercitationem. Quos.
+    Adipisicing tempora porro distinctio inventore deserunt! Nulla alias.
+                                                    Operador eliminar => d
+                                                    Aplicar a la línea => _
+
 ===========================================================================
 
 Para moverse entre palabras puede usar w, b, e, ge. A diferencia de
@@ -51,7 +80,7 @@ hacia atrás y hacia adelante respectivamente.
                     |      |    |      |
                    w,b   e,ge  w,b    e,ge
 
-Ejercicio 2: Llega a todos los sitios marcados por un '|'
+Ejercicio 3: Llega a todos los sitios marcados por un '|'
 
     Consectetur qui expedita | laborum doloremque
     Adipisicing facilis | consectetur dolorem doloribus
@@ -59,7 +88,7 @@ Ejercicio 2: Llega a todos los sitios marcados por un '|'
     Dolor | exercitationem quae voluptatem | deleniti
     Lorem dolorem unde illum amet!
 
-Ejercicio 3: Cambio los adjetivos del siguiente texto por adverbios
+Ejercicio 4: Cambio los adjetivos del siguiente texto por adverbios
 añadiendo el sufijo "mente"
 
     Fuerte suspiró. La abrazó temblorosa.
@@ -84,7 +113,7 @@ Una vez realizada una búsqueda por caracteres, dicha búsqueda se puede
 repetir usando el carácter ';' (punto y coma). 
 La ',' hace la misma búsqueda en dirección contraria.
 
-Ejercicio 3: Cambie todas las apariciones de punto con coma
+Ejercicio 5: Cambie todas las apariciones de punto con coma
 
     Dolor voluptatibus. accusamus facere. labore quia.
     .Consectetur. numquam labore. consequuntur alias aspernatur
@@ -93,15 +122,12 @@ Ejercicio 3: Cambie todas las apariciones de punto con coma
     .Amet blanditiis. quo incidunt qui nobis.
                                                     Insertar enfrente => a
 
-Ejercicio 4: Elimine las comas y ponga cada número en una línea distinta
+Ejercicio 6: Elimine las comas y ponga cada número en una línea distinta
 102,25,4096,-10,22.5,55,999,123123,2
 
-Ejercicio 5: Quite la inicialización a las siguientes declaraciones.
-    Integer i = new Integer("1234");
-    FileInputStream fis = new FileInputStream("nombres.txt");
-    IdentityHashMap odhm = new IdentityHashMap(1 << 8);
-    Date fch = Calendar.getInstance().getTime();
-                                                    Operador eliminar => d
+Ejercicio 7: (Abrir con 'gf')
+
+    1.2_Ejercicio7.java
 
 Por último, es posible moverse entre el principio y el final de una línea
 a partir de varios comandos.
@@ -111,12 +137,12 @@ respectivamente.
 
                   0  ←  ^  ←   →  g_  →  $
 
-Ejercicio 6: Pruebe las diferencias entre '0' y '^' así como entre 'g_' y '$'
+Ejercicio 8: Pruebe las diferencias entre '0' y '^' así como entre 'g_' y '$'
 en la siguiente línea
 
     Dolor voluptatibus accusamus facere labore quia.        
 
-Ejercicio 7: Arregle el siguiente recuadro para que se vea regular
+Ejercicio 9: Arregle el siguiente recuadro para que se vea regular
 +----------------------------------------------------------------+
 *                  ============================                  |
 |                  $                          $                  *
@@ -126,7 +152,7 @@ Ejercicio 7: Arregle el siguiente recuadro para que se vea regular
 |                  $                          $                  *
 *                  ============================                  |
 +----------------------------------------------------------------+
-                                                    Reemplazar carácter => r
+                                                Reemplazar carácter => r{char}
 
 ___________________________________________________________________________
 https://vim-adventures.com  Página que sabe La mejor forma de memorizar

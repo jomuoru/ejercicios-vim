@@ -18,14 +18,9 @@ neque voluptate nulla.
 Alias sit neque accusantium.
                                                     Cambiar palabra => caw
 
-Ejercicio 3: Inserte punto y coma al final de las líneas que lo requieren
-printf("Amet soluta")
-printf("Lorem accusamus")
-if (ipsum) {
-    printf("Ipsum sint")
-}
-                                                    Insertar al final => A
+Ejercicio 3: (Abrir con 'gf')
 
+    1.1_Ejercicio3.c
 
 Ejercicio 4: Numere las siguientes líneas
 Consectetur cumque?

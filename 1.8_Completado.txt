@@ -1,0 +1,15 @@
+                    ** Completar texto **
+
+Vim puede completar de varias formas y cada una cambia la lista de palabras
+que se contemplan.
+Para navegar la lista de autocompletado se usan dos combinaciones:
+
+    ctrl-n => siguiente palabra
+    ctrl-p => palabra anterior
+
+Ejercicio 1: (abrir con 'gf')
+
+        1.8_Ejercicio1.java
+
+También se pueden usar las flechas arriba y abajo aunque el comportamiento
+es diferente (No modifica el texto hasta aceptar).
