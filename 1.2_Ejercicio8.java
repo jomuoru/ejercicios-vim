@@ -19,3 +19,5 @@ class Ejercicio {
 
 }
 // ¿Quieres ir de vuelta? => 1.2_ComenzandoAMoverse.txt
+
+// vim: sts=4 ts=4 sw=4 ai sta

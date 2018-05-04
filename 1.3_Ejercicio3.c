@@ -6,6 +6,8 @@
 // prototipo de la misma en su lugar original.
 //                                                  Selección por líneas => V
 //                                                  Operador copiar => y
+//                                                  Comando pegar => p
+//                                                  Insertar al final => A
 
 static inline long double
 unafuncion(int a, float b)
@@ -25,3 +27,5 @@ main(void)
 }
 
 // ¿Quieres ir de vuelta? => 1.3_MovimientoElemetoTexto.txt
+
+// vim: sts=4 ts=4 sw=4 ai sta

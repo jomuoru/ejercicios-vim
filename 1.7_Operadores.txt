@@ -1,3 +1,5 @@
                     ** Operadores de vim **
 
-
+Los Operadores son las acciones que trabajan sobre el texto. Punto.
+Se pueden combinar con movimientos de vim y con objetos de texto lo cual los
+hace muy flexibles.

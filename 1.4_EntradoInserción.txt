@@ -8,6 +8,7 @@ A       Insertar al final de la línea
 
 Ejercicio 1: Entre en modo de inserción en la posición señalada por
 pico-paréntesis y escriba algo
+
 <
 Adipisicing >< amet nobis error obcaecati impedit
 Amet soluta.>
@@ -15,9 +16,11 @@ Consectetur recusandae unde sapiente magni?>
 <Dolor ut similique elit est?
 
 Ejercicio 2: Encierre el texto siguiente en una caja
+
 Ipsum tempore?
 Sit alias.
 Elit maxime?
+
 
 Ejercicio 3: (Abrir con 'gx')
     1.4_Ejercicio3.js
@@ -28,11 +31,12 @@ Insertar en otras líneas:
 o       Insertar en la línea de abajo
 O       Insertar en la línea de arriba
 
-Ejercicio 2: Escriba el texto 'Lorem nam magnam' en medio de las siguientes
+Ejercicio 2: Escriba un texto cualquiera en medio de las siguientes
 líneas:
 Dolor fuga quidem iure commodi
 Elit eum aliquam ratione alias.
 
+===========================================================================
 
 Entrar a insertar al momento que se hacen cambios
 s       Borra carácter bajo el cursor y entrar a modo inserción
@@ -40,12 +44,14 @@ S       Borra la línea bajo el cursor y entra a modo inserción
 c       Operador 'cambio'
 
 Ejercicio 3: Arregla las faltas de ortografía de la siguiente línea
-El nómero era inmenzamente pequeno
+    El nómero era inmenzamente pequeno
 
 Ejercicio 4: Cambia el texto de enmedio por 'estoy editando en vim'
-Sit omnis quisquam et voluptates?
-Adipisicing repellat voluptatum doloremque inventore.
-Ipsum minus vero non consequatur.
+    Sit omnis quisquam et voluptates?
+    Adipisicing repellat voluptatum doloremque inventore.
+    Ipsum minus vero non consequatur.
 
-Ejercicio 5: Pon cada número de la lista en una línea distinta
+Ejercicio 5: Coloca cada número de la lista en una línea distinta sin dejar
+las comas
+
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10

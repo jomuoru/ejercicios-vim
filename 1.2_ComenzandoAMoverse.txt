@@ -8,7 +8,9 @@ Nuevamente, el movimiento básico se hace mediante hjkl
                              j
 
 Ejercicio 1: Camine a través del laberinto usando las teclas de vim
-
+       Inicio
+         ↓↓
+       →    ←
         *  ****************************
         *  *******           **********
         *  *******  *******  **********
@@ -19,21 +21,45 @@ Ejercicio 1: Camine a través del laberinto usando las teclas de vim
         *  *              **********  *
         *  *  *************           *
         *  *            ***  **********
-        *  ***********  ***  **********
-        *               ***            
-        *******************************
+        *  ***********  ***  **********  ↓  M
+        *               ***               ← e
+        *******************************  ↑  t
+                                            a
 
 Por defecto, los comandos 'h' y 'l' se detienen en los extremos de la
-sin moverse automáticamente a la anterior como en un editor tradicional.
-Dicho comportamiento se puede cambiar con el comando:
+sin cambiar de línea como lo hace un editor tradicional.
+Dicho comportamiento se puede cambiar modificando la opción whichwrap de
+la siguiente forma.
 
         :set whichwrap+=h,l
 
-*NOTA* La opción whichwrap es una cadena separada por comas que controla que
-caracteres pueden moverse a las lineas siguientes
+Ejercicio 2: Establecer la opción anterior y usarla para recorrer el
+segundo laberinto.
 
-Ejercicio 2: Activar la opción 'relativenumber' y usarla para eliminar las
-líneas marcadas con '>>>>'
+ ↓
+  
+| ********|
+|    |    |
+|*** | ** |
+|***   **  
+  *********
+|         |
+********* |
+          
+         ↑
+
+Puede regresar al comportamiento original de las teclas con:
+
+    :set whichwrap-=h,l
+
+Para usar ese comportamiento siempre solo escribalo en su configuración
+(archivo de nombre .vimrc)
+
+    :!echo set whichwrap+=h,l >> .vimrc
+
+Ejercicio 3: Activar la opción booleana 'relativenumber' y usarla para
+eliminar las líneas marcadas con '>>>>'. Después se puede desactivar
+la opción
 
     Ipsum quidem architecto sunt consequuntur voluptatem. Dicta laboriosam?
     Elit rem labore qui hic dolorum? Quos laboriosam?
@@ -80,7 +106,7 @@ hacia atrás y hacia adelante respectivamente.
                     |      |    |      |
                    w,b   e,ge  w,b    e,ge
 
-Ejercicio 3: Llega a todos los sitios marcados por un '|'
+Ejercicio 4: Llega a todos los sitios marcados por un '|'
 
     Consectetur qui expedita | laborum doloremque
     Adipisicing facilis | consectetur dolorem doloribus
@@ -88,7 +114,7 @@ Ejercicio 3: Llega a todos los sitios marcados por un '|'
     Dolor | exercitationem quae voluptatem | deleniti
     Lorem dolorem unde illum amet!
 
-Ejercicio 4: Cambio los adjetivos del siguiente texto por adverbios
+Ejercicio 5: Cambie los adjetivos del siguiente texto por adverbios
 añadiendo el sufijo "mente"
 
     Fuerte suspiró. La abrazó temblorosa.
@@ -98,7 +124,7 @@ añadiendo el sufijo "mente"
 
 ===========================================================================
 
-Aunque extraña, la forma más eficiente de moverse entre líneas es usando la
+Aunque extraña, la forma más eficiente de moverse en una línea es usando la
 búsqueda de caracteres.
 La letra 'f' seguida de un carácter te mueve a la siguiente aparición de
 dicho carácter y la letra 'F' mueve a la aparición anterior. Las letras 't' y
@@ -113,7 +139,7 @@ Una vez realizada una búsqueda por caracteres, dicha búsqueda se puede
 repetir usando el carácter ';' (punto y coma). 
 La ',' hace la misma búsqueda en dirección contraria.
 
-Ejercicio 5: Cambie todas las apariciones de punto con coma
+Ejercicio 6: Cambie todas las apariciones de punto con coma
 
     Dolor voluptatibus. accusamus facere. labore quia.
     .Consectetur. numquam labore. consequuntur alias aspernatur
@@ -122,12 +148,13 @@ Ejercicio 5: Cambie todas las apariciones de punto con coma
     .Amet blanditiis. quo incidunt qui nobis.
                                                     Insertar enfrente => a
 
-Ejercicio 6: Elimine las comas y ponga cada número en una línea distinta
+Ejercicio 7: Elimine las comas y ponga cada número en una línea distinta
+
 102,25,4096,-10,22.5,55,999,123123,2
 
-Ejercicio 7: (Abrir con 'gf')
+Ejercicio 8: (Abrir con 'gf')
 
-    1.2_Ejercicio7.java
+    1.2_Ejercicio8.java
 
 Por último, es posible moverse entre el principio y el final de una línea
 a partir de varios comandos.
@@ -137,12 +164,12 @@ respectivamente.
 
                   0  ←  ^  ←   →  g_  →  $
 
-Ejercicio 8: Pruebe las diferencias entre '0' y '^' así como entre 'g_' y '$'
+Ejercicio 9: Pruebe las diferencias entre '0' y '^' así como entre 'g_' y '$'
 en la siguiente línea
 
     Dolor voluptatibus accusamus facere labore quia.        
 
-Ejercicio 9: Arregle el siguiente recuadro para que se vea regular
+Ejercicio 10: Arregle el siguiente recuadro para que se vea regular
 +----------------------------------------------------------------+
 *                  ============================                  |
 |                  $                          $                  *

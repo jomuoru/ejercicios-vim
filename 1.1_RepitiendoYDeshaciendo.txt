@@ -1,21 +1,21 @@
                         ** Repitiendo ediciones **
 
-Repetición granular: Los 
+Repetición granular
 .       Repetir edición
-u       Deshacer edición
+u       Deshacer edición (y también algunas cosas que no son ediciones)
 
 
 Ejercicio 1: Borre todas las apariciones de "Amet"
-Amet voluptate magnam
-harus Amet ad
-accusantium ipsum Amet
+    Amet voluptate magnam
+    harus Amet ad
+    accusantium ipsum Amet
                                                     Borrar palabra  => daw
 
 
 Ejercicio 2: Cambiar todas las apariciones de "neque" por "algo"
-Quisquam neque rem.
-neque voluptate nulla.
-Alias sit neque accusantium.
+    Quisquam neque rem.
+    neque voluptate nulla.
+    Alias sit neque accusantium.
                                                     Cambiar palabra => caw
 
 Ejercicio 3: (Abrir con 'gf')
@@ -23,22 +23,22 @@ Ejercicio 3: (Abrir con 'gf')
     1.1_Ejercicio3.c
 
 Ejercicio 4: Numere las siguientes líneas
-Consectetur cumque?
-Consectetur fuga
-Dolor dolore
-Amet alias
-Amet iure
+    Consectetur cumque?
+    Consectetur fuga
+    Dolor dolore
+    Amet alias
+    Amet iure
                                                  Insertar al principio => I
                                                  Modo bloque visual => <C-v>
                                                  Conteo en columnas => g<C-A>
 
 
 Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
-Lorem deserunt quaerat voluptas rem.
-Amet voluptate magnam excepturi nulla.
-Amet accusantium neque quibusdam ad.
-Amet distinctio soluta harum alias?
-Sit ipsum quisquam asperiores accusantium.
+    Lorem deserunt quaerat voluptas rem.
+    Amet voluptate magnam excepturi nulla.
+    Amet accusantium neque quibusdam ad.
+    Amet distinctio soluta harum alias?
+    Sit ipsum quisquam asperiores accusantium.
 
 ===========================================================================
 

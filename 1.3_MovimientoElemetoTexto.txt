@@ -1,4 +1,4 @@
-                    ** Movimiento parte 2: por objetos **
+                ** Movimiento parte 2: moverse por objetos **
 
 Movimiento de sentencias:
                 ↱

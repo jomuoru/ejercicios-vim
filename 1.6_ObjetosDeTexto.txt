@@ -1,31 +1,212 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <!--
-  Cambie el contenido de la etiqueta title y de h1 por
-  'Editando en vim' y elimine el div con todo su contenido
-  -->
+                	** Objetos de texto **
 
-  <meta charset="UTF-8">
-  <title>Amet dolore officiis!</title>
-</head>
-<body>
+Los objetos de texto son porciones de texto cuya sintaxis es reconocida por
+vim. Es sencillo operar con ellos y suelen ser fáciles de aprender porque
+tienen iniciales que recuerdan a lo que hacen referencia y se pueden combinar
+de con los operadores y con los diferentes modos visuales.
 
-  <h1>Amet dolore officiis!</h1>
-  <div>
-    Sit aliquam laudantium eaque repellat facilis deleniti
-    Lorem similique nemo animi dignissimos officiis unde.
-    Amet saepe ea ullam animi porro Qui?
-    Consectetur numquam est cum maxime at saepe.
-    Sit eius quae quis iste recusandae. Modi
-    Sit nihil maxime eum explicabo eos Quae
-    Elit quis suscipit eos nihil commodi! Facere!
-    Lorem mollitia sequi accusamus est repudiandae quod?
-    Elit ipsa perferendis quia rerum architecto perspiciatis?
-    Consectetur at pariatur eaque voluptatem voluptate! Qui?
-  </div>
+Al usar objetos de texto siempre se precede alguna de las siguientes letras:
+    i => "Inside" El objeto sin elementos circundantes
+    a => "Around" El objeto más sus elementos circundantes
 
-</body>
-</html>
+La sintaxis completa es:
+    {operador}(a|i){objeto de texto}
 
-<!-- ¿Buscando volver? => 1.6_ObjetosDeTexto.txt
+Ejercicio 1: Probar las diferencias entre 'va(' y 'vi(' en el siguiente
+párrafo
+    ...es probable que tu IDE (Entorno de desarrollo integrado) pueda...
+
+Las operaciones sobre objetos de texto se pueden repetir de dos formas.
+    {numero}{operador}(a|i){objetos de texto}
+        y
+    {operador}{número}(a|i){objetos de texto}
+
+Ejercicio 2: Probar las diferencias entre '2vap' y 'v2ap'
+
+    Consectetur quos esse quia ipsam repudiandae rerum explicabo.
+    Adipisicing vitae officia et ipsa iste nemo fugiat.
+    Lorem fugit error explicabo quia eos Accusantium ab
+    Lorem vel nostrum illum autem laudantium Sint ratione
+
+    Amet odio culpa sapiente soluta rerum? Earum sit
+    Consectetur impedit voluptate mollitia ipsam deleniti! Ratione reprehenderit
+    Elit a consequatur mollitia cum rem Dignissimos incidunt
+    Consectetur sit veniam incidunt voluptatem voluptate quae corrupti?
+
+Nota: En el ejercicio anterior se nota una diferencia entre '2vap' y 'v2ap'
+solamente porque 'v' no es un operador y por tal no siempre se puede esperar
+que funcione de la misma forma. Como 'v' no es un operador su repetición
+tiene una lógica distinta.
+
+==============================================================================
+
+Objetos de texto normales. Operan sobre un bloque más un carácter a su inicio
+o a su fin dependiente del contexto.
+
+w => Objeto "word", o "palabra pequeña". Es una serie consecutiva de símbolos
+     de los listados en la opción 'iskeyword'.
+
+Ejercicio 3: Reordene la siguiente frase
+    Educación es lo que olvidar tras queda lo aprendido en la escuela
+   (Educación es lo que queda tras olvidar lo aprendido en la escuela)
+                                            Pegar antes del carácter => P
+
+Ejercicio 4: Reordenar el texto para que tenga la estructura de una frase
+del maestro Yoda
+    Si tu quieres aprender vim, debes practicar mucho
+                                            Pegar después del carácter => p
+
+Ejercicio 5:
+    1.6_Ejercicio5.css
+
+W => Objeto "WORD", o "palabra grande". Serie de símbolos separados por un
+     carácter de espacio en blanco (o una línea en blanco).
+
+Ejercicio 6: Hacer una lista de los enlaces que aparecen en el siguiente texto
+en el final del párrafo.
+
+    Si quieres hacer nada por dos minutos puede visitar
+    http://www.donothingfor2minutes.com/ y si quieres liberarte de tus
+    pensamientos visita http://thequietplaceproject.com/thethoughtsroom/.
+    También, como oferta especial solo por hoy puede dibujar una nebulosa
+    en https://29a.ch/sandbox/2011/neonflames/
+
+    Lista de los enlaces:
+
+s => Objeto "sentencia". Serie de símbolos terminados en '.', '!' o '?'
+     seguido de espacio, tab o fin de línea.
+
+Ejercicio 7: La primera, segunda, cuarta y quinta sentencias tiene las
+mayúsculas y minúsculas alternadas. Arreglelo
+
+    sIT MOLLITIA ENIM eLIT QUIA DOLOREM
+    aDIPISICING MINUS CONSEQUATUR?  sIT MAIORES VEL.
+    Consectetur temporibus odit.  iPSUM VOLUPTATUM POSSIMUS.
+    sIT HIC ITAQUE ARCHITECTO REM. Lorem totam magnam
+                                            Operador cambiar minus/mayus => g~
+
+p => Objeto "párrafo". Serie de líneas delimitadas por una línea
+     completamente en blanco.
+
+Ejercicio 8: Ordenar los párrafos.
+
+     b) Elit eaque mollitia nulla voluptatibus cupiditate, consequatur Optio.
+     Adipisicing earum quia consequuntur exercitationem dicta Autem officia?
+     Consectetur facilis soluta asperiores qui excepturi magni Aliquam.
+     Lorem ipsum dolorem reprehenderit quia dolor Exercitationem temporibus
+
+     c) Amet dolorem qui id veritatis quisquam? Delectus praesentium?
+     Adipisicing quis hic earum nobis magnam? Laboriosam soluta
+     Adipisicing veniam ipsa nisi totam ipsa necessitatibus animi
+     Elit autem soluta reprehenderit exercitationem non saepe Fugiat
+
+     a) Dolor eaque consequuntur voluptates illum quibusdam! Dolorem perspiciatis
+     Consectetur odio labore assumenda hic ratione Iusto dolore
+     Adipisicing explicabo beatae exercitationem porro nulla nostrum, laboriosam!
+     Ipsum dolorem voluptatum odio sapiente tenetur ut eaque
+
+==============================================================================
+
+Objetos de texto por símbolos contenedores. Operan al interior de un par de
+símbolos contenedores de texto, incluyendo o excluyendo dichos caracteres
+respectivamente.
+
+[ ó ] => Objeto "contenido de corchetes"
+
+Ejercicio 9:
+    1.6_Ejercicio9.cpp
+
+( ó ) ó b => Objeto "contenido de paréntesis"
+
+Ejercicio 10: Borrar todas las aclaraciones en paréntesis del siguiente
+texto
+    Dolore apeirian omnis augue minim omnis ad mei.
+    Accusam viverra utroque ridens vis iriure ligula (porta altera exerci).
+    Accusam (soleat philosophia placerat) nec persecuti aliquet massa probo
+    te sed veniam possim vitae urna. Scripta curabitur ornare impedit eget.
+    Mei postea ocurreret (assentior te meliore nam ex) sonet appetere amet ne
+    iriure. Purus commodo aeque mediocrem?
+
+{ ó } ó B => Objeto "contenido de llaves"
+
+Ejercicio 11:
+    1.6_Ejercicio11.sh
+
+< ó > => Objeto "contenido de paréntesis angulares"
+
+Ejercicio 12:
+    1.6_Ejercicio12.c
+
+==============================================================================
+
+Objetos de cadenas. Similares a los objetos por símbolos contenedores pero
+solo funcionan sobre la línea actual. Tienen la propiedad especial de que
+mueven el cursor hacia adelante para buscar la cadena.
+
+' => Cadena delimitada por: '
+
+Ejercicio 13:
+    1.6_Ejercicio13.py
+
+" => Cadena delimitada por: "
+
+    1.6_Ejercicio14.f90
+
+` => Cadena delimitada por: `
+
+    1.6_Ejercicio15.js
+
+==============================================================================
+
+Objeto para manejo de lenguajes de marcado
+
+t => Objeto "etiqueta de html/xml"
+
+Ejercicio 16:
+    1.6_Ejercicio16.html
+
+===========================================================================
+
+_ => El guión bajo no es un objeto de texto, sin embargo se suele comportar
+     de forma similar a lo que algunos plugins interpretan como el objeto
+     "línea completa"
+
+Ejercicio 17: Eliminar las líneas pares de la siguiente figura
+
+     .----------------.  .----------------.  .----------------.
+    ############################################################
+    | .--------------. || .--------------. || .--------------. |
+    ############################################################
+    | | ____   ____  | || |     _____    | || | ____    ____ | |
+    ############################################################
+    | ||_  _| |_  _| | || |    |_   _|   | || ||_   \  /   _|| |
+    ############################################################
+    | |  \ \   / /   | || |      | |     | || |  |   \/   |  | |
+    ############################################################
+    | |   \ \ / /    | || |      | |     | || |  | |\  /| |  | |
+    ############################################################
+    | |    \ ' /     | || |     _| |_    | || | _| |_\/_| |_ | |
+    ############################################################
+    | |     \_/      | || |    |_____|   | || ||_____||_____|| |
+    ############################################################
+    | |              | || |              | || |              | |
+    ############################################################
+    | '--------------' || '--------------' || '--------------' |
+    ############################################################
+     '----------------'  '----------------'  '----------------'
+                                                    Operador eliminar => d
+
+______________________________________________________________________________
+Esos son todos los objetos de texto integrados de vim, más se pueden instalar por
+medio de plugins. Algunos de los mejores son:
+    * https://github.com/michaeljsmith/vim-indent-object: Provee un objeto
+      de texto para operar sobre líneas equivalentemente indentadas
+
+    * https://github.com/PeterRincker/vim-argumentative: Objeto de texto para
+      manejar argumentos de función o elementos de listas separadas por coma
+
+    * https://github.com/kana/vim-textobj-function: Provee de un nuevo
+      objeto de texto para operar sobre funciones completas
+
+    * https://github.com/glts/vim-textobj-comment: Objeto de texto para
+      manejar comentarios.

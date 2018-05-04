@@ -2,12 +2,15 @@
 
 int main(void)
 {
-    // Ejercicio: 
-    // Inserte punto y coma al final de las líneas que lo requieren 
+    // Ejercicio:
+    // Inserte punto y coma al final de las líneas que lo requieren
     //                                              Insertar al final => A
+    int ipsum
 
     printf("Amet soluta")
-    printf("Lorem accusamus")
+    printf(" lorem accusamus\n")
+
+    scanf("%d", &ipsum)
 
     if (ipsum) {
         printf("Ipsum sint")
@@ -15,3 +18,7 @@ int main(void)
 
     return 0
 }
+
+// ¿Quieres ir de vuelta? => 1.1_RepitiendoYDeshaciendo.txt
+
+// vim: sts=4 ts=4 sw=4 ai sta

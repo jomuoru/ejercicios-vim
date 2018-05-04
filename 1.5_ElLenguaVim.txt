@@ -45,11 +45,7 @@ vim sobre de vi; Aunque puedan requerir un poco más de tecleo son
 más fáciles de aprender y recordar ya que se asemejan a un 'lenguaje'
 humano. Asimismo, suelen ser mucho más fáciles de repetir.
 
-Nota: No confundir el objeto de texto 'w' (palabra) con el comando
-'w' (ir al principio de la siguiente palabra). Se trata de una una
-(deliberada) coincidencia que se llamen igual, pero no puede asumirse
-la misma interrelación entre los objetos que se mueven entre 'x' cosa
-y el objeto 'x'.
-Por ejemplo, los caracteres '{' y '}' se mueven entre párrafos pero el
-objeto de texto párrafo se llama 'p'.
-
+Nota: Hay objetos de texto que se llaman igual quie comandos y que además
+afectan al mismo tipo de "objeto de texto" como en el caso del objeto de
+texto "w" que afecta palabras y el comando "w" que se mueve entre palabras
+pero en general asumir que no hay ninguna relación.
