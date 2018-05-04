@@ -26,7 +26,7 @@ Ejercicio 1: Camine a través del laberinto usando las teclas de vim
         *******************************  ↑  t
                                             a
 
-Por defecto, los comandos 'h' y 'l' se detienen en los extremos de la
+Por defecto, los comandos 'h' y 'l' se detienen en los extremos
 sin cambiar de línea como lo hace un editor tradicional.
 Dicho comportamiento se puede cambiar modificando la opción whichwrap de
 la siguiente forma.

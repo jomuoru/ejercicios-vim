@@ -3,3 +3,28 @@
 Los Operadores son las acciones que trabajan sobre el texto. Punto.
 Se pueden combinar con movimientos de vim y con objetos de texto lo cual los
 hace muy flexibles.
+
+===========================================================================
+
+Lista de operadores
+
+c => Operador "change". Corta el texto sobre el que se opera y entra en
+     modo inserción.
+
+Ejemplo 1:
+
+
+	|c|	c	change
+	|d|	d	delete
+	|y|	y	yank into register (does not change the text)
+	|g~|	g~	swap case
+	|gu|	gu	make lowercase
+	|gU|	gU	make uppercase
+	|!|	!	filter through an external program
+	|=|	=	filter through 'equalprg' or C-indenting if empty
+	|gq|	gq	text formatting
+	|g?|	g?	ROT13 encoding
+	|>|	>	shift right
+	|<|	<	shift left
+	|zf|	zf	define a fold
+	|g@|	g@	call function set with the 'operatorfunc' option
