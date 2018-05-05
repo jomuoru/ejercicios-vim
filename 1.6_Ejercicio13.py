@@ -8,4 +8,4 @@ separada por comas
 print(*[1, 2, 3, 4, 5, 6], sep=', ')
 
 # Regresar a la lección: 1.6_ObjetosDeTexto.txt
-# vim: sts=4 ts=4 sw=4 ai sta
+# vim: sts=4 ts=4 sw=4 ai sta nu

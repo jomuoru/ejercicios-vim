@@ -21,4 +21,4 @@ int main(void)
 
 // ¿Quieres ir de vuelta? => 1.1_RepitiendoYDeshaciendo.txt
 
-// vim: sts=4 ts=4 sw=4 ai sta
+// vim: sts=4 ts=4 sw=4 ai sta nu

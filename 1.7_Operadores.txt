@@ -6,19 +6,36 @@ hace muy flexibles.
 
 ===========================================================================
 
+Operadores que guardan el texto en una papelera.
+Los siguientes operadores copian el texto elegido en la papelera que se
+especifique. Por defecto se usa la "papelera sin nombre"
+
 Lista de operadores
 
 c => Operador "change". Corta el texto sobre el que se opera y entra en
      modo inserción.
 
-Ejemplo 1:
+Ejercicio 1:
+    1.7_Ejercicio1.c
 
+y => Operador "yank". Copia texto.
 
-	|c|	c	change
-	|d|	d	delete
-	|y|	y	yank into register (does not change the text)
+    *****%%%%%
+    *****%%%%%
+    %%%%%*****
+    %%%%%*****
+
+Ejercicio 2: Forme una figura similar a la anterior pero en grande.
+    ***********************************###################################
+
+d => Operador "delete". Elimina texto.
+
+===========================================================================
+
+Operadores que no modifican la "papelera sin nombre"
+
 	|g~|	g~	swap case
-	|gu|	gu	make lowercase
+	|gu|	gu	MAKE lowercase
 	|gU|	gU	make uppercase
 	|!|	!	filter through an external program
 	|=|	=	filter through 'equalprg' or C-indenting if empty

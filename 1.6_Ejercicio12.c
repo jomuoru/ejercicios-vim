@@ -8,4 +8,4 @@
 #include <stdio.h>
 
 // Regresar al tutorial: 1.6_ObjetosDeTexto.txt
-// vim: sts=4 ts=4 sw=4 ai sta
+// vim: sts=4 ts=4 sw=4 ai sta nu

@@ -7,4 +7,4 @@ PROGRAM UN_PROGRAMA
 END PROGRAM
 
 ! Regresar a la lección: 1.6_ObjetosDeTexto.txt
-! vim: sts=4 ts=4 sw=4 ai sta
+! vim: sts=4 ts=4 sw=4 ai sta nu
