@@ -1,5 +1,17 @@
                 ** Movimiento parte 2: moverse por objetos **
 
+Los comandos de movimiento son mayormente heredados de vi por lo que suelen
+ser poco intuitivos al principio (como todo lo de vi). Esa es una desventaja
+pero también tienen la ventaja de que pocos de ellos son arbitrarios; La
+mayoría trabajan sobre "objetos" sintácticos reconocidos por vim. De alguna
+forma, los movimientos de palabras ya vistos son como movimientos por objetos
+también aunque vim no los considere como tal.
+
+Los movimientos por objetos son generalmente 'no inclusivos', lo cual es
+relevante al usarlos con operadores.
+
+======================================================================
+
 Movimiento de sentencias:
                 ↱
             '(' ←   → ')'
@@ -10,7 +22,6 @@ definición de 'sentencia' se puede cambiar dependiendo del tipo de
 archivo que se esté editando.
 
 Ejercicio 1: Elimine la sentencia 'Dolor explicabo' del siguiente párrafo
-
     Adipisicing facilis magni esse quasi?
     Dolor cumque. Amet error aspernatur
     Sit ducimus autem deleniti accusamus.
@@ -18,13 +29,18 @@ Ejercicio 1: Elimine la sentencia 'Dolor explicabo' del siguiente párrafo
     Consectetur nemo obcaecati provident qui.
                                                     Operador eliminar => d
 
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Mediante repetidos ')' llegue a la D de 'Dolor'. Presione 'd)' para
+    eliminar de manera no inclusiva desde la posición actual hasta el inicio
+    de la siguiente sentencia.
+}}}
+
 ===========================================================================
 
 Movimiento de párrafos:
             '{' ↑   ↓ '}'
 
 Ejercicio 2: Elimine el segundo párrafo
-
     Amet saepe asperiores odio hic
     Ipsum doloremque magnam accusamus perferendis.
     Consectetur numquam qui itaque reprehenderit
@@ -107,3 +123,5 @@ int funcion4()
 Ejercicio 3: (Abrir con 'gf')
 
     1.3_Ejercicio3.c
+
+vim: fdm=marker

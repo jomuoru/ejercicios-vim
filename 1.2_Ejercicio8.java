@@ -6,9 +6,18 @@ import java.util.Date;
 
 class Ejercicio {
     public static void main(String[] args) throws FileNotFoundException {
-        // Ejercicio: 
+        // Ejercicio:
         // Elimine la inicialización a las siguientes declaraciones.
-        //                                              Operador eliminar => d
+        //                                          Operador eliminar => d
+        // Respuesta sugerida {{{
+        //     Posicionese en el espacio subsecuente a la variable "i" y
+        //     presione 'dt;'. 'd' es el operador "delete" y 't;' es una
+        //     búsqueda inclusiva del carácter antes del ';' sobre la misma línea,
+        //     por lo que juntos forman el comando compuesto: "borrar de
+        //     aquí hasta el carácter anterior al punto y coma (inclusivo)".
+        //     Repita la acción en las demás variables, posicionándose al
+        //     final de sus nombres y presionando '.'
+        // }}}
 
         Integer i = new Integer("1234");
         FileInputStream fis = new FileInputStream("nombres.txt");
@@ -20,4 +29,4 @@ class Ejercicio {
 }
 // ¿Quieres ir de vuelta? => 1.2_ComenzandoAMoverse.txt
 
-// vim: sts=4 ts=4 sw=4 ai sta nu
+// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

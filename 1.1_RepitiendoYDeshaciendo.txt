@@ -1,25 +1,44 @@
                         ** Repitiendo ediciones **
 
+Según el tipo de comando que ejecutes la forma de repetirlo es distinta.
+Por ejemplo, los comandos clasificados como "edición", tienen dos formas
+de repetición.
+
+===========================================================================
+
 Repetición granular
-.       Repetir edición
-u       Deshacer edición (y también algunas cosas que no son ediciones)
+    .       Repetir edición previa
+    u       Deshacer edición (y también algunas cosas que no son ediciones)
 
 
-Ejercicio 1: Borre todas las apariciones de "Amet"
+Ejercicio 1: Borra todas las apariciones de "Amet"
     Amet voluptate magnam
     harus Amet ad
     accusantium ipsum Amet
                                                     Borrar palabra  => daw
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Posicionese en cualquier parte de la primera aparición de "Amen"
+    y teclee 'daw'. Luego muévase a cada una de las siguientes
+    apariciones y presione '.' sobre cada una.
+}}}
 
-
-Ejercicio 2: Cambiar todas las apariciones de "neque" por "algo"
+Ejercicio 2: Cambiar todas las apariciones de "neque" por alguna frase a su
+elección
     Quisquam neque rem.
     neque voluptate nulla.
     Alias sit neque accusantium.
                                                     Cambiar palabra => caw
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Posicionate en cualquier parte de la primera aparición de "naque"
+    y presione "caw" que eliminará la palabra y te posicionará en
+    modo inserción.
+
+    Escribe lo que gustes y presiona '<Esc>' o
+    '<C-[' para regresar a modo normal. Ahora muevete a las otras
+    apariciones de "neque" y presione '.' sobre ellas.
+}}}
 
 Ejercicio 3: (Abrir con 'gf')
-
     1.1_Ejercicio3.c
 
 Ejercicio 4: Numere las siguientes líneas
@@ -29,9 +48,30 @@ Ejercicio 4: Numere las siguientes líneas
     Amet alias
     Amet iure
                                                  Insertar al principio => I
-                                                 Modo bloque visual => <C-v>
-                                                 Conteo en columnas => g<C-A>
+                                                 Modo bloque visual => <c-v>
+                                                 Conteo en columnas => g<c-a>
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    En la primera línea del ejercicio teclea
+    'I1. ' (Letra I mayúscula, número 1, punto y espacio). Regrese a modo
+    normal y repita la acción sobre el resto de líneas para lograr una lista
+    numerada solo con unos como la siguiente:
+        1. ~~~~~~~~~
+        1. ~~~. ~~~~~~~
+        1. ~~~~~~
+        1. ~~~~~~~
 
+    Entra a modo de bloque visual con '<c-v>' (Control-v) y muevete
+    hasta seleccionar todos menos el primero de los números de la
+    siguiente forma:
+        1. ~~~~~~~~~
+      +-1.+~~~. ~~~~~~~
+      | 1.|~~~~~~        (La caja de '+', '-' y '|' simboliza la selección)
+      | 1.|~~~~~~~
+      +-1.+ ~~~~~
+
+    Tras seleccionar las líneas necesarias presiona 'g<c-a>'
+    (letra g minúscula + Control-a)
+}}}
 
 Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
     Lorem deserunt quaerat voluptas rem.
@@ -39,26 +79,66 @@ Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
     Amet accusantium neque quibusdam ad.
     Amet distinctio soluta harum alias?
     Sit ipsum quisquam asperiores accusantium.
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Presione 'i' desde la posición en que quiera insertar texto y
+    teclee lo que guste.
+    Presione '<Esc>' o '<C-[' para volver a modo normal y muévase
+    a donde quiera repetir la inserción, presionando '.' en cada caso.
+}}}
 
 ===========================================================================
 
 Repetición por argumento numérico
-{num}{comando}      {comando} se repetirá {num} veces
+    {num}{comando}      {comando} se repetirá {num} veces
+    u                   Se deshace toda la acción (las n repeticiones)
 
 Este tipo de repetición funciona también con algunos comandos que no
 se consideran "edición"
 
 
 Ejercicio 6:
-====
-|  |
-====
-Haga una caja como la de arriba pero con dimensiones de 70 X 10
+                                ====
+                                |  |
+                                ====
+    Haga una caja como la de arriba pero con dimensiones de 70 X 10
 
 
                                                     Insertar abajo =>  o
                                                     Insertar arriba => O
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Sobre la primera línea en blanco presione '70i' seguido de un único
+    signo '=' y regrese a modo normal.
 
+    El prefijo '70' repetirá la inserción del único signo '=' 70 veces
+    para formar una línea como la siguiente:
+======================================================================
+
+    Baje una línea y repita con '.' para formar dos barras horizontales:
+======================================================================
+======================================================================
+
+    Posicionado en la línea inferior escriba '8O||' (ocho, letra O
+    mayúscula y doble barra vertical) y regrese a modo normal para añadir
+    en el medio de la figura 8 líneas formadas por '||' como se muestra:
+======================================================================
+||
+        ...     ...     ...     ...     ...     ...     ...
+||
+======================================================================
+
+    Presione '68i ' y regresa a modo normal para insertar los espacios
+    internos en la línea actual. Muévete a las siguientes líneas y
+    repite con '.'.
+======================================================================
+||
+        ...     ...     ...     ...     ...     ...     ...
+|             (Se debe formar este espacio entre las ||)             |
+======================================================================
+
+    Muévete al resto de las líneas intermedias y repite con '.'
+}}}
 ___________________________________________________________________________
 Para mayor referencia sobre como repetir comandos en vim, consultese el
 libro "Practical Vim" de Drew Neil
+
+vim: fdm=marker

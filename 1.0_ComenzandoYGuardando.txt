@@ -2,9 +2,13 @@
 
 i      Entrar a modo inserción                 Teclas de movimiento:
                                                              ↑
+                                                          <Ctrl-U>
+                                                             ↑
 <Ctrl-C>                                                     k
-<Esc>          Regresar a modo normal                    ← h   l →
+<Esc>     Regresar a modo normal                         ← h   l →
 <Ctrl-[>                                                     j
+                                                             ↓
+                                                          <Ctrl-D>
                                                              ↓
                                          (También se pueden usar las flechas)
 
@@ -14,21 +18,42 @@ Reglas de vim:
     - El modo en que estas importa
     - Las mayúsculas y minúsculas en los comandos importan excepto
       cuando se usan con teclas modificadores (Control, Alt, etc).
+    - Hay problemas "grandes" fáciles de resolver y problemas "pequeños"
+      muy complicados.
 
 ===========================================================================
 
 Guardando y saliendo
-:w      Guardar
-:q      Cerrar (solo si el documento ya fue guardado o no tiene cambios)
-:q!     Cerrar sin guardar
-:wq     Guardar y cerrar
-:x      Guardar y cerrar
+    :w      Guardar
+    :q      Cerrar (solo si el documento ya fue guardado o no tiene cambios)
+    :q!     Cerrar sin guardar
+    :wq     Guardar y cerrar
+    :x      Guardar y cerrar
 
 Ejercicio: Escribe algo en la siguiente línea. Guarda y cierra el archivo.
 
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Estando sobre el lugar en que quieras escribir presiona 'i', lo cual te
+    cambiará de modo normal a modo inserción.
+
+    Ya en modo inserción puedes escribir tanto texto como quieras.
+    Para regresar a modo normal puedes presionar la tecla '<Esc>' (Escape)
+    o la combinación de teclas '<Ctrl-[>' (Control + Corchete abierto).
+
+    Desde modo normal puedes usar los comandos separados:
+        ':w<Return>' (Dos puntos, letra w minúscula y enter)
+        ':q<Return>' (Dos puntos, letra q minúscula y enter)
+    para guardar y salir respectivamente o puedes simplemente hacer:
+        ':wq<Return>'
+    o
+        ':x<Return>'
+    Cualquiera de los cuales guardará los cambios y saldrá al mismo tiempo
+}}}
 ===========================================================================
 
 Obteniendo ayuda
 vimtutor        Comando para abrir el tutorial de vim
 :help {algo}    Buscar ayuda de {algo}
 www.openvim.com Tutorial online (abrir con "gx")
+
+vim: fdm=marker

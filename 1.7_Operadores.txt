@@ -18,6 +18,7 @@ c => Operador "change". Corta el texto sobre el que se opera y entra en
 Ejercicio 1:
     1.7_Ejercicio1.c
 
+
 y => Operador "yank". Copia texto.
 
     *****%%%%%
@@ -28,20 +29,24 @@ y => Operador "yank". Copia texto.
 Ejercicio 2: Forme una figura similar a la anterior pero en grande.
     ***********************************###################################
 
+
 d => Operador "delete". Elimina texto.
+
 
 ===========================================================================
 
-Operadores que no modifican la "papelera sin nombre"
+Operadores de transformación de texto
 
-	|g~|	g~	swap case
-	|gu|	gu	MAKE lowercase
-	|gU|	gU	make uppercase
-	|!|	!	filter through an external program
-	|=|	=	filter through 'equalprg' or C-indenting if empty
-	|gq|	gq	text formatting
-	|g?|	g?	ROT13 encoding
-	|>|	>	shift right
-	|<|	<	shift left
-	|zf|	zf	define a fold
-	|g@|	g@	call function set with the 'operatorfunc' option
+            |g~|    g~  swap case
+            |gu|    gu  MAKE lowercase
+            |gU|    gU  make uppercase
+            |!| !   filter through an external program
+            |=| =   filter through 'equalprg' or C-indenting if empty
+            |gq|    gq  text formatting
+            |g?|    g?  ROT13 encoding
+            |>| >   shift right
+            |<| <   shift left
+            |zf|    zf  define a fold
+            |g@|    g@  call function set with the 'operatorfunc' option
+
+vim: fdm=marker

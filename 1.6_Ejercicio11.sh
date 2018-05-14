@@ -15,7 +15,7 @@ echo
 
 # ...
 
-echo "Adiós ${1:-Usuario}, vuelve prondo"
+echo "Adiós ${1:-Usuario}, vuelve pronto"
 
 # ¿Buscas regresar? => 1.6_ObjetosDeTexto.txt
 

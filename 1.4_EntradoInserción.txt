@@ -1,14 +1,13 @@
                 ** Diferentes formas de empezar a editar **
 
 Comenzar a editar sobre la misma línea:
-i       Insertar en el lugar actual
-a       Insertar en la siguiente posición
-I       Insertar al principio de la línea
-A       Insertar al final de la línea
+    i       Insertar en el lugar actual
+    a       Insertar en la siguiente posición
+    I       Insertar al principio de la línea
+    A       Insertar al final de la línea
 
 Ejercicio 1: Entre en modo de inserción en la posición señalada por
 pico-paréntesis y escriba algo
-
 <
 Adipisicing >< amet nobis error obcaecati impedit
 Amet soluta.>
@@ -17,12 +16,25 @@ Consectetur recusandae unde sapiente magni?>
 
 Ejercicio 2: Encierre el texto siguiente en una caja
 
-Ipsum tempore?
-Sit alias.
-Elit maxime?
+    Ipsum tempore?
+    Sit alias.
+    Elit maxime?
 
+Respuesta sugerida {{{
+    Sobre la primer línea de texto ingrese 'I| <Esc>' y repita sobre el resto
+    de líneas para formar la barra de la izquierda. Haga lo mismo para la
+    de la derecha con 'A |<Esc>', con la diferencia de que esta vez no
+    habrá alineación de barras.
+    El resultado debería ser similar a:
+        | Ipsum tempore? |
+        | Sit alias. |
+        | Elit maxime? |
+    Posicionad@ antes de una barra desalineada presiona 'i <Esc>' y repite
+    hasta alinear la barra vertical. Haga lo mismo en el resto de líneas
+    desalineadas.
+}}}
 
-Ejercicio 3: (Abrir con 'gx')
+Ejercicio 3:
     1.4_Ejercicio3.js
 
 ===========================================================================
@@ -33,25 +45,53 @@ O       Insertar en la línea de arriba
 
 Ejercicio 2: Escriba un texto cualquiera en medio de las siguientes
 líneas:
-Dolor fuga quidem iure commodi
-Elit eum aliquam ratione alias.
+    Dolor fuga quidem iure commodi
+    Elit eum aliquam ratione alias.
+
+Respuesta sugerida {{{
+    Puedes elegir entre posicionarte en la primera línea y escribir
+    'o{texto}<Esc>' o posicionarte en la segunda y escribir 'O{texto}<Esc>'
+}}}
 
 ===========================================================================
 
 Entrar a insertar al momento que se hacen cambios
-s       Borra carácter bajo el cursor y entrar a modo inserción
-S       Borra la línea bajo el cursor y entra a modo inserción
-c       Operador 'cambio'
+    s       Borra carácter bajo el cursor y entrar a modo inserción
+    S       Borra la línea bajo el cursor y entra a modo inserción
+    c       Operador 'cambio'
 
 Ejercicio 3: Arregla las faltas de ortografía de la siguiente línea
     El nómero era inmenzamente pequeno
+
+Respuesta sugerida {{{
+    Sobre cada carácter incorrecto escribe 's{Carácter correcto}<Esc>'
+}}}
 
 Ejercicio 4: Cambia el texto de enmedio por 'estoy editando en vim'
     Sit omnis quisquam et voluptates?
     Adipisicing repellat voluptatum doloremque inventore.
     Ipsum minus vero non consequatur.
 
+Respuesta sugerida {{{
+    'S{texto nuevo}<Esc>' sobre la línea de enmedio.
+}}}
+
 Ejercicio 5: Coloca cada número de la lista en una línea distinta sin dejar
 las comas
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
-1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    Opción recomendada para el ejercicio: set autoindent | se ai
+    (Es una opción booleana)
+
+Respuesta sugerida {{{
+    Sin autoindent:
+    Para hacer repetible la operación, usamos búsqueda de carácter 'f,'
+    aunque tengamos la coma al lado y luego tecleamos '2s<Enter>    <Esc>'.
+    Luego usaremos la combinación: ';.' para repetir la búsqueda y luego
+    repetir la edición sobre los números faltantes
+
+    Con autoindent:
+    Lo mismo quitando los espacios extra que formaban la sangría: '2s<Enter><Esc>'
+}}}
+
+vim: fdm=marker

@@ -1,6 +1,10 @@
 
 // Ejercicio
 // Indente el código y ponga punto y coma donde sea posible
+// Respuesta sugerida {{{
+//     Para separar el texto del límite izquierdo use 'I<Tab><Esc>' y luego
+//     repita. Para añadir punto y coma use 'A;<Esc>' y luego repita.
+// }}}
 
 (function (ipsa, voluptates, soluta) {
 if (true) {

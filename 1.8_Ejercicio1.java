@@ -15,4 +15,4 @@ class Ejercicio1 {
 }
 
 // Regresar al tutorial: 1.8_Completado.txt
-// vim: sts=4 ts=4 sw=4 ai sta nu
+// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

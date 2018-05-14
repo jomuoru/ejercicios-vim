@@ -13,3 +13,5 @@ Ejercicio 1: (abrir con 'gf')
 
 También se pueden usar las flechas arriba y abajo aunque el comportamiento
 es diferente (No modifica el texto hasta aceptar).
+
+vim: fdm=marker

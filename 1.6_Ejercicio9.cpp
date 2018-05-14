@@ -2,14 +2,14 @@
 
 int main()
 {
-    constexpr int TAMANIO = 10;
+    constexpr int TAMANIO {10};
 
     // Ejercicio:
-    // Cambie el 10 que se usa como tamaño de los tre arreglos por la constante
+    // Cambie el 10 que se usa como tamaño de los tres arreglos por la constante
     // "TAMANIO"
 
-    int arreglo1[10] = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-    int arreglo2[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int arreglo1[10] {9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int arreglo2[10] {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     int suma[10];
 
