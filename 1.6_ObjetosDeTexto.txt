@@ -61,9 +61,17 @@ w => Objeto "word", o "palabra pequeña". Es una serie consecutiva de símbolos
      de los listados en la opción 'iskeyword'.
 
 Ejercicio 3: Reordene la siguiente frase
-    Educación es lo que tras olvidar queda lo aprendido en la escuela
+    Educación es lo que olvidar tras queda lo aprendido en la escuela
    (Educación es lo que queda tras olvidar lo aprendido en la escuela)
                                             Pegar antes del carácter => P
+
+Respuesta sugerida {{{
+    Sobre la "o" de "olvidar" presione:
+        'daw'   Corta "olvidar "
+        'wP'    Avanza al inicio de "tras" y pega "olvidar " antes
+        'ldaw'  Corta "queda "
+        bbP'    Retrocede hasta el inicio de tras y pega "queda " antes
+}}}
 
 Ejercicio 4: Reordenar el texto para que tenga la estructura de una frase
 del maestro Yoda

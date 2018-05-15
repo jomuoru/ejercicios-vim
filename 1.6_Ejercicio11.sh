@@ -2,6 +2,10 @@
 
 # Ejercicio:
 # Sustituye cada aparición de 1:-Usuario por NOMBRE
+# Respuesta sugerida {{{
+#     Dentro de las llaves de alguna aparición de "${1:-Usuario}" presione
+#     'ci{NOMBRE<Esc>'. Luego muévase a las siguientes y presione con '.'
+# }}}
 
 NOMBRE=${1:-Usuario}
 
@@ -19,4 +23,4 @@ echo "Adiós ${1:-Usuario}, vuelve pronto"
 
 # ¿Buscas regresar? => 1.6_ObjetosDeTexto.txt
 
-# vim: sts=4 ts=4 sw=4 ai sta nu
+# vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

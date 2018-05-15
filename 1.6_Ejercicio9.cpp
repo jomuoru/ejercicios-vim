@@ -7,6 +7,11 @@ int main()
     // Ejercicio:
     // Cambie el 10 que se usa como tamaño de los tres arreglos por la constante
     // "TAMANIO"
+    //
+    // Respuesta sugerida {{{
+    //     Entre los límites de los corchetes de un arreglo teclee
+    //     'ci[TAMANIO<Esc>'. Repitalo sobre el resto de arreglos
+    // }}}
 
     int arreglo1[10] {9, 8, 7, 6, 5, 4, 3, 2, 1};
     int arreglo2[10] {1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -24,4 +29,4 @@ int main()
 
 // Regresar al tutorial: 1.6_ObjetosDeTexto.txt
 
-// vim: sts=4 ts=4 sw=4 ai sta nu
+// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

@@ -158,7 +158,7 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
     Posicionese "Fuerte" que es el primer adjetivo y presione 'eamente<Esc>'.
     Esto añade "mente" a la palabra mediante dos comandos:
         - El comando simple 'e' que se mueve al final de la palabra
-        - El comando compuesto 'a{Texto}<Esc>' que escribe {Texto} (en este
+        - El comando compuesto 'a°Texto°<Esc>' que escribe °Texto° (en este
           caso 'mente') en la posición de enfrente del cursor.
     Únicamente el segundo comando se registrará y será repetible dado que
     el primero es un comando de movimiento, no de edición. Como consecuencia
@@ -213,6 +213,13 @@ Ejercicio 7: Elimine las comas y ponga cada número en una línea distinta
     102,25,4096,-10,22.5,55,999,123123,2
 
     Opción recomendada para el ejercicio: 'autoindent' 'ai' (es opción booleana)
+
+Respuesta sugerida (Abrir o cerrar 'za') {{{
+    Con el cursor posicionado antes de la primera coma teclee
+    'f,' que buscará la primera aparición de ',' y 'a<Del><Return><Esc>' que
+    borrara dicha coma y dará un salto de línea. Puede repetir la búsqueda
+    con ';' y repetir la edición con '.' hasta finalizar con los elementos.
+}}}
 
 Ejercicio 8: (Abrir con 'gf')
 

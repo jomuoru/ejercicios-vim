@@ -8,6 +8,18 @@
  *
  * Resetear iskeyword:
  *   :set iskeyword-=- | :se isk-=- | :set iskeyword& | :se isk&
+ *
+ * Respuesta sugerida {{{
+ *     La variable "--color-primario" debe asignarse a "background" y
+ *     "--color-contraste" a "color". Lo primero es hacerles espacio,
+ *     posicionándose al principio de la literal RGB a eliminar (ya sea
+ *     de "background" o "color") y presionando 'ct;var()<Esc>' para luego
+ *     repetirlo al principio de la siguiente literal.
+ *     Ahora suba para copiar cualquiera de los colores que se van a poner
+ *     dentro de "var()". Copielo con 'yiw' y posicionate en el paréntesis
+ *     abierto de "var()" para pegarlo con 'p'. Haga los mismo para el color
+ *     faltante.
+ * }}}
  */
 
 :root {
@@ -23,5 +35,5 @@
 
 /* Regresar al tutorial: 1.6_ObjetosDeTexto.txt */
 
-/* vim: sts=2 ts=2 sw=2 ai sta nu
+/* vim: sts=2 ts=2 sw=2 ai sta nu fdm=marker
  */

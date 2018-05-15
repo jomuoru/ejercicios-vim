@@ -30,12 +30,12 @@ elección
                                                     Cambiar palabra => caw
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Posicionate en cualquier parte de la primera aparición de "naque"
-    y presione "caw" que eliminará la palabra y te posicionará en
+    y presione 'caw' que eliminará la palabra y te posicionará en
     modo inserción.
 
     Escribe lo que gustes y presiona '<Esc>' o
-    '<C-[' para regresar a modo normal. Ahora muevete a las otras
-    apariciones de "neque" y presione '.' sobre ellas.
+    '<Ctrl-[' para regresar a modo normal. Ahora muévete a las otras
+    apariciones de "neque" y presiona '.' sobre ellas.
 }}}
 
 Ejercicio 3: (Abrir con 'gf')
@@ -60,7 +60,7 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
         1. ~~~~~~
         1. ~~~~~~~
 
-    Entra a modo de bloque visual con '<c-v>' (Control-v) y muevete
+    Entra a modo de bloque visual con '<Ctrl-v>' y muévete
     hasta seleccionar todos menos el primero de los números de la
     siguiente forma:
         1. ~~~~~~~~~
@@ -69,8 +69,7 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
       | 1.|~~~~~~~
       +-1.+ ~~~~~
 
-    Tras seleccionar las líneas necesarias presiona 'g<c-a>'
-    (letra g minúscula + Control-a)
+    Tras seleccionar las líneas necesarias presiona 'g<Ctrl-a>'
 }}}
 
 Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
@@ -82,7 +81,7 @@ Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Presione 'i' desde la posición en que quiera insertar texto y
     teclee lo que guste.
-    Presione '<Esc>' o '<C-[' para volver a modo normal y muévase
+    Presione '<Esc>' o '<Ctrl-[' para volver a modo normal y muévase
     a donde quiera repetir la inserción, presionando '.' en cada caso.
 }}}
 

@@ -7,7 +7,7 @@ int main(void)
     //                                              Insertar al final => A
     // Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     //    Colocate en cualquier posición de la primera línea que necesite
-    //    ';' y presiona 'A' (letra A mayúscula) seguida del carácter
+    //    ";" y presiona 'A' (letra A mayúscula) seguida del carácter
     //    faltante.
     //    Presiona '<Esc>' para regresar a modo normal.
     //    En modo normal muévete a las líneas faltantes por corregir y

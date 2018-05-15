@@ -60,6 +60,11 @@ Ejercicio 2: Elimine el segundo párrafo
     Adipisicing dolor veritatis repellat illum
                                                     Operador eliminar => d
 
+Respuesta sugerida (Abrir con 'za') {{{
+    Posicionado en la linea vacía de arriba presione 'd}' o posicionado
+    en la de abajo presione 'd{'
+}}}
+
 ===========================================================================
 
 Movimiento por secciones:
