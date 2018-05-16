@@ -129,4 +129,9 @@ Ejercicio 3: (Abrir con 'gf')
 
     1.3_Ejercicio3.c
 
+___________________________________________________________________________
+
+<----Archivo anterior                                Archivo siguiente---->
+  :prev[ious]                                                     :n[ext]
+
 vim: fdm=marker

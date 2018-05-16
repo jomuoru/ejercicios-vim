@@ -27,6 +27,10 @@ class Ejercicio {
     }
 
 }
-// ¿Quieres ir de vuelta? => 1.2_ComenzandoAMoverse.txt
+// ¿Necesitas ver las instrucciones de nuevo?
+// Puedes saltar entre el archivo anterior y el actual con
+//  <Ctrl-O>    Salto anterior ("O" de "oldest")
+//  <Ctro-I>    Salto siguiente (Literalmente la "I" no tiene significado,
+//              se eligió por estar al lado de la "O")
 
 // vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

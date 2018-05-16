@@ -21,6 +21,6 @@ const Dolor = (amet) => ({ 'Consectetur': 'sit' })
 }
 })('Aliquid', false, len)
 
-// ¿Quieres volver? => 1.4_EntradoInserción.txt
+// ¿Quieres volver? => 1.4_EntradoInserción.txt:38
 
 // vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

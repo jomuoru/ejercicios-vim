@@ -9,5 +9,4 @@ PROGRAM UN_PROGRAMA
     PRINT *, "Un simple programa en fortran"
 END PROGRAM
 
-! Regresar a la lección: 1.6_ObjetosDeTexto.txt
 ! vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

@@ -1,0 +1,175 @@
+Una lista de cosas que podrían incluirse en el tutorial cuando haya tiempo.
+Son sacadas de tips provenientes de:
+
+    https://stackoverflow.com/questions/726894/what-are-the-dark-corners-of-vim-your-mom-never-told-you-about
+    Practical vim, segunda edición
+
+Formateando
+    ==
+    :set equalprg
+    :set formatprg
+
+Se pueden abrir urls directamente:
+    vim [direccion]
+
+Re-seleccionar visual
+    gv
+
+Encontrar paréntesis hermano
+    %
+
+Forma fácil (no repetible de intercambiar dos letras):
+    xp
+
+Se pueden ejecutar comandos externos
+    ![comando]
+
+Se puede procesar lineas con comandos externos
+    [rango]![comando]
+
+Se puede leer la salida de comandos externos
+    .! ls
+    r! ls
+
+Cuando abres un archivo sin permiso para modificarlo
+puedes pedirlos dentro de vim:
+    :w !sudo tee %
+
+El sistema de hacer/deshacer no es una pila, sino un árbol
+lo cual te permite hacer esto:
+    :earlier 15m
+    :later
+
+Copiar coincidencias de re en un registro
+    :g/re/y [reg]
+
+Moverse a través de la lista de cambios
+    g;
+    g,
+
+Moverse a través de los saltos significativos
+    <Ctrl-O>
+    <Ctro-I>
+
+Editar en hexadecimal
+    %!xxd
+    %!xxd -r
+
+Exportar a html la vista de edición
+    %TOhtml
+
+Comandos de modo inserción
+
+El comando punto puede recorrer el anillo de eliminaciones para insertar textos borrados de
+forma consecutiva
+    "1P....
+
+La "dot formula" mejorada
+
+Volver a la última posición de inserción
+    gi
+
+Modo visual
+
+Se puede saltar a cierto número de archivo
+    gF
+
+Operar con vim:
+    <Ctrl-r>={expresion}
+
+Completar por líneas:
+    <Ctrl-X><Ctrl-l>
+
+Y por archivos:
+    <Ctrl-X><Ctrl-f>
+
+Macros recursivas
+    qq0dwj@qq@q
+
+Salir sin guardar (rápido)
+    ZQ
+
+Salir guardando (rápido)
+    ZZ
+
+Historial de cambios de una variable o mapeo
+    :vervose set [var]?
+    :vervose [mapmode] [map]
+
+Abrir historial de comandos
+    :q
+
+Abrir terminal del sistema:
+    :sh
+
+Abrir con cierta codificación
+    :e ++enc=cp1250 %:p
+
+Insertar rangos:
+    :for i in range(1,255) | .put='10.0.0.'.i | endfor
+
+Insertar símbolo especial
+    <Ctrl-k>{char}{char}
+    <Ctrl-v>{numero}
+
+Búsqueda y remplazo
+
+Añadir prefijo y sufijo a un texto
+    :s/.*/PREFIX & SUFFIX/
+
+Campos en expresiones regulares
+    :%s/\(holas\)
+
+Realizar cambios a lo largo de todo un archivo
+
+Macros
+
+Netrw
+    :Explore {carpeta}
+
+Ventanas múltiples y tabs
+
+Sintaxis de lenguajes
+
+Cscope
+
+Editar archivos comprimidos
+
+Crear sesiones de trabajo:
+    mksession {sesion}.vim
+    vim -S {sesion}.vim
+
+Facil manejo de cliente-servidor de edición:
+    alias vims='vim --servername SAMPLESERVER'
+    alias vimc='vim --servername SAMPLESERVER --remote-tab-silent'
+
+Pegar cosas
+    con soporte de clipboard
+        :put +
+    sin soporte de clipboard
+        :set paste
+        clic derecho, pegar
+        rezar un poco por que no se vea horrible
+        :set nopaste
+
+Diff con otro archivo
+    :vert diffs /project2/root/%
+
+Plugins
+    yank-ring
+    vertigo
+    taglist
+
+Ctags y vim
+
+Tabs a espacios
+    :set expandtab
+    :retab %
+
+Modelines
+
+Resaltado de líneas y columnas
+
+Modo ex
+
+vimscript

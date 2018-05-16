@@ -2,7 +2,7 @@
 
 Según el tipo de comando que ejecutes la forma de repetirlo es distinta.
 Por ejemplo, los comandos clasificados como "edición", tienen dos formas
-de repetición.
+de repetición:
 
 ===========================================================================
 
@@ -139,5 +139,8 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 ___________________________________________________________________________
 Para mayor referencia sobre como repetir comandos en vim, consultese el
 libro "Practical Vim" de Drew Neil
+
+<----Archivo anterior                                Archivo siguiente---->
+  :prev[ious]                                                     :n[ext]
 
 vim: fdm=marker

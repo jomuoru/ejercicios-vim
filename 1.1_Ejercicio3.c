@@ -27,6 +27,8 @@ int main(void)
     return 0
 }
 
-// ¿Quieres ir de vuelta? => 1.1_RepitiendoYDeshaciendo.txt
+// ¿Quieres ir de vuelta? => 1.1_RepitiendoYDeshaciendo.txt:42
+// (Para saltar al principio del archivo presiona 'gf', para saltar a la línea
+// específica presiona 'gF')
 
 // vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

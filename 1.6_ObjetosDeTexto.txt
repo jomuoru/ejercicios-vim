@@ -78,7 +78,7 @@ del maestro Yoda
     Si tu quieres aprender vim, debes practicar mucho
                                             Pegar después del carácter => p
 
-Ejercicio 5:
+Ejercicio 5: (Abrir con 'gf' o 'gF')
     1.6_Ejercicio5.css
 
 W => Objeto "WORD", o "palabra grande". Serie de símbolos separados por un
@@ -224,9 +224,14 @@ Ejercicio 17: Eliminar las líneas pares de la siguiente figura
      '----------------'  '----------------'  '----------------'
                                                     Operador eliminar => d
 
+Respuesta sugerida {{{
+    Posicionese sobre la segunda línea y teclee 'd_'. Luego baje con 'j'
+    y repita el cambio con '.' repetidas veces hasta terminar.
+}}}
+
 ______________________________________________________________________________
-Esos son todos los objetos de texto integrados de vim, más se pueden instalar por
-medio de plugins. Algunos de los mejores son:
+Esos son todos los objetos de texto integrados de vim, más se pueden instalar
+por medio de plugins. Algunos de los mejores son:
     * https://github.com/michaeljsmith/vim-indent-object: Provee un objeto
       de texto para operar sobre líneas equivalentemente indentadas
 
@@ -238,5 +243,8 @@ medio de plugins. Algunos de los mejores son:
 
     * https://github.com/glts/vim-textobj-comment: Objeto de texto para
       manejar comentarios.
+
+<----Archivo anterior                                Archivo siguiente---->
+  :prev[ious]                                                     :n[ext]
 
 vim: fdm=marker

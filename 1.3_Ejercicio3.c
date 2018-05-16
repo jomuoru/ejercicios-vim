@@ -35,6 +35,6 @@ main(void)
     unafuncion(rand() % 100, 10);
 }
 
-// ¿Quieres ir de vuelta? => 1.3_MovimientoElemetoTexto.txt
+// ¿Quieres ir de vuelta? => 1.3_MovimientoElemetoTexto.txt:130 (Usar 'gF')
 
 // vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

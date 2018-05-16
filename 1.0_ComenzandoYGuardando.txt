@@ -1,36 +1,45 @@
                         ** Comenzando con Vim **
 
-i      Entrar a modo inserción                 Teclas de movimiento:
-                                                             ↑
-                                                          <Ctrl-U>
-                                                             ↑
-<Ctrl-C>                                                     k
-<Esc>     Regresar a modo normal                         ← h   l →
-<Ctrl-[>                                                     j
-                                                             ↓
-                                                          <Ctrl-D>
-                                                             ↓
-                                         (También se pueden usar las flechas)
+Teclas equivalentes a las flechas de dirección
+
+                          ↑
+                          k
+                      ← h   l →
+                          j
+                          ↓
+
+Úsalas para bajar y seguir leyendo
 
 ===========================================================================
 
 Reglas de vim:
-    - El modo en que estas importa
+    - El modo en que estas importa. Por defecto estás en modo "normal".
+    - El modo "inserción" funciona de forma similar a cualquier otro editor
+      pero en modo "normal" incluso las letras son comandos.
     - Las mayúsculas y minúsculas en los comandos importan excepto
       cuando se usan con teclas modificadores (Control, Alt, etc).
-    - Hay problemas "grandes" fáciles de resolver y problemas "pequeños"
-      muy complicados.
 
 ===========================================================================
 
-Guardando y saliendo
-    :w      Guardar
-    :q      Cerrar (solo si el documento ya fue guardado o no tiene cambios)
-    :q!     Cerrar sin guardar
-    :wq     Guardar y cerrar
-    :x      Guardar y cerrar
+Ciclo de edición
 
-Ejercicio: Escribe algo en la siguiente línea. Guarda y cierra el archivo.
+Entrar a modo inserción en la posición actual
+    i           (i de "insert")
+
+Regresar a modo normal
+    <Esc>
+    <Ctrl-[>
+
+===========================================================================
+Guardando y saliendo
+    :w[rite]    Guardar
+    :q[uit]     Cerrar (solo si el documento ya fue guardado o no tiene cambios)
+    :q[uit]!    Cerrar sin guardar (léase el signo "!" como "forzar")
+    :wq         Guardar y cerrar
+    :exi[t]     Guardar y cerrar
+
+Ejercicio: Escribe algo en la siguiente línea, guarda y cierra el archivo.
+Después vuelve a este punto
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Estando sobre el lugar en que quieras escribir presiona 'i', lo cual te
@@ -51,9 +60,20 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 }}}
 ===========================================================================
 
-Obteniendo ayuda
-vimtutor        Comando para abrir el tutorial de vim
-:help {algo}    Buscar ayuda de {algo}
-www.openvim.com Tutorial online (abrir con "gx")
+Para moverse por bloques más grandes puede usar los siguientes comandos
+    Media página arriba
+      <Ctrl-U>          (U de "up")
+    Media página abajo
+      <Ctrl-D>          (D de "down")
 
+___________________________________________________________________________
+
+Obteniendo más ayuda de vim
+    vimtutor        Comando para abrir el tutorial de vim
+    :help {algo}    Buscar ayuda de {algo}
+    www.openvim.com Tutorial online (abrir con 'gx')
+
+
+                                                     Archivo siguiente---->
+                                                                  :n[ext]
 vim: fdm=marker

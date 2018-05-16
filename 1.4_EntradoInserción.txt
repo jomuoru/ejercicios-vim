@@ -20,7 +20,7 @@ Ejercicio 2: Encierre el texto siguiente en una caja
     Sit alias.
     Elit maxime?
 
-Respuesta sugerida {{{
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Sobre la primer línea de texto ingrese 'I| <Esc>' y repita sobre el resto
     de líneas para formar la barra de la izquierda. Haga lo mismo para la
     de la derecha con 'A |<Esc>', con la diferencia de que esta vez no
@@ -93,5 +93,9 @@ Respuesta sugerida {{{
     Con autoindent:
     Lo mismo quitando los espacios extra que formaban la sangría: '2s<Enter><Esc>'
 }}}
+___________________________________________________________________________
+
+<----Archivo anterior                                Archivo siguiente---->
+  :prev[ious]                                                     :n[ext]
 
 vim: fdm=marker

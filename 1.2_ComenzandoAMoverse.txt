@@ -58,11 +58,9 @@ siguientes:
             :set whichwrap&
             :se ww&
 
-Si le gusta una opción la puede establecer de forma permanente en el
-archivo configuración (suele ser ~/.vimrc). Si dicho archivo 
-no existe basta con crearlo.
-Puede añadir lineas al archivo desde dentro de vim de la siguiente
-forma:
+Si le gusta una opción la puede Añadirla a tu archivo configuración
+(suele ser ~/.vimrc). Si dicho archivo no existe basta con crearlo.
+Puedes añadir la opción sin salir de vim de la siguiente forma:
     :!echo set whichwrap+=h,l >> .vimrc
 
 Ejercicio 3: Activar la opción booleana 'relativenumber' y usarla para
@@ -261,5 +259,8 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
 ___________________________________________________________________________
 https://vim-adventures.com  Página que sabe La mejor forma de memorizar
                             los comandos: jugando
+
+<----Archivo anterior                                Archivo siguiente---->
+  :prev[ious]                                                     :n[ext]
 
 vim: fdm=marker

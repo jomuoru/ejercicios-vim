@@ -6,47 +6,111 @@ hace muy flexibles.
 
 ===========================================================================
 
-Operadores que guardan el texto en una papelera.
-Los siguientes operadores copian el texto elegido en la papelera que se
-especifique. Por defecto se usa la "papelera sin nombre"
+Operadores que guardan el texto en un registro.
 
-Lista de operadores
+    d  :  Operador "delete". Corta el texto
 
-c => Operador "change". Corta el texto sobre el que se opera y entra en
-     modo inserción.
+    c  :  Operador "change". Corta el texto y entra en modo inserción.
 
-Ejercicio 1:
+    y  :  Operador "yank". Copia el texto.
+
+
+Los siguientes operadores copian el texto elegido en el registro que se
+especifique. Por defecto se usa el "registro sin nombre"
+
+Ejercicio 1: (Abrir con 'gf' o 'gF')
     1.7_Ejercicio1.c
 
 
-y => Operador "yank". Copia texto.
-
+Ejercicio 2:
     *****%%%%%
     *****%%%%%
     %%%%%*****
     %%%%%*****
+Forme una figura similar a la anterior pero en grande.
 
-Ejercicio 2: Forme una figura similar a la anterior pero en grande.
     ***********************************###################################
 
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Para copiar la línea use 'y_' para pegarla 'p' al gusto hasta tener
+    aproximadamente medio cuadrado (o use 'p' una vez y repita con '.').
+    Copie solamente
+}}}
 
-d => Operador "delete". Elimina texto.
+===========================================================================
 
+Operadores de formato (Principalmente para programar)
+
+    =   :   Operador que "re-indenta" (solo si conoce el lenguaje con que trabaja,
+            cuando no domina uno se le puede añadir soporte a partir de un
+            plugin)
+
+    <   :   Elimina un nivel de sangría (depende de tu configuración)
+    >   :   Añade un nivel de sangría (concretamente, dependen de 'shiftwidth'
+            que es una variable entera representando la longitud por tabulación)
+
+    gq  :   Operador "formatea". Usa un programa externo establecido con
+            'formatprg' para dar formato y embellecer el código.
+            (Véase 1.9_Filtros.txt)
+
+Ejercicio 3: (La línea de inicio importa, abrir con 'gF')
+        1.7_Ejercicio3.cs:39
 
 ===========================================================================
 
 Operadores de transformación de texto
 
-            |g~|    g~  swap case
-            |gu|    gu  MAKE lowercase
-            |gU|    gU  make uppercase
-            |!| !   filter through an external program
-            |=| =   filter through 'equalprg' or C-indenting if empty
-            |gq|    gq  text formatting
-            |g?|    g?  ROT13 encoding
-            |>| >   shift right
-            |<| <   shift left
-            |zf|    zf  define a fold
-            |g@|    g@  call function set with the 'operatorfunc' option
+    gu  :   Convertir a minúscula
+    gU  :   Convertir a mayúscula
+    g~  :   Intercambiar mayúsculas por minúsculas y viceversa
+    g?  :   Codificar en ROT13 (una codificación simple y auto-reversible)
+
+Ejercicio 4: Descodificar el siguiente texto codificado en ROT13
+
+        Unl gerf znarenf qr rqvgne grkgb ra Havk:
+        - N yn znaren qr ivz
+        - N yn znaren qr rznpf
+        - N yn znaren vapbeerpgn
+
+
+===========================================================================
+
+Extras (Cada uno de los cuales requiere su propia lección por lo que
+se posponen)
+
+    !   :   Filtrar a través de un programa externo
+    zf  :   Crear un "doblez"
+    g@  :   Llamar una función establecida por la opción 'operatorfunc'
+
+
+===========================================================================
+
+Aplicar operador sobre toda la línea.
+
+Usando '{op}_' se puede aplicar '{op}' en una línea. La mayoría de los
+operadores tiene un alias para hacer lo mismo más rápido: Repetir la
+última letra del operador:
+
+        dd   :  Igual a d_. Elimina línea actual
+        yy   :  Igual a y_. Copia línea actual
+        cc   :  Igual a c_. Elimina línea actual y entra en modo inserción
+        ==   :  Re-indenta línea actual
+        >>   :  Añade sangría a la línea actual
+        <<   :  Quita sangría a la línea actual
+        gqq  :  Formatea la línea actual con el programa de 'formatprg'
+        !!   :  Filtra la línea actual con un programa externo
+        guu  :  Pasa la línea actual a minúsculas la línea actual
+        gUU  :  Pasa la línea actual a mayúsculas la línea actual
+        g~~  :  Intercambia mayúsculas/minúsculas de la línea actual
+        g??  :  Codifica en ROT13 la línea actual
+
+===========================================================================
+
+Operaciones de caracteres y operaciones de línea
+
+___________________________________________________________________________
+
+<----Archivo anterior                                Archivo siguiente---->
+  :prev[ious]                                                     :n[ext]
 
 vim: fdm=marker
