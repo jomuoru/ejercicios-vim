@@ -7,6 +7,7 @@ Nuevamente, el movimiento básico se hace mediante hjkl
                              ↓
                              j
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 1: Camine a través del laberinto usando las teclas de vim
        Inicio
          ↓↓
@@ -25,6 +26,7 @@ Ejercicio 1: Camine a través del laberinto usando las teclas de vim
         *               ***               ← e
         *******************************  ↑  t
                                             a
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 Por defecto, los comandos 'h' y 'l' se detienen en los extremos
 sin cambiar de línea como lo haría un editor tradicional.
@@ -34,6 +36,7 @@ la siguiente forma.
 o abreviando:
         :se ww+=h,l
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Establecer la opción anterior y usarla para recorrer el
 segundo laberinto.
 
@@ -48,8 +51,9 @@ segundo laberinto.
 ********* |
           
          ↑
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Puede regresar al comportamiento original de las teclas con alguno de los
+Puedes regresar al comportamiento original de las teclas con alguno de los
 siguientes:
         Quitar 'h' y 'l' de la lista separada por comas
             :set whichwrap-=h,l
@@ -58,13 +62,15 @@ siguientes:
             :set whichwrap&
             :se ww&
 
-Si le gusta una opción la puede Añadirla a tu archivo configuración
-(suele ser ~/.vimrc). Si dicho archivo no existe basta con crearlo.
+Si te gusta una opción de configuración puedes añadirla a tu archivo
+configuración (suele ser ~/.vimrc). Si dicho archivo no existe basta con
+crearlo.
 Puedes añadir la opción sin salir de vim de la siguiente forma:
     :!echo set whichwrap+=h,l >> .vimrc
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: Activar la opción booleana 'relativenumber' y usarla para
-eliminar las líneas marcadas con '>>>>'. Después se puede desactivar
+eliminar las líneas marcadas con '>>>>'. Después se puedes desactivar
 la opción.
     Ipsum quidem architecto sunt consequuntur voluptatem. Dicta laboriosam?
     Elit rem labore qui hic dolorum? Quos laboriosam?
@@ -97,24 +103,27 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
         :set nolorem
     También suele haber abreviaciones para cada opción. En el caso de
     'relativenumer', la activación se puede hacer mediante:
-        :set relativenumber | :se rnu
-            (Cualquiera de los dos)
-    Y se puede desactivar posterioremente con:
-        :set norelativenumber | :set nornu
+        :set relativenumber
+        :se rnu
+        (Cualquiera de los dos)
+    Y se puede desactivar posteriormente con:
+        :set norelativenumber
+        :set nornu
 
-    Una vez active relativenumber podrá ver las distancias de cada línea
-    relativas a su posición actual lo cual nos indicará el prefijo numérico
-    para saltar de manera directa a cierta línea. Si una línea, por ejemplo,
-    se encuentra 4 líneas por encima de usted, puede alcanzarla escribiendo
-    '4k'.
+    Una vez hayas activado relativenumber podrás ver las distancias de
+    cada línea relativas a tu posición actual lo cual nos indicará el
+    prefijo numérico para saltar de manera directa a cierta línea.
+    Si una texto, por ejemplo, se encuentra 4 líneas por encima de tu
+    posición de escritura, puedes alcanzarla escribiendo '4k'.
     Habiendo llegado a las líneas marcadas con '>>>>' usando el método
-    anterior las eliminará con 'd_'. Luego salte a la próxima línea y
-    repita con '.'
+    anterior las eliminará con 'd_'. Luego salta a las líneas restantes
+    usando el mismo método y repite con '.'
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
-Para moverse entre palabras puede usar w, b, e, ge. A diferencia de
+Los comandos 'w', 'b', 'e', 'ge'. A diferencia de
 del movimiento por letras, el movimiento por palabras te cambia de línea
 por defecto cuando llegas al final o al principio de una.
 
@@ -122,8 +131,8 @@ por defecto cuando llegas al final o al principio de una.
        ← -------- -------- →
                           ↲
 
-Los comandos b y w dan saltos a los inicios de las palabras mientras que
-los comandos ge y e dan saltos a los finales de las palabras,
+Los comandos 'b' y 'w' dan saltos a los inicios de las palabras mientras
+que los comandos 'ge' y 'e' dan saltos a los finales de las palabras,
 hacia atrás y hacia adelante respectivamente.
 
        Palabra0     Palabra1    Palabra2    Palabra3
@@ -131,6 +140,7 @@ hacia atrás y hacia adelante respectivamente.
                     |      |    |      |
                    w,b   e,ge  w,b    e,ge
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 4: Llega a todos los sitios marcados por un '|'
     Consectetur qui expedita | laborum doloremque
     Adipisicing facilis | consectetur dolorem doloribus
@@ -140,10 +150,12 @@ Ejercicio 4: Llega a todos los sitios marcados por un '|'
 
 Respuesta sugerida (Abrir o cerrar 'za') {{{
     Por defecto se recomienda usar 'w' y 'b' para moverse por palabras
-    a menos que requiera llegar al final de alguna pero en este ejercicio
-    funcionará también 'e' y 'ge'.
+    a menos que requiera llegar al final de alguna.  En este ejercicio,
+    sin embargo, funcionarán también 'e' y 'ge'.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 5: Cambie los adjetivos del siguiente texto por adverbios
 añadiendo el sufijo "mente"
     Fuerte suspiró. La abrazó temblorosa.
@@ -153,7 +165,8 @@ añadiendo el sufijo "mente"
 Respuesta sugerida (Abrir o cerrar 'za') {{{
     No existe un comando "insertar al final de la palabra" así que se
     deberán usar dos comandos.
-    Posicionese "Fuerte" que es el primer adjetivo y presione 'eamente<Esc>'.
+    Posicionese en "Fuerte" que es el primer adjetivo y presione
+    'eamente<Esc>'.
     Esto añade "mente" a la palabra mediante dos comandos:
         - El comando simple 'e' que se mueve al final de la palabra
         - El comando compuesto 'a°Texto°<Esc>' que escribe °Texto° (en este
@@ -164,14 +177,15 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
     Muévete al final de cada palabra en cuestión y repite la inserción de
     "mente" con '.'.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 Nota: La definición de "palabra" puede ser alterada, véase
 1.6_Ejercicio5.css para un ejemplo.
 
 ===========================================================================
 
-Aunque extraña, la forma más eficiente de moverse en una línea es usando la
-búsqueda de caracteres.
+Aunque extraña, la forma más eficiente de moverse en una línea es usando
+comandos de búsqueda de caracteres.
 La letra 'f' seguida de un carácter te mueve a la siguiente aparición de
 dicho carácter y la letra 'F' mueve a la aparición anterior. Las letras 't' y
 'T' hacen prácticamente lo mismo, pero avanzan un carácter menos.
@@ -185,7 +199,8 @@ Una vez realizada una búsqueda por caracteres, dicha búsqueda se puede
 repetir usando el carácter ';' (punto y coma). 
 La ',' hace la misma búsqueda en dirección contraria.
 
-Ejercicio 6: Cambie todas las apariciones de punto con coma
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 6: Cambie todas las apariciones de punto por una coma
     Dolor voluptatibus. accusamus facere. labore quia.
     .Consectetur. numquam labore. consequuntur alias aspernatur
     Ipsum dolor ut sunt. molestiae esse!
@@ -206,22 +221,33 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
     repite la edición con '.'.
     Siga usando la misma lógica hasta terminar.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Ejercicio 7: Elimine las comas y ponga cada número en una línea distinta
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 7: Elimina las comas y ponga cada número en una línea distinta
     102,25,4096,-10,22.5,55,999,123123,2
 
-    Opción recomendada para el ejercicio: 'autoindent' 'ai' (es opción booleana)
+    Opción recomendada para el ejercicio: 'autoindent' 'ai' (opción booleana)
 
 Respuesta sugerida (Abrir o cerrar 'za') {{{
+
+Con 'autoindent' activado:
     Con el cursor posicionado antes de la primera coma teclee
     'f,' que buscará la primera aparición de ',' y 'a<Del><Return><Esc>' que
     borrara dicha coma y dará un salto de línea. Puede repetir la búsqueda
     con ';' y repetir la edición con '.' hasta finalizar con los elementos.
+
+Sin 'autoindent' activado:
+    Empezamos con 'f,' nuevamente pero esta vez usaremos
+    'a<Del><Return>    <Esc>'. El resto se repite de la misma forma.
+
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 8: (Abrir con 'gf')
-
     1.2_Ejercicio8.java
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 Por último, es posible moverse entre el principio y el final de una línea
 a partir de varios comandos.
@@ -231,12 +257,14 @@ respectivamente.
 
                   0  ←  ^  ←   →  g_  →  $
 
-Ejercicio 9: Pruebe las diferencias entre '0' y '^' así como entre 'g_' y '$'
-en la siguiente línea
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 9: Prueba las diferencias entre '0' y '^' así como entre 'g_' y '$'
+en la siguiente línea:
+        Dolor voluptatibus accusamus facere labore quia.        
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-    Dolor voluptatibus accusamus facere labore quia.        
-
-Ejercicio 10: Arregle el siguiente recuadro para que se vea regular
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 10: Arregla el siguiente recuadro para que se vea regular
 +----------------------------------------------------------------+
 *                  ============================                  |
 |                  $                          $                  *
@@ -256,9 +284,13 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
     vimos anteriormente o simplemente 'r{Char}' que es un comando muy simple
     que te permite permanecer en modo normal todo el tiempo.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ___________________________________________________________________________
-https://vim-adventures.com  Página que sabe La mejor forma de memorizar
+https://vim-adventures.com  Página que sabe la mejor forma de memorizar
                             los comandos: jugando
+
+https://www.shortcutfoo.com Juego para memorizar comandos de editores
+                            comunes y competir contra la computadora
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]

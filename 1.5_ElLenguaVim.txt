@@ -6,9 +6,10 @@ a la siguiente:
     {operador}{movimiento}
 
 De forma general, el comando anterior se interpreta como "aplica la acción
-de {operador} desde la posición actual hasta donde se mueva el cursor si
-hago {movimiento}"
+de {operador} desde la posición actual hasta donde se mueva el cursor con
+{movimiento}"
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 1: Elimine las apariciones de 'provident' del siguiente párrafo
 con 'dw'
     Amet provident deleniti
@@ -24,6 +25,7 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
     inclusiva). Para repetir la acción, hace falta volver a posicionarse
     exactamente en el PRINCIPIO de la siguiente palabra.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
@@ -38,20 +40,20 @@ Al usar esta sintaxis siempre se afecta el objeto completo (y posiblemente
 sus alrededores si se usa 'a'). No se requiere preocuparse de la ubicación
 del cursor en ningún momento.
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Elimine las apariciones de 'provident' del siguiente párrafo
 con 'daw' (delete around word)
     Amet provident deleniti
     aliquam amet provident
     Amet provident voluptatem.
-                                                    d => Operador eliminar
-                                                    w => Moverse a la siguiente
-                                                         palabra
-
+                                            d => Operador eliminar
+                                            w => Moverse a la siguiente palabra
 Respuesta sugerida {{{
     Sobre la palabra provident y sin importar la posición, presiona 'daw' y
     luego repítelo sobre el resto de apariciones sin importar la posición
     el cursor (mientras esté dentro de la palabra).
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 Siempre que sea posible, preferir la estructura de comandos de
 vim sobre de vi; Aunque puedan requerir un poco más de tecleo son
@@ -63,6 +65,8 @@ afectan al mismo tipo de "objeto de texto" como en el caso del objeto de
 texto "w" que afecta palabras y el comando "w" que se mueve entre palabras
 pero en general asumir que no hay ninguna relación.
 ___________________________________________________________________________
+Una platica que sobre el lenguaje y buenas prácticas de vim:
+    https://www.youtube.com/watch?v=wlR5gYd6um0
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]

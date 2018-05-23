@@ -1,5 +1,6 @@
 using System;
 
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 namespace Ejercicio3
     {
 
@@ -57,5 +58,6 @@ Console.WriteLine($"El valor al cuadrado es: {Math.Pow(y, 2)}");
 
 
 }
+// *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
 // vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

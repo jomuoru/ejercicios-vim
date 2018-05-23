@@ -4,6 +4,7 @@ import java.util.IdentityHashMap;
 import java.util.Calendar;
 import java.util.Date;
 
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 class Ejercicio {
     public static void main(String[] args) throws FileNotFoundException {
         // Ejercicio:
@@ -23,6 +24,7 @@ class Ejercicio {
         FileInputStream fis = new FileInputStream("nombres.txt");
         IdentityHashMap odhm = new IdentityHashMap(1 << 8);
         Date fch = Calendar.getInstance().getTime();
+// *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
     }
 

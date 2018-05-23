@@ -4,6 +4,7 @@ int main()
 {
     constexpr int TAMANIO {10};
 
+    // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     // Ejercicio:
     // Cambie el 10 que se usa como tamaño de los tres arreglos por la constante
     // "TAMANIO"
@@ -17,6 +18,7 @@ int main()
     int arreglo2[10] {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     int suma[10];
+    // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
     for (size_t i = 0; i < sizeof(suma)/sizeof(suma[0]); ++i)
     {

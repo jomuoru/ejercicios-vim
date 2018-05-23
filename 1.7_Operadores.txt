@@ -18,10 +18,13 @@ Operadores que guardan el texto en un registro.
 Los siguientes operadores copian el texto elegido en el registro que se
 especifique. Por defecto se usa el "registro sin nombre"
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 1: (Abrir con 'gf' o 'gF')
     1.7_Ejercicio1.c
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2:
     *****%%%%%
     *****%%%%%
@@ -31,11 +34,17 @@ Forme una figura similar a la anterior pero en grande.
 
     ***********************************###################################
 
+                                        Aplicar operador sobre línea => _
+
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Para copiar la línea use 'y_' para pegarla 'p' al gusto hasta tener
-    aproximadamente medio cuadrado (o use 'p' una vez y repita con '.').
-    Copie solamente
+    Copia una línea con 'y_' y pégala repetidas veces con 'p' hasta
+    formar un poco más de la mitad de un cuadrado (aproximadamente).
+    Al principio de la última línea teclea 'dt#' para cortar los
+    asteriscos del principio y luego '$p' para pegarlos al final.
+    Nuevamente copia con 'y_' y pega hasta hacer la otra mitad del
+    cuadrado.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
@@ -53,8 +62,10 @@ Operadores de formato (Principalmente para programar)
             'formatprg' para dar formato y embellecer el código.
             (Véase 1.9_Filtros.txt)
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: (La línea de inicio importa, abrir con 'gF')
-        1.7_Ejercicio3.cs:39
+        1.7_Ejercicio3.cs:44
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
@@ -65,13 +76,16 @@ Operadores de transformación de texto
     g~  :   Intercambiar mayúsculas por minúsculas y viceversa
     g?  :   Codificar en ROT13 (una codificación simple y auto-reversible)
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 4: Descodificar el siguiente texto codificado en ROT13
 
-        Unl gerf znarenf qr rqvgne grkgb ra Havk:
+       "Unl gerf znarenf qr rqvgne grkgb ra Havk:
         - N yn znaren qr ivz
         - N yn znaren qr rznpf
-        - N yn znaren vapbeerpgn
+        - N yn znaren vapbeerpgn"
+                            Ivrwb cebireovb qr ybf flfnqzva
 
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
@@ -104,9 +118,66 @@ operadores tiene un alias para hacer lo mismo más rápido: Repetir la
         g~~  :  Intercambia mayúsculas/minúsculas de la línea actual
         g??  :  Codifica en ROT13 la línea actual
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 4: Reordene las siguientes líneas
+    2. Ipsum optio nihil itaque cumque ipsa.
+    4. Amet debitis debitis quibusdam itaque accusantium
+    1. Sit aut cum vero maiores quibusdam?
+    3. Sit a in beatae voluptatem nobis.
+                                                    Pegar detrás: P
+                                                    Pegar enfrente: p
+Respuesta sugerida {{{
+    Desde la primera línea: '2ddpjddp'
+
+    2ddp Corta dos líneas y las pega enfrente
+    j    Baja una posición
+    ddp  Corta una línea y la pega enfrente
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
 ===========================================================================
 
 Operaciones de caracteres y operaciones de línea
+
+Tanto los comandos de movimiento como los operadores se pueden clasificar
+en comandos "de caracteres" (character-wise) y "de línea" (line-wise).
+
+Como ejemplos en cuanto a comandos de movimiento, los movimientos a los
+laterales 'h' y 'l' son "de caracteres" y los movimientos arriba y
+abajo 'j' y 'k' son "de línea".
+
+Por el lado de los operadores, 'd', 'c', 'y', etc son operadores de
+carácter y '<' y '>' son operadores de línea.
+
+Al hacer una acción, si tanto el operador como el movimiento son
+comandos de caracteres, la operación opera justo en los elementos
+referidos. Si el operador o el movimiento son comandos de línea
+entonces el resultado final opera sobre líneas completas.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 5: Sobre el símbolo "|" del párrafo del ejercicio
+presiona 'j'.  Regrese al "|" y ahora presione '/z<Return>'. 
+Ambos movimientos deben posicionarlo en el mismo lugar.
+
+Por segunda vez vuelve a la posición marcada con "|" y presiona 'dj'.
+Aunque 'd' es un operador de caracteres, 'j' es un movimiento de
+línea por lo que la operación resultante elimina dos líneas completas.
+
+Para terminar, deshaz el cambio y presiona 'd/z<Return>'.
+Ahora ni el operador 'd' ni el comando de movimiento 'j' trabajan por
+líneas por lo que la eliminación se hace exactamente entre los dos
+puntos de movimiento.
+
+    Adipisicing earum a "|" dolore sunt nesciunt Sint
+    culpa atque impedit azimi maxime.
+
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+** NOTA: LA NOTACIÓN {OPERADOR}_ ES SIEMPRE UNA OPERACIÓN DE LÍNEA.
+
+===========================================================================
+
+Aplicar operador hasta el final de la línea
 
 ___________________________________________________________________________
 

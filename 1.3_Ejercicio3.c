@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 // Mover la función 'unafuncion' abajo del main y poner un
 // prototipo de la misma en su lugar original.
 //                                                  Selección por líneas => V
@@ -34,6 +35,7 @@ main(void)
 {
     unafuncion(rand() % 100, 10);
 }
+// *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 // ¿Quieres ir de vuelta? => 1.3_MovimientoElemetoTexto.txt:130 (Usar 'gF')
 

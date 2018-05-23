@@ -6,14 +6,29 @@ Comenzar a editar sobre la misma línea:
     I       Insertar al principio de la línea
     A       Insertar al final de la línea
 
-Ejercicio 1: Entre en modo de inserción en la posición señalada por
-pico-paréntesis y escriba algo
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 1: Entre en modo de inserción en cada una de las posiciones
+señaladas por pico-paréntesis y escriba respectivamente "A", "B", "C",
+"D" y "E" para luego regresar a modo normal
+
 <
 Adipisicing >< amet nobis error obcaecati impedit
 Amet soluta.>
 Consectetur recusandae unde sapiente magni?>
 <Dolor ut similique elit est?
 
+Respuesta sugerida (Abrir con 'za') {{{
+    Si se comienza desde la primera línea del ejercicio, escribe las
+    siguientes secuencias (una para cada posición):
+        iA<Esc>
+        jf<B<Esc>
+        jaC<Esc>
+        jAD<Esc>
+        jIE<Esc>
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Encierre el texto siguiente en una caja
 
     Ipsum tempore?
@@ -21,21 +36,24 @@ Ejercicio 2: Encierre el texto siguiente en una caja
     Elit maxime?
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Sobre la primer línea de texto ingrese 'I| <Esc>' y repita sobre el resto
-    de líneas para formar la barra de la izquierda. Haga lo mismo para la
-    de la derecha con 'A |<Esc>', con la diferencia de que esta vez no
-    habrá alineación de barras.
+    Sobre la primer línea de texto ingresa 'I| <Esc>' y repite sobre el resto
+    de líneas para formar la barra de la izquierda. Haz lo mismo para la
+    de la derecha con 'A |<Esc>', con la diferencia de que esta vez los
+    caracteres no estarán alineados.
     El resultado debería ser similar a:
         | Ipsum tempore? |
         | Sit alias. |
         | Elit maxime? |
-    Posicionad@ antes de una barra desalineada presiona 'i <Esc>' y repite
-    hasta alinear la barra vertical. Haga lo mismo en el resto de líneas
-    desalineadas.
+    Posicionado(a) antes de una barra desalineada presiona 'i <Esc>' y repite
+    hasta alinear el carácter con el primer '|'. Haz lo mismo en el resto
+    de caracteres desalineados.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Ejercicio 3:
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 3: (Abrir con 'gf')
     1.4_Ejercicio3.js
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
@@ -43,6 +61,7 @@ Insertar en otras líneas:
 o       Insertar en la línea de abajo
 O       Insertar en la línea de arriba
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Escriba un texto cualquiera en medio de las siguientes
 líneas:
     Dolor fuga quidem iure commodi
@@ -50,8 +69,10 @@ líneas:
 
 Respuesta sugerida {{{
     Puedes elegir entre posicionarte en la primera línea y escribir
-    'o{texto}<Esc>' o posicionarte en la segunda y escribir 'O{texto}<Esc>'
+    'oTexto de ejemplo<Esc>' o posicionarte en la segunda y
+    escribir 'OTexto de ejemplo<Esc>'
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
@@ -60,39 +81,46 @@ Entrar a insertar al momento que se hacen cambios
     S       Borra la línea bajo el cursor y entra a modo inserción
     c       Operador 'cambio'
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: Arregla las faltas de ortografía de la siguiente línea
     El nómero era inmenzamente pequeno
 
 Respuesta sugerida {{{
-    Sobre cada carácter incorrecto escribe 's{Carácter correcto}<Esc>'
+    Sobre cada carácter incorrecto escribe 's°Carácter correcto°<Esc>'
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Ejercicio 4: Cambia el texto de enmedio por 'estoy editando en vim'
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 4: Cambia la línea de enmedio por 'estoy editando en vim'
     Sit omnis quisquam et voluptates?
     Adipisicing repellat voluptatum doloremque inventore.
     Ipsum minus vero non consequatur.
 
 Respuesta sugerida {{{
-    'S{texto nuevo}<Esc>' sobre la línea de enmedio.
+    'Sestoy editando en vim<Esc>' sobre la línea de enmedio.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 5: Coloca cada número de la lista en una línea distinta sin dejar
 las comas
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
-    Opción recomendada para el ejercicio: set autoindent | se ai
-    (Es una opción booleana)
+    Opción recomendada para el ejercicio: 'autoindent' 'ai' (opción booleana)
 
 Respuesta sugerida {{{
-    Sin autoindent:
+
+Sin autoindent:
     Para hacer repetible la operación, usamos búsqueda de carácter 'f,'
     aunque tengamos la coma al lado y luego tecleamos '2s<Enter>    <Esc>'.
     Luego usaremos la combinación: ';.' para repetir la búsqueda y luego
     repetir la edición sobre los números faltantes
 
-    Con autoindent:
+Con autoindent:
     Lo mismo quitando los espacios extra que formaban la sangría: '2s<Enter><Esc>'
+
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ___________________________________________________________________________
 
 <----Archivo anterior                                Archivo siguiente---->

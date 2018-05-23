@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 # Ejercicio:
 # Sustituye cada aparición de 1:-Usuario por NOMBRE
 # Respuesta sugerida {{{
@@ -20,5 +21,6 @@ echo
 # ...
 
 echo "Adiós ${1:-Usuario}, vuelve pronto"
+# *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
 # vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

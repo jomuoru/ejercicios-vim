@@ -1,3 +1,4 @@
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 // Ejercicio:
 //
 // Incluir las siguientes cabeceras al programa: python.h, object.r
@@ -11,5 +12,6 @@
 // }}}
 
 #include <stdio.h>
+// *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
 // vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker

@@ -1,13 +1,19 @@
 
-/* Ejercicio:
+/**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+ * Ejercicio:
  * Modifique la opción 'iskeyword' para que las variables css (que pueden
  * incluir guión normal) sean más fáciles de iterar, copiar y pegar.
- *   :set iskeyword+=- | :se isk+=-
+ *   :set iskeyword+=-
+ *   :se isk+=-
  * Después cambie las literales RGB en la clase "barra-superior" por las
  * variables que les corresponden.
  *
- * Resetear iskeyword:
- *   :set iskeyword-=- | :se isk-=- | :set iskeyword& | :se isk&
+ * Resetear iskeyword (Después de completar el ejercicio):
+ *   :set iskeyword-=-
+ *   :se isk-=-
+ *   :set iskeyword&
+ *   :se isk&
+ *   (Cualquiera de las anteriores)
  *
  * Respuesta sugerida {{{
  *     La variable "--color-primario" debe asignarse a "background" y
@@ -32,6 +38,7 @@
   background: #E21414;
   color: #8251B4;
 }
+/**v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v**/
 
 /* vim: sts=2 ts=2 sw=2 ai sta nu fdm=marker
  */

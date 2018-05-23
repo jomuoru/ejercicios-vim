@@ -1,9 +1,7 @@
                     ** Objetos de texto **
 
-Los objetos de texto son porciones de texto cuya sintaxis es reconocida por
-vim. Es sencillo operar con ellos y suelen ser fáciles de aprender porque
-tienen iniciales que recuerdan a lo que hacen referencia y se pueden combinar
-de con los operadores y con los diferentes modos visuales.
+Los objetos de texto son a los operadores como los sustantivos son a
+los verbos.
 
 Al usar objetos de texto siempre se precede alguna de las siguientes letras:
     i => "Inside" El objeto sin elementos circundantes
@@ -12,8 +10,10 @@ Al usar objetos de texto siempre se precede alguna de las siguientes letras:
 La sintaxis completa es:
     {operador}(a|i){objeto de texto}
 
-Ejercicio 1: Probar las diferencias entre 'va(' y 'vi(' en el siguiente
-párrafo
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 1: Probar las diferencias entre 'va(' y 'vi(' dentro de los
+límites de los paréntesis en la siguiente línea
+
     ...es probable que tu IDE (Entorno de desarrollo integrado) pueda...
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
@@ -24,12 +24,14 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     'vi(' y observe el texto seleccionado. Regrese a modo normal con <Esc>.
     Haga lo mismo con 'va('
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 Las operaciones sobre objetos de texto se pueden repetir de dos formas.
     {numero}{operador}(a|i){objetos de texto}
 y
     {operador}{número}(a|i){objetos de texto}
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Probar las diferencias entre '2vap' y 'v2ap'
 
     Consectetur quos esse quia ipsam repudiandae rerum explicabo.
@@ -46,6 +48,7 @@ Respuesta sugerida {{{
     Pruebe cada combinación por separado desde el primer párrafo, observe
     el resultado y salga de modo "visual" presionando <Esc>
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 Nota: Las dos formas mencionadas de repetir operaciones sobre objetos son
 equivalentes. En el ejemplo anterior se observa una diferencia solamente
@@ -60,30 +63,44 @@ o a su fin dependiente del contexto.
 w => Objeto "word", o "palabra pequeña". Es una serie consecutiva de símbolos
      de los listados en la opción 'iskeyword'.
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: Reordene la siguiente frase
     Educación es lo que olvidar tras queda lo aprendido en la escuela
    (Educación es lo que queda tras olvidar lo aprendido en la escuela)
                                             Pegar antes del carácter => P
-
 Respuesta sugerida {{{
-    Sobre la "o" de "olvidar" presione:
+    Sobre la "o" de "olvidar" presiona:
         'daw'   Corta "olvidar "
         'wP'    Avanza al inicio de "tras" y pega "olvidar " antes
         'ldaw'  Corta "queda "
         bbP'    Retrocede hasta el inicio de tras y pega "queda " antes
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 4: Reordenar el texto para que tenga la estructura de una frase
 del maestro Yoda
     Si tu quieres aprender vim, debes practicar mucho
+   (Si aprender vim tu quieres, practicar mucho debes)
                                             Pegar después del carácter => p
+Respuesta sugerida {{{
+    En el espacio anterior a la "t" de "tu" presiona:
+        '2daw'  Corta " tu quieres"
+        'wwh'   Avanza espacio anterior a "debes"
+        'daw'   Corta " debes"
+        'eeP'   Llega a la "o" de "mucho" y pega el texto cortado
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 5: (Abrir con 'gf' o 'gF')
     1.6_Ejercicio5.css
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 W => Objeto "WORD", o "palabra grande". Serie de símbolos separados por un
      carácter de espacio en blanco (o una línea en blanco).
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 6: Hacer una lista de los enlaces que aparecen en el siguiente texto
 en el final del párrafo.
 
@@ -95,9 +112,23 @@ en el final del párrafo.
 
     Lista de los enlaces:
 
+                                        Operador copiar => y
+                                        Comando pegar siguiente posición => p
+Respuesta sugerida {{{
+    Con 'autoindent' activada:
+    En la línea de "lista de enlaces" teclea 'o- <Esc>' y sin moverte
+    de línea repite un par de veces con punto para formar una
+    pequeña lista.
+    Ahora ve a recoger cada uno de los enlaces posicionándote sobre
+    uno copiándolo con 'yiW' para luego regresar a la lista y pegarlo
+    sobre ella con 'p'
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
 s => Objeto "sentencia". Serie de símbolos terminados en '.', '!' o '?'
      seguido de espacio, tab o fin de línea.
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 7: La primera, segunda, cuarta y quinta sentencias tiene las
 mayúsculas y minúsculas alternadas. Arreglelo
 
@@ -106,26 +137,46 @@ mayúsculas y minúsculas alternadas. Arreglelo
     Consectetur temporibus odit.  iPSUM VOLUPTATUM POSSIMUS.
     sIT HIC ITAQUE ARCHITECTO REM. Lorem totam magnam
                                             Operador cambiar minus/mayus => g~
+Respuesta sugerida {{{
+    Desde la primera sentencia: 'g~is).)).).'
+
+     g~is     Cambia mayúsculas y minúsculas de la sentencia actual
+     ).       Avanza una sentencia y repite
+     )).      Avanza dos sentencias y repite
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 p => Objeto "párrafo". Serie de líneas delimitadas por una línea
      completamente en blanco.
 
-Ejercicio 8: Ordenar los párrafos.
 
-     b) Elit eaque mollitia nulla voluptatibus cupiditate, consequatur Optio.
-     Adipisicing earum quia consequuntur exercitationem dicta Autem officia?
-     Consectetur facilis soluta asperiores qui excepturi magni Aliquam.
-     Lorem ipsum dolorem reprehenderit quia dolor Exercitationem temporibus
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 8: Ordenar los párrafos.
 
      c) Amet dolorem qui id veritatis quisquam? Delectus praesentium?
      Adipisicing quis hic earum nobis magnam? Laboriosam soluta
      Adipisicing veniam ipsa nisi totam ipsa necessitatibus animi
      Elit autem soluta reprehenderit exercitationem non saepe Fugiat
 
+     b) Elit eaque mollitia nulla voluptatibus cupiditate, consequatur Optio.
+     Adipisicing earum quia consequuntur exercitationem dicta Autem officia?
+     Consectetur facilis soluta asperiores qui excepturi magni Aliquam.
+     Lorem ipsum dolorem reprehenderit quia dolor Exercitationem temporibus
+
      a) Dolor eaque consequuntur voluptates illum quibusdam! Dolorem perspiciatis
      Consectetur odio labore assumenda hic ratione Iusto dolore
      Adipisicing explicabo beatae exercitationem porro nulla nostrum, laboriosam!
      Ipsum dolorem voluptatum odio sapiente tenetur ut eaque
+                                                    Pegar después => p
+
+Respuesta sugerida {{{
+    Desde el primer párrafo: '2dap}pdap}p'
+
+    2dap    Corta dos párrafos
+    }p      Avanza un párrafo y pega el contenido del registro sin nombre
+    dap     Corta un párrafo
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ==============================================================================
 
@@ -135,12 +186,14 @@ respectivamente.
 
 [ ó ] => Objeto "contenido de corchetes"
 
-Ejercicio 9:
-    1.6_Ejercicio9.cpp
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 9: 1.6_Ejercicio9.cpp
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 
 ( ó ) ó b => Objeto "contenido de paréntesis"
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 10: Borrar todas las aclaraciones en paréntesis del siguiente
 texto
     Dolore apeirian omnis augue minim omnis ad mei.
@@ -149,18 +202,31 @@ texto
     te sed veniam possim vitae urna. Scripta curabitur ornare impedit eget.
     Mei postea ocurreret (assentior te meliore nam ex) sonet appetere amet ne
     iriure. Purus commodo aeque mediocrem?
+                                            Borrar un solo carácter => x
+Respuesta sugerida {{{
+    Desde la primera línea: 'jf(da)hxj,(da)xj;(da)x'
+
+    jf(      Bajar a la segunda línea y buscar "(" hacia adelante
+    da)hx    Borra el paréntesis y un espacio a la izquierda
+    j,       Baja una línea y repite búsqueda de "(" hacia atrás
+    da)x     Borra el paréntesis y un espacio
+    j;       Baja una línea y repite búsqueda de "(" hacia adelante
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 { ó } ó B => Objeto "contenido de llaves"
 
 
-Ejercicio 11:
-    1.6_Ejercicio11.sh
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 11: 1.6_Ejercicio11.sh
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 
 < ó > => Objeto "contenido de paréntesis angulares"
 
-Ejercicio 12:
-    1.6_Ejercicio12.c
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 12: 1.6_Ejercicio12.c
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ==============================================================================
 
@@ -170,19 +236,23 @@ mueven el cursor hacia adelante para buscar la cadena.
 
 ' => Cadena delimitada por: '
 
-Ejercicio 13:
-    1.6_Ejercicio13.py
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 13: 1.6_Ejercicio13.py
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 
 " => Cadena delimitada por: "
 
-    1.6_Ejercicio14.f90
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 14: 1.6_Ejercicio14.f90
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 
 ` => Cadena delimitada por: `
 
-    1.6_Ejercicio15.js
-
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 15: 1.6_Ejercicio15.js
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ==============================================================================
 
@@ -190,8 +260,9 @@ Objeto para manejo de lenguajes de marcado
 
 t => Objeto "etiqueta de html/xml"
 
-Ejercicio 16:
-    1.6_Ejercicio16.html
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 16: 1.6_Ejercicio16.html
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
@@ -199,6 +270,7 @@ _ => El guión bajo no es un objeto de texto, sin embargo se suele comportar
      de forma similar a lo que algunos plugins interpretan como el objeto
      "línea completa"
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 17: Eliminar las líneas pares de la siguiente figura
 
      .----------------.  .----------------.  .----------------.
@@ -222,12 +294,14 @@ Ejercicio 17: Eliminar las líneas pares de la siguiente figura
     | '--------------' || '--------------' || '--------------' |
     ############################################################
      '----------------'  '----------------'  '----------------'
-                                                    Operador eliminar => d
+                                            Operador eliminar => d
+                                            Aplicar operador sobre línea => _
 
 Respuesta sugerida {{{
     Posicionese sobre la segunda línea y teclee 'd_'. Luego baje con 'j'
-    y repita el cambio con '.' repetidas veces hasta terminar.
+    y repita la edición con '.' repetidas veces hasta terminar.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ______________________________________________________________________________
 Esos son todos los objetos de texto integrados de vim, más se pueden instalar

@@ -8,16 +8,17 @@ Teclas equivalentes a las flechas de dirección
                           j
                           ↓
 
-Úsalas para bajar y seguir leyendo
+Úsalas para bajar a la siguiente sección delimitada por "==="
 
 ===========================================================================
 
 Reglas de vim:
-    - El modo en que estas importa. Por defecto estás en modo "normal".
-    - El modo "inserción" funciona de forma similar a cualquier otro editor
-      pero en modo "normal" incluso las letras son comandos.
+    - El MODO en que estas importa. Por defecto estás en modo "normal".
+    - El modo "inserción" funciona de forma similar a como funciona
+      cualquier otro editor, pero en el modo "normal" todo (incluso las
+      letras) son comandos.
     - Las mayúsculas y minúsculas en los comandos importan excepto
-      cuando se usan con teclas modificadores (Control, Alt, etc).
+      cuando se usan con teclas modificadoras (Control, Alt, etc).
 
 ===========================================================================
 
@@ -25,24 +26,31 @@ Ciclo de edición
 
 Entrar a modo inserción en la posición actual
     i           (i de "insert")
+En modo inserción se puede escribir texto normalmente
 
 Regresar a modo normal
     <Esc>
     <Ctrl-[>
 
 ===========================================================================
-Guardando y saliendo
-    :w[rite]    Guardar
-    :q[uit]     Cerrar (solo si el documento ya fue guardado o no tiene cambios)
-    :q[uit]!    Cerrar sin guardar (léase el signo "!" como "forzar")
-    :wq         Guardar y cerrar
-    :exi[t]     Guardar y cerrar
 
+Guardando y saliendo (Los corchetes indican una parte opcional)
+    :w[rite]      Guardar
+    :q[uit]       Cerrar (Si el documento no tiene cambios sin guardar)
+    :q[uit]!      Cerrar sin preguntas (léase el signo "!" como "forzar")
+    :wq           Guardar y cerrar
+    :exi[t]       Guardar y cerrar si hay cambios
+
+A continuación un ejercicio. Los ejercicios se delimitan con
+"*-*-*-*" y "*v*v*v*", asegúrate de poder ver los ejercicios
+por completo antes de comenzarlos (Puede requerir maximizar la pantalla).
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio: Escribe algo en la siguiente línea, guarda y cierra el archivo.
 Después vuelve a este punto
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Estando sobre el lugar en que quieras escribir presiona 'i', lo cual te
+    Sobre el lugar en que quieras escribir presiona 'i', lo cual te
     cambiará de modo normal a modo inserción.
 
     Ya en modo inserción puedes escribir tanto texto como quieras.
@@ -50,14 +58,16 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     o la combinación de teclas '<Ctrl-[>' (Control + Corchete abierto).
 
     Desde modo normal puedes usar los comandos separados:
-        ':w<Return>' (Dos puntos, letra w minúscula y enter)
-        ':q<Return>' (Dos puntos, letra q minúscula y enter)
+        :w<Return>          (Dos puntos, letra w minúscula y enter)
+        :q<Return>          (Dos puntos, letra q minúscula y enter)
     para guardar y salir respectivamente o puedes simplemente hacer:
-        ':wq<Return>'
+        :wq<Return>
     o
-        ':x<Return>'
+        :x<Return>
     Cualquiera de los cuales guardará los cambios y saldrá al mismo tiempo
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
 ===========================================================================
 
 Para moverse por bloques más grandes puede usar los siguientes comandos
@@ -66,12 +76,16 @@ Para moverse por bloques más grandes puede usar los siguientes comandos
     Media página abajo
       <Ctrl-D>          (D de "down")
 
+Usa estos comandos para moverte entre las lecciones
 ___________________________________________________________________________
 
 Obteniendo más ayuda de vim
-    vimtutor        Comando para abrir el tutorial de vim
-    :help {algo}    Buscar ayuda de {algo}
-    www.openvim.com Tutorial online (abrir con 'gx')
+    vimtutor         Comando para abrir el tutorial de vim
+
+    :help {algo}     Buscar ayuda de {algo}, muy útil para buscar opciones
+
+    www.openvim.com  Tutorial de 'vi' en un emulador en línea.
+                     No tiene soporte completo de vim
 
 
                                                      Archivo siguiente---->

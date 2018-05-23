@@ -1,18 +1,16 @@
                 ** Movimiento parte 2: moverse por objetos **
 
-Los comandos de movimiento son mayormente heredados de vi por lo que suelen
-ser poco intuitivos al principio (como todo lo de vi). Esa es una desventaja
-pero también tienen la ventaja de que pocos de ellos son arbitrarios; La
-mayoría trabajan sobre "objetos" sintácticos reconocidos por vim. De alguna
-forma, los movimientos de palabras ya vistos son como movimientos por objetos
-también aunque vim no los considere como tal.
+Vim reconoce de forma especial algunas secuencias de texto (palabras,
+párrafos, etc) mediante una serie de reglas sencillas. Los movimientos
+por objetos son aquellos que se mueven entre dichas secuencias
+reconocidas por vim.
 
 Los movimientos por objetos son generalmente 'no inclusivos', lo cual es
 relevante al usarlos con operadores.
 
 ======================================================================
 
-Movimiento de sentencias:
+Movimiento por sentencias:
                 ↱
             '(' ←   → ')'
                     ↲
@@ -21,25 +19,27 @@ Las sentencias en vim son similares a sentencias gramaticales. La
 definición de 'sentencia' se puede cambiar dependiendo del tipo de
 archivo que se esté editando.
 
-Ejercicio 1: Elimine la sentencia 'Dolor explicabo' del siguiente párrafo
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 1: Elimina la sentencia 'Dolor explicabo' del siguiente párrafo
     Adipisicing facilis magni esse quasi?
     Dolor cumque. Amet error aspernatur
     Sit ducimus autem deleniti accusamus.
     Dolor explicabo. Officia alias perferendis
     Consectetur nemo obcaecati provident qui.
                                                     Operador eliminar => d
-
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Mediante repetidos ')' llegue a la D de 'Dolor'. Presione 'd)' para
-    eliminar de manera no inclusiva desde la posición actual hasta el inicio
-    de la siguiente sentencia.
+    Presionando ')' repetidas veces llegue a la "D" de "Dolor". Presione
+    'd)' para eliminar de manera no inclusiva desde la posición actual
+    hasta el inicio de la siguiente sentencia.
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
 Movimiento de párrafos:
-            '{' ↑   ↓ '}'
+            '{' ↑   ↓ '}'*
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Elimine el segundo párrafo
     Amet saepe asperiores odio hic
     Ipsum doloremque magnam accusamus perferendis.
@@ -59,8 +59,9 @@ Ejercicio 2: Elimine el segundo párrafo
     Amet dolore necessitatibus cumque ipsa.
     Adipisicing dolor veritatis repellat illum
                                                     Operador eliminar => d
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Respuesta sugerida (Abrir con 'za') {{{
+Respuesta sugerida (Abrir con 'za') {{{*
     Posicionado en la linea vacía de arriba presione 'd}' o posicionado
     en la de abajo presione 'd{'
 }}}
@@ -75,8 +76,8 @@ La definición de sección es la que más cambia según el tipo de archivo
 en que se esté trabajando. Por defecto la sección se corresponde con una
 llave de apertura y una de cierre al principio de línea
 
-Los comandos '[[' y ']]' sirven para moverse al inicio de sección anterior
-y siguiente respectivamente. Los comandos ']['y '[]' hacen lo respectivo
+Los comandos '[[' y ']]' sirven para moverse al inicio de sección anterior*
+y siguiente respectivamente. Los comandos ']['y '[]' hacen lo respectivo*
 con el final de sección
 
 int funcion1()
@@ -125,9 +126,10 @@ int funcion4()
 
 }
 
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: (Abrir con 'gf')
-
     1.3_Ejercicio3.c
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ___________________________________________________________________________
 

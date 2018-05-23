@@ -1,4 +1,5 @@
 
+// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 // Ejercicio
 // Indente el código y ponga punto y coma donde sea posible
 // Respuesta sugerida {{{
@@ -20,6 +21,7 @@ console.log('advice goldfish lunchroom')
 const Dolor = (amet) => ({ 'Consectetur': 'sit' })
 }
 })('Aliquid', false, len)
+// *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 // ¿Quieres volver? => 1.4_EntradoInserción.txt:38
 
