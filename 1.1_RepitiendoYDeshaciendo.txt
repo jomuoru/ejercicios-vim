@@ -32,8 +32,8 @@ elección (preferiblemente de varias palabras)
     Alias sit neque accusantium.
                                                     Cambiar palabra => ciw
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Posiciónate en cualquier parte de la primera aparición de "naque"
-    y presiona 'ciw' que eliminará la palabra y te posicionará en
+    Posicionate en cualquier parte de la primera aparición de "naque"
+    y presiona 'ciw' (Change inside word) que eliminará la palabra y te posicionará en
     modo inserción.
 
     Escribe lo que gustes y presiona '<Esc>' o

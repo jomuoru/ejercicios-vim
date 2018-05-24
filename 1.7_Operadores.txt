@@ -179,7 +179,37 @@ puntos de movimiento.
 
 Aplicar operador hasta el final de la línea
 
+Algunos operadores de una letra tienen un alias para operar desde la
+posición actual hasta el final de la línea, es decir {operador}$.
+Estos alias están compuestos de la misma letra del operador escrita
+en mayúsculas:
+
+        D   :  Igual a d_. Elimina línea actual
+        C   :  Igual a c_. Elimina línea actual y entra en modo inserción
+
+El único de los operadores básicos que no cumple esta propiedad es el
+operador "yank". La 'Y' mayúscula en realidad es equivalente a 'y_' al
+igual que 'yy'.
+Para conservar la consistencia, puedes redefinir 'Y' para que copie
+hasta el fin de línea de la siguiente manera:
+
+    :nnoremap Y y$
+
+Esa línea se puede añadir a tu configuración de vim para gozar
+de consistencia en los operadores básicos.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 6:  1.7_Ejercicio6.c:11
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ___________________________________________________________________________
+
+Al igual que hay plugins que añaden nuevos objetos de texto. Hay otros
+que añaden operadores para que trabajen con los operadores. Algunos de
+los mejores son:
+    * https://github.com/tpope/vim-surround: Operador para encerrar
+      texto entre símbolos o etiquetas XML.
+    * https://github.com/tpope/vim-commentary: Operador para comentar
+      y des-comentar texto.
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]

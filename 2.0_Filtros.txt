@@ -1,0 +1,3 @@
+                    ** Filtros **
+
+En vim, se le llama filtro

@@ -6,6 +6,9 @@ Nuevamente, el movimiento básico se hace mediante hjkl
                         h  ←   →  l
                              ↓
                              j
+Si se desactivan las flechas de dirección suele ser más rápido
+el aprendizaje de estos comandos: 1.2_Script_DesactivarFlechas.vim
+
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 1: Camine a través del laberinto usando las teclas de vim

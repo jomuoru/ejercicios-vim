@@ -1,19 +1,113 @@
                     ** Completar texto **
 
-Vim puede completar de varias formas y cada una cambia la lista de palabras
-que se contemplan.
+Vim puede completar de varias formas y cada una cambia la lista de
+palabras que se contemplan.
 Para navegar la lista de autocompletado se usan dos combinaciones:
 
-    ctrl-n => siguiente palabra
-    ctrl-p => palabra anterior
+    <Ctrl-N>      Siguiente palabra (n de next)
+    <Ctrl-P>      Palabra anterior  (p de previous)
+
+Para aceptar una opción puedes usar:
+
+    <Ctrl-Y>     Aceptar opción  (y de yes)
+
+El modo normal de completado toma en cuenta las palabras del buffer
+actual y de los archivos incluidos.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-Ejercicio 1: (abrir con 'gf')
+Ejercicio 1: (abrir con 'gf' o 'gF')
         1.8_Ejercicio1.java
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
-También se pueden usar las flechas arriba y abajo aunque el comportamiento
-es diferente (No modifica el texto hasta aceptar).
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+Ejercicio 2: 1.8_Ejercicio2.c
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
+
+También se pueden usar las flechas arriba y abajo para navegar la
+lista de auto-completado aunque el comportamiento es diferente (No modifica el texto hasta aceptar).
+
+Para activar alguna de las diferentes formas de autocompletado se
+escribe el prefijo <Ctrl-X> lo cual accede al llamado "sub-modo X"
+que muestra un mensaje similar al siguiente:
+
+    -- ^X (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)
+
+El contenido del paréntesis muestra las diferentes opciones de uso
+del modo X. La mayoría tiene que ver con completado de palabras y
+aunque un par mueven la pantalla.
+
+===========================================================================
+
+Sub-modos de completado para limitar la lista de palabras
+
+El modo normal de completado no hace ninguna distinción en la lista
+de palabras. Cuando un archivo es muy grande y/o incluye demasiados
+archivos externos la lista de palabras puede ser enorme y poco
+significativa.
+Para arreglar este problema, vim cuenta con varias formas de completado:
+
+
+<Ctrl-X><Ctrl-D>    Completado por definiciones: Limita las palabras
+                    a definiciones o macros del archivo actual y de
+                    archivos incluidos.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 3: 1.8_Ejercicio3.c:18
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+<Ctrl-X><Ctrl-I>   Completado por identificadores: Excluye las
+                   definiciones
+
+<Ctrl-X><Ctrl-N>   (Cualquiera de las dos) Completar solo con
+<Ctrl-X><Ctrl-P>   palabras del archivo actual
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 4: 1.8_Ejercicio4.c:29
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 5: 1.8_Ejercicio5.java:18
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+===========================================================================
+
+Otros modos de completado
+
+<Ctrl-X><Ctrl-L>   Completado de lineas: Solo trabaja con líneas
+                   completas.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 6: 1.8_Ejercicio6.cpp:24
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+<Ctrl-X><Ctrl-F>   Completado de nombres de archivo
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 7: Completa el nombre del archivo del ejercicio y luego
+ábrelo.
+    1.8_E
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+<Ctrl-X><Ctrl-U>   Completar según la función 'completefun'. Dado que la
+                   función tiene libertad de hacer lo que sea, este modo
+                   de completado puede ir de lo más modesto a lo más
+                   complejo.
+
+<Ctrl-X><Ctrl-O>   Completar según la función 'omnifun'. Típicamente se
+                   usa una función que depende del tipo de dato.
+                   Aplica lo mismo que con el anterior.
+
+<Ctrl-X><Ctrl-]>   Completar tags (generalmente funciones). Requiere un
+                   archivo de tags generado por ctags.
+
+<Ctrl-X><Ctrl-K>   Completar palabras del diccionario de tu lenguaje
+                   seleccionado con la opción 'spelllang'
+
+<Ctrl-X><Ctrl-S>   Sustituir la palabra detrás del cursor por otra
+                   palabra válida según tu diccionario actual.
+
+<Ctrl-X><Ctrl-V>   Completado de vimscript (el lenguaje de programación
+                   de vim)
+
 ___________________________________________________________________________
 
 <----Archivo anterior                                Archivo siguiente---->
