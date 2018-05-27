@@ -1,0 +1,13 @@
+- Moverse a través de los saltos significativos
+    <Ctrl-O>
+    <Ctro-I>
+
+- %
+
+- Moverse a través de la lista de cambios
+    g;
+    g,
+
+- Volver a la última posición de inserción
+    gi
+

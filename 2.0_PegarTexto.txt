@@ -1,0 +1,16 @@
+- El comando punto puede recorrer el anillo de eliminaciones para insertar textos borrados de
+forma consecutiva
+    "1P....
+
+Pegar cosas
+    con soporte de clipboard
+        :put +
+    sin soporte de clipboard
+        :set paste
+        clic derecho, pegar
+        rezar un poco por que no se vea horrible
+        :set nopaste
+
+Plugins
+    yank-ring
+

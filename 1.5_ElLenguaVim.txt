@@ -15,9 +15,9 @@ con 'dw'
     Amet provident deleniti
     aliquam amet provident
     Amet provident voluptatem.
-                                                    d => Operador eliminar
-                                                    w => Moverse a la siguiente
-                                                         palabra
+                                                d => Operador eliminar
+                                                w => Moverse a la siguiente
+                                                     palabra
 
 Respuesta sugerida (Abrir o cerrar 'za') {{{
     Sobre la PRIMERA LETRA de "provident" escribe 'dw' que elimina desde
@@ -48,6 +48,7 @@ con 'daw' (delete around word)
     Amet provident voluptatem.
                                             d => Operador eliminar
                                             w => Moverse a la siguiente palabra
+
 Respuesta sugerida {{{
     Sobre la palabra provident y sin importar la posición, presiona 'daw' y
     luego repítelo sobre el resto de apariciones sin importar la posición

@@ -1,0 +1,5 @@
+vimscript
+
+Insertar rangos:
+    :for i in range(1,255) | .put='10.0.0.'.i | endfor
+

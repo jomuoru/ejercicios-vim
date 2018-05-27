@@ -1,0 +1,114 @@
+                        ** Modo visual **
+
+El modo visual provee otra forma de trabajar con los operadores,
+primero seleccionando el texto y posteriormente especificando el
+operador a usar:
+
+
+===========================================================================
+
+Entrando a modo visual
+
+v      Entrar a modo normal por caracteres: Similar a la selección en
+       cualquier otro editor.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 1: Selecciona y convierte en minúscula la parte media
+de la siguiente línea.
+    AAAAABBBBBAAAAABBBBBAAAAABBBBBAAAAABBBBBAAAAABBBBB
+                   ^                  ^
+                   |                  |
+                            Comando convertir en mayúscula desde
+                            modo visual (no el operador)          => u
+
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Usa las flechas de debajo para como anclas para llegar a los
+    caracteres señalados. Es decir, desde la primera flecha presiona
+
+        kvjwku
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+V      Entrar a modo de selección de líneas completas
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 2: 1.9_Ejercicio2.php:9 (Abrir con 'gF')
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+<Ctrl-V>    Entrar a modo de selección de bloque
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 3: 1.9_Ejercicio3.css
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 4: Ordenar las filas y columnas
+    +----------+----------+----------+----------+
+    |          |  Fila C  |  Fila B  |  Fila A  |
+    +----------+----------+----------+----------+
+    |  Colm 1  |  cel 11  |  cel 21  |  cel 13  |
+    +----------+----------+----------+----------+
+    |  Colm 2  |  cel 21  |  cel 22  |  cel 23  |
+    +----------+----------+----------+----------+
+    |  Colm 3  |  cel 31  |  cel 32  |  cel 33  |
+    +----------+----------+----------+----------+
+
+Un script curioso para probar tras hacer el ejercicio
+    1.9_Script_MovimientoBloque.vim
+
+Respuesta sugerida {{{
+    Posicionado desde el primer "+", para ordenar las filas:
+        f+l<Ctrl-V>2f+8jd$pf+8jd$p
+    Para ordenar las columnas:
+        2jdjjp
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+===========================================================================
+
+Moviéndose entre las esquinas
+
+En modo de bloque visual puedes alternar entre las esquinas de la
+selección mediante dos comandos:
+
+o        Ir a la esquina que inversa (por la diagonal)
+
+O        Ir a la esquina inversa (en horizontal)
+
+En el resto de modos visuales ambos comandos funcionan igual (alternando
+entre los extremos)
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 5: Elimina el contenido de los paréntesis más las dos
+palabras aledañas
+
+    Dolor praesentium (ratione similique modi) vero repellat!
+
+Respuesta sugerida {{{
+    Desde el interior de los paréntesis: vi)eeobbhd
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+===========================================================================
+
+Reusando la selección anterior
+
+gv     Re-seleccionar el texto usado previamente
+
+marca [     Inicio de la selección usada previamente
+marca ]     Final de la selección usada previamente
+
+Para aprender sobre manejo de marcas, vea 2.5_Marcas.txt
+___________________________________________________________________________
+Algunos de los trucos presentados en esta lección y más en la
+conferencia de Damian Conway:
+    https://www.youtube.com/watch?v=aHm36-na4-4&t=1042s
+
+Un plugin que implementa el comportamiento de mover líneas arriba y
+abajo fácilmente, permitiendo también mover una sola línea sin
+seleccionar.
+    https://github.com/matze/vim-move/
+
+<----Archivo anterior                                Archivo siguiente---->
+  :prev[ious]                                                     :n[ext]
+
+vim: fdm=marker

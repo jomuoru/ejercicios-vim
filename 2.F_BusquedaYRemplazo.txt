@@ -1,0 +1,11 @@
+- Copiar coincidencias de re en un registro
+    :g/re/y [reg]
+
+- La "dot formula" mejorada
+
+Añadir prefijo y sufijo a un texto
+    :s/.*/PREFIX & SUFFIX/
+
+Campos en expresiones regulares
+    :%s/\(holas\)
+

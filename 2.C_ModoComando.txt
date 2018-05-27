@@ -1,0 +1,14 @@
+Modo ex
+
+Abrir historial de comandos
+    :q
+
+Abrir terminal del sistema:
+    :sh
+
+Historial de cambios de una variable o mapeo
+    :vervose set [var]?
+    :vervose [mapmode] [map]
+
+Se pueden ejecutar comandos externos
+    ![comando]

@@ -57,6 +57,7 @@ Ejercicio 4: Numera las siguientes líneas
                                          Insertar al principio de línea => I
                                          Modo bloque visual => <c-v>
                                          Conteo por columnas => g<c-a>
+
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     En la primera línea del ejercicio teclea
     'I1. ' (Letra I mayúscula, número 1, punto y espacio). Regrese a modo
@@ -113,8 +114,9 @@ Ejercicio 6:
     Haz una caja como la de arriba pero con dimensiones de 70 X 10
 
 
-                                            Insertar  en la línea abajo =>  o
-                                            Insertar  en la línea arriba => O
+                                        Insertar  en la línea abajo =>  o
+                                        Insertar  en la línea arriba => O
+
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Sobre la primera línea en blanco presione '70i' seguido de un único
     signo '=' y regrese a modo normal.

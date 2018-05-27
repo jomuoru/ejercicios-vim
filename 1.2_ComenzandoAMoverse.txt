@@ -42,7 +42,6 @@ o abreviando:
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Establecer la opción anterior y usarla para recorrer el
 segundo laberinto.
-
  ↓
   
 | ********|
@@ -252,17 +251,21 @@ Ejercicio 8: (Abrir con 'gf')
     1.2_Ejercicio8.java
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Por último, es posible moverse entre el principio y el final de una línea
-a partir de varios comandos.
+Por último, es posible moverse entre el principio y el final de una
+línea a partir de varios comandos.
 Los comandos '0' y '$' permiten moverse entre el inicio y el final absolutos.
-Los comandos '^' y 'g_' se mueven al primer y último carácter visible
+Los comandos '_' y 'g_' se mueven al primer y último carácter visible
 respectivamente.
 
-                  0  ←  ^  ←   →  g_  →  $
+                  0  ←  _  ←   →  g_  →  $
+
+** Nota: El carácter '̣^' (acento circunflejo) sirve para lo mismo que
+'_' (guión bajo) aunque son independientes (a diferencia, por ejemplo,
+de <Esc> y <Ctrl-[>]).
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 9: Prueba las diferencias entre '0' y '^' así como entre 'g_' y '$'
-en la siguiente línea:
+Ejercicio 9: Prueba las diferencias entre '0' y '^' así como entre 'g_'
+y '$' en la siguiente línea:
         Dolor voluptatibus accusamus facere labore quia.        
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -277,7 +280,7 @@ Ejercicio 10: Arregla el siguiente recuadro para que se vea regular
 |                  $                          $                  *
 *                  ============================                  |
 +----------------------------------------------------------------+
-                                                Reemplazar carácter => r{char}
+                                            Reemplazar carácter => r{char}
 
 Respuesta sugerida (Abrir o cerrar 'za') {{{
     Por motivos de práctica se sugiere empezar de adentro hacía afuera
@@ -294,6 +297,13 @@ https://vim-adventures.com  Página que sabe la mejor forma de memorizar
 
 https://www.shortcutfoo.com Juego para memorizar comandos de editores
                             comunes y competir contra la computadora
+
+Plugins relacionados con moverse:
+  * https://github.com/prendradjaja/vim-vertigo: Plugin para moverse
+    por líneas sin sacar los dedos de la fila principal.
+
+  * https://github.com/easymotion/vim-easymotion: Plugin para movimiento
+    directo a cualquier texto visible.
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]

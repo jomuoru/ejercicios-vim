@@ -17,11 +17,13 @@ límites de los paréntesis en la siguiente línea
     ...es probable que tu IDE (Entorno de desarrollo integrado) pueda...
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    La letra "v" no es un operador, es un comando de cambio al modo "visual"
-    que aún no aprendemos y para regresar a modo normal deberás presionar
-    <Esc> de la misma forma que se hace desde modo inserción.
-    Dentro de los límites de los paréntesis de (Entorno ....grado), presione
-    'vi(' y observe el texto seleccionado. Regrese a modo normal con <Esc>.
+    La letra "v" no es un operador, es un comando de cambio al modo
+    "visual" que aún no aprendemos y para regresar a modo normal
+    deberás presionar <Esc> de la misma forma que se hace desde modo
+    inserción.
+    Dentro de los límites de los paréntesis de (Entorno ....grado),
+    presione 'vi(' y observe el texto seleccionado. Regrese a modo normal
+    con <Esc>.
     Haga lo mismo con 'va('
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
@@ -55,7 +57,7 @@ equivalentes. En el ejemplo anterior se observa una diferencia solamente
 porque 'v' no es un operador y un prefijo numérico funciona de manera
 distinta en el.
 
-==============================================================================
+===========================================================================
 
 Objetos de texto normales. Operan sobre un bloque más un carácter a su inicio
 o a su fin dependiente del contexto.
@@ -178,7 +180,7 @@ Respuesta sugerida {{{
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-==============================================================================
+===========================================================================
 
 Objetos de texto por símbolos contenedores. Operan al interior de un par de
 símbolos contenedores de texto, incluyendo o excluyendo dichos caracteres
@@ -228,7 +230,7 @@ Ejercicio 11: 1.6_Ejercicio11.sh
 Ejercicio 12: 1.6_Ejercicio12.c
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-==============================================================================
+===========================================================================
 
 Objetos de cadenas. Similares a los objetos por símbolos contenedores pero
 solo funcionan sobre la línea actual. Tienen la propiedad especial de que
@@ -254,7 +256,7 @@ Ejercicio 14: 1.6_Ejercicio14.f90
 Ejercicio 15: 1.6_Ejercicio15.js
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-==============================================================================
+===========================================================================
 
 Objeto para manejo de lenguajes de marcado
 
@@ -294,8 +296,8 @@ Ejercicio 17: Eliminar las líneas pares de la siguiente figura
     | '--------------' || '--------------' || '--------------' |
     ############################################################
      '----------------'  '----------------'  '----------------'
-                                            Operador eliminar => d
-                                            Aplicar operador sobre línea => _
+                                        Operador eliminar => d
+                                        Aplicar operador sobre línea => _
 
 Respuesta sugerida {{{
     Posicionese sobre la segunda línea y teclee 'd_'. Luego baje con 'j'
@@ -303,7 +305,7 @@ Respuesta sugerida {{{
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-______________________________________________________________________________
+___________________________________________________________________________
 Esos son todos los objetos de texto integrados de vim, más se pueden instalar
 por medio de plugins. Algunos de los mejores son:
     * https://github.com/michaeljsmith/vim-indent-object: Provee un objeto

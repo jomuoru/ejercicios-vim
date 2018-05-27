@@ -5,8 +5,8 @@ párrafos, etc) mediante una serie de reglas sencillas. Los movimientos
 por objetos son aquellos que se mueven entre dichas secuencias
 reconocidas por vim.
 
-Los movimientos por objetos son generalmente 'no inclusivos', lo cual es
-relevante al usarlos con operadores.
+Los movimientos por objetos son generalmente 'no inclusivos', lo cual
+es relevante al usarlos con operadores.
 
 ======================================================================
 
@@ -20,13 +20,15 @@ definición de 'sentencia' se puede cambiar dependiendo del tipo de
 archivo que se esté editando.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 1: Elimina la sentencia 'Dolor explicabo' del siguiente párrafo
+Ejercicio 1: Elimina la sentencia 'Dolor explicabo' del siguiente
+párrafo
     Adipisicing facilis magni esse quasi?
     Dolor cumque. Amet error aspernatur
     Sit ducimus autem deleniti accusamus.
     Dolor explicabo. Officia alias perferendis
     Consectetur nemo obcaecati provident qui.
                                                     Operador eliminar => d
+
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Presionando ')' repetidas veces llegue a la "D" de "Dolor". Presione
     'd)' para eliminar de manera no inclusiva desde la posición actual
@@ -59,12 +61,12 @@ Ejercicio 2: Elimine el segundo párrafo
     Amet dolore necessitatibus cumque ipsa.
     Adipisicing dolor veritatis repellat illum
                                                     Operador eliminar => d
-*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 Respuesta sugerida (Abrir con 'za') {{{*
     Posicionado en la linea vacía de arriba presione 'd}' o posicionado
     en la de abajo presione 'd{'
 }}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 

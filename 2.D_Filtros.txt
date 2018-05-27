@@ -1,0 +1,87 @@
+                    ** Filtros **
+
+En vim, se le llama filtro a cualquier programa que reciba un texto de
+entrada y lo transforme en otro texto de salida. El 99% de los
+programas de consola se ajustan a esta definición.
+
+Entonces, cuando hablemos de filtrar nos estaremos refiriendo a pasar
+texto a un programa externo y sustituir su resultado en el buffer de
+edición.
+
+Los filtros se usan mediante los rangos de modo comando (cosa que aún no
+se cubre) aunque aquí veremos principalmente las formas de que vim
+inserte el rango por nosotros.
+
+===========================================================================
+
+!     Operador filtrar: Operador de línea que sirve para seleccionar
+      un rango mediante los métodos convencionales.
+
+Ejercicio 1: Ordene alfabéticamente la siguiente lista de nombres:
+    Jennie
+    Cecil
+    Pauline
+    Delores
+    Thelma
+    Tyler
+    Charles
+    Danny
+    Stephen
+    Joel
+    Kevin
+    Crystal
+    Dustin
+    Vivian
+    Randy
+    Glenda
+
+Ejercicio 2: Compile el programa 2.0_ResponderCacahuate.java, que por
+cada palabra que recibe responde 'cacahuate' y luego úsalo para filtrar
+el siguiente texto:
+
+    Dolor minima soluta alias impedit corporis,
+    Elit quia fugit maxime odio beatae.
+    Sit perspiciatis excepturi mollitia velit omnis.
+
+Ejercicio 3: Elimine las lineas repetidas en la siguiente lista
+
+    Ipsum explicabo fuga eligendi id dolorum aut Quo!
+    Dolor aspernatur totam aspernatur doloremque saepe? Laudantium eveniet.
+    Adipisicing inventore numquam sapiente a sed Iste molestias.
+    Dolor perspiciatis ullam tempore dolorem repellat! Perspiciatis ipsam?
+    Adipisicing inventore numquam sapiente a sed Iste molestias.
+    Elit porro officia corporis non modi! Fuga enim
+    Consectetur corrupti cum libero sit quo? Rem adipisci.
+    Sit praesentium eos sed asperiores aut veritatis porro?
+    Consectetur corrupti cum libero sit quo? Rem adipisci.
+    Sit voluptatum dolor ex mollitia in. Id veritatis!
+    Dolor perspiciatis ullam tempore dolorem repellat! Perspiciatis ipsam?
+    Consectetur corrupti cum libero sit quo? Rem adipisci.
+    Elit porro officia corporis non modi! Fuga enim
+    Sit voluptatum dolor ex mollitia in. Id veritatis!
+    Dolor aspernatur totam aspernatur doloremque saepe? Laudantium eveniet.
+    Ipsum explicabo fuga eligendi id dolorum aut Quo!
+
+===========================================================================
+
+Hay un par de operadores integrados que pueden llamar un filtro externo
+cada vez que se usan si se establece la opción apropiada:
+
+ =     El operador típicamente usado para arreglar el código puede ser
+       alterado para que tenga cualquier comportamiento mediante la
+       opción 'equalprg'. Si equalprg (que es una cadena) se deja vacía,
+       se llama por defecto a 'cindent'. No es buena idea hacer que
+       equalprg llame a un programa con una finalidad que no sea indentar,
+       ya que este operador es llamado de forma implícita en ocasiones.
+
+gq     Operador para dar formato al código. Por defecto no hace nada así
+       que se vale cambiar su comportamiento a cualquier cosa que quieras
+       aunque su finalidad es usar programas externos para "embellecer
+       el código". La opción que controla que programa usa es 'formatprg'
+       (la cual también es una cadena).
+
+___________________________________________________________________________
+<----Archivo anterior                                Archivo siguiente---->
+  :prev[ious]                                                     :n[ext]
+
+vim: fdm=marker

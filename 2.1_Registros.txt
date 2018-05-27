@@ -1,0 +1,3 @@
+- Operar con vim:
+    <Ctrl-r>={expresion}
+

@@ -1,0 +1,8 @@
+- xp
+
+- Comandos de modo inserción
+
+Insertar símbolo especial
+    <Ctrl-k>{char}{char}
+    <Ctrl-v>{numero}
+

@@ -1,0 +1,9 @@
+
+Sintaxis de lenguajes
+
+Cscope
+
+Ctags y vim
+
+Plugins
+    taglist

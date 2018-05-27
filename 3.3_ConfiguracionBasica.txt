@@ -1,0 +1,8 @@
+
+Modelines
+
+Tabs a espacios
+    :set expandtab
+    :retab %
+
+Resaltado de líneas y columnas

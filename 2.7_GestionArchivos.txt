@@ -1,0 +1,30 @@
+Salir sin guardar (rápido)
+    ZQ
+
+Salir guardando (rápido)
+    ZZ
+
+Abrir con cierta codificación
+    :e ++enc=cp1250 %:p
+
+Se pueden abrir urls directamente:
+    vim [direccion]
+
+Netrw
+    :Explore {carpeta}
+
+Ventanas múltiples y tabs
+
+Diff con otro archivo
+    :vert diffs /project2/root/%
+
+Editar archivos comprimidos
+
+Crear sesiones de trabajo:
+    mksession {sesion}.vim
+    vim -S {sesion}.vim
+
+Facil manejo de cliente-servidor de edición:
+    alias vims='vim --servername SAMPLESERVER'
+    alias vimc='vim --servername SAMPLESERVER --remote-tab-silent'
+

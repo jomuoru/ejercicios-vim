@@ -1,0 +1,10 @@
+Se puede leer la salida de comandos externos
+    r! ls
+
+Cuando abres un archivo sin permiso para modificarlo
+puedes pedirlos dentro de vim:
+    :w !sudo tee %
+
+Editar en hexadecimal
+    %!xxd
+    %!xxd -r
