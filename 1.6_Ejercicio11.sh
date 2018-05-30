@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-# Ejercicio:
 # Sustituye cada aparición de 1:-Usuario por NOMBRE
 # Respuesta sugerida {{{
 #     Dentro de las llaves de alguna aparición de "${1:-Usuario}" presione

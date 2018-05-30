@@ -25,7 +25,7 @@ párrafo
     Adipisicing facilis magni esse quasi?
     Dolor cumque. Amet error aspernatur
     Sit ducimus autem deleniti accusamus.
-    Dolor explicabo. Officia alias perferendis
+    Officia alias perferendis
     Consectetur nemo obcaecati provident qui.
                                                     Operador eliminar => d
 
@@ -62,7 +62,7 @@ Ejercicio 2: Elimine el segundo párrafo
     Adipisicing dolor veritatis repellat illum
                                                     Operador eliminar => d
 
-Respuesta sugerida (Abrir con 'za') {{{*
+Respuesta sugerida (Abrir con 'za') {{{
     Posicionado en la linea vacía de arriba presione 'd}' o posicionado
     en la de abajo presione 'd{'
 }}}
@@ -78,8 +78,8 @@ La definición de sección es la que más cambia según el tipo de archivo
 en que se esté trabajando. Por defecto la sección se corresponde con una
 llave de apertura y una de cierre al principio de línea
 
-Los comandos '[[' y ']]' sirven para moverse al inicio de sección anterior*
-y siguiente respectivamente. Los comandos ']['y '[]' hacen lo respectivo*
+Los comandos '[[' y ']]' sirven para moverse al inicio de sección anterior
+y siguiente respectivamente. Los comandos ']['y '[]' hacen lo respectivo
 con el final de sección
 
 int funcion1()

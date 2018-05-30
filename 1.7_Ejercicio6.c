@@ -4,7 +4,6 @@ int main(void)
 {
 
     // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-    // Ejercicio:
     // Mueva los comentarios del final de línea hacia
     // la línea anterior de la siguiente forma:
     //

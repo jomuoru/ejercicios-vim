@@ -36,17 +36,17 @@ Ejercicio 2: Encierre el texto siguiente en una caja
     Elit maxime?
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Sobre la primer línea de texto ingresa 'I| <Esc>' y repite sobre el resto
-    de líneas para formar la barra de la izquierda. Haz lo mismo para la
-    de la derecha con 'A |<Esc>', con la diferencia de que esta vez los
-    caracteres no estarán alineados.
+    Sobre la primer línea de texto ingresa 'I| <Esc>' y repite sobre el
+    resto de líneas para formar la barra de la izquierda.
+    Haz lo mismo para la de la derecha con 'A |<Esc>',
+    con la diferencia de que esta vez los caracteres no estarán alineados.
     El resultado debería ser similar a:
         | Ipsum tempore? |
         | Sit alias. |
         | Elit maxime? |
-    Posicionado(a) antes de una barra desalineada presiona 'i <Esc>' y repite
-    hasta alinear el carácter con el primer '|'. Haz lo mismo en el resto
-    de caracteres desalineados.
+    Posicionado(a) antes de una barra desalineada presiona 'i <Esc>' y
+    repite hasta alinear el carácter con el primer '|'. Haz lo mismo en el
+    resto de caracteres desalineados.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -106,7 +106,8 @@ Ejercicio 5: Coloca cada número de la lista en una línea distinta sin dejar
 las comas
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
-    Opción recomendada para el ejercicio: 'autoindent' 'ai' (opción booleana)
+    Opción recomendada para el ejercicio: 'autoindent' 'ai'
+                                          (opción booleana)
 
 Respuesta sugerida {{{
 

@@ -2,7 +2,6 @@
 
 """
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio:
 Cambie el valor del argumento sep para hacer que la lista se imprima
 separada por comas
 

@@ -7,15 +7,15 @@ import java.util.Date;
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 class Ejercicio {
     public static void main(String[] args) throws FileNotFoundException {
-        // Ejercicio:
         // Elimine la inicialización a las siguientes declaraciones.
         //                                          Operador eliminar => d
         // Respuesta sugerida {{{
-        //     Posicionese en el espacio subsecuente a la variable "i" y
+        //     Posiciónate en el espacio subsecuente a la variable "i" y
         //     presione 'dt;'. 'd' es el operador "delete" y 't;' es una
-        //     búsqueda inclusiva del carácter antes del ';' sobre la misma línea,
-        //     por lo que juntos forman el comando compuesto: "borrar de
-        //     aquí hasta el carácter anterior al punto y coma (inclusivo)".
+        //     búsqueda inclusiva del carácter antes del ';' sobre la misma
+        //     línea, por lo que juntos forman el comando compuesto:
+        //     "borrar de aquí hasta el carácter anterior al punto y
+        //     coma (inclusivo)".
         //     Repita la acción en las demás variables, posicionándose al
         //     final de sus nombres y presionando '.'
         // }}}

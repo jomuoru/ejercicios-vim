@@ -42,7 +42,7 @@ Ejercicio 2: Probar las diferencias entre '2vap' y 'v2ap'
     Lorem vel nostrum illum autem laudantium Sint ratione
 
     Amet odio culpa sapiente soluta rerum? Earum sit
-    Consectetur impedit voluptate mollitia ipsam deleniti! Ratione reprehenderit
+    Consectetur impedit voluptate mollitia ipsam deleniti! Ratione
     Elit a consequatur mollitia cum rem Dignissimos incidunt
     Consectetur sit veniam incidunt voluptatem voluptate quae corrupti?
 
@@ -59,17 +59,18 @@ distinta en el.
 
 ===========================================================================
 
-Objetos de texto normales. Operan sobre un bloque más un carácter a su inicio
-o a su fin dependiente del contexto.
+Objetos de texto normales. Operan sobre un bloque más un carácter a su
+inicio o a su fin dependiente del contexto.
 
-w => Objeto "word", o "palabra pequeña". Es una serie consecutiva de símbolos
-     de los listados en la opción 'iskeyword'.
+w => Objeto "word", o "palabra pequeña". Es una serie consecutiva de
+símbolos de los listados en la opción 'iskeyword'.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: Reordene la siguiente frase
     Educación es lo que olvidar tras queda lo aprendido en la escuela
    (Educación es lo que queda tras olvidar lo aprendido en la escuela)
                                             Pegar antes del carácter => P
+
 Respuesta sugerida {{{
     Sobre la "o" de "olvidar" presiona:
         'daw'   Corta "olvidar "
@@ -85,6 +86,7 @@ del maestro Yoda
     Si tu quieres aprender vim, debes practicar mucho
    (Si aprender vim tu quieres, practicar mucho debes)
                                             Pegar después del carácter => p
+
 Respuesta sugerida {{{
     En el espacio anterior a la "t" de "tu" presiona:
         '2daw'  Corta " tu quieres"
@@ -103,8 +105,8 @@ W => Objeto "WORD", o "palabra grande". Serie de símbolos separados por un
      carácter de espacio en blanco (o una línea en blanco).
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 6: Hacer una lista de los enlaces que aparecen en el siguiente texto
-en el final del párrafo.
+Ejercicio 6: Hacer una lista de los enlaces que aparecen en el siguiente
+texto en el final del párrafo. (Recomendado: usar 'autoindent' 'ai')
 
     Si quieres hacer nada por dos minutos puede visitar
     http://www.donothingfor2minutes.com/ y si quieres liberarte de tus
@@ -114,8 +116,9 @@ en el final del párrafo.
 
     Lista de los enlaces:
 
-                                        Operador copiar => y
-                                        Comando pegar siguiente posición => p
+                                    Operador copiar => y
+                                    Comando pegar siguiente posición => p
+
 Respuesta sugerida {{{
     Con 'autoindent' activada:
     En la línea de "lista de enlaces" teclea 'o- <Esc>' y sin moverte
@@ -138,7 +141,8 @@ mayúsculas y minúsculas alternadas. Arreglelo
     aDIPISICING MINUS CONSEQUATUR?  sIT MAIORES VEL.
     Consectetur temporibus odit.  iPSUM VOLUPTATUM POSSIMUS.
     sIT HIC ITAQUE ARCHITECTO REM. Lorem totam magnam
-                                            Operador cambiar minus/mayus => g~
+                                        Operador cambiar minus/mayus => g~
+
 Respuesta sugerida {{{
     Desde la primera sentencia: 'g~is).)).).'
 
@@ -160,15 +164,16 @@ Ejercicio 8: Ordenar los párrafos.
      Adipisicing veniam ipsa nisi totam ipsa necessitatibus animi
      Elit autem soluta reprehenderit exercitationem non saepe Fugiat
 
-     b) Elit eaque mollitia nulla voluptatibus cupiditate, consequatur Optio.
+     b) Elit eaque mollitia nulla voluptatibus cupiditate, consequatur.
      Adipisicing earum quia consequuntur exercitationem dicta Autem officia?
      Consectetur facilis soluta asperiores qui excepturi magni Aliquam.
      Lorem ipsum dolorem reprehenderit quia dolor Exercitationem temporibus
 
-     a) Dolor eaque consequuntur voluptates illum quibusdam! Dolorem perspiciatis
+     a) Dolor eaque consequuntur voluptates illum quibusdam! Dolorem
      Consectetur odio labore assumenda hic ratione Iusto dolore
-     Adipisicing explicabo beatae exercitationem porro nulla nostrum, laboriosam!
+     Adipisicing explicabo beatae exercitationem porro nulla nostrum!
      Ipsum dolorem voluptatum odio sapiente tenetur ut eaque
+
                                                     Pegar después => p
 
 Respuesta sugerida {{{
@@ -202,9 +207,10 @@ texto
     Accusam viverra utroque ridens vis iriure ligula (porta altera exerci).
     Accusam (soleat philosophia placerat) nec persecuti aliquet massa probo
     te sed veniam possim vitae urna. Scripta curabitur ornare impedit eget.
-    Mei postea ocurreret (assentior te meliore nam ex) sonet appetere amet ne
-    iriure. Purus commodo aeque mediocrem?
+    Mei postea ocurreret (assentior te meliore nam ex) sonet appetere amet
+    ne iriure. Purus commodo aeque mediocrem?
                                             Borrar un solo carácter => x
+
 Respuesta sugerida {{{
     Desde la primera línea: 'jf(da)hxj,(da)xj;(da)x'
 
@@ -236,21 +242,21 @@ Objetos de cadenas. Similares a los objetos por símbolos contenedores pero
 solo funcionan sobre la línea actual. Tienen la propiedad especial de que
 mueven el cursor hacia adelante para buscar la cadena.
 
-' => Cadena delimitada por: '
+' => Cadena delimitada por: ''
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 13: 1.6_Ejercicio13.py
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 
-" => Cadena delimitada por: "
+" => Cadena delimitada por: ""
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 14: 1.6_Ejercicio14.f90
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 
-` => Cadena delimitada por: `
+` => Cadena delimitada por: ``
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 15: 1.6_Ejercicio15.js
@@ -300,7 +306,7 @@ Ejercicio 17: Eliminar las líneas pares de la siguiente figura
                                         Aplicar operador sobre línea => _
 
 Respuesta sugerida {{{
-    Posicionese sobre la segunda línea y teclee 'd_'. Luego baje con 'j'
+    Posiciónate sobre la segunda línea y teclee 'd_'. Luego baje con 'j'
     y repita la edición con '.' repetidas veces hasta terminar.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
@@ -311,8 +317,9 @@ por medio de plugins. Algunos de los mejores son:
     * https://github.com/michaeljsmith/vim-indent-object: Provee un objeto
       de texto para operar sobre líneas equivalentemente indentadas
 
-    * https://github.com/PeterRincker/vim-argumentative: Objeto de texto para
-      manejar argumentos de función o elementos de listas separadas por coma
+    * https://github.com/PeterRincker/vim-argumentative: Objeto de texto
+      para manejar argumentos de función o elementos de listas separadas
+      por coma
 
     * https://github.com/kana/vim-textobj-function: Provee de un nuevo
       objeto de texto para operar sobre funciones completas

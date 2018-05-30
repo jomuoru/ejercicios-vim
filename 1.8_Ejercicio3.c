@@ -3,7 +3,6 @@
 int main(void)
 {
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-// Ejercicio:
 // Complete el tamaño para una cadena con longitud suficiente para
 // contener nombres de archivos del sistema.
 //

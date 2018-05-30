@@ -1,6 +1,5 @@
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-// Ejercicio
 // Indente el código y ponga punto y coma donde sea posible
 // Respuesta sugerida {{{
 //     Para separar el texto del límite izquierdo use 'I<Tab><Esc>' y luego

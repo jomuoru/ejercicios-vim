@@ -16,7 +16,6 @@ int main()
     sort(numeros.begin(), numeros.end());
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-// Ejercicio:
 // Haga nuevamente la impresión del vector auxiliándose del
 // completado de líneas.
 // Respuesta sugerida {{{

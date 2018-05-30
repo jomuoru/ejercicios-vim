@@ -17,10 +17,11 @@ Ejercicio 1: Borra todas las apariciones de "Amet"
     harus Amet ad
     accusantium ipsum Amet
                                                 Borrar palabra  => daw
+
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Posicionate en cualquier parte de la primera aparición de "Amen"
-    y teclee 'daw' (Delete around word). Luego muévete a cada una de las siguientes
-    apariciones y presiona '.' sobre cada una.
+    y teclee 'daw' (Delete around word). Luego muévete a cada una de las
+    siguientes apariciones y presiona '.' sobre cada una.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -31,6 +32,7 @@ elección (preferiblemente de varias palabras)
     neque voluptate nulla.
     Alias sit neque accusantium.
                                                     Cambiar palabra => ciw
+
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Posicionate en cualquier parte de la primera aparición de "naque"
     y presiona 'ciw' (Change inside word) que eliminará la palabra y te posicionará en

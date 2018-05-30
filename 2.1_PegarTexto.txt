@@ -1,0 +1,58 @@
+                        ** Pegando texto **
+
+Hay dos tipos de texto que necesitas saber pegar en vim:
+    - Pegar texto desde un registro de vim (Lo normal).
+    - Pegar texto copiado desde fuera (¡Oh, el horror!)
+
+El primer caso es relativamente sencillo, pero el segundo suele traer
+varias complicaciones dependiendo de la versión de vim.
+
+===========================================================================
+
+Los comandos 'P' y 'p'.
+
+Comandos más comunes para pegar desde registros.
+Estos comandos pueden pegar en modo "caracteres" o en modo "lineas"
+dependiendo de como hayas copiado/cortado el texto previamente.
+
+La sintaxis es:
+    "rP       Pegar antes del carácter/línea el contenido del registro
+              r. Se puede omitir el "r en cuyo caso se usará el contenido
+              del registro sin nombre.
+
+    "rp       Pegar después del carácter/línea el contenido del registro
+              r. También usa el registro sin nombre en caso de no
+              especificar.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+2.1_Ejercicio1.py (Abrir con 'gf' o 'gF')
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+===========================================================================
+
+En caso de que vim haya sido compilado con +clipboard, los registros
+* y + están asociados al portapapeles del sistema. En ese caso, copiar
+y pegar desde y hacia fuera de vim no tiene mayores complicaciones.
+
+Se puede revisar +clipboard está habilitado con el siguiente comando:
+
+    :echo has("clipboard")
+
+===========================================================================
+
+- El comando punto puede recorrer el anillo de eliminaciones para insertar
+textos borrados de forma consecutiva
+    "1P....
+
+Pegar cosas
+    con soporte de clipboard
+        :put +
+    sin soporte de clipboard
+        :set paste
+        clic derecho, pegar
+        rezar un poco por que no se vea horrible
+        :set nopaste
+
+Plugins
+    yank-ring
+

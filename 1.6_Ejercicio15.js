@@ -1,11 +1,10 @@
 
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-// Ejercicio:
 // Copiar el texto entre las comillas invertidas y copiarlo dentro de
 // las comillas dobles
 // Respuesta sugerida {{{
-//     'yi`' dentro de la expresión del segundo "console.log".
+//     'yi` dentro de la expresión del segundo "console.log".
 //     Luego escriba 'p' sobre la primera comilla doble que hay dentro del
 //     segundo "console.log"
 // }}}

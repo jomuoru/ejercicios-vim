@@ -5,11 +5,11 @@
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 // Mover la función 'unafuncion' abajo del main y poner un
 // prototipo de la misma en su lugar original.
-//                                                  Selección por líneas => V
-//                                                  Operador copiar => y
-//                                                  Comando pegar antes => P
-//                                                  Comando pegar después => p
-//                                                  Insertar al final => A
+//                                              Selección por líneas => V
+//                                              Operador copiar => y
+//                                              Comando pegar antes => P
+//                                              Comando pegar después => p
+//                                              Insertar al final => A
 // Respuesta sugerida {{{
 //     Estando sobre la palabra "static" presione 'y]]' para copiar de forma
 //     no inclusiva hasta la llave de inicio de la función y luego presione

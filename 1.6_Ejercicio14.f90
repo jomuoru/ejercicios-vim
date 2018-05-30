@@ -1,6 +1,5 @@
 PROGRAM UN_PROGRAMA
     ! *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    ! Ejercicio:
     ! Transforme la cadena a imprimir en mayúscula para
     ! que haga juego con el resto del texto
     !                                   Operador pasar a mayúscula => gU

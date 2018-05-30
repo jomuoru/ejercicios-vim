@@ -6,7 +6,6 @@ int main(void)
     puts("Adipisicing rem autem.");
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-// Ejercicio:
 // Completa el return para que el programa termine con éxito
 //
 // Respuesta sugerida {{{

@@ -2,7 +2,6 @@
 
 int main(void)
 {
-    // Ejercicio:
     // Cambie la impresión de la forma:
     //  puts("cadena")
     // a la forma:
@@ -11,7 +10,8 @@ int main(void)
     //
     // Respuesta sugerida (Abrir o cerrar con 'za') {{{
     //     Dentro de los paréntesis de puts() use 'ci)var<Esc>'.
-    //     Inserte una línea por encima con 'o' y escriba 'char var[] = ;<Esc>'
+    //     Inserte una línea por encima con 'o' y escriba
+    //         char var[] = ;<Esc>
     //     Pegue la cadena con 'P'
     // }}}
 

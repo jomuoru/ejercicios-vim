@@ -50,17 +50,18 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 
 Operadores de formato (Principalmente para programar)
 
-    =   :   Operador que "re-indenta" (solo si conoce el lenguaje con que trabaja,
-            cuando no domina uno se le puede añadir soporte a partir de un
-            plugin)
+    =   :   Operador que "re-indenta" (solo si conoce el lenguaje con que
+            trabaja, cuando no domina uno se le puede añadir soporte a
+            partir de un plugin)
 
-    <   :   Elimina un nivel de sangría (depende de tu configuración)
-    >   :   Añade un nivel de sangría (concretamente, dependen de 'shiftwidth'
-            que es una variable entera representando la longitud por tabulación)
+    <   :   Elimina un nivel de sangría
+    >   :   Añade un nivel de sangría
+    
+** Nota: La cantidad de espacios por sangría depende de 'shiftwidth' 'sw'
 
     gq  :   Operador "formatea". Usa un programa externo establecido con
             'formatprg' para dar formato y embellecer el código.
-            (Véase 1.9_Filtros.txt)
+            (Véase la lección de filtros)
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: (La línea de inicio importa, abrir con 'gF')
@@ -79,11 +80,11 @@ Operadores de transformación de texto
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 4: Descodificar el siguiente texto codificado en ROT13
 
-       "Unl gerf znarenf qr rqvgne grkgb ra Havk:
-        - N yn znaren qr ivz
-        - N yn znaren qr rznpf
-        - N yn znaren vapbeerpgn"
-                            Ivrwb cebireovb qr ybf flfnqzva
+       "Hay tres maneras de editar texto en Unix:
+        - A la manera de vim
+        - A la manera de emacs
+        - A la manera incorrecta"
+                            Viejo proverbio de los sysadmin
 
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 

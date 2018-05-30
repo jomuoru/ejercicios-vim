@@ -16,7 +16,6 @@ FILE * fcreate(void)
 int main(void)
 {
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-// Ejercicio:
 // Pruebe la diferencia entre completado normal y completado
 // local al archivo mientras trata de llamar la funcion "fcreate":
 //

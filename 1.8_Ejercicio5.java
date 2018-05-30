@@ -1,5 +1,4 @@
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-// Ejercicio:
 // Importe la interfaz List y la clase ArrayList del paquete
 // java.util
 //

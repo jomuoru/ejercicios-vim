@@ -8,13 +8,13 @@
 //     Después cambie los nombres de las variables.
 // }}}
   if (isset($_GET["mi_variable"])) {
-    echo 'La variable existe'
+    echo 'La variable existe';
 
-    echo 'Sit natus esse atque reiciendis autem.' .
-         'Eaque repudiandae sunt aspernatur eligendi' .
-         'assumenda. Iure eum nesciunt eaque voluptatibus' .
-         'eos! Nulla dolore possimus culpa molestiae enim' .
-         'Minima cum omnis minus mollitia harum'
+    echo 'Sit natus esse atque reiciendis autem.',
+         'Eaque repudiandae sunt aspernatur eligendi',
+         'assumenda. Iure eum nesciunt eaque voluptatibus',
+         'eos! Nulla dolore possimus culpa molestiae enim',
+         'Minima cum omnis minus mollitia harum';
   }
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ?>

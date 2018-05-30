@@ -3,9 +3,8 @@
 int main(void)
 {
     //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-    // Ejercicio:
     // Inserte punto y coma al final de las líneas que lo requieren
-    //                                      Insertar al final de la línea => A
+    //                                  Insertar al final de la línea => A
     //
     // Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     //    Colócate en cualquier posición de una línea que necesite ";"
