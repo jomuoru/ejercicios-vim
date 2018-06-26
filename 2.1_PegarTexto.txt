@@ -9,18 +9,17 @@ varias complicaciones dependiendo de la versión de vim.
 
 ===========================================================================
 
-Los comandos 'P' y 'p'.
+Pegando desde modo normal
 
-Comandos más comunes para pegar desde registros.
+Los comandos 'P' y 'p' son los más comunes para pegar desde registros.
 Estos comandos pueden pegar en modo "caracteres" o en modo "lineas"
 dependiendo de como hayas copiado/cortado el texto previamente.
 
-La sintaxis es:
-    "rP       Pegar antes del carácter/línea el contenido del registro
-              r. Se puede omitir el "r en cuyo caso se usará el contenido
-              del registro sin nombre.
+    ["r]P     Pegar antes del carácter/línea el contenido del registro
+              r. Se puede omitir el registro (el "r)e n cuyo caso se usará
+              el contenido del registro sin nombre.
 
-    "rp       Pegar después del carácter/línea el contenido del registro
+    ["r]p     Pegar después del carácter/línea el contenido del registro
               r. También usa el registro sin nombre en caso de no
               especificar.
 
@@ -28,6 +27,110 @@ La sintaxis es:
 2.1_Ejercicio1.py (Abrir con 'gf' o 'gF')
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+===========================================================================
+
+Pegando desde modo comando
+
+El comando put de modo comando pega el contenido de un registro por líneas.
+La sintaxis es la siguiente:
+
+    :[línea]pu[t] [x]       Pega el registro x en la línea especificada. Si
+                            se omite la línea el contenido se pegará en la
+                            línea siguiente a la del cursor.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 2: Copiar los texto entrecomillados y pegarlos en las posiciones
+correspondientes de la lista.
+
+    Sit ipsam distinctio accusantium explicabo veritatis Rerum tenetur.
+    Sit ullam "2. veniam adipisci illum Aperiam" voluptatum deleniti.
+    Consectetur accusantium explicabo commodi saepe deleniti, at Saepe
+    aperiam "3. Amet repellat dolorum odio" nulla provident neque
+    Repudiandae Sit et quaerat eaque quibusdam praesentium. Nobis suscipit
+    fugiat.  Dolor excepturi "5. repellendus corporis impedit" nobis Eum
+
+Dolor ut:
+    1. Lorem saepe minus placeat cupiditate
+    4. Lorem cum maiores veritatis ut?
+    6. Amet odit vero ducimus molestiae!
+
+Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+    Copiar los tres pedazos entre comillas en diferentes registros con
+        "ryi"
+    (r representa el registro elegido).
+    Ahora para cada contenido copiado posicionarse en la línea anterior a
+    la que pertenece y usar
+        :pu r<Return>
+    (r es el registro a pegar)
+    Ahora en la última línea usar
+        =3k
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+===========================================================================
+
+Pegando desde modo inserción
+
+Hay un par de comandos que pegan el contenido de algún registro en la
+posición actual de escritura. Estos comandos pegan por caracteres.
+
+    <Ctrl-R>r           Pegar el contenido del registro r en la posición
+                        actual del cursor. El texto es insertado como si se
+                        escribiera y se toman en cuenta las opciones
+                        'textwidth' y 'formatoptions'.
+
+    <Ctrl-R><Ctrl-R>r   Como el comando anterior, pero el texto es insertado
+                        de forma literal. Aún se toman en cuenta
+                        'textwidth' y 'formatoptions'.
+
+    <Ctrl-R><Ctrl-O>r   El texto es insertado de forma literal sin
+                        auto-indentar.
+
+    <Ctrl-R><Ctrl-P>r   El texto es insertado de forma literal pero aún
+                        auto-indenta.
+
+    <Ctrl-A>            Pegar el contenido del registro '.' (el último texto
+                        insertado) sin dejar el modo inserción.
+
+    <Ctrl-@>            Pegar el contenido del registro '.' y dejar el modo
+                        inserción.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 3: Interpreta el contenido del siguiente archivo:
+
+    2.1_Script_ContenidoRegistros.vim
+
+El archivo asigna a los registros "a", "s" y "d" las cadenas "hola", "que"
+y "hace" respectivamente. Pegar el contenido de esos tres registros en la
+siguiente línea para formar "hola que hace"
+
+    >
+
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 4: Copiar los texto entrecomillados y pegarlos en las posiciones
+correspondientes de la lista. Esta vez, hacerlo por medio del comando
+<Ctrl-R>
+
+    Elit qui beatae eos atque obcaecati! Ratione veniam
+    Sit adipisci "2. Consectetur eius enim hic" Lorem velit.
+    Elit amet doloremque omnis quos non Veritatis debitis?
+    Lorem "3. Ipsum corporis et eum" Consectetur perspiciatis deserunt.
+    Sit id nemo qui consequuntur vel odit optio.
+    Lorem consectetur "5. dolor culpa sunt!" adipisicing voluptate
+
+Dolor ut:
+    1. Lorem temporibus non sunt eligendi?
+    4. Adipisicing ipsum deserunt voluptate reprehenderit?
+    6. Adipisicing voluptatum consectetur corrupti nulla.
+
+Respuesta sugerida {{{
+    Ya con los contenidos correctos en los registros "a", "b" y "c",
+    escribe:
+        o<Ctrl-R>a<Return><Ctrl-R>s<Esc>jo<Ctrl-R>d
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ===========================================================================
 
 En caso de que vim haya sido compilado con +clipboard, los registros
@@ -56,3 +159,4 @@ Pegar cosas
 Plugins
     yank-ring
 
+vim: fdm=marker

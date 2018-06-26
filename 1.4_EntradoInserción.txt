@@ -11,7 +11,6 @@ Ejercicio 1: Entre en modo de inserción en cada una de las posiciones
 señaladas por pico-paréntesis y escriba respectivamente "A", "B", "C",
 "D" y "E" para luego regresar a modo normal
 
-<
 Adipisicing >< amet nobis error obcaecati impedit
 Amet soluta.>
 Consectetur recusandae unde sapiente magni?>

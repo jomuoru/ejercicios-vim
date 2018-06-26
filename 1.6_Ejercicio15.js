@@ -9,9 +9,9 @@
 //     segundo "console.log"
 // }}}
 
-console.log('Probando el comando de javascript: ""')
+console.log('Probando la expresión de javascript: ""')
 
-console.log(`2 + 2 =  {5 + 0}`)
+console.log(`2 + 2 = ${5 + 0}`)
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
 // vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
