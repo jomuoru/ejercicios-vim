@@ -2,6 +2,8 @@
 // Importe la interfaz List y la clase ArrayList del paquete
 // java.util
 //
+import java.util.Scanner;
+
 // Respuesta sugerida {{{
 //     El completado de palabras locales tiene la propiedad especial
 //     de ser "dependientes del contexto. Posicionate en la línea
@@ -14,8 +16,6 @@
 //     Hay que notar que cada repetición de <Ctrl-X><Ctrl-P> completó una
 //     del mismo contexto en que se encontraba la palabra anterior.
 // }}}
-import java.util.Scanner;
-
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 class Ejercicio5 {
     public static void main(String args[]) {

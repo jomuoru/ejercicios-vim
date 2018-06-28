@@ -18,8 +18,7 @@ de la siguiente línea.
     AAAAABBBBBAAAAABBBBBAAAAABBBBBAAAAABBBBBAAAAABBBBB
                    ^                  ^
                    |                  |
-                            Comando convertir en mayúscula desde
-                            modo visual (no el operador)          => u
+                                Convertir en mayúscula (modo visual) => u
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Usa las flechas de debajo para como anclas para llegar a los
@@ -46,15 +45,12 @@ Ejercicio 4: Ordenar las filas y columnas
     +----------+----------+----------+----------+
     |          |  Fila C  |  Fila B  |  Fila A  |
     +----------+----------+----------+----------+
-    |  Colm 1  |  cel 11  |  cel 21  |  cel 13  |
-    +----------+----------+----------+----------+
     |  Colm 2  |  cel 21  |  cel 22  |  cel 23  |
+    +----------+----------+----------+----------+
+    |  Colm 1  |  cel 11  |  cel 21  |  cel 13  |
     +----------+----------+----------+----------+
     |  Colm 3  |  cel 31  |  cel 32  |  cel 33  |
     +----------+----------+----------+----------+
-
-Un script curioso para probar tras hacer el ejercicio
-    1.9_Script_MovimientoBloque.vim
 
 Respuesta sugerida {{{
     Posicionado desde el primer "+", para ordenar las filas:
@@ -63,6 +59,12 @@ Respuesta sugerida {{{
         2jdjjp
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+(((
+El siguiente script crea algunos comandos para manejar celdas de texto
+como las anteriores: (abrir con 'gf')
+    1.9_Script_MovimientoBloque.vim
+)))
 ===========================================================================
 
 Moviéndose entre las esquinas
@@ -70,9 +72,9 @@ Moviéndose entre las esquinas
 En modo de bloque visual puedes alternar entre las esquinas de la
 selección mediante dos comandos:
 
-o        Ir a la esquina que inversa (por la diagonal)
-
-O        Ir a la esquina inversa (en horizontal)
+    o        Ir a la esquina que inversa (por la diagonal)
+        (las o's, son de "oposite")
+    O        Ir a la esquina inversa (en horizontal)
 
 En el resto de modos visuales ambos comandos funcionan igual (alternando
 entre los extremos)
@@ -84,7 +86,7 @@ palabras aledañas
     Dolor praesentium (ratione similique modi) vero repellat!
 
 Respuesta sugerida {{{
-    Desde el interior de los paréntesis: vi)eeobbhd
+    Desde el interior de los paréntesis: va)eobhd
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -92,12 +94,12 @@ Respuesta sugerida {{{
 
 Reusando la selección anterior
 
-gv     Re-seleccionar el texto usado previamente
+    gv     Re-seleccionar el texto usado previamente
 
-marca [     Inicio de la selección usada previamente
-marca ]     Final de la selección usada previamente
+    marca [     Inicio de la selección usada previamente
+    marca ]     Final de la selección usada previamente
 
-Para aprender sobre manejo de marcas, vea 2.5_Marcas.txt
+Para aprender sobre manejo de marcas véase la lección correspondiente
 ___________________________________________________________________________
 Algunos de los trucos presentados en esta lección y más en la
 conferencia de Damian Conway:

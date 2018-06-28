@@ -27,6 +27,42 @@ dependiendo de como hayas copiado/cortado el texto previamente.
 2.1_Ejercicio1.py (Abrir con 'gf' o 'gF')
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+Como nota especial, en caso de pegar el contenido del registro '1'
+y usar '.' para repetir la acción de pegar se va a pegar consecutivamente
+los varios elementos del anillo de eliminación.
+El primer elemento del anillo de eliminación siempre es el último texto
+eliminado, el segundo elemento es el penúltimo texto eliminado y así
+sucesivamente lo que significa que podremos obtener los textos en orden
+inverso en que los eliminamos (FIFO).
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 2: Eliminar la lista que aparece a continuación y repartir
+sus elementos en las secciones correspondientes.
+
+    5. Elit harum tempora
+    4. Sit sequi sunt?
+    3. Ipsum ipsum possimus
+    2. Ipsum autem hic?
+    1. Dolor blanditiis laudantium.
+
+Elemento 1:
+
+Elemento 2:
+
+Elemento 3:
+
+Elemento 4:
+
+Elemento 5:
+
+Respuesta sugerida {{{
+    Eliminar el texto con el número 5 usando 'dd' y los otros cuatro con
+    '....'. Después moverse sobre la línea que dice "Elemento 1:" y
+    pegar el último texto eliminado com '"1p'. Moverse al resto de
+    líneas y repetir con '.' para pegar el resto de textos eliminados.
+
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
@@ -40,7 +76,7 @@ La sintaxis es la siguiente:
                             línea siguiente a la del cursor.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 2: Copiar los texto entrecomillados y pegarlos en las posiciones
+Ejercicio 3: Copiar los texto entrecomillados y pegarlos en las posiciones
 correspondientes de la lista.
 
     Sit ipsam distinctio accusantium explicabo veritatis Rerum tenetur.
@@ -65,6 +101,7 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     (r es el registro a pegar)
     Ahora en la última línea usar
         =3k
+    Para arreglar la sangría
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -97,9 +134,12 @@ posición actual de escritura. Estos comandos pegan por caracteres.
                         inserción.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 3: Interpreta el contenido del siguiente archivo:
+Ejercicio 4: Interpreta el contenido del siguiente archivo:
 
     2.1_Script_ContenidoRegistros.vim
+
+Puedes hacer que vim lea el script con:
+    :so[urce] 2.1_Script_ContenidoRegistros.vim
 
 El archivo asigna a los registros "a", "s" y "d" las cadenas "hola", "que"
 y "hace" respectivamente. Pegar el contenido de esos tres registros en la
@@ -110,7 +150,7 @@ siguiente línea para formar "hola que hace"
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 4: Copiar los texto entrecomillados y pegarlos en las posiciones
+Ejercicio 5: Copiar los texto entrecomillados y pegarlos en las posiciones
 correspondientes de la lista. Esta vez, hacerlo por medio del comando
 <Ctrl-R>
 
@@ -138,15 +178,15 @@ En caso de que vim haya sido compilado con +clipboard, los registros
 * y + están asociados al portapapeles del sistema. En ese caso, copiar
 y pegar desde y hacia fuera de vim no tiene mayores complicaciones.
 
-Se puede revisar +clipboard está habilitado con el siguiente comando:
+Se puede revisar si +clipboard está habilitado con el siguiente comando:
 
-    :echo has("clipboard")
+    :ec[ho] has("clipboard")
 
 ===========================================================================
 
-- El comando punto puede recorrer el anillo de eliminaciones para insertar
-textos borrados de forma consecutiva
-    "1P....
+Pegar texto desde programas externos
+
+===========================================================================
 
 Pegar cosas sin soporte de clipboard
         :set paste

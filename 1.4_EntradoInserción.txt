@@ -3,8 +3,8 @@
 Comenzar a editar sobre la misma línea:
     i       Insertar en el lugar actual
     a       Insertar en la siguiente posición
-    I       Insertar al principio de la línea
-    A       Insertar al final de la línea
+    I       Insertar al principio de la línea actual
+    A       Insertar al final de la línea actual
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 1: Entre en modo de inserción en cada una de las posiciones
@@ -19,8 +19,7 @@ Consectetur recusandae unde sapiente magni?>
 Respuesta sugerida (Abrir con 'za') {{{
     Si se comienza desde la primera línea del ejercicio, escribe las
     siguientes secuencias (una para cada posición):
-        iA<Esc>
-        jf<B<Esc>
+        f<iB<Esc>
         jaC<Esc>
         jAD<Esc>
         jIE<Esc>

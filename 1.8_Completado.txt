@@ -4,8 +4,8 @@ Vim puede completar de varias formas y cada una cambia la lista de
 palabras que se contemplan.
 Para navegar la lista de autocompletado se usan dos combinaciones:
 
-    <Ctrl-N>      Siguiente palabra (n de next)
-    <Ctrl-P>      Palabra anterior  (p de previous)
+    <Ctrl-N>      Siguiente palabra (N de next)
+    <Ctrl-P>      Palabra anterior  (P de previous)
 
 Para aceptar una opción puedes usar:
 
@@ -23,12 +23,13 @@ Ejercicio 1: (abrir con 'gf' o 'gF')
 Ejercicio 2: 1.8_Ejercicio2.c
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
-También se pueden usar las flechas arriba y abajo para navegar la
-lista de auto-completado aunque el comportamiento es diferente (No modifica el texto hasta aceptar).
+También se pueden usar las flechas arriba y abajo para navegar la lista de
+auto-completado aunque el comportamiento es diferente (No modifica el texto
+hasta aceptar).
 
-Para activar alguna de las diferentes formas de autocompletado se
-escribe el prefijo <Ctrl-X> lo cual accede al llamado "sub-modo X"
-que muestra un mensaje similar al siguiente:
+Para activar alguna de las diferentes formas de autocompletado se escribe
+el prefijo <Ctrl-X> lo cual accede al llamado "sub-modo X" que muestra un
+mensaje similar al siguiente:
 
     -- ^X (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)
 
@@ -40,10 +41,9 @@ aunque un par mueven la pantalla.
 
 Sub-modos de completado para limitar la lista de palabras
 
-El modo normal de completado no hace ninguna distinción en la lista
-de palabras. Cuando un archivo es muy grande y/o incluye demasiados
-archivos externos la lista de palabras puede ser enorme y poco
-significativa.
+El completado vía <C-N> y <C-P> no hace ninguna distinción en la lista de
+palabras. Cuando un archivo es muy grande y/o incluye demasiados archivos
+externos la lista de palabras puede ser enorme y poco significativa.
 Para arreglar este problema, vim cuenta con varias formas de completado:
 
 

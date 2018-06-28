@@ -11,6 +11,20 @@ class Ejercicio1 {
         //                              Cambiar mayus/minus de carácter => ~
 
         ColaPrioridadArreglo colaPrioridadArreglo; // Ejemplo
+
+        // Respuesta sugerida {{{
+        //     Sobre la línea que declara colaPrioridadArreglo presione
+        //     'o' para entrar en modo inserción en la siguiente línea.
+        //     Comience a escribir 'Col' y complete con <C-N> para
+        //     formar "ColaPrioridadArreglo". Posteriormente regrese a
+        //     modo normal con <Esc> y teclee 'FAC', que buscará hacía
+        //     atrás sobre la misma línea la letra "A" y desde la posición
+        //     en que la encuentre borrará hacia enfrente permitiendo
+        //     escribir lo que queramos (en este caso 'Lista').
+        //     Un proceso similar se tiene que aplicar para el nombre
+        //     de la variable. En el caso de la implementación con
+        //     Arbole el proceso será el mismo.
+        // }}}
     }
 }
 

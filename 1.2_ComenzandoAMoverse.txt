@@ -8,9 +8,10 @@ Nuevamente, el movimiento básico se hace mediante hjkl
                              j
 
 (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
-Forzando a aprender las flechas:
+Forzando a aprender las teclas de dirección:
 Si se desactivan las flechas de dirección suele ser más rápido
-el aprendizaje de estos comandos (abrir con 'gf'):
+el aprendizaje de estos comandos.
+El siguiente script hace eso mismo (abrir archivo con 'gf'):
 
     1.2_Script_DesactivarFlechas.vim
 
@@ -219,7 +220,7 @@ dicho carácter y la letra 'F' mueve a la aparición anterior. Las letras
       ↳  ,                                      ,  ↲
 
 Una vez realizada una búsqueda por caracteres, dicha búsqueda se puede
-repetir usando el carácter ';' (punto y coma). 
+repetir usando el carácter ';' (punto y coma).
 La ',' hace la misma búsqueda en dirección contraria.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -229,7 +230,7 @@ Ejercicio 6: Cambie todas las apariciones de punto por una coma
     Ipsum dolor ut sunt. molestiae esse!
     Dolor. ducimus dignissimos. ipsam temporibus animi.
     .Amet blanditiis. quo incidunt qui nobis.
-                                                    Insertar enfrente => a
+                                Insertar enfrente de posición actual => a
 
 Respuesta sugerida (Abrir o cerrar 'za') {{{
     Al principio de la primera línea presione 'f.' para llegar a la primera
@@ -249,6 +250,7 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 7: Elimina las comas y ponga cada número en una línea distinta
     102,25,4096,-10,22.5,55,999,123123,2
+                                Insertar enfrente de posición actual => a
 
     Opción recomendada para el ejercicio: 'autoindent' 'ai'
                                           (opción booleana)
@@ -257,7 +259,7 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
 
 Con 'autoindent' activado:
     Con el cursor posicionado antes de la primera coma teclee
-    'f,' que buscará la primera aparición de ',' y 'a<Del><Return><Esc>' que
+    'f,' que buscará la primera aparición de ',' y 'a<BS><Return><Esc>' que
     borrara dicha coma y dará un salto de línea. Puede repetir la búsqueda
     con ';' y repetir la edición con '.' hasta finalizar con los elementos.
 
@@ -286,17 +288,17 @@ Por último, es posible moverse entre el principio y el final de una
 línea a partir de varios comandos.
 Los comandos '0' y '$' permiten moverse entre el inicio y el final
 absolutos.
-Los comandos '_' y 'g_' se mueven al primer y último carácter visible
+Los comandos '^' y 'g_' se mueven al primer y último carácter visible
 respectivamente.
 
-                  0  ←  _  ←   →  g_  →  $
+                  0  ←  ^  ←   →  g_  →  $
 
-** Nota: El carácter '̣^' (acento circunflejo) sirve para lo mismo que
-'_' (guión bajo) aunque son independientes (a diferencia, por ejemplo,
-de <Esc> y <Ctrl-[>).
+** Nota: El carácter '̣_' (guion bajo) sirve para lo mismo que
+'^' (acento circunflejo) cuando se usa solo, pero actúan diferente
+en cuando se usan en conjunto con un operador.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 9: Prueba las diferencias entre '0' y '_' así como entre 'g_'
+Ejercicio 9: Prueba las diferencias entre '0' y '^' así como entre 'g_'
 y '$' en la siguiente línea:
         Dolor voluptatibus accusamus facere labore quia.        
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*

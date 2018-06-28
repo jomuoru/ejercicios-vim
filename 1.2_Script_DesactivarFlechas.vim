@@ -27,4 +27,4 @@ noremap <right> <nop>
 
 " Para regresar a la lección presiona 'gF' sobre el nombre
 " de archivo escrito a continuación:
-"       1.2_ComenzandoAMoverse.txt:15
+"       1.2_ComenzandoAMoverse.txt:16

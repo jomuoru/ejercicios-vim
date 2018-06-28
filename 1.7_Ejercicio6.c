@@ -14,7 +14,14 @@ int main(void)
     // Fin
     //    // Comentario
     //    puts("texto");
-    //
+
+
+    puts("Impresión 1"); // Comentario 1
+
+    puts("Otra impresión de texto por acá"); // Comentario 2
+
+    puts("3"); // Comentario 3
+
     // Respuesta sugerida {{{
     //    Sobre la primera línea del ejercicio usa 'f;' para llegar
     //    a la posición del punto y coma y luego 'lD' para moverte a
@@ -24,14 +31,6 @@ int main(void)
     //    En las siguientes líneas puede usar ';' para repetir la búsqueda
     //    y luego seguir usando 'lDjp=='.
     // }}}
-
-
-    puts("Impresión 1"); // Comentario 1
-
-    puts("Otra impresión de texto por acá"); // Comentario 2
-
-    puts("3"); // Comentario 3
-
     // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 }
 

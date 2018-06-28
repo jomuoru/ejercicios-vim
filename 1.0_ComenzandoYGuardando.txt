@@ -28,7 +28,7 @@ Entrar a modo inserción en la posición actual
     i           (i de "insert")
 En modo inserción se puede escribir texto normalmente
 
-Regresar a modo normal
+Regresar a modo normal (Cualquiera)
     <Esc>
     <C-[>
 
@@ -38,8 +38,10 @@ Guardando y saliendo (Los corchetes indican una parte opcional)
     :w[rite]      Guardar
     :q[uit]       Cerrar (Si el documento no tiene cambios sin guardar)
     :q[uit]!      Cerrar sin preguntas (léase el signo "!" como "forzar")
-    :wq           Guardar y cerrar
+    :write | quit Guardar y cerrar
+    :wq           Lo mismo que el anterior
     :exi[t]       Guardar y cerrar si hay cambios
+    :x[it]        Lo mismo que el anterior
 
 A continuación un ejercicio. Los ejercicios se delimitan con
 "*-*-*-*" y "*v*v*v*", asegúrate de poder ver los ejercicios

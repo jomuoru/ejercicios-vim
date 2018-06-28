@@ -3,10 +3,6 @@
 // Ejercicio:
 // Copia el if un par de veces para que el código revise también las
 // variables "var2" y "otra_var"
-// Respuesta sugerida {{{
-//     Para copiar el código un par de veces usa 'va{VyPP'
-//     Después cambie los nombres de las variables.
-// }}}
   if (isset($_GET["mi_variable"])) {
     echo 'La variable existe';
 
@@ -16,6 +12,10 @@
          'eos! Nulla dolore possimus culpa molestiae enim',
          'Minima cum omnis minus mollitia harum';
   }
+// Respuesta sugerida {{{
+//     Para copiar el código un par de veces usa 'va{VyPP'
+//     Después cambie los nombres de las variables.
+// }}}
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ?>
 

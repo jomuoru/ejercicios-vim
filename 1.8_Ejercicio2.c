@@ -7,7 +7,8 @@ int main(void)
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 // Completa el return para que el programa termine con éxito
-//
+
+    return EXI
 // Respuesta sugerida {{{
 //     Dado que el archivo "stdlib.h" está incluido las palabras
 //     y definiciones que hace deben poder ser usadas para completar
@@ -15,8 +16,6 @@ int main(void)
 //     escriba <Ctrl-n> para que aparezca la lista y busque la
 //     opción correcta de completado
 // }}}
-
-    return EXI
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 }
 

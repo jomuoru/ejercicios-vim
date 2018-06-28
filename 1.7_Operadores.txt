@@ -48,23 +48,24 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 
 ===========================================================================
 
-Operadores de formato (Principalmente para programar)
+Operadores de formato de texto
 
     =   :   Operador que "re-indenta" (solo si conoce el lenguaje con que
-            trabaja, cuando no domina uno se le puede añadir soporte a
-            partir de un plugin)
+            trabaja, cuando vim no conoce un lenguaje en particular
+            se tiene que añadir soporte mediante un plugin)
 
     <   :   Elimina un nivel de sangría
     >   :   Añade un nivel de sangría
-    
+
+    gq  :   Operador "formatea" usando 'formatexpr', 'formatprg' o a
+            través del formateado interno.
+
+    gw  :   Formatea sin usar 'formatexpr' ni 'formatprg'
+
 ** Nota: La cantidad de espacios por sangría depende de 'shiftwidth' 'sw'
 
-    gq  :   Operador "formatea". Usa un programa externo establecido con
-            'formatprg' para dar formato y embellecer el código.
-            (Véase la lección de filtros)
-
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 3: (La línea de inicio importa, abrir con 'gF')
+Ejercicio 3: (Abrir con 'gF' pues la línea de inicio importa)
         1.7_Ejercicio3.cs:44
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -80,21 +81,20 @@ Operadores de transformación de texto
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 4: Descodificar el siguiente texto codificado en ROT13
 
-       "Hay tres maneras de editar texto en Unix:
-        - A la manera de vim
-        - A la manera de emacs
-        - A la manera incorrecta"
-                            Viejo proverbio de los sysadmin
+       "Unl gerf znarenf qr rqvgne grkgb ra Havk:
+        - N yn znaren qr ivz
+        - N yn znaren qr rznpf
+        - N yn znaren vapbeerpgn"
+                            Ivrwb cebireovb qr ybf flfnqzva
 
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
-Extras (Cada uno de los cuales requiere su propia lección por lo que
-se posponen)
+Extras (Cada uno de los cuales podría requerir su propia lección)
 
     !   :   Filtrar a través de un programa externo
-    zf  :   Crear un "doblez"
+    zf  :   Crear un "dobles"
     g@  :   Llamar una función establecida por la opción 'operatorfunc'
 
 
@@ -102,7 +102,7 @@ se posponen)
 
 Aplicar operador sobre toda la línea.
 
-Usando '{op}_' se puede aplicar '{op}' en una línea. La mayoría de los
+Usando 'op_' se puede aplicar 'op' en una línea. La mayoría de los
 operadores tiene un alias para hacer lo mismo más rápido: Repetir la
 última letra del operador:
 
@@ -112,7 +112,8 @@ operadores tiene un alias para hacer lo mismo más rápido: Repetir la
         ==   :  Re-indenta línea actual
         >>   :  Añade sangría a la línea actual
         <<   :  Quita sangría a la línea actual
-        gqq  :  Formatea la línea actual con el programa de 'formatprg'
+        gqq  :  Formatea la línea actual con 'gq'
+        gww  :  Formatea la línea actual con 'gw'
         !!   :  Filtra la línea actual con un programa externo
         guu  :  Pasa la línea actual a minúsculas la línea actual
         gUU  :  Pasa la línea actual a mayúsculas la línea actual
@@ -185,8 +186,8 @@ posición actual hasta el final de la línea, es decir {operador}$.
 Estos alias están compuestos de la misma letra del operador escrita
 en mayúsculas:
 
-        D   :  Igual a d_. Elimina línea actual
-        C   :  Igual a c_. Elimina línea actual y entra en modo inserción
+        D   :  Igual a d$. Elimina de la posición actual al final
+        C   :  Igual a c$. Elimina hasta el final y entra en inserción
 
 El único de los operadores básicos que no cumple esta propiedad es el
 operador "yank". La 'Y' mayúscula en realidad es equivalente a 'y_' al
@@ -194,7 +195,7 @@ igual que 'yy'.
 Para conservar la consistencia, puedes redefinir 'Y' para que copie
 hasta el fin de línea de la siguiente manera:
 
-    :nnoremap Y y$
+    :nno[remap] Y y$
 
 Esa línea se puede añadir a tu configuración de vim para gozar
 de consistencia en los operadores básicos.

@@ -18,14 +18,14 @@ int main()
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 // Haga nuevamente la impresión del vector auxiliándose del
 // completado de líneas.
+    cout << "----- Después de ordenar el vector -----" << endl;
+
 // Respuesta sugerida {{{
 //     Escriba 'cout << "E' y luego presione
 //     <Ctrl-X><Ctrl-L> tres veces.
 //     Funciona gracias a que el completado de líneas también
 //     es sensible al contexto.
 // }}}
-    cout << "----- Después de ordenar el vector -----" << endl;
-
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 }
 

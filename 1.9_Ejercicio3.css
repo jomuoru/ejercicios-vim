@@ -2,10 +2,6 @@
  * Comenta el selector css
  *                                  Reusar selección previa: gv
  *
- * Respuesta sugerida {{{
- *     Desde el interior del bloque del selector:
- *         va{<Ctrl-V>I/*<Esc>gv$A*/
-/* }}}
  */
 
 .pacman {
@@ -20,6 +16,12 @@
     border-radius: var(--pacman-tamaño);
 }
 
+/*
+ * Respuesta sugerida {{{
+ *     Desde el interior del bloque del selector:
+ *         va{<Ctrl-V>I/*<Esc>gv$A*/
+/* }}}
+ */
 /*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v**/
 
 /* vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
