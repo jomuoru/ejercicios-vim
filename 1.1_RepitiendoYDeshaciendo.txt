@@ -19,7 +19,7 @@ Ejercicio 1: Borra todas las apariciones de "Amet"
                                                 Borrar palabra  => daw
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Posicionate en cualquier parte de la primera aparición de "Amen"
+    Posiciónate en cualquier parte de la primera aparición de "Amen"
     y teclee 'daw' (Delete around word). Luego muévete a cada una de las
     siguientes apariciones y presiona '.' sobre cada una.
 }}}
@@ -34,7 +34,7 @@ elección (preferiblemente de varias palabras)
                                                     Cambiar palabra => ciw
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Posicionate en cualquier parte de la primera aparición de "naque"
+    Posiciónate en cualquier parte de la primera aparición de "naque"
     y presiona 'ciw' (Change inside word) que eliminará la palabra y te posicionará en
     modo inserción.
 
@@ -57,8 +57,8 @@ Ejercicio 4: Numera las siguientes líneas
     Amet alias
     Amet iure
                                          Insertar al principio de línea => I
-                                         Modo bloque visual => <c-v>
-                                         Conteo por columnas => g<c-a>
+                                         Modo bloque visual => <C-V>
+                                         Conteo por columnas => g<C-A>
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     En la primera línea del ejercicio teclea
@@ -94,7 +94,7 @@ Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Presione 'i' desde la posición en que quiera insertar texto y
     teclee lo que guste.
-    Presione '<Esc>' o '<Ctrl-[' para volver a modo normal y muévase
+    Presione '<Esc>' o '<C-[' para volver a modo normal y muévase
     a donde quiera repetir la inserción, presionando '.' en cada caso.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
@@ -156,6 +156,10 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 ___________________________________________________________________________
 Para mayor referencia sobre como repetir comandos en vim, consúltese el
 libro "Practical Vim" de Drew Neil
+
+Plugins relacionados con repetir:
+    * https://github.com/tpope/vim-repeat: Permite usar el comando punto
+                                           con operaciones más complejas.
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]

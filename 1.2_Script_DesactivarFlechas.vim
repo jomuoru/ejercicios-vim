@@ -1,12 +1,12 @@
 " Para cargar las configuraciones de este archivo escribe:
 "
-"   :source 1.2_Script_DesactivarFlechas.vim
+"   :so[urce] 1.2_Script_DesactivarFlechas.vim
 "
 " Puedes abreviar el nombre de este archivo por medio del
 " carácter especial "%" que al usarlo en modo comando se
 " reemplaza por el nombre del archivo:
 
-"    :source %
+"    :so[urce] %
 "
 
 scriptencoding utf-8
@@ -27,4 +27,4 @@ noremap <right> <nop>
 
 " Para regresar a la lección presiona 'gF' sobre el nombre
 " de archivo escrito a continuación:
-"       1.2_ComenzandoAMoverse.txt:10
+"       1.2_ComenzandoAMoverse.txt:15

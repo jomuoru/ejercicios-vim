@@ -6,8 +6,25 @@ Nuevamente, el movimiento básico se hace mediante hjkl
                         h  ←   →  l
                              ↓
                              j
+
+(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+Forzando a aprender las flechas:
 Si se desactivan las flechas de dirección suele ser más rápido
-el aprendizaje de estos comandos: 1.2_Script_DesactivarFlechas.vim
+el aprendizaje de estos comandos (abrir con 'gf'):
+
+    1.2_Script_DesactivarFlechas.vim
+
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+Teclas de movimiento alternativas:
+No a todos les gustan las teclas "hjkl" y de hecho es posible cambiarlas
+al propio gusto. Por ejemplo, el siguiente script cambia dichas tecla por
+"asdf" respectivamente.
+
+    1.2_Script_CambiarLadoTeclasMovimiento.vim
+
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -35,9 +52,9 @@ Por defecto, los comandos 'h' y 'l' se detienen en los extremos
 sin cambiar de línea como lo haría un editor tradicional.
 Dicho comportamiento se puede cambiar modificando la opción 'whichwrap' de
 la siguiente forma.
-        :set whichwrap+=h,l
+        :se[t] whichwrap+=h,l
 o abreviando:
-        :se ww+=h,l
+        :se[t] ww+=h,l
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Establecer la opción anterior y usarla para recorrer el
@@ -58,11 +75,11 @@ segundo laberinto.
 Puedes regresar al comportamiento original de las teclas con alguno de los
 siguientes:
         Quitar 'h' y 'l' de la lista separada por comas
-            :set whichwrap-=h,l
-            :se ww-=h,l
+            :se[t] whichwrap-=h,l
+            :se[t] ww-=h,l
         Regresar la opción 'whichwrap' a su estado por defecto
-            :set whichwrap&
-            :se ww&
+            :se[t] whichwrap&
+            :se[t] ww&
 
 Si te gusta una opción de configuración puedes añadirla a tu archivo
 configuración (suele ser ~/.vimrc). Si dicho archivo no existe basta con
@@ -71,7 +88,7 @@ Puedes añadir la opción sin salir de vim de la siguiente forma:
     :!echo set whichwrap+=h,l >> .vimrc
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 3: Activar la opción booleana 'relativenumber' (rnu) y usarla para
+Ejercicio 3: Activar la opción booleana 'relativenumber' 'rnu' y usarla para
 eliminar las líneas marcadas con '>>>>'. Después se puedes desactivar
 la opción.
     Ipsum quidem architecto sunt consequuntur voluptatem. Dicta laboriosam?
@@ -105,13 +122,13 @@ Respuesta sugerida (Abrir o cerrar 'za') {{{
     Y se desactiva añadiendo la palabra 'no' al nombre de la opción:
         :set nolorem
     También suele haber abreviaciones para cada opción. En el caso de
-    'relativenumer', la activación se puede hacer mediante:
+    'relativenumber', la activación se puede hacer mediante:
         :set relativenumber
         :se rnu
         (Cualquiera de los dos)
     Y se puede desactivar posteriormente con:
         :set norelativenumber
-        :set nornu
+        :se nornu
 
     Una vez hayas activado relativenumber podrás ver las distancias de
     cada línea relativas a tu posición actual lo cual nos indicará el
@@ -148,12 +165,13 @@ Ejercicio 4: Elimine todos los sitios marcados por un '|'
     Consectetur qui expedita | laborum doloremque
     Adipisicing facilis | consectetur dolorem doloribus
     Ipsum dignissimos accusantium eos illum
-    Dolor | exercitationem quae voluptatem | deleniti
+    Dolor | exercitationem quae voluptatem deleniti |
     Lorem dolorem unde illum amet!
+                                                    Borrar palabra => daw
 
 Respuesta sugerida (Abrir o cerrar 'za') {{{
     Use 'w' o 'e' para moverse por palabras hasta encontrar las "|"
-    y 'dw' para borrar la primera ocasión. Para el resto simplemente
+    y 'daw' para borrar la primera ocasión. Para el resto simplemente
     repita con '.'
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
@@ -278,7 +296,7 @@ respectivamente.
 de <Esc> y <Ctrl-[>).
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 9: Prueba las diferencias entre '0' y '^' así como entre 'g_'
+Ejercicio 9: Prueba las diferencias entre '0' y '_' así como entre 'g_'
 y '$' en la siguiente línea:
         Dolor voluptatibus accusamus facere labore quia.        
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*

@@ -1,3 +1,11 @@
+
+Registros de vim
+
+Normalmente el texto que copias y pegas en cualquier programa es manejado
+por el sistema en un único espacio de almacenamiento también llamado el
+porta-papeles del sistema (clipboard).
+
+
 - Operar con vim:
     <Ctrl-r>={expresion}
 

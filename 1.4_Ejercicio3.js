@@ -10,7 +10,7 @@
 if (true) {
 let nam = 'suit oatmeal glass'
 console.log(nam)
-} else if (soluta('Mus soleat an mauris morbi fugit rebum.')){
+} else if (soluta('Mus soleat an mauris morbi fugit rebum.')) {
 if (ipsa) {
 alert(voluptates)
 }

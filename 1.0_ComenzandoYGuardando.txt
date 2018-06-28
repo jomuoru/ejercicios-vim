@@ -30,7 +30,7 @@ En modo inserción se puede escribir texto normalmente
 
 Regresar a modo normal
     <Esc>
-    <Ctrl-[>
+    <C-[>
 
 ===========================================================================
 
@@ -72,9 +72,9 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 
 Para moverse por bloques más grandes puede usar los siguientes comandos
     Media página arriba
-      <Ctrl-U>          (U de "up")
+      <C-U>          (U de "up")
     Media página abajo
-      <Ctrl-D>          (D de "down")
+      <C-D>          (D de "down")
 
 Usa estos comandos para moverte entre las lecciones
 ___________________________________________________________________________
