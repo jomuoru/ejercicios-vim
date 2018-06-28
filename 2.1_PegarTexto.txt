@@ -5,7 +5,7 @@ Hay dos tipos de texto que necesitas saber pegar en vim:
     - Pegar texto copiado desde fuera (¡Oh, el horror!)
 
 El primer caso es relativamente sencillo, pero el segundo suele traer
-varias complicaciones dependiendo de la versión de vim.
+varias complicaciones dependiendo de las opciones de compilación de vim.
 
 ===========================================================================
 
@@ -28,6 +28,7 @@ La sintaxis es:
 2.1_Ejercicio1.py (Abrir con 'gf' o 'gF')
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+
 ===========================================================================
 
 En caso de que vim haya sido compilado con +clipboard, los registros
@@ -44,10 +45,7 @@ Se puede revisar +clipboard está habilitado con el siguiente comando:
 textos borrados de forma consecutiva
     "1P....
 
-Pegar cosas
-    con soporte de clipboard
-        :put +
-    sin soporte de clipboard
+Pegar cosas sin soporte de clipboard
         :set paste
         clic derecho, pegar
         rezar un poco por que no se vea horrible

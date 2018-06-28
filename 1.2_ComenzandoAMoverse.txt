@@ -255,6 +255,15 @@ Ejercicio 8: (Abrir con 'gf')
     1.2_Ejercicio8.java
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+** Nota: Las opciones de vim no permiten que la búsqueda de caracteres
+se efectué a través de varias líneas. En todo caso, se puede crear dicho
+comportamiento a través de definir una función como lo hace el siguiente
+script:
+
+    1.2_Script_BusquedaCharsMultiLinea.vim
+
+===========================================================================
+
 Por último, es posible moverse entre el principio y el final de una
 línea a partir de varios comandos.
 Los comandos '0' y '$' permiten moverse entre el inicio y el final

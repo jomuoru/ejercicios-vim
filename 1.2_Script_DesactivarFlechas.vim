@@ -3,7 +3,7 @@
 "   :source 1.2_Script_DesactivarFlechas.vim
 "
 " Puedes abreviar el nombre de este archivo por medio del
-" caracter especial "%" que al usarlo en modo comando se
+" carácter especial "%" que al usarlo en modo comando se
 " reemplaza por el nombre del archivo:
 
 "    :source %
