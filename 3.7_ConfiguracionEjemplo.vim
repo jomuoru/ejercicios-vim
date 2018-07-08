@@ -152,11 +152,12 @@ nnoremap <leader>tk :tabnext<return>
 
 " Abrir y moverse entre buffers
 set hidden          " Permitir buffers ocultos
-nnoremap <leader>en :edit<space>
-nnoremap <leader>eh :bfirst<return>
-nnoremap <leader>ek :bnext<return>
-nnoremap <leader>ej :bprevious<return>
-nnoremap <leader>el :last<return>
+nnoremap <leader>bn :edit<space>
+nnoremap <leader>bg :ls<CR>:buffer<space>
+nnoremap <leader>bh :bfirst<return>
+nnoremap <leader>bk :bnext<return>
+nnoremap <leader>bj :bprevious<return>
+nnoremap <leader>bl :last<return>
 
 " Cerrar ventana, buffer o tabulaciones
 nnoremap <leader>bd  :bdelete!<return>
@@ -206,7 +207,7 @@ set pastetoggle=<F2>  " Botón para activar/desactivar 'paste'
 set clipboard=unnamed " Copiar y pegar de la papelera del sistema
 " Manejo de registros por medio de la letra ñ
 nnoremap " ñ
-" Hacer que Y actue como C y D
+" Hacer que Y actúe como C y D
 noremap Y y$
 
 " Añadir línea por arriba y por debajo
@@ -214,10 +215,10 @@ nnoremap <CR>   :call append(line('.'), '')<return>
 nnoremap <A-CR> :call append(line('.')-1, '')<return>
 
 " Mover lineas visuales hacia arriba y hacia abajo
-nnoremap <M-j> :m+<return>
-nnoremap <M-k> :m-2<return>
-vnoremap <M-j> :m '>+1<return>gv=gv
-vnoremap <M-k> :m '<-2<return>gv=gv
+nnoremap <M-j> :m+<return>gv=gv
+nnoremap <M-k> :m-2<return>gv=gv
+vnoremap <M-j> :m'>+1<return>gv=gv
+vnoremap <M-k> :m'<-2<return>gv=gv
 
 " Mover bloques visuales a la izquierda y a la derecha
 nnoremap <M-l> xp
@@ -277,10 +278,10 @@ function! RodearSeleccion()
     let l:leido = nr2char(getchar())
     let [l:car_apertura, l:car_cierre] = CaracteresHermanos(l:leido)
 
-    execute "normal! `>a"
+    execute 'normal! `>a'
                 \ . l:car_cierre
                 \ . "\<esc>"
-                \ . "`<i"
+                \ . '`<i'
                 \ . l:car_apertura
                 \ . "\<esc>"
 endfunction
@@ -308,8 +309,8 @@ set ttimeout
 set ttimeoutlen=1
 " }}}
 
-" Busqueda y reemplazo {{{
-" Configuracioens generales
+" Búsqueda y reemplazo {{{
+" Configuraciones generales
 set incsearch         " Hacer las búsquedas incrementales
 set ignorecase        " No diferenciar mayúsculas/minúsculas
 set smartcase         " Ignorecase si la palabra empieza por minúscula
@@ -348,17 +349,37 @@ nnoremap // :nohlsearch<return>
 
 " Guardando, saliendo y regresando a vim {{{
 " Codificación del archivo y formato para los saltos de línea
-set encoding=utf8
 set fileformats=unix,dos,mac
 
 " Guardado y lectura automática
 set autowrite         " Se habilita el guardado automático bajo varias situaciones
 set autoread          " Recargar el archivo si hay cambios
 
-" Sin backup ni swapfile, usa git para guardar tus versiones
-set nobackup          " Sin respaldo
-set nowritebackup     " No guardar respaldo (no tiene sentido)
-set noswapfile        " Sin archivo swap para el buffer
+" Generalmente alcanza con Git para versionar. En caso de querer un
+" manejo de respaldos mas "local" definir la siguiente variable como 1
+let g:usar_respaldo_local = 0
+if g:usar_respaldo_local
+    " Directorio para guardar los archivos swap
+    set directory=$HOME/.vim/swap//
+
+    if !isdirectory(&directory)
+        call mkdir(&directory) " Crea el directorio de swap si no existe
+    endif
+
+    set backupdir=$HOME/.vim/backup//
+
+    if !isdirectory(&backupdir)
+        call mkdir(&backupdir)
+    endif
+
+    set backupcopy=yes
+    set backup            " Hacer el respaldo
+    set swapfile          " Archivo swap para el buffer
+else
+    set nobackup          " Sin respaldo
+    set nowritebackup     " No guardar respaldo (no tiene sentido)
+    set noswapfile        " Sin archivo swap para el buffer actual
+endif
 
 " Para que shift en modo comando no moleste
 cnoremap W w
