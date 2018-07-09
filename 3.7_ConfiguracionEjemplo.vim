@@ -20,9 +20,12 @@
 "                     (<return> significa enter presionar enter)
 
 " General {{{
-scriptencoding utf-8           " Para usar comandos con acentos y ñ's
+set encoding=utf-8     " Codificación para usarse en los archivos
+scriptencoding utf-8   " Codificación de ESTE script (para usar comandos con ñ)
+set mouse=a            " El ratón podrá usarse para cambiar la posición del cursor
+set noerrorbells       " Sin beeps cuando hay error
 
-let g:mapleader = ','          " La tecla líder es , porque está a la mano
+let g:mapleader = ','  " La tecla líder es , porque está a la mano
 
 " Cargar plugins si los hay
 if filereadable(expand('~/.vimrc.plugins'))
@@ -39,6 +42,7 @@ set shell=/bin/bash
 " Titulo de ventana e información varia {{{
 " Título e info de la posición y el comando actual
 set title             " El título de la consola no será el argumento a vim
+
 set showcmd           " Mostrar comandos incompletos
 set laststatus=2      " Siempre mostrar la barra de estado
 set statusline=%f\ %=columna:%2c\ linea:%2l
@@ -103,7 +107,7 @@ function! CambiarIndentacion(espacios)
     execute "normal! gg=G\<C-o>\<C-o>"
 endfunction
 
-" Otras configuracíones con respecto a la sangría
+" Otras configuraciones con respecto a la sangría
 set expandtab     " Se sangra el código con espacios
 set autoindent    " Añade la sangría de la línea anterior automáticamente
 set smartindent   " Aplicar sangría cuando sea necesario
@@ -139,6 +143,12 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 nnoremap <C-k> <C-W>k
 nnoremap <C-j> <C-W>j
+
+" Mantener igualdad de tamaño en ventanas cuando el marco se redimensiona
+augroup TamanioVentana
+    autocmd!
+    autocmd VimResized * :wincmd =
+augroup end
 
 " Abrir tabulaciones fácilmente
 nnoremap <leader>tn :tabnew<space>
@@ -196,6 +206,7 @@ nnoremap <space>   za
 set backspace=2       " La tecla de borrar funciona normal
 set history=1000      " Un historial de cambios casi infinito
 set lazyredraw        " No redibujar la interfaz a menos que sea necesario
+set nrformats-=octal  " Fuck you octal, nadie te quiere en este siglo
 
 " Caracteres emparejados
 set showmatch         " Resaltar los paréntesis/corchetes correspondientes
@@ -210,13 +221,17 @@ nnoremap " ñ
 " Hacer que Y actúe como C y D
 noremap Y y$
 
-" Añadir línea por arriba y por debajo
-nnoremap <CR>   :call append(line('.'), '')<return>
-nnoremap <A-CR> :call append(line('.')-1, '')<return>
+" Copiar linea actual por arriba y por debajo
+nnoremap <M-y> yyP
+nnoremap <M-Y> yyp
+
+" Añadir línea vacía por arriba y por debajo
+nnoremap <M-o> :call append(line('.'), '')<return>
+nnoremap <M-O> :call append(line('.')-1, '')<return>
 
 " Mover lineas visuales hacia arriba y hacia abajo
-nnoremap <M-j> :m+<return>gv=gv
-nnoremap <M-k> :m-2<return>gv=gv
+nnoremap <M-j> :m+<return>==
+nnoremap <M-k> :m-2<return>==
 vnoremap <M-j> :m'>+1<return>gv=gv
 vnoremap <M-k> :m'<-2<return>gv=gv
 
@@ -300,9 +315,26 @@ function! CaracteresHermanos(caracter)
     return [l:car_inicial, l:car_final]
 endfunction
 
+" Objeto de texto "línea" para operar con los operadores comunes
+xnoremap il g_o^
+onoremap il :<C-u>normal vil<return>
+
+xnoremap al $o0
+onoremap al :<C-u>normal val<return>
+
+" Objecto de texto "buffer"
+xnoremap i% GoggV
+onoremap i% :<C-u>normal vi%<return>
+xnoremap a% GoggV
+onoremap a% :<C-u>normal vi%<return>
+
+" Hacer que ctrl-c funcione como en otros programas
+vnoremap <C-c> "+y
+nnoremap <C-C> "+yy
+
 " Regresar rápido a modo normal (la opción que prefieras)
 inoremap kj <Esc>
-inoremap jj <Esc>
+inoremap jk <Esc>
 
 " Elimina el retraso cuando se presiona escape en modo inserción
 set ttimeout
@@ -363,13 +395,13 @@ if g:usar_respaldo_local
     set directory=$HOME/.vim/swap//
 
     if !isdirectory(&directory)
-        call mkdir(&directory) " Crea el directorio de swap si no existe
+        call mkdir(&directory, 'p') " Crea el directorio de swap si no existe
     endif
 
     set backupdir=$HOME/.vim/backup//
 
     if !isdirectory(&backupdir)
-        call mkdir(&backupdir)
+        call mkdir(&backupdir, 'p')
     endif
 
     set backupcopy=yes
@@ -388,6 +420,13 @@ cnoremap Q q
 cnoremap QQ Q
 cnoremap X x
 cnoremap XX X
+
+" Crear sesión (con un nombre específico o con el nombre por defecto)
+nnoremap <leader>ms  :mksession!<space>
+nnoremap <leader>mds :mksession! ~/.vim/session/default<return>
+if !isdirectory('~/.vim/session/')
+    call mkdir('~/.vim/session/', 'p')
+endif
 
 augroup ComandosAutomaticosGuardarLeer
     autocmd!
@@ -467,20 +506,39 @@ function! ArchivoGrande()
 endfunction
 " }}}
 
-" Revisión ortográfica {{{
-"set spell             " Activa la revisión ortográfica
-"set spelllang=es      " El idioma de revisión es español
+" Completado, etiquetas, diccionarios y revisión ortográfica {{{
+set complete+=i        " Completar palabras de archivos incluidos
 
-" Recorrer las palabras mal escritas y corregirlas
-" (Des-comentar si lo requieren).
-" <leader>sl/<leader>sh para siguiente/anterior error orgográfico
+" Generar etiquetas de definiciones y comando "go to definition"
+nnoremap <leader>ut !ctags -R .&<return> nnoremap <leader>gd <C-]>
+
+" Algunas abreviaciones para lenguajes como c, c++ y java
+" El problema de estas abreviaciones es que se pueden usar en cualquier
+" tipo de archivo aunque algunas no sirvan mas que en algunos.
+" Una solución mejor es usar plugins de manejo de snippets.
+iabbrev for  for (int i = 0; i <; i++) {<return>}<esc>kf<a
+iabbrev forr for (int i =; i >= 0; --i) {<return>}<esc>kf;i
+iabbrev pf   printf("");<esc>2hi
+iabbrev cl   cout << << endl;<esc>8hi
+iabbrev pl   System.out.println();<esc>hi
+
+" Revisión ortográfica
+"set spell             " Activa la revisión ortográfica set spelllang=es      "
+"El idioma de revisión es español set dictionary=/usr/share/dict/words " Usa el
+"diccionario del sistema Nota: Las dos secciones anteriores no suelen usarse
+"juntas dado que el diccionario del sistema suele estar en inglés. Si indicas
+"que el idioma de revisión sea en español seguramente vim te pida descargar otro
+"diccionario (lo hace automaticamente, solo responde sí a todo), caso en el cual
+"colocará el mismo en una ruta conocida, lo que hará innecesario indicarle su
+"ubicación manualmente con :set dictionary.
+
+" Recorrer las palabras mal escritas y corregirlas (Des-comentar si lo
+" requieren).  <leader>sl/<leader>sh para siguiente/anterior error orgográfico
 " <leader>sa para añadir una palabra a la lista blanca
 
 " <leader>sc para corregir (mostrar una lista de opciones de corrección)
-"nnoremap <leader>sl ]s
-"nnoremap <leader>sh [s
-"nnoremap <leader>sa zg
-"nnoremap <leader>sc z=
-" }}}
+"nnoremap <leader>sl ]s nnoremap <leader>sh [s nnoremap <leader>sa zg nnoremap
+"<leader>sc z=
+"}}}
 
 " vim: fdm=marker
