@@ -17,6 +17,7 @@ Ejercicio 1: Borra todas las apariciones de "Amet"
     harus Amet ad
     accusantium ipsum Amet
                                                 Borrar palabra  => daw
+                                                Repetir edición => .
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Posiciónate en cualquier parte de la primera aparición de "Amen"
@@ -31,12 +32,13 @@ elección (preferiblemente de varias palabras)
     Quisquam neque rem.
     neque voluptate nulla.
     Alias sit neque accusantium.
-                                                    Cambiar palabra => ciw
+                                                Cambiar palabra => ciw
+                                                Repetir edición => .
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Posiciónate en cualquier parte de la primera aparición de "naque"
-    y presiona 'ciw' (Change inside word) que eliminará la palabra y te posicionará en
-    modo inserción.
+    Posiciónate en cualquier parte de la primera aparición de "naque" y
+    presiona 'ciw' (Change inside word) que eliminará la palabra y te
+    posicionará en modo inserción.
 
     Escribe lo que gustes y presiona '<Esc>' o
     '<Ctrl-[>' para regresar a modo normal. Ahora muévete a las otras
@@ -56,30 +58,30 @@ Ejercicio 4: Numera las siguientes líneas
     Dolor dolore
     Amet alias
     Amet iure
-                                         Insertar al principio de línea => I
-                                         Modo bloque visual => <C-V>
-                                         Conteo por columnas => g<C-A>
+                                     Insertar al principio de línea => I
+                                     Modo bloque visual => <C-V>
+                                     Conteo por columnas => g<C-A>
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    En la primera línea del ejercicio teclea
-    'I1. ' (Letra I mayúscula, número 1, punto y espacio). Regrese a modo
-    normal y repita la acción sobre el resto de líneas para lograr una lista
-    numerada solo con unos como la siguiente:
+    En la primera línea del ejercicio teclea 'I1. ' (Letra I mayúscula,
+    número 1, punto y espacio). Regrese a modo normal y repita la acción
+    sobre el resto de líneas para lograr una lista numerada solo con unos
+    como la siguiente:
         1. ~~~~~~~~~
         1. ~~~. ~~~~~~~
         1. ~~~~~~
         1. ~~~~~~~
 
-    Entra a modo de bloque visual con '<Ctrl-v>' y muévete
-    hasta seleccionar todos menos el primero de los números de la
-    siguiente forma:
+    Entra a modo de bloque visual con '<Ctrl-v>' y muévete hasta
+    seleccionar todos menos el primero de los números de la siguiente
+    forma:
         1. ~~~~~~~~~
       +-1.+~~~. ~~~~~~~
       | 1.|~~~~~~        (La caja de '+', '-' y '|' simboliza la selección)
       | 1.|~~~~~~~
       +-1.+ ~~~~~
 
-    Tras seleccionar las líneas presiona 'g<Ctrl-a>'
+    Tras seleccionar las líneas presiona 'g<C-a>' (letra g y Control + a)
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -90,6 +92,8 @@ Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
     Amet accusantium neque quibusdam ad.
     Amet distinctio soluta harum alias?
     Sit ipsum quisquam asperiores accusantium.
+                        Entrar a modo inserción en la posición actual => i
+                        Regresar a modo normal => <C-[>
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Presione 'i' desde la posición en que quiera insertar texto y
@@ -116,15 +120,15 @@ Ejercicio 6:
     Haz una caja como la de arriba pero con dimensiones de 70 X 10
 
 
-                                        Insertar  en la línea abajo =>  o
-                                        Insertar  en la línea arriba => O
+                            Nueva línea abajo y entrar en inserción  => o
+                            Nueva línea arriba y entrar en inserción => O
 
 Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     Sobre la primera línea en blanco presione '70i' seguido de un único
     signo '=' y regrese a modo normal.
 
-    El prefijo '70' repetirá la inserción del único signo '=' 70 veces
-    para formar una línea como la siguiente:
+    El prefijo '70' repetirá la inserción del único signo '=' 70 veces para
+    formar una línea como la siguiente:
 ======================================================================
 
     Baje una línea y repita con '.' para formar dos barras horizontales:
@@ -141,8 +145,7 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 ======================================================================
 
     Presione '68i ' y regresa a modo normal para insertar los espacios
-    internos en la línea actual. Muévete a las siguientes líneas y
-    repite con '.'.
+    internos en la línea actual.
 ======================================================================
 ||
         ...     ...     ...     ...     ...     ...     ...
@@ -159,7 +162,8 @@ libro "Practical Vim" de Drew Neil
 
 Plugins relacionados con repetir:
     * https://github.com/tpope/vim-repeat: Permite usar el comando punto
-                                           con operaciones más complejas.
+                                           para repetir operaciones más
+                                           complejas.
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]

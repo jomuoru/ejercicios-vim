@@ -44,6 +44,7 @@ set laststatus=2      " Siempre mostrar la barra de estado
 set statusline=%f\ %=columna:%2c\ linea:%2l
 
 " Menú de modo comando
+"set path+=**         " Búsqueda recursiva de archivos
 set wildmode=longest,list,full
 set wildmenu          " Completado visual de opciones en el comandos :*
 set wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
@@ -82,6 +83,7 @@ match EspaciosEnBlancoExtra /\s\+$/
 " Cuando y como mostrar caracteres invisibles
 set list " Mostrar caracteres invisibles según las reglas de 'listchars'
 set listchars=tab:»·,trail:·,extends:❯,precedes:❮
+set concealcursor=   " Siempre desactivar conceal en la línea activa
 
 " Cantidad de espacios para sangría
 set tabstop=4     " Longitud de cada tabulación
@@ -129,6 +131,7 @@ set splitbelow  " Las separaciones horizontales se abren hacia abajo
 
 " Abrir y cerrar separaciones fácilmente
 nnoremap <leader>wo :only<return>
+nnoremap <leader>wh :hide<return>
 nnoremap \|   :vsplit<space>
 nnoremap \|\| :vsplit<return>
 nnoremap _    :split<space>
@@ -152,11 +155,11 @@ nnoremap <leader>tk :tabnext<return>
 
 " Abrir y moverse entre buffers
 set hidden          " Permitir buffers ocultos
-nnoremap <leader>en :edit<space>
-nnoremap <leader>eh :bfirst<return>
-nnoremap <leader>ek :bnext<return>
-nnoremap <leader>ej :bprevious<return>
-nnoremap <leader>el :last<return>
+nnoremap <leader>bn :edit<space>
+nnoremap <leader>bh :bfirst<return>
+nnoremap <leader>bk :bnext<return>
+nnoremap <leader>bj :bprevious<return>
+nnoremap <leader>bl :last<return>
 
 " Cerrar ventana, buffer o tabulaciones
 nnoremap <leader>bd  :bdelete!<return>
@@ -181,6 +184,15 @@ function! AlternarInicioMedioFinalComoEnEmacs()
 
 endfunction
 
+" Movimiento estilo emacs en el modo comando
+cnoremap <C-a> <home>
+" <C-e> ya funciona como en emacs, la siguiente línea sería redundante
+" cnoremap <C-e> <end>
+cnoremap <C-b> <left>
+cnoremap <C-f> <right>
+cnoremap <M-b> <S-left>
+cnoremap <M-f> <S-right>
+
 " Dobleces
 set foldenable    " Habilitar dobleces
 set foldcolumn=1  " Una columna para mostrar la extensión de un dobles
@@ -193,7 +205,8 @@ nnoremap <space>   za
 " Ayudas en la edición {{{
 " Algunas opciones cuerdas que nadie sabe por que no vienen por defecto
 set backspace=2       " La tecla de borrar funciona normal
-set history=1000      " Un historial de cambios casi infinito
+set undolevels=10000  " Poser deshacer cambios hasta el infinito y más allá
+set history=1000      " Un historial de comandos bastante largo
 set lazyredraw        " No redibujar la interfaz a menos que sea necesario
 
 " Caracteres emparejados
@@ -204,9 +217,12 @@ set matchpairs+=<:>   " Saltar entre paréntesis angulares hermanos con %
 set nopaste           " 'paste' estará desactivada por defecto
 set pastetoggle=<F2>  " Botón para activar/desactivar 'paste'
 set clipboard=unnamed " Copiar y pegar de la papelera del sistema
+
 " Manejo de registros por medio de la letra ñ
 nnoremap " ñ
-" Hacer que Y actue como C y D
+vnoremap " ñ
+
+" Hacer que Y actúe como C y D
 noremap Y y$
 
 " Añadir línea por arriba y por debajo
@@ -214,10 +230,10 @@ nnoremap <CR>   :call append(line('.'), '')<return>
 nnoremap <A-CR> :call append(line('.')-1, '')<return>
 
 " Mover lineas visuales hacia arriba y hacia abajo
-nnoremap <M-j> :m+<return>
-nnoremap <M-k> :m-2<return>
-vnoremap <M-j> :m '>+1<return>gv=gv
-vnoremap <M-k> :m '<-2<return>gv=gv
+nnoremap <M-j> :move+<return>
+nnoremap <M-k> :move-2<return>
+vnoremap <M-j> :move'>+1<return>gv=gv
+vnoremap <M-k> :move'<-2<return>gv=gv
 
 " Mover bloques visuales a la izquierda y a la derecha
 nnoremap <M-l> xp
@@ -277,10 +293,10 @@ function! RodearSeleccion()
     let l:leido = nr2char(getchar())
     let [l:car_apertura, l:car_cierre] = CaracteresHermanos(l:leido)
 
-    execute "normal! `>a"
+    execute 'normal! `>a'
                 \ . l:car_cierre
                 \ . "\<esc>"
-                \ . "`<i"
+                \ . '`<i'
                 \ . l:car_apertura
                 \ . "\<esc>"
 endfunction
@@ -308,8 +324,8 @@ set ttimeout
 set ttimeoutlen=1
 " }}}
 
-" Busqueda y reemplazo {{{
-" Configuracioens generales
+" Búsqueda y reemplazo {{{
+" Configuraciones generales
 set incsearch         " Hacer las búsquedas incrementales
 set ignorecase        " No diferenciar mayúsculas/minúsculas
 set smartcase         " Ignorecase si la palabra empieza por minúscula
@@ -347,8 +363,7 @@ nnoremap // :nohlsearch<return>
 " }}}
 
 " Guardando, saliendo y regresando a vim {{{
-" Codificación del archivo y formato para los saltos de línea
-set encoding=utf8
+" Formato para los saltos de línea
 set fileformats=unix,dos,mac
 
 " Guardado y lectura automática
@@ -428,14 +443,38 @@ function! EjecutarSiNoHayErrores()
 endfunction
 "}}}
 
+" Edición y evaluación de la configuración de vim. Evaluación de comandos {{{
+" Modificar y evaluar el archivo de configuración principal y el de plugins
+nnoremap <leader>av :tabnew $MYVIMRC<return>
+nnoremap <leader>sv :source $MYVIMRC<return>
+nnoremap <leader>al :tabnew ~/.vimrc.plugins<return>
+nnoremap <leader>sl :source ~/.vimrc.plugins<return>
+
+" Evaluar por medio de la consola externa por medio de Q
+nnoremap Q !!$SHELL<return>
+vnoremap Q !$SHELL<return>
+
+" Evaluación de un comando de modo normal por medio de <leader>evn
+nnoremap <leader>evn ^vg_y@"
+vnoremap <leader>evn y@"
+
+" Evaluación de un comando de VimL (modo comando) por medio de <leader>evv
+nnoremap <leader>evv :execute getline(".")<return>
+vnoremap <leader>evv :<C-u>
+                   \       for linea in getline("'<", "'>")
+                   \ <bar>     execute linea
+                   \ <bar> endfor
+                   \ <return>
+" }}}
+
 " Configuración para archivos grandes {{{
 let g:DiesMegas = 10 * 1024 * 1024
 augroup ArchivoGrande
     autocmd!
     autocmd BufReadPre * let t=getfsize(expand("<afile>"))
-                \ | if t > g:DiesMegas || t == -2
-                    \ |     call ArchivoGrande()
-                    \ | endif
+                     \ | if t > g:DiesMegas || t == -2
+                     \ |     call ArchivoGrande()
+                     \ | endif
 augroup END
 
 function! ArchivoGrande()

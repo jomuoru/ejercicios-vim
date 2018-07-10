@@ -1,10 +1,11 @@
 " Para cargar las configuraciones de este archivo escribe:
 "
 "   :so[urce] 1.2_Script_DesactivarFlechas.vim
+"   (el texto entre corchetes es opcional)
 "
 " Puedes abreviar el nombre de este archivo por medio del
 " carácter especial "%" que al usarlo en modo comando se
-" reemplaza por el nombre del archivo:
+" reemplaza por el nombre del archivo actual:
 
 "    :so[urce] %
 "

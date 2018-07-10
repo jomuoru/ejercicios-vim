@@ -28,20 +28,26 @@ Entrar a modo inserción en la posición actual
     i           (i de "insert")
 En modo inserción se puede escribir texto normalmente
 
-Regresar a modo normal (Cualquiera)
+Regresar a modo normal (usar uno de los siguientes)
     <Esc>
     <C-[>
+
+** Nota: La notación <C-x> significa mantener presionado control y apretar
+la tecla que contiene al carácter "x" sin importar si shift está o no
+presionado. Generalmente el carácter "[" se obtiene presionado shift más
+la tecla "{". Para ejecutar el comando <C-[> solo se requiere hacer
+"Control + {" y se puede omitir el shift.
 
 ===========================================================================
 
 Guardando y saliendo (Los corchetes indican una parte opcional)
-    :w[rite]      Guardar
-    :q[uit]       Cerrar (Si el documento no tiene cambios sin guardar)
-    :q[uit]!      Cerrar sin preguntas (léase el signo "!" como "forzar")
-    :write | quit Guardar y cerrar
-    :wq           Lo mismo que el anterior
-    :exi[t]       Guardar y cerrar si hay cambios
-    :x[it]        Lo mismo que el anterior
+    :w[rite]            Guardar
+    :q[uit]             Cerrar (Si el documento no tiene cambios sin guardar)
+    :q[uit]!            Cerrar sin preguntas (léase el signo "!" como "forzar")
+    :w[rite] | q[uit]   Guardar y cerrar
+    :wq                 Lo mismo que el anterior
+    :exi[t]             Guardar y cerrar si hay cambios
+    :x[it]              Lo mismo que el anterior
 
 A continuación un ejercicio. Los ejercicios se delimitan con
 "*-*-*-*" y "*v*v*v*", asegúrate de poder ver los ejercicios
@@ -60,12 +66,12 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
     o la combinación de teclas '<Ctrl-[>' (Control + Corchete abierto).
 
     Desde modo normal puedes usar los comandos separados:
-        :w<Return>          (Dos puntos, letra w minúscula y enter)
-        :q<Return>          (Dos puntos, letra q minúscula y enter)
+        :write<return>          (Dos puntos, letra w minúscula y enter)
+        :quit<return>          (Dos puntos, letra q minúscula y enter)
     para guardar y salir respectivamente o puedes simplemente hacer:
-        :wq<Return>
+        :wq<return>
     o
-        :x<Return>
+        :x<return>
     Cualquiera de los cuales guardará los cambios y saldrá al mismo tiempo
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
@@ -73,12 +79,10 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 ===========================================================================
 
 Para moverse por bloques más grandes puede usar los siguientes comandos
-    Media página arriba
-      <C-U>          (U de "up")
-    Media página abajo
-      <C-D>          (D de "down")
+  <C-u>    Media página arriba (la "u" es de "up")
+  <C-d>    Media página abajo (la "d" es de "down")
 
-Usa estos comandos para moverte entre las lecciones
+Usa estos comandos para moverte entre las secciones
 ___________________________________________________________________________
 
 Obteniendo más ayuda de vim
@@ -90,6 +94,14 @@ Obteniendo más ayuda de vim
                      No tiene soporte completo de vim
 
 
+
+Bienvenido al final del archivo. En esta sección solo suele haber un par
+de anotaciones que te indican que comando se usar para ir al siguiente
+archivo o al anterior tales como esta ===========================+
+                                                                 |
+En esa anotación se te está diciendo que puedes usar             |
+:next o :n seguido de un enter para ir al siguiente              |
+archivo/lección.                                                 v
                                                      Archivo siguiente---->
                                                                   :n[ext]
 vim: fdm=marker

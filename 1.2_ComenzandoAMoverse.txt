@@ -11,7 +11,7 @@ Nuevamente, el movimiento básico se hace mediante hjkl
 Forzando a aprender las teclas de dirección:
 Si se desactivan las flechas de dirección suele ser más rápido
 el aprendizaje de estos comandos.
-El siguiente script hace eso mismo (abrir archivo con 'gf'):
+El siguiente script hace justo eso (abrir archivo con 'gf'):
 
     1.2_Script_DesactivarFlechas.vim
 
@@ -29,7 +29,8 @@ al propio gusto. Por ejemplo, el siguiente script cambia dichas tecla por
 
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 1: Camine a través del laberinto usando las teclas de vim
+Ejercicio 1: Camine a través del laberinto usando las teclas de la
+columna principal de su teclado ("hjkl" o "asdf" según haya elegido).
        Inicio
          ↓↓
        →    ←
