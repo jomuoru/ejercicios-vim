@@ -1,3 +1,16 @@
 https://vim.rtorr.com/
 https://10fastfingers.com/text/15923-vim-commands
 https://vimvalley.com/
+https://vim-bootstrap.com/
+(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+Teclas de movimiento alternativas:
+No a todos les gustan las teclas "hjkl" y de hecho es posible cambiarlas
+al propio gusto. Por ejemplo, el siguiente script cambia dichas tecla por
+"asdf" respectivamente (las cuales pueden ser más cómodas para, por
+ejemplo, un surdo).
+
+    1.2_Script_CambiarLadoTeclasMovimiento.vim
+
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+

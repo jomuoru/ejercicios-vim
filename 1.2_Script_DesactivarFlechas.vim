@@ -3,10 +3,9 @@
 "   :so[urce] 1.2_Script_DesactivarFlechas.vim
 "   (el texto entre corchetes es opcional)
 "
-" Puedes abreviar el nombre de este archivo por medio del
-" carácter especial "%" que al usarlo en modo comando se
-" reemplaza por el nombre del archivo actual:
-
+" El nombre del script se puede sustituir con el símbolo especial "%"
+" que al usarlo en modo comando se reemplaza por el nombre del archivo
+" actual:
 "    :so[urce] %
 "
 
@@ -26,6 +25,6 @@ noremap <right> <nop>
 
 " <nop> significa "no operation"
 
-" Para regresar a la lección presiona 'gF' sobre el nombre
+" Para regresar a la lección presiona gF sobre el nombre
 " de archivo escrito a continuación:
-"       1.2_ComenzandoAMoverse.txt:16
+"       1.2_ComenzandoAMoverse.txt:20
