@@ -6,8 +6,11 @@
 "                            ↓
 "                            d
 "
-" Para leer este archivo use:
+" Para leer este archivo usa:
 "   :so %
+"
+" Use este script solo si prefiere moverse con las teclas de la mano
+" izquierda en lugar de la derecha.
 
 
 scriptencoding utf-8

@@ -17,11 +17,12 @@ Ejercicio 1: Borra todas las apariciones de "Amet"
     harus Amet ad
     accusantium ipsum Amet
                                                 Borrar palabra  => daw
+                                                Repetir edición => .
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Posiciónate en cualquier parte de la primera aparición de "Amen"
-    y teclee 'daw' (Delete around word). Luego muévete a cada una de las
-    siguientes apariciones y presiona '.' sobre cada una.
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
+    Posiciónate en cualquier parte de la primera aparición de "Amen" y
+    teclea daw (Delete around word). Luego muévete a cada una de las
+    siguientes apariciones y presiona . sobre cada una.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -31,21 +32,22 @@ elección (preferiblemente de varias palabras)
     Quisquam neque rem.
     neque voluptate nulla.
     Alias sit neque accusantium.
-                                                    Cambiar palabra => ciw
+                                                Cambiar palabra => ciw
+                                                Repetir edición => .
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Posiciónate en cualquier parte de la primera aparición de "naque"
-    y presiona 'ciw' (Change inside word) que eliminará la palabra y te posicionará en
-    modo inserción.
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
+    Posiciónate en cualquier parte de la primera aparición de "neque" y
+    presiona ciw (Change inside word) que eliminará la palabra y te
+    posicionará en modo inserción.
 
-    Escribe lo que gustes y presiona '<Esc>' o
-    '<Ctrl-[>' para regresar a modo normal. Ahora muévete a las otras
-    apariciones de "neque" y presiona '.' sobre ellas.
+    Escribe lo que gustes y presiona <Esc> o <Ctrl-[> para regresar a modo
+    normal. Ahora muévete a las otras apariciones de "neque" y presiona .
+    (punto) sobre ellas.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 3: (Abrir con 'gf')
+Ejercicio 3: (Abrir con gf)
     1.1_Ejercicio3.c
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -56,30 +58,30 @@ Ejercicio 4: Numera las siguientes líneas
     Dolor dolore
     Amet alias
     Amet iure
-                                         Insertar al principio de línea => I
-                                         Modo bloque visual => <C-V>
-                                         Conteo por columnas => g<C-A>
+                                     Insertar al principio de línea => I
+                                     Modo bloque visual => <C-V>
+                                     Conteo por columnas => g<C-A>
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
     En la primera línea del ejercicio teclea
-    'I1. ' (Letra I mayúscula, número 1, punto y espacio). Regrese a modo
-    normal y repita la acción sobre el resto de líneas para lograr una lista
-    numerada solo con unos como la siguiente:
+        I1.<space>  (Letra I mayúscula, número 1, punto y espacio)
+    Regresa a modo normal y repite la acción sobre el resto de líneas para
+    lograr una lista numerada solo con unos como la siguiente:
         1. ~~~~~~~~~
         1. ~~~. ~~~~~~~
         1. ~~~~~~
         1. ~~~~~~~
 
-    Entra a modo de bloque visual con '<Ctrl-v>' y muévete
-    hasta seleccionar todos menos el primero de los números de la
-    siguiente forma:
+    Entra a modo de bloque visual con <C-v> (control + letra v) y muévete
+    hasta seleccionar todos menos el primero de los números de la siguiente
+    forma:
         1. ~~~~~~~~~
       +-1.+~~~. ~~~~~~~
-      | 1.|~~~~~~        (La caja de '+', '-' y '|' simboliza la selección)
+      | 1.|~~~~~~        (La caja de "+", "-" y "|" simboliza la selección)
       | 1.|~~~~~~~
       +-1.+ ~~~~~
 
-    Tras seleccionar las líneas presiona 'g<Ctrl-a>'
+    Tras seleccionar las líneas presiona g<C-a> (letra g y Control + a)
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -90,12 +92,14 @@ Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
     Amet accusantium neque quibusdam ad.
     Amet distinctio soluta harum alias?
     Sit ipsum quisquam asperiores accusantium.
+                        Entrar a modo inserción en la posición actual => i
+                        Regresar a modo normal => <C-[>
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Presione 'i' desde la posición en que quiera insertar texto y
-    teclee lo que guste.
-    Presione '<Esc>' o '<C-[' para volver a modo normal y muévase
-    a donde quiera repetir la inserción, presionando '.' en cada caso.
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
+    Presione i desde la posición en que quiera insertar texto y teclee lo
+    que guste.
+    Presione <Esc> o <C-[ para volver a modo normal y muévase a donde
+    quiera repetir la inserción, presionando . en cada caso.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -116,40 +120,39 @@ Ejercicio 6:
     Haz una caja como la de arriba pero con dimensiones de 70 X 10
 
 
-                                        Insertar  en la línea abajo =>  o
-                                        Insertar  en la línea arriba => O
+                            Nueva línea abajo y entrar en inserción  => o
+                            Nueva línea arriba y entrar en inserción => O
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Sobre la primera línea en blanco presione '70i' seguido de un único
-    signo '=' y regrese a modo normal.
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
+    Sobre la primera línea en blanco presiona 70i seguido de un único
+    signo = y regresa a modo normal.
 
-    El prefijo '70' repetirá la inserción del único signo '=' 70 veces
-    para formar una línea como la siguiente:
+    El prefijo 70 repetirá la inserción del único signo = 70 veces para
+    formar una línea como la siguiente:
 ======================================================================
 
-    Baje una línea y repita con '.' para formar dos barras horizontales:
+    Baja una línea y repite con . para formar dos barras horizontales:
 ======================================================================
 ======================================================================
 
-    Posicionado en la línea inferior escriba '8O||' (ocho, letra O
+    Posicionado en la línea inferior escribe 8O|| (ocho, letra O
     mayúscula y doble barra vertical) y regrese a modo normal para añadir
-    en el medio de la figura 8 líneas formadas por '||' como se muestra:
+    en el medio de la figura 8 líneas formadas por || como se muestra:
 ======================================================================
 ||
         ...     ...     ...     ...     ...     ...     ...
 ||
 ======================================================================
 
-    Presione '68i ' y regresa a modo normal para insertar los espacios
-    internos en la línea actual. Muévete a las siguientes líneas y
-    repite con '.'.
+    Presione 68i  y regresa a modo normal para insertar los espacios
+    internos en la línea actual.
 ======================================================================
 ||
         ...     ...     ...     ...     ...     ...     ...
 |             (Se debe formar este espacio entre las ||)             |
 ======================================================================
 
-    Muévete al resto de las líneas intermedias y repite con '.'
+    Muévete al resto de las líneas intermedias y repite con .
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -159,7 +162,8 @@ libro "Practical Vim" de Drew Neil
 
 Plugins relacionados con repetir:
     * https://github.com/tpope/vim-repeat: Permite usar el comando punto
-                                           con operaciones más complejas.
+                                           para repetir operaciones más
+                                           complejas.
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]

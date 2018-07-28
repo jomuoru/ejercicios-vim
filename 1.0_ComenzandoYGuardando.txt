@@ -8,17 +8,17 @@ Teclas equivalentes a las flechas de dirección
                           j
                           ↓
 
-Úsalas para bajar a la siguiente sección delimitada por "==="
+Úsalas para bajar a la siguiente sección delimitada por una línea de "===="
 
 ===========================================================================
 
-Reglas de vim:
+Características de vim:
     - El MODO en que estas importa. Por defecto estás en modo "normal".
     - El modo "inserción" funciona de forma similar a como funciona
       cualquier otro editor, pero en el modo "normal" todo (incluso las
       letras) son comandos.
-    - Las mayúsculas y minúsculas en los comandos importan excepto
-      cuando se usan con teclas modificadoras (Control, Alt, etc).
+    - La mayoría de los comandos de vim se pueden repetir.
+    - Vim, a diferencia de vi, es sumamente configurable.
 
 ===========================================================================
 
@@ -28,20 +28,27 @@ Entrar a modo inserción en la posición actual
     i           (i de "insert")
 En modo inserción se puede escribir texto normalmente
 
-Regresar a modo normal (Cualquiera)
-    <Esc>
-    <C-[>
+Regresar a modo normal (usar uno de los siguientes)
+    <Esc>       Tecla escape, en la esquina superior izquierda del teclado
+    <C-[>       Control + [ (presionar al mismo tiempo)
+
+** Nota: Los comandos que involucran Control (<C-x>)no distinguen entre
+mayúsculas y minúsculas. Los comandos que involucran Alt (<M-x>. Si, alt
+se representa M por "Meta") si distinguen entre mayúsculas y minúsculas.
 
 ===========================================================================
 
-Guardando y saliendo (Los corchetes indican una parte opcional)
-    :w[rite]      Guardar
-    :q[uit]       Cerrar (Si el documento no tiene cambios sin guardar)
-    :q[uit]!      Cerrar sin preguntas (léase el signo "!" como "forzar")
-    :write | quit Guardar y cerrar
-    :wq           Lo mismo que el anterior
-    :exi[t]       Guardar y cerrar si hay cambios
-    :x[it]        Lo mismo que el anterior
+Guardando y saliendo (Los corchetes indican una parte opcional pero
+realmente no forman parte del comando)
+    :w[rite]            Guardar
+    :q[uit]             Cerrar (Si el documento no tiene cambios sin guardar)
+    :q[uit]!            Cerrar sin preguntas (léase "!" como "forzar")
+
+    :w[rite] | q[uit]   Guardar y cerrar
+    :wq                 Lo mismo que el anterior
+
+    :exi[t]             Guardar y cerrar si hay cambios
+    :x[it]              Lo mismo que el anterior
 
 A continuación un ejercicio. Los ejercicios se delimitan con
 "*-*-*-*" y "*v*v*v*", asegúrate de poder ver los ejercicios
@@ -51,45 +58,52 @@ por completo antes de comenzarlos (Puede requerir maximizar la pantalla).
 Ejercicio: Escribe algo en la siguiente línea, guarda y cierra el archivo.
 Después vuelve a este punto
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Sobre el lugar en que quieras escribir presiona 'i', lo cual te
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
+    Sobre el lugar en que quieras escribir presiona i (letra i), lo cual te
     cambiará de modo normal a modo inserción.
 
-    Ya en modo inserción puedes escribir tanto texto como quieras.
-    Para regresar a modo normal puedes presionar la tecla '<Esc>' (Escape)
-    o la combinación de teclas '<Ctrl-[>' (Control + Corchete abierto).
+    Ya en modo inserción puedes escribir tanto texto como quieras.  Para
+    regresar a modo normal puedes presionar la tecla <Esc> (Escape) o la
+    combinación de teclas <Ctrl-[> (Control + Corchete abierto).
 
     Desde modo normal puedes usar los comandos separados:
-        :w<Return>          (Dos puntos, letra w minúscula y enter)
-        :q<Return>          (Dos puntos, letra q minúscula y enter)
+        :write<return>          (Dos puntos, letra w minúscula y enter)
+        :quit<return>          (Dos puntos, letra q minúscula y enter)
     para guardar y salir respectivamente o puedes simplemente hacer:
-        :wq<Return>
-    o
-        :x<Return>
+        :wq<return>
     Cualquiera de los cuales guardará los cambios y saldrá al mismo tiempo
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
-Para moverse por bloques más grandes puede usar los siguientes comandos
-    Media página arriba
-      <C-U>          (U de "up")
-    Media página abajo
-      <C-D>          (D de "down")
+Moverse por líneas a veces el lento.  Para moverse por bloques más grandes
+puede usar los siguientes comandos:
 
-Usa estos comandos para moverte entre las lecciones
+    <C-u>    Media página arriba (la "u" es de "up")
+    <C-d>    Media página abajo (la "d" es de "down")
+
+Usa estos comandos para moverte entre las secciones
 ___________________________________________________________________________
 
 Obteniendo más ayuda de vim
     vimtutor         Comando para abrir el tutorial de vim
 
-    :help {algo}     Buscar ayuda de {algo}, muy útil para buscar opciones
+    :help {topico}   Buscar ayuda del {topico} buscado. Si se omite el
+                     tópico se abre una guia de vim.
 
-    www.openvim.com  Tutorial de 'vi' en un emulador en línea.
+    www.openvim.com  Tutorial de "vi" en un emulador en línea.
                      No tiene soporte completo de vim
 
 
+
+Bienvenido al final del archivo. En esta sección solo suele haber un par
+de anotaciones que te indican que comando se usar para ir al siguiente
+archivo o al anterior tales como esta ---------------------------+
+                                                                 |
+En esa anotación se te está diciendo que puedes usar             |
+:next o :n seguido de un enter para ir al siguiente              |
+archivo/lección.                                                 v
                                                      Archivo siguiente---->
                                                                   :n[ext]
 vim: fdm=marker

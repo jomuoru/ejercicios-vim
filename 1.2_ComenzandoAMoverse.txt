@@ -8,28 +8,20 @@ Nuevamente, el movimiento básico se hace mediante hjkl
                              j
 
 (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
-Forzando a aprender las teclas de dirección:
-Si se desactivan las flechas de dirección suele ser más rápido
-el aprendizaje de estos comandos.
-El siguiente script hace eso mismo (abrir archivo con 'gf'):
+Sección opcional para interesados en la personalización de vim.
+
+Si se desactivan las flechas de dirección suele ser más rápido el
+aprendizaje de los comandos "hjkl" para movimiento.  El siguiente script
+anula la acción de las dichas teclas (abrir archivo con gf, dentro tiene
+instrucciones de uso):
 
     1.2_Script_DesactivarFlechas.vim
 
 )))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
-(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
-Teclas de movimiento alternativas:
-No a todos les gustan las teclas "hjkl" y de hecho es posible cambiarlas
-al propio gusto. Por ejemplo, el siguiente script cambia dichas tecla por
-"asdf" respectivamente.
-
-    1.2_Script_CambiarLadoTeclasMovimiento.vim
-
-)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-
-
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 1: Camine a través del laberinto usando las teclas de vim
+Ejercicio 1: Camine a través del laberinto usando las teclas de la columna
+principal de su teclado.
        Inicio
          ↓↓
        →    ←
@@ -49,10 +41,10 @@ Ejercicio 1: Camine a través del laberinto usando las teclas de vim
                                             a
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Por defecto, los comandos 'h' y 'l' se detienen en los extremos
+Por defecto, los comandos h (ache) y l (ele) se detienen en los extremos
 sin cambiar de línea como lo haría un editor tradicional.
-Dicho comportamiento se puede cambiar modificando la opción 'whichwrap' de
-la siguiente forma.
+Dicho comportamiento se puede cambiar modificando la opción 'whichwrap'
+('ww') de la siguiente forma.
         :se[t] whichwrap+=h,l
 o abreviando:
         :se[t] ww+=h,l
@@ -75,7 +67,7 @@ segundo laberinto.
 
 Puedes regresar al comportamiento original de las teclas con alguno de los
 siguientes:
-        Quitar 'h' y 'l' de la lista separada por comas
+        Quitar h y l de la lista separada por comas
             :se[t] whichwrap-=h,l
             :se[t] ww-=h,l
         Regresar la opción 'whichwrap' a su estado por defecto
@@ -89,8 +81,8 @@ Puedes añadir la opción sin salir de vim de la siguiente forma:
     :!echo set whichwrap+=h,l >> .vimrc
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 3: Activar la opción booleana 'relativenumber' 'rnu' y usarla para
-eliminar las líneas marcadas con '>>>>'. Después se puedes desactivar
+Ejercicio 3: Activar la opción booleana 'relativenumber' ('rnu') y usarla
+para eliminar las líneas marcadas con ">>>>". Después se puedes desactivar
 la opción.
     Ipsum quidem architecto sunt consequuntur voluptatem. Dicta laboriosam?
     Elit rem labore qui hic dolorum? Quos laboriosam?
@@ -115,65 +107,71 @@ la opción.
                                                     Operador eliminar => d
                                                     Aplicar a la línea => _
 
-Respuesta sugerida (Abrir o cerrar 'za') {{{
-    Muchas de las opciones de configuración de vim son booleanas así que
-    primero hay que ver como funcionan. Las opciones booleanas se activan
-    directamente con su nombre. Si una opción se llamase 'lorem', se activa con:
+Respuesta sugerida (Abrir o cerrar za) {{{
+    'relativenumber' es una opción booleana. Las opciones booleanas se
+    activan directamente con su nombre. Si una opción se llamase 'lorem',
+    se activa con:
         :set lorem
     Y se desactiva añadiendo la palabra 'no' al nombre de la opción:
         :set nolorem
     También suele haber abreviaciones para cada opción. En el caso de
-    'relativenumber', la activación se puede hacer mediante:
-        :set relativenumber
-        :se rnu
-        (Cualquiera de los dos)
+    'relativenumber' se abrevia 'rnu', por lo que puede activarse con
+    cualquiera de las siguientes:
+        :se[t] relativenumber
+        :se[t] rnu
     Y se puede desactivar posteriormente con:
-        :set norelativenumber
-        :se nornu
+        :se[t] norelativenumber
+        :se[t] nornu
 
-    Una vez hayas activado relativenumber podrás ver las distancias de
+    Una vez hayas activado 'relativenumber' podrás ver las distancias de
     cada línea relativas a tu posición actual lo cual nos indicará el
     prefijo numérico para saltar de manera directa a cierta línea.
-    Si una texto, por ejemplo, se encuentra 4 líneas por encima de tu
-    posición de escritura, puedes alcanzarla escribiendo '4k'.
-    Habiendo llegado a las líneas marcadas con '>>>>' usando el método
-    anterior las eliminará con 'd_'. Luego salta a las líneas restantes
-    usando el mismo método y repite con '.'
+    Si un texto, por ejemplo, se encuentra 4 líneas por encima de tu
+    posición de escritura, puedes alcanzarlo escribiendo 4k
+    Habiendo llegado a una línea marcada con ">>>>" las eliminará con d_
+    (letra d y guión bajo).  Luego salta a las líneas restantes usando el
+    mismo método y repite con . (punto)
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+Jugando snake con las teclas de vim:
+
+    1.2_Script_JuegoSnake.vim
+
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
 ===========================================================================
 
-Los comandos 'w', 'b', 'e', 'ge'. A diferencia de
-del movimiento por letras, el movimiento por palabras te cambia de línea
-por defecto cuando llegas al final o al principio de una.
+Los comandos w, b, e y ge se mueven por palabras. A diferencia de del
+movimiento por letras, el movimiento por palabras te cambia de línea por
+defecto cuando llegas al final o al principio de una.
 
         ↱ b  ge     w   e
        ← -------- -------- →
                           ↲
 
-Los comandos 'b' y 'w' dan saltos a los inicios de las palabras mientras
-que los comandos 'ge' y 'e' dan saltos a los finales de las palabras,
-hacia atrás y hacia adelante respectivamente.
+Los comandos b y w dan saltos a los inicios de las palabras mientras que
+los comandos ge y e dan saltos a los finales de las palabras, hacia atrás y
+hacia adelante respectivamente.
 
-       Palabra0     Palabra1    Palabra2    Palabra3
+       Palabra1     Palabra2    Palabra3    Palabra4
                     ^      ^    ^      ^
                     |      |    |      |
                    w,b   e,ge  w,b    e,ge
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 4: Elimine todos los sitios marcados por un '|'
+Ejercicio 4: Elimina todos los sitios marcados por un '|'
     Consectetur qui expedita | laborum doloremque
     Adipisicing facilis | consectetur dolorem doloribus
     Ipsum dignissimos accusantium eos illum
     Dolor | exercitationem quae voluptatem deleniti |
     Lorem dolorem unde illum amet!
-                                                    Borrar palabra => daw
+                                        Borrar (alrededor) palabra => daw
 
-Respuesta sugerida (Abrir o cerrar 'za') {{{
-    Use 'w' o 'e' para moverse por palabras hasta encontrar las "|"
-    y 'daw' para borrar la primera ocasión. Para el resto simplemente
-    repita con '.'
+Respuesta sugerida (Abrir o cerrar za) {{{
+    Use w o e para moverse por palabras hasta encontrar las "|" y daw para
+    borrar la primera ocasión. Para el resto simplemente repita con .
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -186,20 +184,20 @@ añadiendo el sufijo "mente"
 
                                                     Insertar enfrente => a
 
-Respuesta sugerida (Abrir o cerrar 'za') {{{
+Respuesta sugerida (Abrir o cerrar za) {{{
     No existe un comando "insertar al final de la palabra" así que se
     deberán usar dos comandos.
     Posiciónate en "Fuerte" que es el primer adjetivo y presione
-    'eamente<Esc>'.
+        eamente<Esc>
     Esto añade "mente" a la palabra mediante dos comandos:
-        - El comando simple 'e' que se mueve al final de la palabra
-        - El comando compuesto 'a°Texto°<Esc>' que escribe °Texto° (en este
+        - El comando simple e que se mueve al final de la palabra
+        - El comando compuesto a°Texto°<Esc> que escribe °Texto° (en este
           caso "mente") en la posición de enfrente del cursor.
     Únicamente el segundo comando se registrará y será repetible dado que
-    el primero es un comando de movimiento, no de edición. Como consecuencia
-    será importante la posición en la que de encuentres sobre los verbos.
-    Muévete al final de cada palabra en cuestión y repite la inserción de
-    "mente" con '.'.
+    el primero es un comando de movimiento, no de edición. Como
+    consecuencia será importante la posición en la que de encuentres sobre
+    los verbos.  Muévete al final de cada palabra en cuestión y repite la
+    inserción de "mente" con .
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -210,9 +208,9 @@ Nota: La definición de "palabra" puede ser alterada, véase
 
 Aunque extraña, la forma más eficiente de moverse en una línea es usando
 comandos de búsqueda de caracteres.
-La letra 'f' seguida de un carácter te mueve a la siguiente aparición de
-dicho carácter y la letra 'F' mueve a la aparición anterior. Las letras
-'t' y 'T' hacen prácticamente lo mismo, pero avanzan un carácter menos.
+La letra f seguida de un carácter te mueve a la siguiente aparición de
+dicho carácter y la letra F mueve a la aparición anterior. Las letras t y T
+hacen prácticamente lo mismo, pero avanzan un carácter menos.
 
       ↱  ,                                      ,  ↰
       ⬑ ←    ;  ←  T{char} ←   → t{char}  →  ;    →⬏
@@ -220,8 +218,8 @@ dicho carácter y la letra 'F' mueve a la aparición anterior. Las letras
       ↳  ,                                      ,  ↲
 
 Una vez realizada una búsqueda por caracteres, dicha búsqueda se puede
-repetir usando el carácter ';' (punto y coma).
-La ',' hace la misma búsqueda en dirección contraria.
+repetir usando el carácter ; (punto y coma).
+La , (coma) hace la misma búsqueda en dirección contraria.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 6: Cambie todas las apariciones de punto por una coma
@@ -232,18 +230,14 @@ Ejercicio 6: Cambie todas las apariciones de punto por una coma
     .Amet blanditiis. quo incidunt qui nobis.
                                 Insertar enfrente de posición actual => a
 
-Respuesta sugerida (Abrir o cerrar 'za') {{{
-    Al principio de la primera línea presione 'f.' para llegar a la primera
-    aparición de punto y use 'a<Del>,<Esc>' (<Del> es la tecla de borrar).
-    Eso registrará dos tipos de comandos repetibles: La búsqueda de
-    carácter repetible con ';'/',' y el cambio de un símbolo cualquiera
-    por "," que se puede repetir con '.' como todas las ediciones.
-    Llega al siguiente punto con ';' y repita la edición con '.'. Una vez
-    terminada la línea actual muévete a la siguiente, donde es probable que
-    los símbolos que busca hayan quedado detrás de la posición del cursor.
-    Para repetir la búsqueda en dirección contraría presione ',' y
-    nuevamente repite la edición con '.'.
-    Siga usando la misma lógica hasta terminar.
+Respuesta sugerida (Abrir o cerrar za) {{{
+    Al principio de la primera línea presione f. (f y punto) para llegar a
+    la primera aparición de punto y use a<BS>,<Esc> (<BS> es la tecla de
+    borrar)
+    La búsqueda se podrá repetir mediante ; y , (hacia adelante y hacia
+    atrás respectivamente) y se puede repetir la sustitución mediante .
+    Repitiendo las búsquedas se puede llegar al resto de los puntos y
+    repitiendo la sustitución se puede convertir cada punto en una coma
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -252,31 +246,32 @@ Ejercicio 7: Elimina las comas y ponga cada número en una línea distinta
     102,25,4096,-10,22.5,55,999,123123,2
                                 Insertar enfrente de posición actual => a
 
-    Opción recomendada para el ejercicio: 'autoindent' 'ai'
+    Opción recomendada para el ejercicio: 'autoindent' ('ai')
                                           (opción booleana)
 
 Respuesta sugerida (Abrir o cerrar 'za') {{{
 
 Con 'autoindent' activado:
-    Con el cursor posicionado antes de la primera coma teclee
-    'f,' que buscará la primera aparición de ',' y 'a<BS><Return><Esc>' que
-    borrara dicha coma y dará un salto de línea. Puede repetir la búsqueda
-    con ';' y repetir la edición con '.' hasta finalizar con los elementos.
+    Con el cursor posicionado antes de la primera coma teclee f, (f y coma)
+    que buscará la primera aparición de "," y a<BS><Return><C-[> (a, tecla
+    borrar, enter y control + corchete abierto) que borrara dicha coma y
+    dará un salto de línea. Puede repetir la búsqueda con ; y repetir la
+    edición con . hasta finalizar con los elementos.
 
 Sin 'autoindent' activado:
-    Empezamos con 'f,' nuevamente pero esta vez usaremos
-    'a<Del><Return>    <Esc>'. El resto se repite de la misma forma.
-
+    Empezamos con f, nuevamente pero esta vez usaremos
+        a<Del><Return>    <C-[>
+    El resto se repite de la misma forma.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 8: (Abrir con 'gf')
+Ejercicio 8: (Abrir con gf)
     1.2_Ejercicio8.java
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-** Nota: Las opciones de vim no permiten que la búsqueda de caracteres
-se efectué a través de varias líneas. En todo caso, se puede crear dicho
+** Nota: Las opciones de vim no permiten que la búsqueda de caracteres se
+efectué a través de varias líneas. En todo caso, se puede crear dicho
 comportamiento a través de definir una función como lo hace el siguiente
 script:
 
@@ -286,20 +281,20 @@ script:
 
 Por último, es posible moverse entre el principio y el final de una
 línea a partir de varios comandos.
-Los comandos '0' y '$' permiten moverse entre el inicio y el final
+Los comandos 0 y $ permiten moverse entre el inicio y el final
 absolutos.
-Los comandos '^' y 'g_' se mueven al primer y último carácter visible
+Los comandos ^ y g_ se mueven al primer y último carácter visible
 respectivamente.
 
                   0  ←  ^  ←   →  g_  →  $
 
-** Nota: El carácter '̣_' (guion bajo) sirve para lo mismo que
-'^' (acento circunflejo) cuando se usa solo, pero actúan diferente
-en cuando se usan en conjunto con un operador.
+** Nota: El carácter ̣_ (guion bajo) sirve para lo mismo que ^ (acento
+circunflejo) cuando se usa solo, pero actúan diferente en cuando se usan en
+conjunto con un operador.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 9: Prueba las diferencias entre '0' y '^' así como entre 'g_'
-y '$' en la siguiente línea:
+Ejercicio 9: Prueba las diferencias entre 0 y ^ así como entre g_ y $ en la
+siguiente línea:
         Dolor voluptatibus accusamus facere labore quia.        
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -316,12 +311,12 @@ Ejercicio 10: Arregla el siguiente recuadro para que se vea regular
 +----------------------------------------------------------------+
                                             Reemplazar carácter => r{char}
 
-Respuesta sugerida (Abrir o cerrar 'za') {{{
-    Por motivos de práctica se sugiere empezar de adentro hacía afuera
-    y de línea en línea (Aunque en realidad no sea eficiente) probando los
+Respuesta sugerida (Abrir o cerrar za) {{{
+    Por motivos de práctica se sugiere empezar de adentro hacía afuera y de
+    línea en línea (Aunque en realidad no sea eficiente) probando los
     movimientos recién vistos para moverse a las posiciones requeridas.
-    Para sustituir un solo carácter se puede usar 'a<Del>{Char}<Esc>' como
-    vimos anteriormente o simplemente 'r{Char}' que es un comando muy simple
+    Para sustituir un solo carácter se puede usar a<Del>{Char}<Esc> como
+    vimos anteriormente o simplemente r{Char} que es un comando muy simple
     que te permite permanecer en modo normal todo el tiempo.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
