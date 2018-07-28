@@ -17,7 +17,7 @@
 " Si tiene duda de cualquier cosa escrita en este archivo recuerde que
 " el sistema de ayuda integrado es su mejor amig@. Simplemente escriba:
 "   :help cosa_de_la_que_quieres_ayuda<return>
-"                     (<return> significa enter presionar enter)
+"                     (<return> significa presionar enter)
 
 " General {{{
 set encoding=utf-8     " Codificación para usarse en los archivos
@@ -27,9 +27,39 @@ set noerrorbells       " Sin beeps cuando hay error
 
 let g:mapleader = ','  " La tecla líder es , porque está a la mano
 
-" Cargar plugins si los hay
-if filereadable(expand('~/.vimrc.plugins'))
-    source ~/.vimrc.plugins
+" Si se quiere usar un manejador de plugins establecer la siguiente línea
+" a un valor verdadero
+let g:usar_manejador_plugins = 0
+if g:usar_manejador_plugins
+    let l:path_manejador_plugins = expand('~/.vim/autoload/plug.vim')
+
+    if !filereadable(l:path_manejador_plugins)
+        echo "Se instalará el manejador de plugins Vim-Plug..."
+        echo ""
+        silent !mkdir -p ~/.vim/autoload
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+        " Como se acaba de descargar el manejador de plugins lo cargamos
+        " manualmente con la siguiente línea (De otro modo se requeriría
+        " reiniciar vim)
+        execute 'source ' . fnameescape(l:path_manejador_plugins)
+    endif
+
+    " Entre las llamadas a plug#begin() y plug#end() se colocan los
+    " plugins que quiera el usuario con la siguiente sintaxis:
+    "    Plug 'ruta/del/plugin'
+    "
+    " La ruta del plugin puede ser un proyecto de github con la siguiente
+    " sintaxis:
+    "   usuario/nombre_del_proyecto
+    "
+    " También puede ser una url de git válida:
+    "   https//url/de/algun/repositorio.git
+    call plug#begin('~/.vim/plugged')
+    " A continuación algunos plugins recomendados (Descomentalos si los
+    " quieres usar):
+    "Plug 'sheerun/vim-polyglot'    " Syntaxis de múltiples lenguajes
+    call plug#end()
 endif
 
 " Activar detección del tipo de archivo
