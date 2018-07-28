@@ -34,8 +34,8 @@ if g:usar_manejador_plugins
     let l:path_manejador_plugins = expand('~/.vim/autoload/plug.vim')
 
     if !filereadable(l:path_manejador_plugins)
-        echo "Se instalará el manejador de plugins Vim-Plug..."
-        echo ""
+        echo 'Se instalará el manejador de plugins Vim-Plug...'
+        echo ''
         silent !mkdir -p ~/.vim/autoload
         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -55,11 +55,6 @@ if g:usar_manejador_plugins
     "
     " También puede ser una url de git válida:
     "   https//url/de/algun/repositorio.git
-    call plug#begin('~/.vim/plugged')
-    " A continuación algunos plugins recomendados (Descomentalos si los
-    " quieres usar):
-    "Plug 'sheerun/vim-polyglot'    " Syntaxis de múltiples lenguajes
-    call plug#end()
 endif
 
 " Activar detección del tipo de archivo
@@ -67,6 +62,16 @@ filetype plugin indent on
 
 " Usar bash como shell predeterminada
 set shell=/bin/bash
+" }}}
+
+" Lista de plugins a usar (solo si se han habilitado){{{
+if g:usar_manejador_plugins
+    call plug#begin('~/.vim/plugged')
+    " A continuación algunos plugins recomendados (Descomentalos si los
+    " quieres usar):
+    "Plug 'sheerun/vim-polyglot'    " Syntaxis de múltiples lenguajes
+    call plug#end()
+endif
 " }}}
 
 " Titulo de ventana e información varia {{{
@@ -600,8 +605,6 @@ endfunction
 " Modificar y evaluar el archivo de configuración principal y el de plugins
 nnoremap <leader>av :tabnew $MYVIMRC<return>
 nnoremap <leader>sv :source $MYVIMRC<return>
-nnoremap <leader>al :tabnew ~/.vimrc.plugins<return>
-nnoremap <leader>sl :source ~/.vimrc.plugins<return>
 
 " Evaluar por medio de la consola externa por medio de Q
 nnoremap Q !!$SHELL<return>
