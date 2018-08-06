@@ -543,8 +543,8 @@ cnoremap <C-b> <left>
 cnoremap <C-f> <right>
 cnoremap <M-b> <S-left>
 cnoremap <M-f> <S-right>
-cnoremap <M-d> <Del>
-cnoremap <M-D> <S-right><C-w>
+cnoremap <C-d> <Del>
+cnoremap <M-d> <S-right><C-w>
 "   }}}
 
 " Dobleces (folds) {{{
