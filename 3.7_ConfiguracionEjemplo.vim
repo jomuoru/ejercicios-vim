@@ -37,21 +37,26 @@ let g:mapleader = ','  " La tecla líder es , porque está a la mano
 
 " Si se quiere usar un manejador de plugins establecer la siguiente línea
 " a un valor verdadero
-let g:usar_manejador_plugins = 0
-if g:usar_manejador_plugins
+let s:usar_plugins = 0
+if s:usar_plugins
     let l:path_manejador_plugins = expand('~/.vim/autoload/plug.vim')
 
     if !filereadable(l:path_manejador_plugins)
-        echo 'Se instalará el manejador de plugins Vim-Plug...'
-        echo ''
+        echomsg 'Se instalará el manejador de plugins Vim-Plug...'
+        echomsg ''
         silent !mkdir -p ~/.vim/autoload
+        if !executable('curl')
+            echoerr 'Se requiere instalar curl o instalar vim-plug manualmente'
+            quit!
+        endif
+
         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
         " Como se acaba de descargar el manejador de plugins lo cargamos
         " manualmente con la siguiente línea (De otro modo se requeriría
         " reiniciar vim)
         execute 'source ' . fnameescape(l:path_manejador_plugins)
-        let g:manejador_plugins_recien_instalado = 1
+        let s:manejador_plugins_recien_instalado = 1
     endif
 
     " Entre las llamadas a plug#begin() y plug#end() se colocan los
@@ -73,15 +78,111 @@ filetype plugin indent on
 set shell=/bin/bash
 " }}}
 
-" Lista de plugins a usar (solo si se han habilitado){{{
-if g:usar_manejador_plugins
+" Lista de plugins y sus configuraciones (solo si se han habilitado) {{{
+if s:usar_plugins
+    " Todos los plugins tienen que ir entre plug#begin() y plug#end()
     call plug#begin('~/.vim/plugged')
-    " A continuación algunos plugins recomendados (Descomentalos si los
-    " quieres usar):
-    "Plug 'sheerun/vim-polyglot'    " Syntaxis de múltiples lenguajes
+
+    " Manejo de versiones
+    Plug 'tpope/vim-fugitive'     " Manejo de git dentro de vim
+    Plug 'airblade/vim-gitgutter' " Mostrar diferencias del archivo al editar
+    " :GitGutterToggle - Activar y desactivar gitgutter
+    let g:gitgutter_map_keys = 0
+    nmap }h <Plug>GitGutterNextHunk
+    nmap {h <Plug>GitGutterPrevHunk
+    omap ih <Plug>GitGutterTextObjectInnerPending
+    omap ah <Plug>GitGutterTextObjectOuterPending
+    omap ih <Plug>GitGutterTextObjectInnerVisual
+    omap ah <Plug>GitGutterTextObjectOuterVisual
+
+    " Completado y revisión de código
+    if has('nvim') || (v:version >= 800 && has('python3'))
+        if has('nvim')
+            if !has('python3')
+                echomsg 'No hay proveedor de python 3. Intentando instalar...'
+                !pip3 install --upgrade neovim
+            endif
+
+            " Completado de código
+            Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+        else
+            Plug 'Shougo/deoplete.nvim'
+            Plug 'roxma/nvim-yarp'
+            Plug 'roxma/vim-hug-neovim-rpc'
+        endif
+        let g:deoplete#enable_at_startup = 1
+        Plug 'w0rp/ale'                   " Revisión de sintaxis
+    else
+        if has('lua')                     " Se requiere lúa para neocomplete
+            Plug 'Shougo/neocomplete'     " Completado de código
+            let g:neocomplete#enable_at_startup = 1
+        endif
+        Plug 'Syntastic'                  " Revisión de sintaxis
+    endif
+
+    Plug 'Shougo/neosnippet'              " Gestor de plantillas de código
+    Plug 'Shougo/neosnippet-snippets'     " Plantillas predefinidas
+    " Ctrl-e (de expand) para expandir snippets
+    imap <C-e> <Plug>(neosnippet_expand_or_jump)
+    smap <C-e> <Plug>(neosnippet_expand_or_jump)
+    xmap <C-e> <Plug>(neosnippet_expand_target)
+
+    Plug 'Shougo/neoinclude.vim'          " Completado de cabeceras
+    Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'css', 'sass'] }
+    Plug 'Shougo/neco-vim', { 'for': 'vim' }
+
+    Plug 'tkhren/vim-fake'                " Texto muestra (faketext, lorems, etc...)
+    let g:fake_bootstrap = 1              " Cargar definiciones extra de vim-fake
+
+    " Omnifunciones para completado de código
+    augroup OmnifuncionesCompletado
+        autocmd!
+        autocmd FileType sql,html,css,javascript,php setlocal omnifunc=syntaxcomplete#Complete
+    augroup END
+
+    " Navegación y edición de texto
+    Plug 'scrooloose/nerdtree.git'        " Árbol de directorios
+    nnoremap <leader>tgnt :NERDTreeToggle<return>
+    nnoremap <F5> :NERDTreeToggle<return>
+
+    Plug 'majutsushi/tagbar'              " Árbol de navegación (Requiere ctags)
+    nnoremap <leader>tgtb :TagbarToggle<return>
+    nnoremap <F6> :TagbarToggle<return>
+
+    Plug 'xolox/vim-easytags'             " Generación y manejo de etiquetas
+    Plug 'kshenoy/vim-signature'          " Marcas visuales
+    Plug 'tpope/vim-repeat'               " Repetir plugins con .
+    Plug 'godlygeek/Tabular'              " Funciones para alinear texto
+    Plug 'PeterRincker/vim-argumentative' " Objeto de texto 'argumento'
+    Plug 'jiangmiao/auto-pairs'           " Completar pares de símbolos
+    Plug 'KabbAmine/vCoolor.vim'          " Inserción de valores RGB
+    nnoremap <leader>vc :VCoolor<return>
+    Plug 'sedm0784/vim-you-autocorrect'   " Corrección de errores sintácticos
+      " :EnableAutoCorrect - Activar autocorrección ortográfica
+      "                      en el lenguaje que indique 'spelllang'
+    Plug 'scrooloose/nerdcommenter'       " Utilidades para comentar código
+
+    " Objetos de texto y operadores
+    Plug 'vim-indent-object'              " Objeto de texto 'indentado'
+    Plug 'kana/vim-textobj-user'          " Requerimiento de los próximos
+    Plug 'kana/vim-textobj-function'      " Objeto de texto 'función'
+    Plug 'glts/vim-textobj-comment'       " Objeto de texto 'comentario'
+    Plug 'svermeulen/vim-next-object'     " Objeto de texto 'siguiente elemento'
+    Plug 'tpope/vim-surround'             " Encerrar/liberar secciones
+    Plug 'tpope/vim-commentary'           " Operador comentar/des-comentar
+    Plug 'ReplaceWithRegister'            " Operador para manejo de registros
+
+    " Estilo visual y reconocimiento de sintaxis
+    Plug 'rafi/awesome-vim-colorschemes'  " Paquete de temas de color
+    Plug 'vim-airline/vim-airline'        " Línea de estado ligera
+    Plug 'vim-airline/vim-airline-themes' " Temas de color para el plugin anterior
+    Plug 'gregsexton/MatchTag'            " Iluminar etiqueta hermana (html/xml)
+    Plug 'ap/vim-css-color'               " Colorear valores RGB
+    Plug 'sheerun/vim-polyglot'           " Paquete de archivos de sintaxis
+
     call plug#end()
 
-    if g:manejador_plugins_recien_instalado
+    if s:manejador_plugins_recien_instalado
         PlugInstall
     endif
 endif
@@ -93,7 +194,7 @@ set title             " El título de la consola no será el argumento a vim
 
 set showcmd           " Mostrar comandos incompletos
 set laststatus=2      " Siempre mostrar la barra de estado
-" Línea de estado
+" Línea de estado (cuando los plugins estan desactivados)
 set statusline=%f\                          " Nombre de archivo
 set statusline+=[%Y]\                       " Tipo de archivo
 set statusline+=\ %{getcwd()}               " Directorio actual
@@ -136,11 +237,17 @@ set background=dark
 if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
     let &t_Co = 256
 endif
+if s:usar_plugins
+    colorscheme tender
+endif
 
 " Cuando y como mostrar caracteres invisibles
 set list " Mostrar caracteres invisibles según las reglas de 'listchars'
 set listchars=tab:»·,trail:·,extends:❯,precedes:❮
-set concealcursor=   " Siempre desactivar conceal en la línea actual
+if has('conceal')
+    set conceallevel=2   " El texto con conceal está oculto o sustituido
+    set concealcursor=   " Siempre desactivar conceal en la línea actual
+endif
 "   }}}
 
 " Resaltado de elementos {{{
@@ -199,9 +306,8 @@ set scrolloff=2         " Mínimas líneas por encima/debajo del cursor
 " Configuración de las líneas largas
 " Si quiere que las líneas largas se envuelvan en la pantalla deje la
 " siguiente variable con el valor 1. En caso contrario dele el valor 0
-let g:envolver_lineas_largas = 1
-
-if g:envolver_lineas_largas
+let s:envolver_lineas_largas = 1
+if s:envolver_lineas_largas
     set wrap              " Envolver líneas largas
     set linebreak         " Rompe la línea cuando se llega a la longitud máxima
     set showbreak=...\    " En lineas largas, se muestran ... de continuación
@@ -275,14 +381,14 @@ endfunction
 " Hacer diff de las ventanas abiertas
 nnoremap <leader>tdm :call AlternarModoDiff()<return>
 nnoremap <F4> :call AlternarModoDiff()<return>
-let g:modoDiffActivado = 0
+let s:modoDiffActivado = 0
 function! AlternarModoDiff()
-    if g:modoDiffActivado
+    if s:modoDiffActivado
         windo diffoff
-        let g:modoDiffActivado = 0
+        let s:modoDiffActivado = 0
     else
         windo diffthis
-        let g:modoDiffActivado = 1
+        let s:modoDiffActivado = 1
     endif
 endfunction
 
@@ -290,6 +396,8 @@ endfunction
 nnoremap <leader>do :DiffOrigen<return>
 command! DiffOrigen vert new | set buftype=nofile | read ++edit # | 0d_
             \ | diffthis | wincmd p | diffthis
+
+" vim -d <archivo1> <archivo2> - Abrir archivos en modo diff
 
 " Mantener igualdad de tamaño en ventanas cuando el marco se redimensiona
 augroup TamanioVentana
@@ -329,11 +437,11 @@ nnoremap <silent> <leader>tm :call ModoAccionTabulacion()<return>
 
 function! ModoAccionTabulacion()
     if tabpagenr('$') == 1
-        echo 'Modo tab requere más de una tabulación'
+        echomsg 'Modo tab requere más de una tabulación'
         return
     endif
 
-    echo 'Modo tab. hljk+->< para controlar tabs, cualquier otra cosa para salir'
+    echomsg 'Modo tab. hljk+->< para controlar tabs, cualquier otra cosa para salir'
     let l:tecla = nr2char(getchar())
     let l:aciones = {
                 \'h': 'tabfirst',    'l': 'tablast',
@@ -435,6 +543,8 @@ cnoremap <C-b> <left>
 cnoremap <C-f> <right>
 cnoremap <M-b> <S-left>
 cnoremap <M-f> <S-right>
+cnoremap <M-d> <Del>
+cnoremap <M-D> <S-right><C-w>
 "   }}}
 
 " Dobleces (folds) {{{
@@ -456,24 +566,44 @@ nnoremap <leader>tf za
   " zM - Cerrar todos los dobleces del archivo
 nnoremap <leader>fo zR
 nnoremap <leader>fc zM
+
+" Función para doblar funciones automáticamente
+nnoremap <leader>ff zfaf
+nnoremap <leader>faf :call DoblarFunciones()<return>
+function! DoblarFunciones()
+    set foldmethod=syntax
+    set foldnestmax=1
+endfunction
+
 "   }}}
 " }}}
 
 " Ayudas en la edición {{{
 " General {{{
-set backspace=2       " La tecla de borrar funciona normal
+set backspace=2       " La tecla de borrar funciona como en otros programas
 set undolevels=10000  " Poder deshacer cambios hasta el infinito y más allá
 set undofile          " Guardar historial de cambios tras salir
 set undoreload=10000  " Cantidad de cambios que se preservan
 set history=1000      " Un historial de comandos bastante largo
 set nrformats-=octal  " Fuck you octal, nadie te quiere en este siglo
+" Alternar formato alfanumérico (toggle alpha format)
+nnoremap <leader>taf :call AlternarFormatoAlfanumerico()
+function! AlternarFormatoAlfanumerico()
+    if stridx(&nrformats, 'alpha') == -1
+        set nrformats+=alpha  " Bienvenidos sea el conte de letras
+    else
+        set nrformats-=alpha  " Bye bye conteo de letras
+    endif
+endfunction
+
 set nojoinspaces      " No insertar dos espacios tras signo de puntuación
 set lazyredraw        " No redibujar la interfaz a menos que sea necesario
+set updatetime=500    " Tiempo para que vim se actualice
 set ttimeout          " ttimeout y ttimeoutlen controlan el retraso de la
 set ttimeoutlen=1     " interfaz para que <Esc> no se tarde
 
-" Rotar entre los diferentes modos normales con v
-vnoremap <expr>v
+" Rotar entre los diferentes modos visuales con v
+xnoremap <expr>v
                \ (mode() ==# 'v' ? "\<C-v>" : mode() ==# 'V' ?
                \ 'v' : 'V')
 "   }}}
@@ -493,14 +623,14 @@ if has('clipboard')
 endif
 
 " Manejo de registros por medio de la letra ñ
-nnoremap " ñ
-vnoremap " ñ
+nnoremap ñ "
+xnoremap ñ "
 
 " Hacer que Y actúe como C y D
 noremap Y y$
 
-" Hacer que ctrl-c copie cosas al porta-papeles del sistema
-vnoremap <C-c> "+y
+" Hacer que Ctrl-c copie cosas al porta-papeles del sistema
+xnoremap <C-c> "+y
 nnoremap <C-c> "+yy
 
 " Copiar texto por arriba y por debajo
@@ -522,8 +652,8 @@ vnoremap <M-l> xp`[<C-V>`]
 vnoremap <M-h> xhP`[<C-V>`]
 
 " Mantener el modo visual después de > y <
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 "   }}}
 
 " Operaciones comunes de modificación de texto {{{
@@ -553,7 +683,7 @@ nnoremap <M-O> :call append(line('.')-1, '')<return>
 
 " Rodear texto entre un carácter específico
 nnoremap <leader>s :call RodearPalabra()<return>
-vnoremap <leader>s <esc>:call RodearSeleccion()<return>
+xnoremap <leader>s <esc>:call RodearSeleccion()<return>
 
 function! RodearPalabra()
     let l:leido = nr2char(getchar())
@@ -595,7 +725,7 @@ endfunction
 
 " Alinear el texto con respecto a un carácter/cadena
 command! -nargs=1 -range Alinear '<,'>call Alinear(<f-args>)
-vnoremap <leader>al :Alinear<space>
+xnoremap <leader>al :Alinear<space>
 nnoremap <leader>al vip:Alinear<space>
 
 function! Alinear(cadena) range
@@ -633,7 +763,7 @@ function! s:columnaMaxima(cadena, linea_ini, linea_fin, columna)
 endfunction
 
 " Extraer variable (variable extract)
-vnoremap <Leader>ve :call ExtraerVariable()<CR>
+xnoremap <Leader>ve :call ExtraerVariable()<CR>
 function! ExtraerVariable()
     let l:tipo = input('Tipo variable: ')
     let l:name = input('Nombre variable: ')
@@ -680,10 +810,10 @@ xnoremap a% GoggV
 onoremap a% :<C-u>normal vi%<return>
 
 " Objeto de texto "comentario de bloque"
-vnoremap ic ?<C-r>=escape(split(&commentstring, "%s")[0], '/*')<return><return>+0o
+xnoremap ic ?<C-r>=escape(split(&commentstring, "%s")[0], '/*')<return><return>+0o
             \ /<C-r>=escape(split(&commentstring, "%s")[1], '/*')<return><return>-$
 onoremap ic :<C-u>normal vic<return>
-vnoremap ac ?<C-r>=escape(split(&commentstring, "%s")[0], '/*')<return><return>o
+xnoremap ac ?<C-r>=escape(split(&commentstring, "%s")[0], '/*')<return><return>o
             \ /<C-r>=escape(split(&commentstring, "%s")[1], '/*')<return><return>l
 onoremap ac :<C-u>normal vac<return>
 "   }}}
@@ -703,18 +833,18 @@ nnoremap // :nohlsearch<return>
 
 " Hacks para la búsqueda y remplazo {{{
 " Hacer que el comando . (repetir edición) funcione en modo visual
-vnoremap . :normal .<return>
+xnoremap . :normal .<return>
 
 " Hacer que el comando & (repetir remplazo) funcione en modo visual
-vnoremap & :s<return>
+xnoremap & :s<return>
 
 " No moverse cuando se busca con * y #
 nnoremap * *N
 nnoremap # #N
 
 " Usar * y # en modo visual busca texto seleccionado y no la palabra actual
-vnoremap * :<C-u>call SeleccionVisual()<return>/<C-R>=@/<return><return>N
-vnoremap # :<C-u>call SeleccionVisual()<return>?<C-R>=@/<return><return>N
+xnoremap * :<C-u>call SeleccionVisual()<return>/<C-R>=@/<return><return>N
+xnoremap # :<C-u>call SeleccionVisual()<return>?<C-R>=@/<return><return>N
 
 function! SeleccionVisual() range
     let l:registro_guardado = @"
@@ -749,7 +879,7 @@ function! BuscarBuffers(patron)
     try
         silent noautocmd execute 'lvimgrep /' . a:patron . '/gj ' . join(l:archivos)
     catch /^Vim\%((\a\+)\)\=:E480/
-        echo 'No hubo coincidencias'
+        echomsg 'No hubo coincidencias'
     endtry
     lwindow
 endfunction
@@ -760,7 +890,8 @@ nnoremap <leader>gsr :lopen<return>
 " Reemplazar texto (replace [local | global | current-global])
 nnoremap <leader>rl :s//g<left><left>
 nnoremap <leader>rg :%s//g<left><left>
-nnoremap <leader>rc :%s/\<<C-r><C-w>\>//g<left><left>
+nnoremap <leader>rw :%s/\<<C-r><C-w>\>\C//g<left><left>
+nnoremap <leader>rW :%s/\<<C-r>=expand("<cWORD>")<return>\>\C//g<Left><Left>
 
 " Saltar entre conflictos merge
 nnoremap <silent> <leader>ml /\v^(\<\|\=\|\>){7}([^=].+)?$<return>
@@ -775,8 +906,8 @@ set autoread          " Recargar el archivo si hay cambios
 
 " Respaldos y recuperación en caso de fallos {{{
 " Si se quiere respaldos, definir la siguiente variable a 1
-let g:usar_respaldo_local = 0
-if g:usar_respaldo_local
+let s:usar_respaldo_local = 0
+if s:usar_respaldo_local
     set backupcopy=yes
     set backup            " Hacer el respaldo
     set swapfile          " Archivo swap para el buffer
@@ -918,11 +1049,11 @@ augroup END
 "}}}
 
 " Configuración para archivos grandes {{{
-let g:DiesMegas = 10 * 1024 * 1024
+let s:DIES_MEGAS = 10 * 1024 * 1024
 augroup ArchivoGrande
     autocmd!
     autocmd BufReadPre * let t=getfsize(expand("<afile>"))
-                \ | if t > g:DiesMegas || t == -2
+                \ | if t > s:DIES_MEGAS || t == -2
                 \ |     call ArchivoGrande()
                 \ | endif
 augroup END
@@ -943,7 +1074,7 @@ nnoremap <leader>sv :source $MYVIMRC<return>
 
 " Evaluar por medio de la consola externa por medio de Q
 nnoremap Q !!$SHELL<return>
-vnoremap Q !$SHELL<return>
+xnoremap Q !$SHELL<return>
 
 " Configuraciones para el emulador de terminal
 if has('nvim')
@@ -958,11 +1089,11 @@ endif
 
 " Evaluación de un comando de modo normal por medio de <leader>evn
 nnoremap <leader>evn ^vg_y@"
-vnoremap <leader>evn y@"
+xnoremap <leader>evn y@"
 
 " Evaluación de un comando de VimL (modo comando) por medio de <leader>evv
 nnoremap <leader>evv :execute getline(".")<return>
-vnoremap <leader>evv :<C-u>
+xnoremap <leader>evv :<C-u>
             \       for linea in getline("'<", "'>")
             \ <bar>     execute linea
             \ <bar> endfor
@@ -981,6 +1112,28 @@ function! SalidaBuffer(comando)
     call setline(1, split(l:salida, "\n"))
     setlocal nomodified
 endfunction
+
+" Listar todos los mapeos actualmente activos
+function! VerComandosActivos()
+    let l:opciones = "Comandos de modo &normal\n"
+                 \ . "Comandos de modo &insersión\n"
+                 \ . "Comandos se modo &visual\n"
+                 \ . "&Todos los comandos\n"
+    let l:respuesta = confirm('¿Qué tipo de comandos quiere listar',
+                            \ l:opciones, 4)
+
+    if l:respuesta == 0
+        return
+    elseif l:respuesta == 1
+        nmap
+    elseif l:respuesta == 2
+        imap
+    elseif l:respuesta == 3
+        vmap
+    else
+        map
+    endif
+endfunction
 " }}}
 
 " Completado, etiquetas, diccionarios y revisión ortográfica {{{
@@ -988,29 +1141,40 @@ set complete+=i        " Completar palabras de archivos incluidos
 
 " Generar etiquetas de definiciones y comando "go to definition"
 set tags=./tags;/,~/.vimtags
-nnoremap <leader>ut !ctags -R .&<return> nnoremap <leader>gd <C-]>
+if !executable('ctags')
+    echoerr 'Se requiere alguna implementación de ctags para generar etiquetas'
+    echoerr 'del lenguaje para usar algunos comandos (y posiblemente plugins).'
+    echoerr 'Se recomienda instalar universal-ctags'
+endif
+if s:usar_plugins
+    nnoremap <leader>ut :UpdateTags<return>
+else
+    nnoremap <leader>ut !ctags -R .&<return>
+endif
+  " <C-]> - Ir a la definición del objeto (solo si ya se generaron las etiquetas)
 
 " Algunas abreviaciones para lenguajes como c, c++ y java
-" El problema de estas abreviaciones es que se pueden usar en cualquier
-" tipo de archivo aunque algunas no sirvan mas que en algunos.
-" Una solución mejor es usar plugins de manejo de snippets.
-iabbrev for  for (int i = 0; i <; i++) {<return>}<esc>kf<a
-iabbrev forr for (int i =; i >= 0; --i) {<return>}<esc>kf;i
-iabbrev pf   printf("");<esc>2hi
-iabbrev cl   cout << << endl;<esc>8hi
-iabbrev pl   System.out.println();<esc>hi
+if !s:usar_plugins
+    " Estas abreviaciones solo son auxiliares para quien tenga desactivados los
+    " plugins. En caso de activar plugins, estos son mejores para manejar
+    " plantillas de código
+    iabbrev for  for (int i = 0; i <; i++) {<return>}<esc>kf<a
+    iabbrev forr for (int i =; i >= 0; --i) {<return>}<esc>kf;i
+    iabbrev pf   printf("");<esc>2hi
+    iabbrev cl   cout << << endl;<esc>8hi
+    iabbrev pl   System.out.println();<esc>hi
+endif
 
 " Establecer la siguiente variable a 1 para activar revisión ortográfica
-let g:activar_revision_ortorgrafica = 0
-
-if g:activar_revision_ortorgrafica
+let s:activar_revision_ortorgrafica = 0
+if s:activar_revision_ortorgrafica
     " Si se quiere revisión ortográfica en español establecer la siguiente
     " variable a 1
-    let g:revision_otrografica_en_espaniol = 0
+    let s:revision_otrografica_en_espaniol = 0
     set spell             " Activa la revisión ortográfica
     " Alternar entre revisión activa e inactiva con ,tsp
     nnoremap <leader>tsp :setlocal spell!<return>
-    if g:revision_otrografica_en_espaniol
+    if s:revision_otrografica_en_espaniol
         set spelllang=es      " El idioma de revisión es español
         " Generalmente los sistemas operativos no cuentan con un diccionario
         " en español. La primera vez que se inicie vim se pedirá permiso
