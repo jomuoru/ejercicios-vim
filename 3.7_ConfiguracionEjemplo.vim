@@ -35,40 +35,29 @@ set matchpairs+=<:>   " Saltar también entre paréntesis angulares hermanos
 
 let g:mapleader = ','  " La tecla líder es , porque está a la mano
 
-" Si se quiere usar un manejador de plugins establecer la siguiente línea
-" a un valor verdadero
-let s:usar_plugins = 0
+" Si se quiere usar un manejador de plugins establecer la siguiente variable a 1
+let s:usar_plugins = 1
 if s:usar_plugins
-    let l:path_manejador_plugins = expand('~/.vim/autoload/plug.vim')
+    let s:path_manejador_plugins = expand('~/.vim/autoload/plug.vim')
 
-    if !filereadable(l:path_manejador_plugins)
+    if !filereadable(s:path_manejador_plugins)
         echomsg 'Se instalará el manejador de plugins Vim-Plug...'
-        echomsg ''
-        silent !mkdir -p ~/.vim/autoload
+        echomsg 'Creadndo directorio para el plugin'
+        call mkdir(expand('~/.vim/autoload/'), 'p')
         if !executable('curl')
             echoerr 'Se requiere instalar curl o instalar vim-plug manualmente'
             quit!
         endif
 
-        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        echomsg 'Descargando el plugin'
+        !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
         " Como se acaba de descargar el manejador de plugins lo cargamos
         " manualmente con la siguiente línea (De otro modo se requeriría
         " reiniciar vim)
-        execute 'source ' . fnameescape(l:path_manejador_plugins)
         let s:manejador_plugins_recien_instalado = 1
     endif
-
-    " Entre las llamadas a plug#begin() y plug#end() se colocan los
-    " plugins que quiera el usuario con la siguiente sintaxis:
-    "    Plug 'ruta/del/plugin'
-    "
-    " La ruta del plugin puede ser un proyecto de github con la siguiente
-    " sintaxis:
-    "   usuario/nombre_del_proyecto
-    "
-    " También puede ser una url de git válida:
-    "   https//url/de/algun/repositorio.git
+    execute 'source ' . fnameescape(s:path_manejador_plugins)
 endif
 
 " Activar detección del tipo de archivo
@@ -78,7 +67,7 @@ filetype plugin indent on
 set shell=/bin/bash
 " }}}
 
-" Lista de plugins y sus configuraciones (solo si se han habilitado) {{{
+" Plugins y sus configuraciones (solo si se han habilitado) {{{
 if s:usar_plugins
     " Todos los plugins tienen que ir entre plug#begin() y plug#end()
     call plug#begin('~/.vim/plugged')
@@ -87,13 +76,6 @@ if s:usar_plugins
     Plug 'tpope/vim-fugitive'     " Manejo de git dentro de vim
     Plug 'airblade/vim-gitgutter' " Mostrar diferencias del archivo al editar
     " :GitGutterToggle - Activar y desactivar gitgutter
-    let g:gitgutter_map_keys = 0
-    nmap }h <Plug>GitGutterNextHunk
-    nmap {h <Plug>GitGutterPrevHunk
-    omap ih <Plug>GitGutterTextObjectInnerPending
-    omap ah <Plug>GitGutterTextObjectOuterPending
-    omap ih <Plug>GitGutterTextObjectInnerVisual
-    omap ah <Plug>GitGutterTextObjectOuterVisual
 
     " Completado y revisión de código
     if has('nvim') || (v:version >= 800 && has('python3'))
@@ -122,17 +104,19 @@ if s:usar_plugins
 
     Plug 'Shougo/neosnippet'              " Gestor de plantillas de código
     Plug 'Shougo/neosnippet-snippets'     " Plantillas predefinidas
-    " Ctrl-e (de expand) para expandir snippets
+    " Ctrl-e (e de expand) para expandir plantillas de código
     imap <C-e> <Plug>(neosnippet_expand_or_jump)
     smap <C-e> <Plug>(neosnippet_expand_or_jump)
     xmap <C-e> <Plug>(neosnippet_expand_target)
 
     Plug 'Shougo/neoinclude.vim'          " Completado de cabeceras
     Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'css', 'sass'] }
+      " Ctrl-y + , (coma) - Completar abreviación emmet
+      " Ctrl-y + n - Saltar al siguiente punto de edición de emmet
     Plug 'Shougo/neco-vim', { 'for': 'vim' }
 
-    Plug 'tkhren/vim-fake'                " Texto muestra (faketext, lorems, etc...)
-    let g:fake_bootstrap = 1              " Cargar definiciones extra de vim-fake
+    Plug 'tkhren/vim-fake'          " Texto muestra:faketext, lorems, etc...
+    let g:fake_bootstrap = 1        " Cargar definiciones extra de vim-fake
 
     " Omnifunciones para completado de código
     augroup OmnifuncionesCompletado
@@ -141,13 +125,13 @@ if s:usar_plugins
     augroup END
 
     " Navegación y edición de texto
-    Plug 'scrooloose/nerdtree.git'        " Árbol de directorios
+    Plug 'scrooloose/nerdtree'            " Árbol de directorios
     nnoremap <leader>tgnt :NERDTreeToggle<return>
-    nnoremap <F5> :NERDTreeToggle<return>
+    nnoremap <F5>         :NERDTreeToggle<return>
 
     Plug 'majutsushi/tagbar'              " Árbol de navegación (Requiere ctags)
     nnoremap <leader>tgtb :TagbarToggle<return>
-    nnoremap <F6> :TagbarToggle<return>
+    nnoremap <F6>         :TagbarToggle<return>
 
     Plug 'xolox/vim-easytags'             " Generación y manejo de etiquetas
     Plug 'kshenoy/vim-signature'          " Marcas visuales
@@ -182,7 +166,7 @@ if s:usar_plugins
 
     call plug#end()
 
-    if s:manejador_plugins_recien_instalado
+    if exists('s:manejador_plugins_recien_instalado')
         PlugInstall
     endif
 endif
@@ -237,6 +221,7 @@ set background=dark
 if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
     let &t_Co = 256
 endif
+" Para ver los temas de color presionar :colorscheme + <Tab>
 if s:usar_plugins
     colorscheme tender
 endif
@@ -343,10 +328,10 @@ nnoremap __   :split<return>
 " :vnew - Crear nueva ventana horizontal vacía
 
 " Comandos para movimiento entre ventanas
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-k> <C-w>k
-nnoremap <C-j> <C-w>j
+" <C-h> - Moverse a la ventana de la izquierda
+" <C-l> - Moverse a la ventana de la derecha
+" <C-k> - Moverse a la ventana de la arriba
+" <C-j> - Moverse a la ventana de la abajo
 " <C-w>t - Ir a la primera ventana
 " <C-w>b - Ir a la última ventana
 " <C-w>w - Ir a la siguiente ventana
@@ -500,9 +485,10 @@ function! AlternarInicioMedioFinalComoEnEmacs()
     normal! zb
     let l:linea_ultima = winline()
 
-    if l:linea_inicial ==# l:linea_ultima
+    if l:linea_inicial == l:linea_ultima
         normal! zt
-    elseif l:linea_inicial !=# l:lineas_ventana / 2
+    elseif l:linea_inicial != l:lineas_ventana / 2
+         \ && l:linea_inicial != l:lineas_ventana / 2 + 1
         normal! z.
     endif
 
@@ -614,7 +600,8 @@ set pastetoggle=<F2>  " Botón para activar/desactivar 'paste'
 nnoremap <leader>tps setlocal paste!<return>
 
 " Copiar y pegar por medio de la papelera del sistema si se puede
-if has('clipboard')
+let s:usar_portapapeles_del_sistema = 0
+if s:usar_portapapeles_del_sistema && has('clipboard')
     if has('unnamedplus') " Cuando se pueda usar el registro + para copiar-pegar
         set clipboard=unnamed,unnamedplus
     else " En mac y windows se usa el registro * para copiar-pegar
@@ -681,33 +668,35 @@ inoremap <M-j><M-k> <Esc>ddk
 nnoremap <M-o> :call append(line('.'), '')<return>
 nnoremap <M-O> :call append(line('.')-1, '')<return>
 
-" Rodear texto entre un carácter específico
-nnoremap <leader>s :call RodearPalabra()<return>
-xnoremap <leader>s <esc>:call RodearSeleccion()<return>
+" Emular un par de comandos para rodear texto (de vim surround)
+if !s:usar_plugins
+    nnoremap <leader>s :call s:rodearPalabra()<return>
+    xnoremap <leader>s <Esc>:call s:rodearSeleccion()<return>
 
-function! RodearPalabra()
-    let l:leido = nr2char(getchar())
-    let [l:car_apertura, l:car_cierre] = CaracteresHermanos(l:leido)
+    function! s:rodearPalabra()
+        let l:leido = nr2char(getchar())
+        let [l:car_apertura, l:car_cierre] = CaracteresHermanos(l:leido)
 
-    execute "normal! viw\<esc>a"
-                \ . l:car_cierre
-                \ . "\<esc>"
-                \ . "hviwo\<esc>i"
-                \ . l:car_apertura
-                \ . "\<esc>lel"
-endfunction
+        execute "normal! viw\<Esc>a"
+                    \ . l:car_cierre
+                    \ . "\<Esc>"
+                    \ . "hviwo\<Esc>i"
+                    \ . l:car_apertura
+                    \ . "\<Esc>lel"
+    endfunction
 
-function! RodearSeleccion()
-    let l:leido = nr2char(getchar())
-    let [l:car_apertura, l:car_cierre] = CaracteresHermanos(l:leido)
+    function! s:rodearSeleccion()
+        let l:leido = nr2char(getchar())
+        let [l:car_apertura, l:car_cierre] = CaracteresHermanos(l:leido)
 
-    execute 'normal! `>a'
-                \ . l:car_cierre
-                \ . "\<esc>"
-                \ . '`<i'
-                \ . l:car_apertura
-                \ . "\<esc>"
-endfunction
+        execute 'normal! `>a'
+                    \ . l:car_cierre
+                    \ . "\<Esc>"
+                    \ . '`<i'
+                    \ . l:car_apertura
+                    \ . "\<Esc>"
+    endfunction
+endif
 
 function! CaracteresHermanos(caracter)
     if a:caracter ==# '(' || a:caracter ==# ')'
@@ -924,8 +913,8 @@ nnoremap <leader>cs  :source ~/.vim/session/
 nnoremap <leader>cfs :source ~/.vim/session/default<return>
   " vim -S <archivo_sesion> - Abrir vim con una sesión
 
-if !isdirectory('~/.vim/session/')
-    call mkdir('~/.vim/session/', 'p')
+if !isdirectory(expand('~/.vim/session/'))
+    call mkdir(expand('~/.vim/session/'), 'p')
 endif
 "   }}}
 
@@ -949,11 +938,13 @@ command! -bang QA qa<bang>
 command! -bang Wqa wqa<bang>
 command! -bang WQa wqa<bang>
 command! -bang WQA wqa<bang>
+command! -bang Xa xa<bang>
+command! -bang XA xa<bang>
 
 " Usar Ctrl-s para guardar como en cualquier otro programa
 nnoremap <C-s> :write<return>
-inoremap <C-s> <esc>:write<return>a
-" Es preferible guardar desde modo normal. En modo insersión no se puede
+inoremap <C-s> <Esc>:write<return>a
+" Es preferible guardar desde modo normal. En modo inserción no se puede
 " garantizar (al menos no sin usar instrucciones más complejas) que el
 " cursor se quede en la posición inicial
 
@@ -1017,7 +1008,7 @@ augroup END
 nnoremap <F9> :make<bar>call EjecutarSiNoHayErrores()<return>
 
 function! EjecutarSiNoHayErrores()
-    if len(getqflist()) ==# 0        " Run the program
+    if len(getqflist()) ==# 0        " Ejecutar el programa
         " Si no hay errores se intenta ejecutar el programa
         " Esto no funcionara en neovim (usar la terminal integrada
         " en su lugar)
@@ -1116,7 +1107,7 @@ endfunction
 " Listar todos los mapeos actualmente activos
 function! VerComandosActivos()
     let l:opciones = "Comandos de modo &normal\n"
-                 \ . "Comandos de modo &insersión\n"
+                 \ . "Comandos de modo &inserción\n"
                  \ . "Comandos se modo &visual\n"
                  \ . "&Todos los comandos\n"
     let l:respuesta = confirm('¿Qué tipo de comandos quiere listar',
@@ -1186,8 +1177,8 @@ if s:activar_revision_ortorgrafica
     endif
 
     " Recorrer las palabras mal escritas y corregirlas
-    nnoremap <leader>sl ]s
-    nnoremap <leader>sh [s
+    nnoremap <leader>sl ]szzzv
+    nnoremap <leader>sh [szzzv
 
     " Modificar lista de palabras aceptadas
     nnoremap <leader>sa zg
@@ -1196,7 +1187,7 @@ if s:activar_revision_ortorgrafica
     " Mostrar opciones de corrección para una palabra mal escrita
     nnoremap <leader>ss  z=
     nnoremap <leader>scc 1z=
-    nnoremap <leader>scp [sl=<C-o>
+    nnoremap <leader>scp [s1z=<C-o>
 endif
 " }}}
 
