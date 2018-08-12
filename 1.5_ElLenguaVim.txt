@@ -1,4 +1,4 @@
-                ** Aprendiendo a hablar con vim **
+                    ** Aprendiendo a hablar con vim **
 
 El venerable vi tenia una estructura para los comandos de edición similar
 a la siguiente:
@@ -19,25 +19,27 @@ con 'dw'
                                         w => Moverse a la siguiente palabra
 
 Respuesta sugerida (Abrir o cerrar 'za') {{{
-    Sobre la PRIMERA LETRA de "provident" escribe 'dw' que elimina desde
+    Sobre la PRIMERA LETRA de "provident" escribe dw que elimina desde
     dicha posición hasta el inicio de la siguiente palabra (de forma no
-    inclusiva). Para repetir la acción, hace falta volver a posicionarse
+    inclusiva)
+    Para repetir la acción, hace falta volver a posicionarse
     exactamente en el PRINCIPIO de la siguiente palabra.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
-Vim introduce la idea de 'objetos de texto' que proporciona una forma
+Vim introduce la idea de "objetos de texto" que proporciona una forma
 mucho más natural de trabajar con los operadores. La sintaxis que se sigue
 es:
     {operador}a{objeto}
     {operador}i{objeto}
 
-Las letras 'a' e 'i' deben interpretarse como 'around' y como 'inside'.
+Las letras "a" e "i" deben interpretarse como "around" y como "inside"
+respectivamente.
 Al usar esta sintaxis siempre se afecta el objeto completo (y posiblemente
-sus alrededores si se usa 'a'). No se requiere preocuparse de la ubicación
-del cursor en ningún momento.
+sus alrededores si se usa "a"). No se requiere preocuparse de la ubicación
+del cursor sobre el mismo.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 2: Elimine las apariciones de 'provident' del siguiente párrafo
@@ -49,24 +51,24 @@ con 'daw' (delete around word)
                                         w => Moverse a la siguiente palabra
 
 Respuesta sugerida {{{
-    Sobre la palabra provident y sin importar la posición, presiona 'daw' y
-    luego repítelo sobre el resto de apariciones sin importar la posición
+    Sobre la palabra provident y sin importar la posición, presiona daw y
+    luego repitelo sobre el resto de apariciones sin importar la posición
     el cursor (mientras esté dentro de la palabra).
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Siempre que sea posible, preferir la estructura de comandos de
-vim sobre de vi; Aunque puedan requerir un poco más de tecleo son
-más fáciles de aprender y recordar ya que se asemejan a un 'lenguaje'
-humano. Asimismo, suelen ser mucho más fáciles de repetir.
+Siempre que sea posible, preferir la estructura de comandos de vim sobre de
+vi; Aunque puedan requerir un poco más de tecleo son más fáciles de
+aprender y recordar ya que se asemejan a un 'lenguaje' humano. Asimismo,
+suelen ser mucho más fáciles de repetir.
 
 Nota: Hay objetos de texto que se llaman igual que comandos y que además
-afectan al mismo tipo de "objeto de texto" como en el caso del objeto de
-texto "w" que afecta palabras y el comando "w" que se mueve entre palabras
-pero en general asumir que no hay ninguna relación.
+afectan al mismo segmento de texto como en el caso del objeto de texto "w"
+que afecta palabras y el comando "w" que se mueve entre palabras pero en
+general asumir que no hay ninguna relación.
 ___________________________________________________________________________
 Una platica que sobre el lenguaje y buenas prácticas de vim:
-    https://www.youtube.com/watch?v=wlR5gYd6um0
+    https://www.youtube.com/watch?v=wlR4gYd6um0
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]

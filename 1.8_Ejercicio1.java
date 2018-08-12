@@ -6,27 +6,28 @@ class Ejercicio1 {
         // cola de prioridad, una con arreglos, una con listas y una con
         // arboles binarios.
         // Declare una variable de cada una ayudándose del completado
-        // de vim
-        //                              Borrar hasta el final => C
-        //                              Cambiar mayus/minus de carácter => ~
+        // de vim. Pista: Todas las clases mencionadas empiezan igual, solo
+        // difieren en la palabra Arreglo, Lista o Arbol.
+        //                            Borrar hasta el final => C
+        //                            Cambiar mayus/minus un carácter => ~
 
         ColaPrioridadArreglo colaPrioridadArreglo; // Ejemplo
 
         // Respuesta sugerida {{{
-        //     Sobre la línea que declara colaPrioridadArreglo presione
-        //     'o' para entrar en modo inserción en la siguiente línea.
-        //     Comience a escribir 'Col' y complete con <C-N> para
-        //     formar "ColaPrioridadArreglo". Posteriormente regrese a
-        //     modo normal con <Esc> y teclee 'FAC', que buscará hacía
-        //     atrás sobre la misma línea la letra "A" y desde la posición
-        //     en que la encuentre borrará hacia enfrente permitiendo
-        //     escribir lo que queramos (en este caso 'Lista').
+        //     Sobre la línea que declara colaPrioridadArreglo presiona:
+        //         o
+        //     Comience a escribir "Col" y complete con <C-n> para
+        //     formar "ColaPrioridadArreglo", para luego regresar a
+        //     modo normal y teclear: FAC (Búscar "A" hacia atrás y cambiar
+        //     el resto de caracteres de la línea)
+        //     Añada la palabra Lista al final para completar el tipo
         //     Un proceso similar se tiene que aplicar para el nombre
-        //     de la variable. En el caso de la implementación con
-        //     Arbole el proceso será el mismo.
+        //     de la variable
+        //     En el caso de la implementación con árbol el proceso será el
+        //     mismo
         // }}}
     }
 }
 
-// Regresar al tutorial: 1.8_Completado.txt
-// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
+// Regresar al tutorial: 1.8_Completado.txt:21 (usar gF)
+// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker tw=75

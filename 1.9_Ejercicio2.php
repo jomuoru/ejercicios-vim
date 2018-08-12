@@ -12,12 +12,13 @@
          'eos! Nulla dolore possimus culpa molestiae enim',
          'Minima cum omnis minus mollitia harum';
   }
-// Respuesta sugerida {{{
+// Respuesta sugerida (Abrir o cerrar con za) {{{
 //     Para copiar el código un par de veces usa 'va{VyPP'
-//     Después cambie los nombres de las variables.
+//     Después cambie los nombres de las variables de "mi_variable" a "var2" y
+//     "otra_var"
 // }}}
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ?>
 
-<!-- vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
+<!-- vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker tw=75
 -->

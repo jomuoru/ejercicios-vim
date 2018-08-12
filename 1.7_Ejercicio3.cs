@@ -38,10 +38,10 @@ Int32 opcion;
     }
 
     // Arregle la sangría del código
-    //                                      Ir al principio de archivo => gg
-    //                                      Ir al final de archivo => G
+    //                                  Ir al principio de archivo => gg
+    //                                  Ir al final de archivo => G
     // Respuesta sugerida  {{{
-    //     Teclee 'gg=G' o 'G=gg'
+    //     Teclea gg=G o G=gg
     // }}}
 
 if (opcion == 1)

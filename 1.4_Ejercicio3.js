@@ -1,6 +1,6 @@
 
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-// Indente el código y ponga punto y coma donde sea posible
+// Indenta el código y pon punto y coma donde haga falta
 
 (function (ipsa, voluptates, soluta) {
 if (true) {
@@ -17,11 +17,12 @@ const Dolor = (amet) => ({ 'Consectetur': 'sit' })
 }
 })('Aliquid', false, len)
 // Respuesta sugerida {{{
-//     Para separar el texto del límite izquierdo use I<Tab><Esc> y luego
-//     repita. Para añadir punto y coma use A;<Esc> y luego repita.
+//     Para separar el texto del límite izquierdo usa I<Tab><Esc> y luego
+//     repite
+//     Para añadir punto y coma usa A;<Esc> y luego repite
 // }}}
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 // ¿Quieres volver? => 1.4_EntradoInserción.txt:57
 
-// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
+// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker tw=75

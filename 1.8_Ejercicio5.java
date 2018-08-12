@@ -26,5 +26,4 @@ class Ejercicio5 {
         lista.forEach(System.out::println);
     }
 }
-
-// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
+// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker tw=75

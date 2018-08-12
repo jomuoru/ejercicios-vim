@@ -2,10 +2,6 @@
 
 # *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 # Sustituye cada aparición de 1:-Usuario por NOMBRE
-# Respuesta sugerida {{{
-#     Dentro de las llaves de alguna aparición de "${1:-Usuario}" presione
-#     'ci{NOMBRE<Esc>'. Luego muévase a las siguientes y presione con '.'
-# }}}
 
 NOMBRE=${1:-Usuario}
 
@@ -20,6 +16,11 @@ echo
 # ...
 
 echo "Adiós ${1:-Usuario}, vuelve pronto"
+# Respuesta sugerida {{{
+#     Dentro de las llaves de alguna aparición de "${1:-Usuario}" presiona
+#     ci{NOMBRE<Esc>
+#     Luego muévete a las siguientes y presione .
+# }}}
 # *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
-# vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
+# vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker tw=75

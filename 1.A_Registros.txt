@@ -5,6 +5,9 @@ Normalmente el texto que copias y pegas en cualquier programa es manejado
 por el sistema en un único espacio de almacenamiento también llamado el
 porta-papeles del sistema (clipboard).
 
+- "_ (Registro agujero negro)
+
+- let @{reg} = 'algo'
 
 - Operar con vim:
     <Ctrl-r>={expresion}

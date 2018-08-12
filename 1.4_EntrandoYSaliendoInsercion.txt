@@ -7,8 +7,8 @@ Comenzar a editar sobre la misma línea:
     A       Insertar al final de la línea actual
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 1: Entre en modo de inserción en cada una de las posiciones
-señaladas por pico-paréntesis y escriba respectivamente "A", "B", "C" y "D"
+Ejercicio 1: Entra en modo de inserción en cada una de las posiciones
+señaladas por pico-paréntesis y escribe respectivamente "A", "B", "C" y "D"
 para luego regresar a modo normal
 
 Adipisicing >< amet nobis error obcaecati impedit
@@ -17,7 +17,7 @@ Consectetur recusandae unde sapiente magni?>
 <Dolor ut similique elit est?
 
 Respuesta sugerida (Abrir o cerrar con za) {{{
-    Si se comienza desde la primera línea del ejercicio, escribe las
+    Si comienzas desde la primera línea del ejercicio, escribe las
     siguientes secuencias (una para cada posición):
         f<iA<Esc>
         jaB<Esc>
@@ -44,10 +44,10 @@ Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
         | Ipsum tempore? |
         | Sit alias. |
         | Elit maxime? |
-    Posicionado(a) antes de una barra desalineada presiona
+    Posicionado@ antes de una barra desalineada presiona
         i <Esc>
     y repite hasta alinear el carácter con el primer | Luego haz lo mismo
-    en el resto de caracteres desalineados.
+    en el resto de caracteres desalineados
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -69,9 +69,9 @@ Ejercicio 2: Escriba un texto cualquiera en medio de las siguientes líneas:
 
 Respuesta sugerida {{{
     Puedes elegir entre posicionarte en la primera línea y escribir
-        oTexto de ejemplo<Esc>
+        oTexto de ejemplo<C-[>
     o posicionarte en la segunda y escribir
-        OTexto de ejemplo<Esc>
+        OTexto de ejemplo<C-[>
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -80,7 +80,7 @@ Respuesta sugerida {{{
 Entrar a insertar al momento que se hacen cambios
     s       Borra carácter bajo el cursor y entrar a modo inserción
     S       Borra la línea bajo el cursor y entra a modo inserción
-    c       Operador 'cambio'
+    c       Operador 'cambiar'
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: Arregla las faltas de ortografía de la siguiente línea
@@ -88,7 +88,7 @@ Ejercicio 3: Arregla las faltas de ortografía de la siguiente línea
 
 Respuesta sugerida {{{
     Sobre cada carácter incorrecto escribe
-        sCarácter correcto<Esc>
+        s{Carácter correcto}<C-[>
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -100,7 +100,7 @@ Ejercicio 4: Cambia la línea de enmedio por "estoy editando en vim"
 
 Respuesta sugerida {{{
     Escriba sobre la línea de enmedio.
-        Sestoy editando en vim<Esc>
+        Sestoy editando en vim<C-[>
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -117,18 +117,55 @@ Respuesta sugerida {{{
 Sin autoindent:
     Para hacer repetible la operación, usamos búsqueda de carácter f,
     aunque tengamos la coma al lado y luego tecleamos
-        2s<Enter>    <Esc>
-    Luego usaremos la combinación: ;. para repetir la búsqueda y luego
+        2s<Enter><Space><Space><Space><Space><Esc>
+    Luego usaremos la combinación ;. para repetir la búsqueda y luego
     repetir la edición sobre los números faltantes
 
 Con autoindent:
-    Lo mismo quitando los espacios extra que formaban la sangría:
+    Lo mismo pero quitando los espacios extra que formaban la sangría y en
+    su lugar escribiendo:
         2s<Enter><Esc>
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+===========================================================================
+Saliendo de modo inserción
+
+Las formas estándares de salir de modo inserción son:
+
+    <Esc> (Tecla escape)
+    <C-[> (Ctrl + tecla corchete abierto)
+    <C-c> (Ctrl + letra 'c')
+
+Las primeras dos son equivalentes.  Sin embargo, la tercera tiene ligeras
+diferencias que la pueden volver inconveniente.
+Una forma sencilla de mitigar esas diferencias es mapear <C-c> en <Esc> de
+la siguiente forma:
+
+    :imap <C-c> <Esc>
+
+El prefijo "i" significa "inserción" y "map" viene de "mapear".  Tras esa
+instrucción, todos los Ctrl + C que se ejecuten en modo inserción serán
+transformados por Vim en <Esc>
+
+Una forma común de salir de modo inserción sin mover las teclas de la fila
+principal del teclado (home row) es mapear alguna combinación de teclas
+fácil de teclear a Escape.  "kj", "jk" y "jj" son elecciones comunes de
+teclas para salir de modo inserción rápidamente;  es recomendable elegir
+una de las primeras dos ya que ambas dejan el cursor en su posición inicial
+si se presionan por accidente en modo normal.
+
+    :imap kj <Esc>
+    :imap jk <Esc>
 ___________________________________________________________________________
+Lecturas relacionadas:
+    * :help i_<Esc> - Diferencias entre <Esc> y <C-c>
+
+Plugins relacionados con entrar y salir de inserción
+    * https://github.com/zhou13/vim-easyescape/ - Plugin para facilitar el
+      manejo de un mapeo para salir y entrar
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]
 
-vim: fdm=marker
+vim: fdm=marker tw=75

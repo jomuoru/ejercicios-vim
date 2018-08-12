@@ -1,9 +1,11 @@
+Aceptar una opción al completar nombre de archivo: <Right> o /
+
 Modo ex
 
 Abrir historial de comandos
-    :q
+    q:
 
-Abrir terminal del sistema:
+rir terminal del sistema:
     :sh
 
 Historial de cambios de una variable o mapeo

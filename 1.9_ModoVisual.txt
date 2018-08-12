@@ -1,9 +1,8 @@
-                        ** Modo visual **
+                             ** Modo visual **
 
-El modo visual provee otra forma de trabajar con los operadores,
-primero seleccionando el texto y posteriormente especificando el
-operador a usar:
-
+El modo visual provee otra forma de trabajar con los operadores, primero
+seleccionando el texto y posteriormente especificando el operador a aplicar
+sobre dicho texto
 
 ===========================================================================
 
@@ -18,10 +17,11 @@ de la siguiente línea.
     AAAAABBBBBAAAAABBBBBAAAAABBBBBAAAAABBBBBAAAAABBBBB
                    ^                  ^
                    |                  |
+             (Desde aquí)         (Hasta aquí)
                                 Convertir en mayúscula (modo visual) => u
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Usa las flechas de debajo para como anclas para llegar a los
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
+    Usa las flechas de debajo como anclas para llegar a los
     caracteres señalados. Es decir, desde la primera flecha presiona
 
         kvjwku
@@ -31,10 +31,31 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 V      Entrar a modo de selección de líneas completas
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 2: 1.9_Ejercicio2.php:9 (Abrir con 'gF')
+Ejercicio 2: 1.9_Ejercicio2.php:9 (Abrir con gF)
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 <Ctrl-V>    Entrar a modo de selección de bloque
+
+El modo de seleción de bloque tiene la peculiaridad de que se puede
+insertar texto en las múltiples líneas de una seleción por medio de los
+comandos A e I. A esto se le denomina "Inserción de bloque" (Block insert)
+y "Adición de bloque" (Block append).
+
+Ejemplo: Dado el siguiente texto
+
+    texto1
+    texto2
+    texto3
+
+Si se usa el modo de bloque visual para seleccionar ese texto y luego se
+escribe: A - otrotexto
+Se obtiene:
+
+    texto1 - otrotexto
+    texto2 - otrotexto
+    texto3 - otrotexto
+
+Lo mismo se aplica para la letra I.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 3: 1.9_Ejercicio3.css
@@ -54,26 +75,30 @@ Ejercicio 4: Ordenar las filas y columnas
 
 Respuesta sugerida {{{
     Posicionado desde el primer "+", para ordenar las filas:
-        f+l<Ctrl-V>2f+8jd$pf+8jd$p
+        f+l<C-V>2f+8jd$pf+8jd$p
     Para ordenar las columnas:
         2jdjjp
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-(((
+(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
 El siguiente script crea algunos comandos para manejar celdas de texto
-como las anteriores: (abrir con 'gf')
+como las anteriores: (abrir con gf)
+
     1.9_Script_MovimientoBloque.vim
-)))
+
+Interpreta el archivo y prueba hacer el ejercicio anterior usando esos
+comandos.
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 ===========================================================================
 
 Moviéndose entre las esquinas
 
-En modo de bloque visual puedes alternar entre las esquinas de la
-selección mediante dos comandos:
+En modo de bloque visual puedes alternar entre las esquinas de la selección
+mediante dos comandos:
 
     o        Ir a la esquina que inversa (por la diagonal)
-        (las o's, son de "oposite")
+             (las o's, son de "oposite")
     O        Ir a la esquina inversa (en horizontal)
 
 En el resto de modos visuales ambos comandos funcionan igual (alternando
@@ -100,7 +125,136 @@ Reusando la selección anterior
     marca ]     Final de la selección usada previamente
 
 Para aprender sobre manejo de marcas véase la lección correspondiente
+
+===========================================================================
+
+Operadores de modo visual
+
+Ademas de poder usar los operadores y objetos de texto normales, el modo
+visual tiene una serie de operadores que se acortan únicamente en dicho
+modo:
+
+    ~     Intercambiar mayúsculas/minúsculas (g~ acortado)
+    u     Convertir selección a minúscula (gu acortado)
+    U     Convertir selección a mayúscula (gU acortado)
+
+Sigue siendo válido usar su versión larga.
+
+===========================================================================
+
+Seleccionando con el mouse
+
+Para seleccionar texto con el mouse se requiere establecer la opción
+'mouse' de la siguiente manera:
+
+    :set mouse=a
+
+Si tu versión de vim lo permite, ahora se podrá mover el cursor de
+escritura y seleccionar texto con el ratón como en un editor tradicional.
+Para saberlo con certeza se puede usar el siguiente comando:
+
+    :echo has('mouse')
+
+El cual despliega un 1 en la parte inferior si vim tiene soporte para el
+mouse o un 0 si no es el caso. Si el comando anterior resulta en 0 salta el
+resto de la lección.
+
+Aunque usando el ratón es posible usar la selección en modos diferentes al
+modo normal, puede resultar confuso en algunas ocasiones descubrir que la
+selección en modo inserción funciona de manera distinta. Es recomendable
+ateñirse a modo normal aún cuando se hace uso del ratón a menos que se sepa
+lo que se está haciendo.
+
+Mediante el clic izquierdo del ratón se puede posicionar el cursor en
+cualquier posición.  En caso de mantener el clic presionado y arrastrar el
+ratón se creará una selección entre el primer clic y la posición del ratón.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 6: Usa el ratón para posicionarse en el inicio de la siguiente
+frase y seleccionarla excluyendo los signos "-----".  Copia el texto
+seleccionado y pegalo entre los signos "#####".
+
+Pocicionate aquí       Selecciona hasta acá
+          |                    |
+          |                    |
+          v                    v
+    ----- Ipsum voluptatibus sit -----
+    #####  #####
+          ^
+          |
+Pega acá -+
+                                            Comando copiar (yank) => y
+                                            Pegar detrás  => P
+
+Respuesta sugerida (Abrir con za) {{{
+    Haz clic sostenido sobre la I de "Ipsum" hasta la t de "sit" y usa y
+    para copiar la selección. Después haz clic en el lugar señalado por la
+    flecha de "Pega acá" y presiona P para pegar
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+Si se presiona el ratón repetidas veces sobre una misma posición se pueden
+seleccionar pedazos significativos de texto. Aquí un resumen de lo que hace
+cada clic consecutivo:
+
+    Clic 1  -  Posiciona el cursor
+    Clic 2  -  Selecciona la palabra sobre la posición del clic
+    Clic 3  -  Entra en modo de ĺineas visuales
+    Clic 4  -  Entra en modo de bloque visual
+
+Si se mantiene el botón y se arrastra tras dar el primero o el segundo
+clics la selección se hará en modo visual de caracteres, mientras que si se
+mantiene presionado tras el tercer o cuarto clic la selección se hará por
+líneas o por bloque. Los comandos para cambiar de esquina "O" y "o" siguen
+funcionando normalmente.
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Ejercicio 4: Ordenar las filas y columnas esta vez usando el ratón para
+seleccionar los bloques.
+    +----------+----------+----------+----------+
+    |          |  Fila B  |  Fila A  |  Fila C  |
+    +----------+----------+----------+----------+
+    |  Colm 2  |  cel 22  |  cel 23  |  cel 21  |
+    +----------+----------+----------+----------+
+    |  Colm 1  |  cel 21  |  cel 13  |  cel 11  |
+    +----------+----------+----------+----------+
+    |  Colm 3  |  cel 32  |  cel 33  |  cel 31  |
+    +----------+----------+----------+----------+
+
+                                            Operador cortar texto => d
+                                            Pegar texto enfrente => p
+
+Respuesta sugerida {{{
+    Para seleccionar un bloque correspondiente a la fila usar la selección
+    por bloque (4 clics consecutivos) y para seleccionar las columnas usar
+    selección por líneas (3 clics consecutivos). Las áreas seleccionadas
+    serán las mismas que en la primera versión de este ejercicio así como
+    los lugares en que se deben de pegar.
+}}}
+*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
+
+
+===========================================================================
+
+Conocer el tipo de modo visual
+
+Generalmente la barra de estado en la parte inferior proporciona
+información sobre cual es el modo actual de vim, lo cual sin embargo no
+sirve en scripts.  La función visualmode() regresa una representación en
+cadena que puede ser usada por scripts, con los siguientes posibles
+resultados:
+
+    ""         Si vim no se encuentra en modo visual
+    "v"        Si se está en modo visual de caracteres
+    "V"        Si se está en modo visual de líneas
+    "\<C-v>"   Si se está en modo visual de bloque
 ___________________________________________________________________________
+
+Lecturas sugeridas:
+    :help visual-mode
+    :help mouse
+    :help visualmode()
+
 Algunos de los trucos presentados en esta lección y más en la
 conferencia de Damian Conway:
     https://www.youtube.com/watch?v=aHm36-na4-4&t=1042s
@@ -113,4 +267,4 @@ seleccionar.
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]
 
-vim: fdm=marker
+vim: fdm=marker tw=75

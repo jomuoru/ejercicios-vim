@@ -17,16 +17,17 @@ int main(void)
 {
 // *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 // Pruebe la diferencia entre completado normal y completado
-// local al archivo mientras trata de llamar la funcion "fcreate":
-//
+// local al archivo mientras trata de llamar la función "fcreate":
 
     FILE * fp = f
 
 // Respuesta sugerida {{{
-//     Recordando: <Ctrl-N> o <Ctrl-P> completan sin discriminar y
-//     <Ctrl-X><Ctrl-N> o <Ctrl-X><Ctrl-P> completan solo palabras
-//     del archivo actual.
+//     Recordando: <C-n> o <C-p> completan sin discriminar y <C-x><C-n>
+//     o <C-x><C-p> completan solo palabras del archivo actual
+//     Posicionándose enfrente de la f y presionando <C-x><C-n>
+//     se obtiene una lista reducida en donde será fácil encontrar
+//     fcreate. Luego solo faltaría añadir paréntesis y punto y coma
 // }}}
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 }
-// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
+// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker tw=75

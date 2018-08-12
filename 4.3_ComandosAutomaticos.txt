@@ -1,0 +1,4 @@
+" Actualizar cuando no se ha presionado el ratón el ratón en 'updatetime'
+autocmd CursorHold,CursorHoldI * update
+
+autowrite " Guardar cuando se ejecuta un comando texterno"

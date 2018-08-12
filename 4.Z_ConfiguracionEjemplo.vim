@@ -20,23 +20,24 @@
 "   :help cosa_de_la_que_quieres_ayuda<return>
 "                     (<return> significa presionar enter)
 
-" General {{{
+" ##### General ##### {{{
 set encoding=utf-8     " Codificación para usarse en los archivos
 scriptencoding utf-8   " utf-8 para para usar comandos con ñ
 set mouse=a            " Usar el ratón para mover/seleccionar/etc...
 set noerrorbells       " Sin beeps cuando hay error
-set exrc               " Usar .vimrc y .exerc locales
-set secure             " Suprimir comandos inseguros en .exerc locales
+set visualbell         " Los alarmas visuales en lugar de sonoras
+set exrc               " Usar .vimrc y .exrc locales
+set secure             " Suprimir comandos inseguros en .exrc locales
 
 " Caracteres de apertura y cierra
 set showmatch         " Resaltar los paréntesis/corchetes correspondientes
 set matchpairs+=<:>   " Saltar también entre paréntesis angulares hermanos
-  " % - Alternar entre inicio y final de (){}[], etc..
+" % - Alternar entre inicio y final de (){}[], etc..
 
 let g:mapleader = ','  " La tecla líder es , porque está a la mano
 
 " Si se quiere usar un manejador de plugins establecer la siguiente variable a 1
-let s:usar_plugins = 1
+let s:usar_plugins = 0
 if s:usar_plugins
     let s:path_manejador_plugins = expand('~/.vim/autoload/plug.vim')
 
@@ -65,16 +66,17 @@ filetype plugin indent on
 
 " Usar bash como shell predeterminada
 set shell=/bin/bash
-" }}}
+" ### }}}
 
-" Plugins y sus configuraciones (solo si se han habilitado) {{{
+" ##### Plugins y sus configuraciones (solo si se han habilitado) ##### {{{
 if s:usar_plugins
     " Todos los plugins tienen que ir entre plug#begin() y plug#end()
     call plug#begin('~/.vim/plugged')
 
-    " Manejo de versiones
+    " Manejo de versiones y cambios
     Plug 'tpope/vim-fugitive'     " Manejo de git dentro de vim
     Plug 'airblade/vim-gitgutter' " Mostrar diferencias del archivo al editar
+    Plug 'mbbill/undotree'        " Arbol de cambios gráfico
     " :GitGutterToggle - Activar y desactivar gitgutter
 
     " Completado y revisión de código
@@ -126,14 +128,15 @@ if s:usar_plugins
 
     " Navegación y edición de texto
     Plug 'scrooloose/nerdtree'            " Árbol de directorios
-    nnoremap <leader>tgnt :NERDTreeToggle<return>
-    nnoremap <F5>         :NERDTreeToggle<return>
+    nnoremap <Leader>tgnt :NERDTreeToggle<Return>
+    nnoremap <F5>         :NERDTreeToggle<Return>
 
     Plug 'majutsushi/tagbar'              " Árbol de navegación (Requiere ctags)
-    nnoremap <leader>tgtb :TagbarToggle<return>
-    nnoremap <F6>         :TagbarToggle<return>
+    nnoremap <Leader>tgtb :TagbarToggle<Return>
+    nnoremap <F6>         :TagbarToggle<Return>
 
-    Plug 'xolox/vim-easytags'             " Generación y manejo de etiquetas
+    "Plug 'xolox/vim-misc'                 " Requerimiento para el siguiente
+    "Plug 'xolox/vim-easytags'             " Generación y manejo de etiquetas
     Plug 'kshenoy/vim-signature'          " Marcas visuales
     Plug 'tpope/vim-repeat'               " Repetir plugins con .
     Plug 'godlygeek/Tabular'              " Funciones para alinear texto
@@ -142,19 +145,19 @@ if s:usar_plugins
     Plug 'KabbAmine/vCoolor.vim'          " Inserción de valores RGB
     nnoremap <leader>vc :VCoolor<return>
     Plug 'sedm0784/vim-you-autocorrect'   " Corrección de errores sintácticos
-      " :EnableAutoCorrect - Activar autocorrección ortográfica
-      "                      en el lenguaje que indique 'spelllang'
+    " :EnableAutoCorrect - Activar autocorrección ortográfica
+    " :DisableAutoCorrect - Desactivar autocorrección ortográfica
     Plug 'scrooloose/nerdcommenter'       " Utilidades para comentar código
 
     " Objetos de texto y operadores
-    Plug 'vim-indent-object'              " Objeto de texto 'indentado'
+    Plug 'michaeljsmith/vim-indent-object' " Objeto de texto 'indentado'
     Plug 'kana/vim-textobj-user'          " Requerimiento de los próximos
     Plug 'kana/vim-textobj-function'      " Objeto de texto 'función'
     Plug 'glts/vim-textobj-comment'       " Objeto de texto 'comentario'
-    Plug 'svermeulen/vim-next-object'     " Objeto de texto 'siguiente elemento'
+    Plug 'saulaxel/vim-next-object'       " Objeto de texto 'siguiente elemento'
     Plug 'tpope/vim-surround'             " Encerrar/liberar secciones
     Plug 'tpope/vim-commentary'           " Operador comentar/des-comentar
-    Plug 'ReplaceWithRegister'            " Operador para manejo de registros
+    Plug 'vim-scripts/ReplaceWithRegister' " Operador para manejo de registros
 
     " Estilo visual y reconocimiento de sintaxis
     Plug 'rafi/awesome-vim-colorschemes'  " Paquete de temas de color
@@ -170,13 +173,14 @@ if s:usar_plugins
         PlugInstall
     endif
 endif
-" }}}
+" ### }}}
 
-" Titulo de ventana e información varia {{{
+" ##### Titulo de ventana e información varia ##### {{{
 " Título e información de la posición y el comando actual
 set title             " El título de la consola no será el argumento a vim
 
 set showcmd           " Mostrar comandos incompletos
+set showmode          " Mostrar el modo actual
 set laststatus=2      " Siempre mostrar la barra de estado
 " Línea de estado (cuando los plugins estan desactivados)
 set statusline=%f\                          " Nombre de archivo
@@ -194,8 +198,8 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
 set number            " Mostrar número de línea global
 set relativenumber    " Mostrar numeración relativa
 " Activar y desactivar relativenumber (toggle relativenumber number)
-nnoremap <leader>trn :setlocal relativenumber!<return>
-nnoremap <F3>        :setlocal relativenumber!<return>
+nnoremap <Leader>trn :setlocal relativenumber!<Return>
+nnoremap <F3>        :setlocal relativenumber!<Return>
 set numberwidth=4     " Longitud de la sección de números
 
 " Mostrar la posición del cursor en la línea de estado
@@ -209,11 +213,12 @@ augroup LongitudesArchivosEspeciales
     " Los mensajes de un commit de git solo deben medir 72 caracteres
     autocmd FileType gitcommit setlocal spell textwidth=72
 augroup END
-" }}}
+" ### }}}
 
-" Sintaxis, indentación y caracteres invisibles {{{
-" General {{{
-syntax on " Activar sintaxis
+" ##### Sintaxis, indentación y caracteres invisibles ##### {{{
+" +++ General +++ {{{
+syntax on         " Activar sintaxis
+set synmaxcol=200 " Solo resaltar primeros 200 caracteres
 
 " Tema de color
 set background=dark
@@ -228,14 +233,18 @@ endif
 
 " Cuando y como mostrar caracteres invisibles
 set list " Mostrar caracteres invisibles según las reglas de 'listchars'
-set listchars=tab:»·,trail:·,extends:❯,precedes:❮
+if has('multi_byte') && &encoding ==# 'utf-8'
+    set listchars=tab:»·,trail:·,extends:❯,precedes:❮
+else
+    set listchars=tab:>·,trail:·,extends:>,precedes:<
+endif
 if has('conceal')
     set conceallevel=2   " El texto con conceal está oculto o sustituido
     set concealcursor=   " Siempre desactivar conceal en la línea actual
 endif
-"   }}}
+"   +++ }}}
 
-" Resaltado de elementos {{{
+" +++ Resaltado de elementos +++ {{{
 " Resaltar la línea y la columna actual
 set cursorline
 set cursorcolumn
@@ -250,9 +259,9 @@ match EspaciosEnBlancoExtra /\s\+$/
 " anterior)
 highlight Conflicto ctermbg=1 guifg=#FF2233
 2match Conflicto /\v^(\<|\=|\>){7}([^=].+)?$/
-"   }}}
+"   +++ }}}
 
-" Tabulado y sangría {{{
+" +++ Tabulado y sangría +++ {{{
 " Cantidad de espacios para sangría
 set tabstop=4     " Longitud de cada tabulación
 set shiftwidth=4  " Tamaño de sangría
@@ -263,8 +272,8 @@ function! CambiarIndentacion(espacios)
     " Ejemplo de uso:
     "    :call Cambi<tab>
     "    (La tecla <tab> completa el nombre de la función)
-    "    :call CambiarIndentacion(8)<return>
-    " Ahora todo el código tendra una sangría de ocho espacios
+    "    :call CambiarIndentacion(8)<Return>
+    " Ahora todo el código tendrá una sangría de ocho espacios
     let &tabstop     = a:espacios
     let &shiftwidth  = a:espacios
     let &softtabstop = a:espacios
@@ -279,14 +288,23 @@ set autoindent    " Añade la sangría de la línea anterior automáticamente
 set smartindent   " Aplicar sangría cuando sea necesario
 set shiftround    " Redondear el nivel de sangría
 set smarttab      " Usar tabs de acuerdo a 'shiftwidth'
-"   }}}
-" }}}
+"   +++ }}}
+" ### }}}
 
-" Ventanas, buffers y navegación {{{
-" General {{{
-set virtualedit=onemore " Poder alcanzar la última posición de la pantalla
+" ##### Ventanas, buffers y navegación ##### {{{
+" +++ General +++ {{{
 set scrolloff=2         " Mínimas líneas por encima/debajo del cursor
-"set scrolljump=3        " Líneas que recorrer al salír de la pantalla
+set sidescrolloff=5     " Mínimas columas por la izquierda/derecha"
+"set scrolljump=3        " Líneas que recorrer al salir de la pantalla
+set virtualedit=onemore " Poder alcanzar la última posición de la pantalla
+nnoremap <Leader>tve :call AlternarEdicionVirtual()<Return>
+function! AlternarEdicionVirtual()
+    if &virtualedit ==# 'onemore'
+        let &virtualedit = 'all'
+    else
+        let &virtualedit = 'onemore'
+    endif
+endfunction
 
 " Configuración de las líneas largas
 " Si quiere que las líneas largas se envuelvan en la pantalla deje la
@@ -297,6 +315,7 @@ if s:envolver_lineas_largas
     set linebreak         " Rompe la línea cuando se llega a la longitud máxima
     set showbreak=...\    " En lineas largas, se muestran ... de continuación
     set breakindent       " Aplica sangría en los tres puntos de continuación
+    set display+=lastline " No mostrar símbolos @ cuando la línea no cabe
 else
     set nowrap            " No envolver líneas largas
 
@@ -307,22 +326,22 @@ endif
 
 " Las flechas y el backspace dan la vuelta a través de las líneas
 set whichwrap=b,s,h,l,<,>,[,]
-"   }}}
+"   +++ }}}
 
-" Ventanas {{{
+" +++ Ventanas +++ {{{
 " Dirección para abrir nuevas ventanas (splits)
 set splitright  " Las separaciones verticales se abren a la derecha
 set splitbelow  " Las separaciones horizontales se abren hacia abajo
 set diffopt+=vertical " Diffsplit prefiere orientación vertical
-  " :wincmd - Realizar un comando de ventanas
+" :wincmd - Realizar un comando de ventanas
 
 " Comandos para abrir y cerrar nuevas ventanas (splits)
-nnoremap <leader>wo :only<return>
-nnoremap <leader>wh :hide<return>
-nnoremap \|   :vsplit<space>
-nnoremap \|\| :vsplit<return>
-nnoremap _    :split<space>
-nnoremap __   :split<return>
+nnoremap <Leader>wo :<C-u>only<Return>
+nnoremap <Leader>wh :<C-u>hide<Return>
+nnoremap \|   :<C-u>vsplit<Space>
+nnoremap \|\| :<C-u>vsplit<Return>
+nnoremap _    :<C-u>split<Space>
+nnoremap __   :<C-u>split<Return>
 " :ball - Convertir todos los buffers en ventanas
 " :new - Crear nueva ventana vertical vacía
 " :vnew - Crear nueva ventana horizontal vacía
@@ -338,34 +357,40 @@ nnoremap __   :split<return>
 " <C-w>W - Ir a la ventana anterior
 
 " Comandos para cambiar la disposición (layout) de las ventanas
-nnoremap <leader><C-h> <C-w>H
-nnoremap <leader><C-l> <C-w>L
-nnoremap <leader><C-k> <C-w>K
-nnoremap <leader><C-j> <C-w>J
+nnoremap <Leader><C-h> <C-w>H
+nnoremap <Leader><C-l> <C-w>L
+nnoremap <Leader><C-k> <C-w>K
+nnoremap <Leader><C-j> <C-w>J
 " <C-w>r - Rotar las ventanas en sentido normal
 " <C-w>R - Rotar las ventanas en sentido inverso
 " <C-w>x - Intercambiar ventana actual con la siguiente
 
 " Redimensionar las ventanas
-nnoremap <C-w>- :call RepetirRedimensionadoVentana('-')<return>
-nnoremap <C-w>+ :call RepetirRedimensionadoVentana('+')<return>
-nnoremap <C-w>< :call RepetirRedimensionadoVentana('<')<return>
-nnoremap <C-w>> :call RepetirRedimensionadoVentana('>')<return>
+nnoremap <C-w>- :<C-u>call RepetirRedimensionadoVentana('-', v:count)<Return>
+nnoremap <C-w>+ :<C-u>call RepetirRedimensionadoVentana('+', v:count)<Return>
+nnoremap <C-w>< :<C-u>call RepetirRedimensionadoVentana('<', v:count)<Return>
+nnoremap <C-w>> :<C-u>call RepetirRedimensionadoVentana('>', v:count)<Return>
 " <C-w>= - Igualar el tamaño de todas las ventanas
 " <C-w>_ - Establecer el tamaño de la ventana (por defecto el máximo)
 
-function! RepetirRedimensionadoVentana(inicial)
+function! RepetirRedimensionadoVentana(inicial, cuenta)
     let l:tecla = a:inicial
-    while stridx('+-><', l:tecla) != -1
-        execute "normal! \<C-w>" . l:tecla
-        redraw
+    let l:cuenta = a:cuenta ? a:cuenta : 0
+    while stridx('+-><', l:tecla) != -1 || l:tecla =~# '\d'
+        if l:tecla =~# '\d'
+            let l:cuenta = l:cuenta * 10 + l:tecla
+        else
+            execute 'normal! ' . (l:cuenta ? l:cuenta : 1) . "\<C-w>" . l:tecla
+            let l:cuenta = 0
+            redraw
+        endif
         let l:tecla = nr2char(getchar())
     endwhile
 endfunction
 
 " Hacer diff de las ventanas abiertas
-nnoremap <leader>tdm :call AlternarModoDiff()<return>
-nnoremap <F4> :call AlternarModoDiff()<return>
+nnoremap <Leader>tdm :call AlternarModoDiff()<Return>
+nnoremap <F4> :call AlternarModoDiff()<Return>
 let s:modoDiffActivado = 0
 function! AlternarModoDiff()
     if s:modoDiffActivado
@@ -378,7 +403,7 @@ function! AlternarModoDiff()
 endfunction
 
 " Hacer diff entre de cambios no guardados
-nnoremap <leader>do :DiffOrigen<return>
+nnoremap <Leader>do :DiffOrigen<Return>
 command! DiffOrigen vert new | set buftype=nofile | read ++edit # | 0d_
             \ | diffthis | wincmd p | diffthis
 
@@ -389,36 +414,37 @@ augroup TamanioVentana
     autocmd!
     autocmd VimResized * :wincmd =
 augroup end
-"   }}}
+"   +++ }}}
 
-" Tabulaciones {{{
+" +++ Tabulaciones +++ {{{
 set tabpagemax=15    " Solo mostrar 15 tabs
-  " :tabs - Listar las tabulaciones y sus contenidos
-  " :tabdo - Ejecutar comando en todas las tabs existentes
+" :tabs - Listar las tabulaciones y sus contenidos
+" :tabdo - Ejecutar comando en todas las tabs existentes
 
 " Comandos para abrir y cerrar tabulaciones
-nnoremap <leader>tn :tabnew<space>
-nnoremap <leader>to :tabonly<return>
-  " :tabfind - Intentar abrir archivo en 'path'
-  " <C-w>gf  - Abrir tab y editar archivo bajo el cursor
+nnoremap <Leader>tn :tabnew<Space>
+nnoremap <Leader>to :tabonly<Return>
+" :tab all - Convertir buffers en tabs
+" :tabfind - Intentar abrir archivo en 'path'
+" <C-w>gf  - Abrir tab y editar archivo bajo el cursor
 " Convertir ventana actual en tabulación
-nnoremap <leader>tw <C-w>T
+nnoremap <Leader>tw <C-w>T
 
 " Moverse entre tabulaciones
-nnoremap <leader>th :tabfirst<return>
-nnoremap <leader>tl :tablast<return>
-nnoremap <leader>tj :tabprevious<return>
-nnoremap <leader>tk :tabnext<return>
-  " gt - Ir a la tabulación N
+nnoremap <Leader>th :tabfirst<Return>
+nnoremap <Leader>tl :tablast<Return>
+nnoremap <Leader>tj :tabprevious<Return>
+nnoremap <Leader>tk :tabnext<Return>
+" gt - Ir a la tabulación N
 
 " Mover la tabulación actual
-nnoremap <leader>t- :tabmove -<return>
-nnoremap <leader>t+ :tabmove +<return>
-nnoremap <leader>t< :tabmove 0<return>
-nnoremap <leader>t> :tabmove $<return>
+nnoremap <Leader>t- :tabmove -<Return>
+nnoremap <Leader>t+ :tabmove +<Return>
+nnoremap <Leader>t< :tabmove 0<Return>
+nnoremap <Leader>t> :tabmove $<Return>
 
 " Un "modo" especial que abrevia las operaciones con tabulaciones
-nnoremap <silent> <leader>tm :call ModoAccionTabulacion()<return>
+nnoremap <silent> <Leader>tm :<C-u>call ModoAccionTabulacion()<Return>
 
 function! ModoAccionTabulacion()
     if tabpagenr('$') == 1
@@ -447,29 +473,29 @@ function! ModoAccionTabulacion()
         let l:tecla = nr2char(getchar())
     endwhile
 endfunction
-"   }}}
+"   +++ }}}
 
-" Buffers {{{
+" +++ Buffers +++ {{{
 set hidden          " Permitir buffers ocultos
-  " bufdo - Ejecutar un comando a través de todos los buffers
+" bufdo - Ejecutar un comando a través de todos los buffers
 
 " Abrir y moverse entre buffers
-nnoremap <leader>bn :edit<space>
-  " gf - Editar el archivo bajo el cursor en un nuevo buffer
-nnoremap <leader>bg :ls<return>:buffer<space>
-nnoremap <leader>bh :bfirst<return>
-nnoremap <leader>bk :bnext<return>
-nnoremap <leader>bj :bprevious<return>
-nnoremap <leader>bl :last<return>
+nnoremap <Leader>bn :edit<Space>
+" gf - Editar el archivo bajo el cursor en un nuevo buffer
+nnoremap <Leader>bg :ls<Return>:buffer<Space>
+nnoremap <Leader>bh :bfirst<Return>
+nnoremap <Leader>bk :bnext<Return>
+nnoremap <Leader>bj :bprevious<Return>
+nnoremap <Leader>bl :last<Return>
 
 " Cerrar ventana, buffer o tabulaciones
-nnoremap <leader>bd  :bdelete!<return>
+nnoremap <Leader>bd  :bdelete!<Return>
 
 " Cambiar el directorio de trabajo al directorio del buffer actual
-nnoremap <leader>cd :cd %:p:h<return>:pwd<return>
-"   }}}
+nnoremap <Leader>cd :cd %:p:h<Return>:pwd<Return>
+"   +++ }}}
 
-" Movimiento en modo normal {{{
+" +++ Movimiento en modo normal +++ {{{
 " Moverse por líneas visuales en lugar de lineas lógicas
 nnoremap <silent> <expr> j 'gj'
 nnoremap <silent> <expr> k 'gk'
@@ -497,8 +523,8 @@ endfunction
 " Cero (o en su defecto <Home>) alterna entre primer carácter visible y primer
 " columna de línea y $ (o <End>) alterna entre ultimo carácter visible y
 " última columna
-nnoremap <silent> 0 :call VisibleOAbsoluto('inicio')<return>
-nnoremap <silent> $ :call VisibleOAbsoluto('final')<return>
+nnoremap <silent> 0 :call VisibleOAbsoluto('inicio')<Return>
+nnoremap <silent> $ :call VisibleOAbsoluto('final')<Return>
 nmap <silent> <Home> 0
 nmap <silent> <End>  $
 
@@ -520,52 +546,52 @@ function! VisibleOAbsoluto(direccion)
         endif
     endif
 endfunction
-"   }}}
+"   +++ }}}
 
-" Movimiento en modo comando {{{
-cnoremap <C-a> <home>
+" +++ Movimiento en modo comando +++ {{{
+cnoremap <C-a> <Home>
 " <C-e> - Ir al final de la línea en modo comando
-cnoremap <C-b> <left>
-cnoremap <C-f> <right>
-cnoremap <M-b> <S-left>
-cnoremap <M-f> <S-right>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <A-b> <S-Left>
+cnoremap <A-f> <S-Right>
 cnoremap <C-d> <Del>
-cnoremap <M-d> <S-right><C-w>
-"   }}}
+cnoremap <A-d> <S-Right><C-w>
+cnoremap <A-D> <C-e><C-u>
+"   +++ }}}
 
-" Dobleces (folds) {{{
+" +++ Dobleces (folds) +++ {{{
 set foldenable    " Habilitar dobleces
 set foldcolumn=1  " Una columna para mostrar la extensión de un dobles
 "set foldmethod=indent   " Crear dobleces según el nivel de sangría
 " Crear y eliminar dobleces
-  " :fold o zf -  sirven para crear dobleces
-  " zd - elimina el doblez más cercano
-  " zD - elimina dobleces recursivamente
-  " zE - elimina todos los dobleces de la ventana
+" :fold o zf -  sirven para crear dobleces
+" zd - elimina el doblez más cercano
+" zD - elimina dobleces recursivamente
+" zE - elimina todos los dobleces de la ventana
 
 " Abrir y cerrar dobleces
-nnoremap <space>   za
-nnoremap <leader>tf za
-  " zO - Abrir dobleces sobre la posición actual recursivamente
-  " zC - Cerrar dobleces sobre la posición actual recursivamente
-  " zR - Abrir todos los dobleces del archivo
-  " zM - Cerrar todos los dobleces del archivo
-nnoremap <leader>fo zR
-nnoremap <leader>fc zM
+nnoremap <Space>   za
+nnoremap <Leader>tf za
+" zO - Abrir dobleces sobre la posición actual recursivamente
+" zC - Cerrar dobleces sobre la posición actual recursivamente
+" zR - Abrir todos los dobleces del archivo
+" zM - Cerrar todos los dobleces del archivo
+nnoremap <Leader>fo zR
+nnoremap <Leader>fc zM
 
 " Función para doblar funciones automáticamente
-nnoremap <leader>ff zfaf
-nnoremap <leader>faf :call DoblarFunciones()<return>
+nmap <Leader>ff zfaf
+nnoremap <Leader>faf :call DoblarFunciones()<Return>
 function! DoblarFunciones()
     set foldmethod=syntax
     set foldnestmax=1
 endfunction
+"   +++ }}}
+" ### }}}
 
-"   }}}
-" }}}
-
-" Ayudas en la edición {{{
-" General {{{
+" ##### Ayudas en la edición ##### {{{
+" +++ General +++ {{{
 set backspace=2       " La tecla de borrar funciona como en otros programas
 set undolevels=10000  " Poder deshacer cambios hasta el infinito y más allá
 set undofile          " Guardar historial de cambios tras salir
@@ -573,7 +599,7 @@ set undoreload=10000  " Cantidad de cambios que se preservan
 set history=1000      " Un historial de comandos bastante largo
 set nrformats-=octal  " Fuck you octal, nadie te quiere en este siglo
 " Alternar formato alfanumérico (toggle alpha format)
-nnoremap <leader>taf :call AlternarFormatoAlfanumerico()
+nnoremap <Leader>taf :call AlternarFormatoAlfanumerico()<Return>
 function! AlternarFormatoAlfanumerico()
     if stridx(&nrformats, 'alpha') == -1
         set nrformats+=alpha  " Bienvenidos sea el conte de letras
@@ -590,14 +616,14 @@ set ttimeoutlen=1     " interfaz para que <Esc> no se tarde
 
 " Rotar entre los diferentes modos visuales con v
 xnoremap <expr>v
-               \ (mode() ==# 'v' ? "\<C-v>" : mode() ==# 'V' ?
-               \ 'v' : 'V')
-"   }}}
+               \ (mode() ==# 'v' ? 'V' : mode() ==# 'V' ?
+               \ "\<C-v>" : 'v')
+"   +++ }}}
 
-" Copiando, pegando y moviendo texto {{{
+" +++ Copiando, pegando y moviendo texto +++ {{{
 set nopaste           " 'paste' estará desactivada por defecto
 set pastetoggle=<F2>  " Botón para activar/desactivar 'paste'
-nnoremap <leader>tps setlocal paste!<return>
+nnoremap <Leader>tps :setlocal paste!<Return>
 
 " Copiar y pegar por medio de la papelera del sistema si se puede
 let s:usar_portapapeles_del_sistema = 0
@@ -608,6 +634,10 @@ if s:usar_portapapeles_del_sistema && has('clipboard')
         set clipboard=unnamed
     endif
 endif
+
+" Pegando texto respetando la indentación (put under y put over)
+nnoremap <Leader>pu ]p
+nnoremap <Leader>po [p
 
 " Manejo de registros por medio de la letra ñ
 nnoremap ñ "
@@ -621,29 +651,33 @@ xnoremap <C-c> "+y
 nnoremap <C-c> "+yy
 
 " Copiar texto por arriba y por debajo
-nnoremap <M-y> yyP
-vnoremap <M-y> y`>pgv
-nnoremap <M-Y> yyp
-vnoremap <M-Y> y`<Pgv
+nnoremap <A-y> yyP
+vnoremap <A-y> y`>pgv
+nnoremap <A-Y> yyp
+vnoremap <A-Y> y`<Pgv
 
 " Mover lineas visuales hacia arriba y hacia abajo
-nnoremap <M-j> :move +<return>==
-nnoremap <M-k> :move -2<return>==
-vnoremap <M-j> :move '>+1<return>gv=gv
-vnoremap <M-k> :move '<-2<return>gv=gv
+nnoremap <A-j> :move +<Return>==
+nnoremap <A-k> :move -2<Return>==
+vnoremap <A-j> :move '>+1<Return>gv=gv
+vnoremap <A-k> :move '<-2<Return>gv=gv
 
 " Mover bloques visuales a la izquierda y a la derecha
-nnoremap <M-l> xp
-nnoremap <M-h> xhP
-vnoremap <M-l> xp`[<C-V>`]
-vnoremap <M-h> xhP`[<C-V>`]
+nnoremap <A-l> xp
+nnoremap <A-h> xhP
+vnoremap <A-l> xp`[<C-V>`]
+vnoremap <A-h> xhP`[<C-V>`]
 
 " Mantener el modo visual después de > y <
 xnoremap < <gv
 xnoremap > >gv
-"   }}}
+"   +++ }}}
 
-" Operaciones comunes de modificación de texto {{{
+" +++ Operaciones comunes de modificación de texto +++ {{{
+if v:version > 703 || v:version == 703 && has('patch541')
+    set formatoptions+=j " Eliminar caracter de comentario al unir líneas
+endif
+
 " Regresar rápido a modo normal
 inoremap kj <Esc>
 inoremap jk <Esc>
@@ -652,28 +686,28 @@ inoremap jk <Esc>
 " Texto previamente insertado
 nnoremap gV `[v`]
 " Texto previamente pegado
-nnoremap gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-  " gv - Reseleccionar texto previamente seleccionado
+nnoremap <expr>gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+" gv - Reseleccionar texto previamente seleccionado
 
 " Eliminar texto hacia enfrente con comandos basados en la D
 inoremap <C-d> <Del>
-inoremap <expr><M-d> '<Esc>' . (col('.') == 1 ? "" : "l") . 'dwi'
-inoremap <expr><M-D> '<Esc>' . (col('.') == 1 ? "" : "l") . 'C'
+inoremap <expr><A-d> '<Esc>' . (col('.') == 1 ? "" : "l") . 'dwi'
+inoremap <expr><A-D> '<Esc>' . (col('.') == 1 ? "" : "l") . 'C'
 
 " Regresar a modo normal eliminando la línea actual
-inoremap <M-k><M-j> <Esc>ddk
-inoremap <M-j><M-k> <Esc>ddk
+inoremap <A-k><A-j> <Esc>ddk
+inoremap <A-j><A-k> <Esc>ddj
 
 " Añadir línea vacía por arriba y por debajo
-nnoremap <M-o> :call append(line('.'), '')<return>
-nnoremap <M-O> :call append(line('.')-1, '')<return>
+nnoremap <A-o> :call append(line('.'), '')<Return>
+nnoremap <A-O> :call append(line('.')-1, '')<Return>
 
 " Emular un par de comandos para rodear texto (de vim surround)
 if !s:usar_plugins
-    nnoremap <leader>s :call s:rodearPalabra()<return>
-    xnoremap <leader>s <Esc>:call s:rodearSeleccion()<return>
+    nnoremap ysiw   :call RodearPalabra()<Return>
+    xnoremap S <Esc>:call RodearSeleccion()<Return>
 
-    function! s:rodearPalabra()
+    function! RodearPalabra()
         let l:leido = nr2char(getchar())
         let [l:car_apertura, l:car_cierre] = CaracteresHermanos(l:leido)
 
@@ -685,7 +719,7 @@ if !s:usar_plugins
                     \ . "\<Esc>lel"
     endfunction
 
-    function! s:rodearSeleccion()
+    function! RodearSeleccion()
         let l:leido = nr2char(getchar())
         let [l:car_apertura, l:car_cierre] = CaracteresHermanos(l:leido)
 
@@ -714,8 +748,9 @@ endfunction
 
 " Alinear el texto con respecto a un carácter/cadena
 command! -nargs=1 -range Alinear '<,'>call Alinear(<f-args>)
-xnoremap <leader>al :Alinear<space>
-nnoremap <leader>al vip:Alinear<space>
+
+xnoremap <Leader>al :Alinear<Space>
+nnoremap <Leader>al vip:Alinear<Space>
 
 function! Alinear(cadena) range
     let l:columna_inicial = min([virtcol("'<"), virtcol("'>")])
@@ -751,8 +786,36 @@ function! s:columnaMaxima(cadena, linea_ini, linea_fin, columna)
     return l:columna_maxima
 endfunction
 
+" Comentar (remplazo sencillo de vim-comentary)
+if !s:usar_plugins
+    let b:inicio_comentario = '//'
+    augroup DetectarInicioComentario
+        autocmd FileType py,sh   let b:inicio_comentario = '#'
+        autocmd FileType fortran let b:inicio_comentario = '!'
+        autocmd FileType vim     let b:inicio_comentario = '"'
+    augroup END
+
+    nnoremap gc :set operatorfunc=OperadorComentarLineas<Return>g@
+    xnoremap gc :<C-u>call OperadorComentarLineas(visualmode(), 1)<Return>
+
+    function! OperadorComentarLineas(tipo, ...)
+        let l:marca_inicio = (a:0 ? "'<" : "'[")
+        let l:marca_final  = (a:0 ? "'>" : "']")
+
+        let l:primera_liena = getline(line(l:marca_inicio))
+        let l:rango = l:marca_inicio . ',' . l:marca_final
+        if l:primera_liena =~# '^\s*' . b:inicio_comentario
+            execute l:rango . 's/\v(^\s*)' . escape(b:inicio_comentario, '\/') . '\v\s*/\1/e'
+        else
+            execute l:rango . 's/^\s*/&' . escape(b:inicio_comentario, '\/') . ' /e'
+        endif
+        execute 'normal! ' . l:marca_inicio
+    endfunction
+endif
+
 " Extraer variable (variable extract)
-xnoremap <Leader>ve :call ExtraerVariable()<CR>
+nnoremap <Leader>ve viw:call ExtraerVariable()<Return>
+xnoremap <Leader>ve :call ExtraerVariable()<Return>
 function! ExtraerVariable()
     let l:tipo = input('Tipo variable: ')
     let l:name = input('Nombre variable: ')
@@ -764,7 +827,7 @@ function! ExtraerVariable()
     endif
 
     exec 'normal! c' . l:name
-    let l:selection = @""
+    let l:selection = @"
     exec 'normal! O' l:tipo . ' ' . l:name . ' = '
     exec 'normal! pa;'
     call feedkeys(':.+1,$s/\V\C' . escape(l:selection, '/\') . '/' . escape(l:name, '/\') . "/gec\<cr>")
@@ -772,68 +835,78 @@ endfunction
 
 " Insertar una llave o paréntesis de cierre incluso cuando el plugin
 " autopairs esté activo
-inoremap <leader>} <space><Esc>r}==
-nnoremap <leader>} A<space><Esc>r}==
-imap     <leader>B <leader>}
-nmap     <leader>B <leader>}
-inoremap <leader>) <space><Esc>r)a
-nnoremap <leader>) i<space><Esc>r)
-imap     <leader>b <leader>)
-nmap     <leader>b <leader>)
+inoremap <Leader>} <Space><Esc>r}==
+nnoremap <Leader>} A<Space><Esc>r}==
+imap     <Leader>B <Leader>}
+nmap     <Leader>B <Leader>}
+inoremap <Leader>) <Space><Esc>r)a
+nnoremap <Leader>) i<Space><Esc>r)
+imap     <Leader>b <Leader>)
+nmap     <Leader>b <Leader>)
 
 " Borrar todo de la línea de comandos excepto el propio comando
-cnoremap <M-BS> <C-\>esplit(getcmdline(), " ")[0]<return><space>
-"   }}}
+cnoremap <A-w> <C-\>esplit(getcmdline(), " ")[0]<return><space>
+cmap <A-BS> <A-BS>
 
-" Objetos de texto {{{
+" Aumentar la granularidad del undo
+inoremap <C-u> <C-g>u<C-u>
+"inoremap <Return> <C-g>u<Return>
+"   +++ }}}
+
+" +++ Objetos de texto +++ {{{
 " Objeto de texto "línea"
 xnoremap il g_o^
-onoremap il :<C-u>normal vil<return>
+onoremap il :<C-u>normal vil<Return>
 xnoremap al $o0
-onoremap al :<C-u>normal val<return>
+onoremap al :<C-u>normal val<Return>
 
 " Objecto de texto "buffer completo"
 xnoremap i% GoggV
-onoremap i% :<C-u>normal vi%<return>
+onoremap i% :<C-u>normal vi%<Return>
 xnoremap a% GoggV
-onoremap a% :<C-u>normal vi%<return>
+onoremap a% :<C-u>normal vi%<Return>
 
 " Objeto de texto "comentario de bloque"
-xnoremap ic ?<C-r>=escape(split(&commentstring, "%s")[0], '/*')<return><return>+0o
-            \ /<C-r>=escape(split(&commentstring, "%s")[1], '/*')<return><return>-$
-onoremap ic :<C-u>normal vic<return>
-xnoremap ac ?<C-r>=escape(split(&commentstring, "%s")[0], '/*')<return><return>o
-            \ /<C-r>=escape(split(&commentstring, "%s")[1], '/*')<return><return>l
-onoremap ac :<C-u>normal vac<return>
-"   }}}
-" }}}
+if !s:usar_plugins
+    xnoremap ic ?<C-r>=escape(split(&commentstring, "%s")[0], '/*')<Return><Return>+0o
+                \ /<C-r>=escape(split(&commentstring, "%s")[1], '/*')<Return><Return>-$
+    onoremap ic :<C-u>normal vic<Return>
+    xnoremap ac ?<C-r>=escape(split(&commentstring, "%s")[0], '/*')<Return><Return>o
+                \ /<C-r>=escape(split(&commentstring, "%s")[1], '/*')<Return><Return>l
+    onoremap ac :<C-u>normal vac<Return>
+endif
+"   +++ }}}
+" ### }}}
 
-" Búsqueda y reemplazo {{{
-" General {{{
-set incsearch         " Hacer las búsquedas incrementales
-set ignorecase        " No diferenciar mayúsculas/minúsculas
-set smartcase         " Ignorecase si la palabra empieza por minúscula
-set hlsearch          " Al buscar texto se resaltan las coincidencias
-set magic             " Se usa el modo 'mágico' de búsqueda/reemplazo
+" ##### Búsqueda y reemplazo ##### {{{
+" +++ General +++ {{{
+set wrapscan           " Las búsquedas dan la vuelta al archivo
+set incsearch          " Hacer las búsquedas incrementales
+set inccommand=nosplit " Hacer los remplazos incrementales
+set ignorecase         " No diferenciar mayúsculas/minúsculas
+set smartcase          " Ignorecase si la palabra empieza por minúscula
+set hlsearch           " Al buscar texto se resaltan las coincidencias
+set magic              " Se usa el modo 'mágico' de búsqueda/reemplazo
 
 " Desactivar el resaltado de búsqueda
-nnoremap // :nohlsearch<return>
-"   }}}
+nnoremap // :nohlsearch<Return>
+nnoremap <Leader>hsc :nohlsearch<bar>let @/ = ''<Return>
+"   +++ }}}
 
-" Hacks para la búsqueda y remplazo {{{
+" +++ Hacks para la búsqueda y remplazo +++ {{{
 " Hacer que el comando . (repetir edición) funcione en modo visual
-xnoremap . :normal .<return>
+xnoremap . :normal .<Return>
 
 " Hacer que el comando & (repetir remplazo) funcione en modo visual
-xnoremap & :s<return>
+xnoremap & :s<Return>
 
 " No moverse cuando se busca con * y #
 nnoremap * *N
 nnoremap # #N
 
 " Usar * y # en modo visual busca texto seleccionado y no la palabra actual
-xnoremap * :<C-u>call SeleccionVisual()<return>/<C-R>=@/<return><return>N
-xnoremap # :<C-u>call SeleccionVisual()<return>?<C-R>=@/<return><return>N
+xnoremap * :<C-u>call SeleccionVisual()<Return>/<C-R>=@/<Return><Return>N
+xnoremap # :<C-u>call SeleccionVisual()<Return>?<C-R>=@/<Return><Return>N
 
 function! SeleccionVisual() range
     let l:registro_guardado = @"
@@ -849,18 +922,18 @@ endfunction
 " Ver la línea de la palabra buscada en el centro
 nnoremap n nzzzv
 nnoremap N Nzzzv
-"   }}}
+"   +++ }}}
 
-" Comandos nuevos (mapeos) {{{
+" +++ Comandos nuevos (mapeos) +++ {{{
 " Buscar una palabra y guardar resultados en una locallist
-nnoremap <leader>gg  :lvimgrep<space>
-nnoremap <leader>gcw :lvimgrep<space><C-r><C-w><space>
-nnoremap <leader>gcd :lvimgrep<space><space>./*<left><left><left><left>
-nnoremap <leader>gwd :lvimgrep<space><C-r><C-w><space>./*<return>
+nnoremap <Leader>gg  :lvimgrep<Space>
+nnoremap <Leader>gcw :lvimgrep<Space><C-r><C-w><Space>
+nnoremap <Leader>gcd :lvimgrep<Space><Space>./*<Left><Left><Left><Left>
+nnoremap <Leader>gwd :lvimgrep<Space><C-r><C-w><Space>./*<Return>
 
 " Buscar en todos los buffers abiertos
 command! -nargs=1 BuscarBuffers call BuscarBuffers(<q-args>)
-nnoremap <leader>gob :BuscarBuffers<space>
+nnoremap <Leader>gob :BuscarBuffers<Space>
 
 function! BuscarBuffers(patron)
     let l:archivos = map(filter(range(1, bufnr('$')), 'buflisted(v:val)'),
@@ -874,26 +947,29 @@ function! BuscarBuffers(patron)
 endfunction
 
 " Ver resultado del comando grep (see result)
-nnoremap <leader>gsr :lopen<return>
+nnoremap <Leader>gsr :lopen<Return>
 
 " Reemplazar texto (replace [local | global | current-global])
-nnoremap <leader>rl :s//g<left><left>
-nnoremap <leader>rg :%s//g<left><left>
-nnoremap <leader>rw :%s/\<<C-r><C-w>\>\C//g<left><left>
-nnoremap <leader>rW :%s/\<<C-r>=expand("<cWORD>")<return>\>\C//g<Left><Left>
+nnoremap <Leader>rl :s//g<Left><Left>
+nnoremap <Leader>rg :%s//g<Left><Left>
+nnoremap <Leader>rw :%s/\<<C-r><C-w>\>\C//g<Left><Left>
+nnoremap <Leader>rW :%s/\<<C-r>=expand("<cWORD>")<Return>\>\C//g<Left><Left>
+xnoremap <Leader>rl :s//g<Left><Left>
+xmap     <Leader>rg <Esc><Leader>rg
+xnoremap <Leader>rs :<C-u>call SeleccionVisual()<Return>:%s/<C-r>=@/<Return>//g<Left><Left>
 
 " Saltar entre conflictos merge
-nnoremap <silent> <leader>ml /\v^(\<\|\=\|\>){7}([^=].+)?$<return>
-nnoremap <silent> <leader>mh ?\v^(\<\|\=\|\>){7}([^=].+)\?$<return>
-"   }}}
-" }}}
+nnoremap <silent> <Leader>ml /\v^(\<\|\=\|\>){7}([^=].+)?$<Return>
+nnoremap <silent> <Leader>mh ?\v^(\<\|\=\|\>){7}([^=].+)\?$<Return>
+"   +++ }}}
+" ### }}}
 
-" Guardando, saliendo y regresando a vim {{{
+" ##### Guardando, saliendo y regresando a vim ##### {{{
 set fileformats=unix,dos,mac " Formato para los saltos de línea
 set autowrite         " Guardado automático al cambiar de archivo
 set autoread          " Recargar el archivo si hay cambios
 
-" Respaldos y recuperación en caso de fallos {{{
+" +++ Respaldos y recuperación en caso de fallos +++ {{{
 " Si se quiere respaldos, definir la siguiente variable a 1
 let s:usar_respaldo_local = 0
 if s:usar_respaldo_local
@@ -907,21 +983,25 @@ else
 endif
 
 " Crear sesión (con un nombre específico o con el nombre por defecto)
-nnoremap <leader>ms  :mksession! ~/.vim/session/
-nnoremap <leader>mds :mksession! ~/.vim/session/default<return>
-nnoremap <leader>cs  :source ~/.vim/session/
-nnoremap <leader>cfs :source ~/.vim/session/default<return>
-  " vim -S <archivo_sesion> - Abrir vim con una sesión
+if &sessionoptions =~# '\<options\>'
+    set sessionoptions-=options
+    set sessionoptions+=localoptions
+endif
+nnoremap <Leader>ms  :mksession! ~/.vim/session/
+nnoremap <Leader>mds :mksession! ~/.vim/session/default<Return>
+nnoremap <Leader>cs  :source ~/.vim/session/
+nnoremap <Leader>cfs :source ~/.vim/session/default<Return>
+" vim -S <archivo_sesion> - Abrir vim con una sesión
 
 if !isdirectory(expand('~/.vim/session/'))
     call mkdir(expand('~/.vim/session/'), 'p')
 endif
-"   }}}
+"   +++ }}}
 
-" Comandos y acciones automáticas para abrir, guardar y salir {{{
+" +++ Comandos y acciones automáticas para abrir, guardar y salir +++ {{{
 " Comandos para salir desde modo normal
-nnoremap ZG :wqa<CR>
-nnoremap ZA :qa<CR>
+nnoremap ZG :wqa<Return>
+nnoremap ZA :qa<Return>
 " ZQ - Eliminar la ventana actual sin guardar
 " ZZ - Eliminar la ventana actual guardando
 
@@ -942,8 +1022,8 @@ command! -bang Xa xa<bang>
 command! -bang XA xa<bang>
 
 " Usar Ctrl-s para guardar como en cualquier otro programa
-nnoremap <C-s> :write<return>
-inoremap <C-s> <Esc>:write<return>a
+nnoremap <C-s> :write<Return>
+inoremap <C-s> <Esc>:write<Return>a
 " Es preferible guardar desde modo normal. En modo inserción no se puede
 " garantizar (al menos no sin usar instrucciones más complejas) que el
 " cursor se quede en la posición inicial
@@ -988,9 +1068,31 @@ function! CrearDirectorioSiNoExiste() abort
         endtry
     endif
 endfunction
-"   }}}
+"   +++ }}}
 
-" Compilación, revisión de errores y cosas específicas de un lenguaje {{{
+" +++ Configuración para archivos grandes +++ {{{
+augroup ArchivoGrande
+    let s:DIES_MEGAS = 10 * 1024 * 1024
+    autocmd!
+    autocmd BufReadPre * let s:tamanio = getfsize(expand("<afile>"))
+                \ | if s:tamanio > s:DIES_MEGAS || s:tamanio == -2
+                \ |     call ArchivoGrande()
+                \ | endif
+augroup END
+
+function! ArchivoGrande()
+    " Esta función es llamada cuando el archivo supera 10M de longitud
+    syntax off
+    set eventignore+=FileType  " Sin resaltado y demás cosas dependientes del tipo
+    setlocal bufhidden=unload  " Guardar memoria cuando otro archivo es usado
+    setlocal undolevels=-1     " Sin historial de cambios
+    setlocal nospell           " Sin revisión ortográfica"
+endfunction
+"   +++ }}}
+" ### }}}
+
+" ##### Compilación, revisión de errores y cosas específicas de un lenguaje ##### {{{
+" +++ Comandos de compilación y ejecución +++ {{{
 augroup makecomnads " Definiendo :make según el tipo de archivo
     autocmd!
     autocmd Filetype c          setlocal makeprg=gcc\ %\ -std=gnu11\ -o\ %:t:r\ -lm\ -pthread\ -lX11\ -Wall\ -Wextra
@@ -1005,21 +1107,19 @@ augroup makecomnads " Definiendo :make según el tipo de archivo
 augroup END
 
 " F9 para compilar y ejecutar
-nnoremap <F9> :make<bar>call EjecutarSiNoHayErrores()<return>
+nnoremap <F9> :make<bar>call EjecutarSiNoHayErrores()<Return>
 
 function! EjecutarSiNoHayErrores()
-    if len(getqflist()) ==# 0        " Ejecutar el programa
+    if len(getqflist()) ==# 0
         " Si no hay errores se intenta ejecutar el programa
-        " Esto no funcionara en neovim (usar la terminal integrada
-        " en su lugar)
         if ( &filetype ==# 'c' ||
                     \ &filetype ==# 'cpp' ||
                     \ &filetype ==# 'haskell' ||
                     \ &filetype ==# 'fortran')
 
-            !./%:t:r
+            execute '!./' . g:op_compilacion['nombre_ejecutable']
         elseif (&filetype ==# 'java')
-            !java %:t:r
+            execute '!./' . g:op_compilacion['nombre_ejecutable']
         elseif (&filetype ==# 'python')
             !python3 %
         elseif (&filetype ==# 'sh')
@@ -1031,64 +1131,56 @@ function! EjecutarSiNoHayErrores()
         setlocal nospell
     endif
 endfunction
+"   +++ }}}
 
-" Comandos automáticos para ciertos lenguajes
-augroup ConfiguracionesEspecificasLenguaje
-    " Los guiones normales forman parte del identificador en css
-    autocmd Filetype css setlocal iskeyword+=-
-augroup END
-"}}}
-
-" Configuración para archivos grandes {{{
-let s:DIES_MEGAS = 10 * 1024 * 1024
-augroup ArchivoGrande
+" +++ Detección de tipos de archivo, y configuraciones locales +++ {{{
+augroup DeteccionLenguajes
     autocmd!
-    autocmd BufReadPre * let t=getfsize(expand("<afile>"))
-                \ | if t > s:DIES_MEGAS || t == -2
-                \ |     call ArchivoGrande()
-                \ | endif
+    autocmd BufEnter *.h   setlocal filetype=c
+    autocmd BufEnter *.hpp setlocal filetype=cpp
 augroup END
 
-function! ArchivoGrande()
-    " Esta función es llamada cuando el archivo supera 10M de longitud
-    set eventignore+=FileType  " Sin resaltado y demás cosas dependientes del tipo
-    setlocal bufhidden=unload  " Guardar memoria cuando otro archivo es usado
-    setlocal undolevels=-1     " Sin historial de cambios
-endfunction
-"   }}}
-" }}}
+augroup ConfiguracionesEspecificasLenguaje
+    autocmd!
+    "Los guiones se toman como parte del identificador en css/html
+    autocmd Filetype css,html setlocal iskeyword+=-
+    " Los # no se toman como parte del identificador en vim
+    autocmd FileType vim setlocal iskeyword-=#
+augroup END
+"   +++ }}}
+" ### }}}
 
-" Edición y evaluación de la configuración y comandos {{{
+" ##### Edición y evaluación de la configuración y comandos ##### {{{
 " Modificar y evaluar el archivo de configuración principal y el de plugins
-nnoremap <leader>av :tabnew $MYVIMRC<return>
-nnoremap <leader>sv :source $MYVIMRC<return>
+nnoremap <Leader>av :tabnew $MYVIMRC<Return>
+nnoremap <Leader>sv :source $MYVIMRC<Return>
 
 " Evaluar por medio de la consola externa por medio de Q
-nnoremap Q !!$SHELL<return>
-xnoremap Q !$SHELL<return>
+nnoremap Q !!$SHELL<Return>
+xnoremap Q !$SHELL<Return>
 
 " Configuraciones para el emulador de terminal
 if has('nvim')
     " Abrir emulador de terminal y (sin revisión ortográfica)
-    nnoremap <leader>ot :5sp<bar>te<CR>:setlocal nospell nonu<return>A
+    nnoremap <Leader>ot :5sp<bar>te<CR>:setlocal nospell nonu<Return>A
     " Salir a modo normal en la terminal emulada
     tnoremap <Esc> <C-\><C-n>
 elseif has('terminal')
-    nnoremap <leader>ot :terminal<return>
+    nnoremap <Leader>ot :terminal<Return>
     tnoremap <Esc> <C-\><C-n>
 endif
 
-" Evaluación de un comando de modo normal por medio de <leader>evn
-nnoremap <leader>evn ^vg_y@"
-xnoremap <leader>evn y@"
+" Evaluación de un comando de modo normal por medio de <Leader>evn
+nnoremap <Leader>evn ^vg_y@"
+xnoremap <Leader>evn y@"
 
-" Evaluación de un comando de VimL (modo comando) por medio de <leader>evv
-nnoremap <leader>evv :execute getline(".")<return>
-xnoremap <leader>evv :<C-u>
+" Evaluación de un comando de VimL (modo comando) por medio de <Leader>evv
+nnoremap <silent> <Leader>evv :execute getline(".")<Return>
+xnoremap <silent> <Leader>evv :<C-u>
             \       for linea in getline("'<", "'>")
             \ <bar>     execute linea
             \ <bar> endfor
-            \ <return>
+            \ <Return>
 
 " Pegar la salida de un comando de vim en un buffer nuevo
 " Modo de uso: SalBuffer {comando-normal}
@@ -1125,9 +1217,9 @@ function! VerComandosActivos()
         map
     endif
 endfunction
-" }}}
+" ### }}}
 
-" Completado, etiquetas, diccionarios y revisión ortográfica {{{
+" ##### Completado, etiquetas, diccionarios y revisión ortográfica ##### {{{
 set complete+=i        " Completar palabras de archivos incluidos
 
 " Generar etiquetas de definiciones y comando "go to definition"
@@ -1138,9 +1230,9 @@ if !executable('ctags')
     echoerr 'Se recomienda instalar universal-ctags'
 endif
 if s:usar_plugins
-    nnoremap <leader>ut :UpdateTags<return>
+    nnoremap <Leader>ut :UpdateTags<Return>
 else
-    nnoremap <leader>ut !ctags -R .&<return>
+    nnoremap <Leader>ut !ctags -R .&<Return>
 endif
   " <C-]> - Ir a la definición del objeto (solo si ya se generaron las etiquetas)
 
@@ -1164,31 +1256,31 @@ if s:activar_revision_ortorgrafica
     let s:revision_otrografica_en_espaniol = 0
     set spell             " Activa la revisión ortográfica
     " Alternar entre revisión activa e inactiva con ,tsp
-    nnoremap <leader>tsp :setlocal spell!<return>
+    nnoremap <Leader>tsp :setlocal spell!<Return>
     if s:revision_otrografica_en_espaniol
         set spelllang=es      " El idioma de revisión es español
         " Generalmente los sistemas operativos no cuentan con un diccionario
         " en español. La primera vez que se inicie vim se pedirá permiso
         " para descargar el diccionario necesario. Basta con aceptar
-        " para que vim haga el trabajo automaticamente
+        " para que vim haga el trabajo automáticamente
     else
         set spelllang=en
         set dictionary=/usr/share/dict/words " Usa el diccionario del sistema
     endif
 
     " Recorrer las palabras mal escritas y corregirlas
-    nnoremap <leader>sl ]szzzv
-    nnoremap <leader>sh [szzzv
+    nnoremap <Leader>sl ]szzzv
+    nnoremap <Leader>sh [szzzv
 
     " Modificar lista de palabras aceptadas
-    nnoremap <leader>sa zg
-      " zw - Quitar palabra de la lista blanca (marcarla como incorrecta)
+    nnoremap <Leader>sa zg
+    " zw - Quitar palabra de la lista blanca (marcarla como incorrecta)
 
     " Mostrar opciones de corrección para una palabra mal escrita
-    nnoremap <leader>ss  z=
-    nnoremap <leader>scc 1z=
-    nnoremap <leader>scp [s1z=<C-o>
+    nnoremap <Leader>ss  z=
+    nnoremap <Leader>scc 1z=
+    nnoremap <Leader>scp [s1z=<C-o>
 endif
-" }}}
+" ### }}}
 
 " vim: fdm=marker

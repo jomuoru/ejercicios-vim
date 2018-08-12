@@ -1,35 +1,36 @@
-                    ** Objetos de texto **
+                          ** Objetos de texto **
 
 Los objetos de texto son a los operadores como los sustantivos son a
 los verbos.
 
-Al usar objetos de texto siempre se precede alguna de las siguientes letras:
-    i => "Inside" El objeto sin elementos circundantes
-    a => "Around" El objeto más sus elementos circundantes
+Al usar objetos de texto siempre se precede alguna de las siguientes
+letras:
+    i => "Inside".  El objeto sin elementos circundantes
+    a => "Around".  El objeto más sus elementos circundantes
 
 La sintaxis completa es:
     {operador}(a|i){objeto de texto}
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 1: Probar las diferencias entre 'va(' y 'vi(' dentro de los
-límites de los paréntesis en la siguiente línea
+paréntesis en la siguiente línea
 
     ...es probable que tu IDE (Entorno de desarrollo integrado) pueda...
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
     La letra "v" no es un operador, es un comando de cambio al modo
-    "visual" que aún no aprendemos y para regresar a modo normal
-    deberás presionar <Esc> de la misma forma que se hace desde modo
-    inserción.
+    "visual" por lo que para regresar a modo normal deberás presionar <C-[>
+    de la misma forma que se hace desde modo inserción
     Dentro de los límites de los paréntesis de (Entorno ....grado),
-    presione 'vi(' y observe el texto seleccionado. Regrese a modo normal
-    con <Esc>.
-    Haga lo mismo con 'va('
+    presiona vi( y observa el texto seleccionado. Regresa a modo normal
+    con <C-[>
+    Haz lo mismo con va(
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-Las operaciones sobre objetos de texto se pueden repetir de dos formas.
-    {numero}{operador}(a|i){objetos de texto}
+Las operaciones sobre objetos de texto pueden recibir un argumento numérico
+de dos formas:
+    {número}{operador}(a|i){objetos de texto}
 y
     {operador}{número}(a|i){objetos de texto}
 
@@ -53,14 +54,15 @@ Respuesta sugerida {{{
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 Nota: Las dos formas mencionadas de repetir operaciones sobre objetos son
-equivalentes. En el ejemplo anterior se observa una diferencia solamente
-porque 'v' no es un operador y un prefijo numérico funciona de manera
-distinta en el.
+equivalentes.  En el ejemplo anterior se observa una diferencia solamente
+porque 'v' no es un operador (es un comando de cambio de modo) y un prefijo
+numérico funciona de manera distinta al usarlo.
 
 ===========================================================================
 
-Objetos de texto normales. Operan sobre un bloque más un carácter a su
-inicio o a su fin dependiente del contexto.
+Objetos de texto normales
+
+Estos operan sobre un pedazo de texto reconocido por vim.
 
 w => Objeto "word", o "palabra pequeña". Es una serie consecutiva de
 símbolos de los listados en la opción 'iskeyword'.
@@ -73,10 +75,10 @@ Ejercicio 3: Reordene la siguiente frase
 
 Respuesta sugerida {{{
     Sobre la "o" de "olvidar" presiona:
-        'daw'   Corta "olvidar "
-        'wP'    Avanza al inicio de "tras" y pega "olvidar " antes
-        'ldaw'  Corta "queda "
-        bbP'    Retrocede hasta el inicio de tras y pega "queda " antes
+        daw   // Corta "olvidar "
+        wP    // Avanza al inicio de "tras" y pega "olvidar " antes
+        ldaw  // Corta "queda "
+        bbP   // Retrocede hasta el inicio de tras y pega "queda " antes
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -89,24 +91,24 @@ del maestro Yoda
 
 Respuesta sugerida {{{
     En el espacio anterior a la "t" de "tu" presiona:
-        '2daw'  Corta " tu quieres"
-        'wwh'   Avanza espacio anterior a "debes"
-        'daw'   Corta " debes"
-        'eeP'   Llega a la "o" de "mucho" y pega el texto cortado
+        2daw  // Corta " tu quieres"
+        wwh   // Avanza espacio anterior a "debes"
+        daw   // Corta " debes"
+        eeP   // Llega a la "o" de "mucho" y pega el texto cortado
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 5: (Abrir con 'gf' o 'gF')
+Ejercicio 5: (Abrir con gf o gF)
     1.6_Ejercicio5.css
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-W => Objeto "WORD", o "palabra grande". Serie de símbolos separados por un
+W => Objeto "WORD", o "palabra grande".  Serie de símbolos separados por un
      carácter de espacio en blanco (o una línea en blanco).
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 6: Hacer una lista de los enlaces que aparecen en el siguiente
-texto en el final del párrafo. (Recomendado: usar 'autoindent' 'ai')
+texto en el final del párrafo.  (Recomendado: usar 'autoindent' 'ai')
 
     Si quieres hacer nada por dos minutos puede visitar
     http://www.donothingfor2minutes.com/ y si quieres liberarte de tus
@@ -120,22 +122,22 @@ texto en el final del párrafo. (Recomendado: usar 'autoindent' 'ai')
                                     Comando pegar siguiente posición => p
 
 Respuesta sugerida {{{
-    Con 'autoindent' activada:
-    En la línea de "lista de enlaces" teclea 'o- <Esc>' y sin moverte
-    de línea repite un par de veces con punto para formar una
-    pequeña lista.
+Con 'autoindent' activada:
+    En la línea de "lista de enlaces" teclea 'o-<Space><Esc>' y sin moverte
+    de línea repite un par de veces con punto para formar una pequeña
+    lista.
     Ahora ve a recoger cada uno de los enlaces posicionándote sobre
-    uno copiándolo con 'yiW' para luego regresar a la lista y pegarlo
-    sobre ella con 'p'
+    uno copiándolo con yiW para luego regresar a la lista y pegarlo
+    sobre ella con p
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-s => Objeto "sentencia". Serie de símbolos terminados en '.', '!' o '?'
+s => Objeto "sentencia". Serie de símbolos terminados en ".", "!" o "?"
      seguido de espacio, tab o fin de línea.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 7: La primera, segunda, cuarta y quinta sentencias tiene las
-mayúsculas y minúsculas alternadas. Arreglelo
+mayúsculas y minúsculas enrevesadas. Arréglalo
 
     sIT MOLLITIA ENIM eLIT QUIA DOLOREM
     aDIPISICING MINUS CONSEQUATUR?  sIT MAIORES VEL.
@@ -144,17 +146,17 @@ mayúsculas y minúsculas alternadas. Arreglelo
                                         Operador cambiar minus/mayus => g~
 
 Respuesta sugerida {{{
-    Desde la primera sentencia: 'g~is).)).).'
+    Desde la primera sentencia haz: g~is).)).).
 
+    Viendo que significa el comando por partes:
      g~is     Cambia mayúsculas y minúsculas de la sentencia actual
-     ).       Avanza una sentencia y repite
+     ).       Avanza una sentencia y repite (se hace en dos ocasiones)
      )).      Avanza dos sentencias y repite
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-p => Objeto "párrafo". Serie de líneas delimitadas por una línea
+p => Objeto "párrafo".  Serie de líneas delimitadas por una línea
      completamente en blanco.
-
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 8: Ordenar los párrafos.
@@ -174,22 +176,24 @@ Ejercicio 8: Ordenar los párrafos.
      Adipisicing explicabo beatae exercitationem porro nulla nostrum!
      Ipsum dolorem voluptatum odio sapiente tenetur ut eaque
 
-                                                    Pegar después => p
+                                Pegar después de la posición actual => p
 
 Respuesta sugerida {{{
-    Desde el primer párrafo: '2dap}pdap}p'
+    Desde el primer párrafo hacer: 2dap}pdap}p
 
-    2dap    Corta dos párrafos
-    }p      Avanza un párrafo y pega el contenido del registro sin nombre
-    dap     Corta un párrafo
+    Por partes:
+     2dap    Corta dos párrafos
+     }p      Avanza un párrafo y pega el contenido del registro sin nombre
+     dap     Corta un párrafo
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
-Objetos de texto por símbolos contenedores. Operan al interior de un par de
-símbolos contenedores de texto, incluyendo o excluyendo dichos caracteres
-respectivamente.
+Objetos de texto por símbolos contenedores
+
+Operan al interior de un par de símbolos contenedores de texto, incluyendo
+o excluyendo dichos caracteres respectivamente.
 
 [ ó ] => Objeto "contenido de corchetes"
 
@@ -212,18 +216,18 @@ texto
                                             Borrar un solo carácter => x
 
 Respuesta sugerida {{{
-    Desde la primera línea: 'jf(da)hxj,(da)xj;(da)x'
+    Desde la primera línea teclea: jf(da)hxj,(da)xj;(da)x
 
-    jf(      Bajar a la segunda línea y buscar "(" hacia adelante
-    da)hx    Borra el paréntesis y un espacio a la izquierda
-    j,       Baja una línea y repite búsqueda de "(" hacia atrás
-    da)x     Borra el paréntesis y un espacio
-    j;       Baja una línea y repite búsqueda de "(" hacia adelante
+    Por partes:
+     jf(      Bajar a la segunda línea y buscar "(" hacia adelante
+     da)hx    Borra el paréntesis y un espacio a la izquierda
+     j,       Baja una línea y repite búsqueda de "(" hacia atrás
+     da)x     Borra el paréntesis y un espacio
+     j;       Baja una línea y repite búsqueda de "(" hacia adelante
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 { ó } ó B => Objeto "contenido de llaves"
-
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 11: 1.6_Ejercicio11.sh
@@ -238,9 +242,9 @@ Ejercicio 12: 1.6_Ejercicio12.c
 
 ===========================================================================
 
-Objetos de cadenas. Similares a los objetos por símbolos contenedores pero
-solo funcionan sobre la línea actual. Tienen la propiedad especial de que
-mueven el cursor hacia adelante para buscar la cadena.
+Objetos de cadenas.  Similares a los objetos por símbolos contenedores pero
+solo funcionan sobre la línea actual.  Tienen la propiedad especial de que
+mueven el cursor hacia adelante hasta ubicar el delimitador de apertura.
 
 ' => Cadena delimitada por: ''
 
@@ -302,18 +306,23 @@ Ejercicio 17: Eliminar las líneas pares de la siguiente figura
     | '--------------' || '--------------' || '--------------' |
     ############################################################
      '----------------'  '----------------'  '----------------'
-                                        Operador eliminar => d
-                                        Aplicar operador sobre línea => _
+                                Operador eliminar => d
+                                Aplicar operador sobre línea completa => _
 
 Respuesta sugerida {{{
-    Posiciónate sobre la segunda línea y teclee 'd_'. Luego baje con 'j'
-    y repita la edición con '.' repetidas veces hasta terminar.
+    Posiciónate sobre la segunda línea y teclea d_
+    Luego baja con j y repite la edición con . (Varias veceas hasta
+    finalizar)
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ___________________________________________________________________________
-Esos son todos los objetos de texto integrados de vim, más se pueden instalar
-por medio de plugins. Algunos de los mejores son:
+Lecturas relacionadas:
+    :help text-objects
+    :help 'iskeyword'
+
+Ya se han visto los objectos de texto integrados.  Multitud de plugins
+proveen objetos de texto adicionales como:
     * https://github.com/michaeljsmith/vim-indent-object: Provee un objeto
       de texto para operar sobre líneas equivalentemente indentadas
 
@@ -327,7 +336,10 @@ por medio de plugins. Algunos de los mejores son:
     * https://github.com/glts/vim-textobj-comment: Objeto de texto para
       manejar comentarios.
 
+    * https://github.com/saulaxel/vim-next-object: Objecto de texto para
+      buscar automáticamente objectos hacia el frente y atrás
+
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]
 
-vim: fdm=marker
+vim: fdm=marker tw=75

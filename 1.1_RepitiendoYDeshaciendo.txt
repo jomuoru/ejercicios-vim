@@ -1,8 +1,8 @@
                         ** Repitiendo ediciones **
 
 Según el tipo de comando que ejecutes la forma de repetirlo es distinta.
-Por ejemplo, los comandos clasificados como "edición", tienen dos formas
-de repetición:
+Por ejemplo, los comandos clasificados como "edición", tienen dos formas de
+repetición:
 
 ===========================================================================
 
@@ -20,9 +20,9 @@ Ejercicio 1: Borra todas las apariciones de "Amet"
                                                 Repetir edición => .
 
 Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
-    Posiciónate en cualquier parte de la primera aparición de "Amen" y
-    teclea daw (Delete around word). Luego muévete a cada una de las
-    siguientes apariciones y presiona . sobre cada una.
+    Posicionate en cualquier parte de la primera aparición de "Amen" y
+    teclea daw (Delete around word), luego muévete a cada una de las
+    siguientes apariciones y presiona . (punto) sobre cada una.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -36,13 +36,13 @@ elección (preferiblemente de varias palabras)
                                                 Repetir edición => .
 
 Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
-    Posiciónate en cualquier parte de la primera aparición de "neque" y
+    Posicionate en cualquier parte de la primera aparición de "neque" y
     presiona ciw (Change inside word) que eliminará la palabra y te
-    posicionará en modo inserción.
+    posicionará en modo inserción
 
-    Escribe lo que gustes y presiona <Esc> o <Ctrl-[> para regresar a modo
-    normal. Ahora muévete a las otras apariciones de "neque" y presiona .
-    (punto) sobre ellas.
+    Escribe lo que gustes y presiona <Esc> (escape) o <C-[> (Control +
+    corchete abierto)para regresar a modo normal, luego muévete a las otras
+    apariciones de "neque" y presiona . (punto) sobre ellas.
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -64,7 +64,7 @@ Ejercicio 4: Numera las siguientes líneas
 
 Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
     En la primera línea del ejercicio teclea
-        I1.<space>  (Letra I mayúscula, número 1, punto y espacio)
+        I1.<Space>  (Letra I mayúscula, número 1, punto y espacio)
     Regresa a modo normal y repite la acción sobre el resto de líneas para
     lograr una lista numerada solo con unos como la siguiente:
         1. ~~~~~~~~~
@@ -76,10 +76,10 @@ Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
     hasta seleccionar todos menos el primero de los números de la siguiente
     forma:
         1. ~~~~~~~~~
-      +-1.+~~~. ~~~~~~~
+      +-1-+~~~. ~~~~~~~
       | 1.|~~~~~~        (La caja de "+", "-" y "|" simboliza la selección)
       | 1.|~~~~~~~
-      +-1.+ ~~~~~
+      +-1-+ ~~~~~
 
     Tras seleccionar las líneas presiona g<C-a> (letra g y Control + a)
 }}}
@@ -96,10 +96,11 @@ Ejerccio 5: Inserte una frase en varias partes del siguiente párrafo
                         Regresar a modo normal => <C-[>
 
 Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
-    Presione i desde la posición en que quiera insertar texto y teclee lo
-    que guste.
-    Presione <Esc> o <C-[ para volver a modo normal y muévase a donde
-    quiera repetir la inserción, presionando . en cada caso.
+    Presione i desde la posición en que quieras insertar texto y teclea lo
+    que gustes
+    Presione <Esc> (escape) o <C-[> (Tecla escape o Ctrl + [)para volver a
+    modo normal y muévase a donde quiera repetir la inserción, presionando
+    . (punto) en cada caso
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -125,7 +126,7 @@ Ejercicio 6:
 
 Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
     Sobre la primera línea en blanco presiona 70i seguido de un único
-    signo = y regresa a modo normal.
+    signo = (igual) y regresa a modo normal
 
     El prefijo 70 repetirá la inserción del único signo = 70 veces para
     formar una línea como la siguiente:
@@ -135,8 +136,8 @@ Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
 ======================================================================
 ======================================================================
 
-    Posicionado en la línea inferior escribe 8O|| (ocho, letra O
-    mayúscula y doble barra vertical) y regrese a modo normal para añadir
+    Posicionad@ en la línea inferior escribe 8O|| (ocho, letra O
+    mayúscula y doble barra vertical) y regresa a modo normal para añadir
     en el medio de la figura 8 líneas formadas por || como se muestra:
 ======================================================================
 ||
@@ -144,8 +145,8 @@ Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
 ||
 ======================================================================
 
-    Presione 68i  y regresa a modo normal para insertar los espacios
-    internos en la línea actual.
+    Presiona 68i<Space> y regresa a modo normal para insertar los espacios
+    internos en la línea actual
 ======================================================================
 ||
         ...     ...     ...     ...     ...     ...     ...
@@ -168,4 +169,4 @@ Plugins relacionados con repetir:
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]
 
-vim: fdm=marker
+vim: fdm=marker tw=75

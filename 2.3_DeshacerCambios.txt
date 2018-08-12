@@ -1,4 +1,0 @@
-- Árbol de cambios
-    :earlier 15m
-    :later
-

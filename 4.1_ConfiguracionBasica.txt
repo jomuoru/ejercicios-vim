@@ -6,3 +6,9 @@ Tabs a espacios
     :retab %
 
 Resaltado de líneas y columnas
+
+exrc
+secure
+
+
+.lvimrc

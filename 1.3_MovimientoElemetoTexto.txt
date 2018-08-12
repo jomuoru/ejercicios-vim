@@ -1,12 +1,12 @@
-                ** Movimiento parte 2: moverse por objetos **
+               ** Movimiento parte 2: moverse por objetos **
 
 Vim reconoce de forma especial algunas secuencias de texto (palabras,
-párrafos, etc) mediante una serie de reglas sencillas. Los movimientos por
+párrafos, etc) mediante una serie de reglas sencillas.  Los movimientos por
 objetos son aquellos que se mueven entre dichas secuencias reconocidas por
 vim.
 
 Los movimientos por objetos son generalmente "no inclusivos", lo cual es
-relevante al usarlos con operadores (posteriormente).
+relevante al usarlos con operadores.
 
 ===========================================================================
 
@@ -14,9 +14,8 @@ Movimiento por sentencias:
     (       Sentencia anterior
     )       Sentencia siguiente
 
-Las sentencias en vim son similares a sentencias gramaticales. La
-definición de "sentencia" se puede cambiar dependiendo del tipo de archivo
-que se esté editando.
+Las sentencias en vim son similares a sentencias gramaticales por lo que
+este tipo de movimiento resulta útil al editar documentación.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 1: Elimina la sentencia "Dolor explicabo" del siguiente párrafo
@@ -27,10 +26,10 @@ Ejercicio 1: Elimina la sentencia "Dolor explicabo" del siguiente párrafo
     Consectetur nemo obcaecati provident qui.
                                                     Operador eliminar => d
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Presionando ) repetidas veces llegue a la "D" de "Dolor". Presione
-    d) para eliminar de manera no inclusiva desde la posición actual
-    hasta el inicio de la siguiente sentencia.
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
+    Presionando ) repetidas veces llegaras a la "D" de "Dolor", donde
+    deberás presionar d) para eliminar desde la posición actual hasta el
+    inicio de la siguiente sentencia
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -62,8 +61,8 @@ Ejercicio 2: Elimine el segundo párrafo
                                                     Operador eliminar => d
 
 Respuesta sugerida (Abrir con 'za') {{{
-    Posicionado(a) en la linea vacía de arriba del párrafo presiona d} o
-    posicionado(a) en la de abajo presione d{
+    Posicionado@ en la linea vacía de arriba del párrafo presiona d} o
+    posicionado@ en la de abajo presiona d{
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -76,20 +75,20 @@ Movimiento por secciones:
     []      Siguiente final de sección
 
 La definición de sección es la que más cambia según el tipo de archivo en
-que se esté trabajando. Por defecto la sección se corresponde con una llave
-de apertura y una de cierre al principio de línea.
+que se esté trabajando.  Por defecto la sección se corresponde con una
+llave de apertura y una de cierre al principio de línea.
 
 En las siguientes funciones se demuestra el concepto de sección:
 
 int funcion1()
-{
+{ // Inicio de sección
 
     if (...)
     {
 
     }
 
-}
+} // Final de sección
 
 int funcion2()
 {   // [[, ]]
@@ -137,4 +136,4 @@ ___________________________________________________________________________
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]
 
-vim: fdm=marker
+vim: fdm=marker tw=75

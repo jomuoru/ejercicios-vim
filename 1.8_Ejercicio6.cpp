@@ -1,5 +1,4 @@
-#include <bits/stdc++.h> // Esto incluye todo lo que necesitas
-                         // y más
+#include <bits/stdc++.h> // Esto incluye todo lo que necesitas y más
 using namespace std;
 
 int main()
@@ -22,11 +21,10 @@ int main()
 
 // Respuesta sugerida {{{
 //     Escriba 'cout << "E' y luego presione
-//     <Ctrl-X><Ctrl-L> tres veces.
+//     <C-x><C-L> tres veces.
 //     Funciona gracias a que el completado de líneas también
 //     es sensible al contexto.
 // }}}
 // *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 }
-
-// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker
+// vim: sts=4 ts=4 sw=4 ai sta nu fdm=marker tw=75

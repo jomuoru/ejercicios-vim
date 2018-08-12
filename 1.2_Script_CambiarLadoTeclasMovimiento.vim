@@ -12,7 +12,6 @@
 " Use este script solo si prefiere moverse con las teclas de la mano
 " izquierda en lugar de la derecha.
 
-
 scriptencoding utf-8
 
 "       a <--> h
@@ -41,6 +40,5 @@ noremap F L
 noremap l f
 noremap L F
 
-" Para regresar a la lección presiona 'gF' sobre el nombre
-" de archivo escrito a continuación:
-"       1.2_ComenzandoAMoverse.txt:26
+" Se puede hacer (casi) lo mismo con una sola línea
+" set langmap=ah,AH,sj,SH,dk,DK,fl,FL

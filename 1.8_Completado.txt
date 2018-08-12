@@ -1,21 +1,29 @@
                     ** Completar texto **
 
-Vim puede completar de varias formas y cada una cambia la lista de
-palabras que se contemplan.
-Para navegar la lista de autocompletado se usan dos combinaciones:
+Vim puede completar de varias formas y cada una cambia la lista de palabras
+que se contemplan. Para navegar la lista de autocompletado se usan dos
+combinaciones:
 
-    <Ctrl-N>      Siguiente palabra (N de next)
-    <Ctrl-P>      Palabra anterior  (P de previous)
+    <C-n>      Siguiente palabra (N de next)
+    <C-p>      Palabra anterior  (P de previous)
+
+Los dos comandos anteriores también inician el completado genérico.
 
 Para aceptar una opción puedes usar:
 
-    <Ctrl-Y>     Aceptar opción  (y de yes)
+    <C-y>     Aceptar opción  (y de yes)
 
-El modo normal de completado toma en cuenta las palabras del buffer
-actual y de los archivos incluidos.
+El completado genérico toma en cuenta las palabras del buffer actual y de
+los archivos incluidos.
+
+Nota: En realidad para completar palabras de los #include se debe tener
+la bandera 'i' en la opción 'complete'. Generalmente ese es el
+comportamiento por defecto, pero en caso de que no lo sea se puede añadir
+como se muestra:
+    :set complete+=i
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-Ejercicio 1: (abrir con 'gf' o 'gF')
+Ejercicio 1: (abrir con gf o gF)
         1.8_Ejercicio1.java
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v
 
@@ -28,89 +36,115 @@ auto-completado aunque el comportamiento es diferente (No modifica el texto
 hasta aceptar).
 
 Para activar alguna de las diferentes formas de autocompletado se escribe
-el prefijo <Ctrl-X> lo cual accede al llamado "sub-modo X" que muestra un
+el prefijo <C-x> lo cual accede al llamado "sub-modo X" que muestra un
 mensaje similar al siguiente:
 
     -- ^X (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)
 
-El contenido del paréntesis muestra las diferentes opciones de uso
-del modo X. La mayoría tiene que ver con completado de palabras y
-aunque un par mueven la pantalla.
+Nota: La notación ^{x} (acento circunflejo + {x}) hace referencia a
+presionar Ctrl + {x} igual que <C-{x}>.
+
+El contenido del paréntesis muestra las diferentes opciones de uso del modo
+X. La mayoría tiene que ver con completado de palabras y un par de ellas
+mueven la pantalla.
 
 ===========================================================================
 
 Sub-modos de completado para limitar la lista de palabras
 
-El completado vía <C-N> y <C-P> no hace ninguna distinción en la lista de
+El completado vía <C-n> y <C-p> no hace ninguna distinción en la lista de
 palabras. Cuando un archivo es muy grande y/o incluye demasiados archivos
 externos la lista de palabras puede ser enorme y poco significativa.
 Para arreglar este problema, vim cuenta con varias formas de completado:
 
 
-<Ctrl-X><Ctrl-D>    Completado por definiciones: Limita las palabras
-                    a definiciones o macros del archivo actual y de
-                    archivos incluidos.
+<C-x><C-d>    Completado por definiciones: Limita las palabras a
+              definiciones o macros del archivo actual y de archivos
+              incluidos.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 3: 1.8_Ejercicio3.c:18
+Ejercicio 3: 1.8_Ejercicio3.c:18 (abrir con gF)
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-<Ctrl-X><Ctrl-I>   Completado por identificadores: Excluye las
-                   definiciones
+<C-x><C-i>   Completado por identificadores: Excluye las definiciones
 
-<Ctrl-X><Ctrl-N>   (Cualquiera de las dos) Completar solo con
-<Ctrl-X><Ctrl-P>   palabras del archivo actual
+<C-x><C-n>   Completar solo con palabras del archivo actual (hacia delante)
+<C-x><C-p>   Completar solo con palabras del archivo actual (hacia atrás)
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 4: 1.8_Ejercicio4.c:29
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 5: 1.8_Ejercicio5.java:18
+Ejercicio 5: 1.8_Ejercicio5.java:2
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ===========================================================================
 
 Otros modos de completado
 
-<Ctrl-X><Ctrl-L>   Completado de lineas: Solo trabaja con líneas
-                   completas.
+El completado por palabras del archivo o por definiciones simplemente
+filtran la lista de palabras. También hay otras formas de completado que
+hacen cosas que el completado genérico no como:
+
+<C-x><C-L>   Completado de lineas: Solo trabaja con líneas completas.
+
+Nota: No importa si la L es mayúscula o minúscula. Simplemente se escribió
+mayúscula porque que L en minúscula se parece al uno.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 6: 1.8_Ejercicio6.cpp:24
+Ejercicio 6: 1.8_Ejercicio6.cpp:19
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-<Ctrl-X><Ctrl-F>   Completado de nombres de archivo
+<C-x><C-f>   Completado de nombres de archivo
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 7: Completa el nombre del archivo del ejercicio y luego
-ábrelo.
+ábrelo (Es el 7).
     1.8_E
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
-<Ctrl-X><Ctrl-U>   Completar según la función 'completefun'. Dado que la
-                   función tiene libertad de hacer lo que sea, este modo
-                   de completado puede ir de lo más modesto a lo más
-                   complejo.
+<C-x><C-u>   Completar según la función 'completefunc' que puede ser
+             definida por el usuario . Este modo de completado puede ir de
+             lo más modesto a lo más complejo.
 
-<Ctrl-X><Ctrl-O>   Completar según la función 'omnifun'. Típicamente se
-                   usa una función que depende del tipo de dato.
-                   Aplica lo mismo que con el anterior.
+(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+El siguiente archivo crea una función de completado personalizada
+('completefunc') para completar los meses del año.
 
-<Ctrl-X><Ctrl-]>   Completar tags (generalmente funciones). Requiere un
-                   archivo de tags generado por ctags.
+    1.8_Script_FunciónCompletadoMeses.vim
 
-<Ctrl-X><Ctrl-K>   Completar palabras del diccionario de tu lenguaje
-                   seleccionado con la opción 'spelllang'
+Interprete el archivo y luego posicionate enfrente de la M a continuación y
+presiona <C-x><C-u>
 
-<Ctrl-X><Ctrl-S>   Sustituir la palabra detrás del cursor por otra
-                   palabra válida según tu diccionario actual.
+>>  M
 
-<Ctrl-X><Ctrl-V>   Completado de vimscript (el lenguaje de programación
-                   de vim)
+Debería aparecer una lista de meses empezando con M (Marzo y Mayo)
+Prueba completar empezando por otras letras e incluso sin ningún texto
+previo para ver las diferentes listas de completado.
+
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+<C-x><C-o>   Completar según la función 'omnifun'. Típicamente se usa una
+             función que depende del tipo de archivo o lenguaje usado.
+             Aplica lo mismo que con el anterior.
+
+<C-x><C-]>   Completar tags (generalmente funciones). Requiere un archivo
+             de tags generado por el programa ctags.
+
+<C-x><C-k>   Completar palabras del diccionario de tu lenguaje
+             seleccionado con la opción 'spelllang'
+
+<C-x><C-s>   Sustituir la palabra detrás del cursor por otra
+             palabra válida según tu diccionario actual.
+
+<C-x><C-v>   Completado de VimL (el lenguaje de programación de vim)
 
 ___________________________________________________________________________
+Lecturas sugeridas:
+    :help ins-completion
+
 
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]
 
-vim: fdm=marker
+vim: fdm=marker tw=75

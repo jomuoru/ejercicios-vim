@@ -1,0 +1,5 @@
+:help if_pyth.txt
+:help if_ruby.txt
+:help if_tcl.txt
+:help if_lua.txt
+:help if_mzscheme.txt

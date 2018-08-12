@@ -1,7 +1,15 @@
-Salir sin guardar (rápido)
+
+    :update
+    wall
+    qall
+
+
+    saveas
+
+Salir sin guardar
     ZQ
 
-Salir guardando (rápido)
+Salir guardando
     ZZ
 
 Abrir con cierta codificación
@@ -13,7 +21,11 @@ Se pueden abrir urls directamente:
 Netrw
     :Explore {carpeta}
 
-Ventanas múltiples y tabs
+Buffers, ventanas múltiples y tabs
+    sbuffer#
+    split vsplit
+    tabnew
+
 
 Diff con otro archivo
     :vert diffs /project2/root/%

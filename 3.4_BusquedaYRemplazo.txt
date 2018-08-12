@@ -1,3 +1,11 @@
+- Cuantificadores codiciosos y no codiciosos
+
+- Contar apariciones de una palabra en un archivo
+    :%s/regex//ng
+
+- global/regex/print (g/re/p)
+- global/regex
+
 - Copiar coincidencias de re en un registro
     :g/re/y [reg]
 
@@ -9,3 +17,4 @@ Añadir prefijo y sufijo a un texto
 Campos en expresiones regulares
     :%s/\(holas\)
 
+:help greedy

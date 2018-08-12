@@ -4,17 +4,18 @@
 "
 scriptencoding utf-8
 
-noremap <silent> f :call SiguienteChar(getchar(), 'adelante', 'inclusiva')<return>
-noremap <silent> F :call SiguienteChar(getchar(), 'atras', 'inclusiva')<return>
+" noremap cubre nnoremap y onoremap
+noremap <silent> f :call SiguienteChar(getchar(), 'adelante', 'inclusiva')<Return>
+noremap <silent> F :call SiguienteChar(getchar(), 'atras', 'inclusiva')<Return>
 
-noremap <silent> t :call SiguienteChar(getchar(), 'adelante', 'noinclusiva')<return>
-noremap <silent> T :call SiguienteChar(getchar(), 'atras', 'noinclusiva')<return>
+noremap <silent> t :call SiguienteChar(getchar(), 'adelante', 'noinclusiva')<Return>
+noremap <silent> T :call SiguienteChar(getchar(), 'atras', 'noinclusiva')<Return>
 
-noremap <silent> ; :call RepetirBusqueda('misma_direccion')<return>
-noremap <silent> , :call RepetirBusqueda('direccion_contraria')<return>
+noremap <silent> ; :call RepetirBusqueda('misma_direccion')<Return>
+noremap <silent> , :call RepetirBusqueda('direccion_contraria')<Return>
 
 " Una variable global que sirve de caché
-let g:busqueda_anterior = {
+let s:busqueda_anterior = {
 \   'caracter': 0,
 \   'direccion': '',
 \   'tipo': ''
@@ -23,9 +24,9 @@ let g:busqueda_anterior = {
 " Función que hace la búsqueda
 function! SiguienteChar(codigo_char, direccion, tipo_busqueda)
     " Guardando los datos de búsqueda para futuras repeticiones
-    let g:busqueda_anterior.caracter = a:codigo_char
-    let g:busqueda_anterior.direccion = a:direccion
-    let g:busqueda_anterior.tipo = a:tipo_busqueda
+    let s:busqueda_anterior.caracter = a:codigo_char
+    let s:busqueda_anterior.direccion = a:direccion
+    let s:busqueda_anterior.tipo = a:tipo_busqueda
 
     " Preparando datos de búsqueda
     let l:char_buscado = nr2char(a:codigo_char) " nr2char => number 2 char
@@ -58,26 +59,26 @@ endfunction
 
 " Función que repite conservando el caché de búsqueda
 function! RepetirBusqueda(direccion)
-    if g:busqueda_anterior.caracter == 0
+    if s:busqueda_anterior.caracter == 0
         " No hay búsqueda previa así que no se puede hacer repetición
         return
     endif
 
     " Se cambia la dirección si es necesario
-    let l:vieja_dir = g:busqueda_anterior.direccion
+    let l:vieja_dir = s:busqueda_anterior.direccion
     if a:direccion ==# 'direccion_contraria'
-        if g:busqueda_anterior.direccion ==# 'adelante'
-            let g:busqueda_anterior.direccion = 'atras'
+        if s:busqueda_anterior.direccion ==# 'adelante'
+            let s:busqueda_anterior.direccion = 'atras'
         else
-            let g:busqueda_anterior.direccion = 'adelante'
+            let s:busqueda_anterior.direccion = 'adelante'
         endif
     endif
 
     " Se realiza la búsqueda
-    call SiguienteChar(g:busqueda_anterior.caracter,
-                     \ g:busqueda_anterior.direccion,
-                     \ g:busqueda_anterior.tipo)
+    call SiguienteChar(s:busqueda_anterior.caracter,
+                     \ s:busqueda_anterior.direccion,
+                     \ s:busqueda_anterior.tipo)
 
     " Regresando el estado original
-    let g:busqueda_anterior.direccion = l:vieja_dir
+    let s:busqueda_anterior.direccion = l:vieja_dir
 endfunction

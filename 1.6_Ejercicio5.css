@@ -2,30 +2,18 @@
 /**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
  * Ejercicio:
  * Modifique la opción 'iskeyword' para que las variables css (que pueden
- * incluir guión normal) sean más fáciles de iterar, copiar y pegar.
+ * incluir guión normal) sean reconocidas por completo de la siguiente
+ * forma:
+ *
  *   :set iskeyword+=-
- *   :se isk+=-
+ *
  * Después cambie las literales RGB en la clase "barra-superior" por las
  * variables que les corresponden.
  *
- * Resetear iskeyword (Después de completar el ejercicio):
+ * Resetear 'iskeyword' (Después de completar el ejercicio):
  *   :set iskeyword-=-
- *   :se isk-=-
  *   :set iskeyword&
- *   :se isk&
  *   (Cualquiera de las anteriores)
- *
- * Respuesta sugerida {{{
- *     La variable "--color-primario" debe asignarse a "background" y
- *     "--color-contraste" a "color". Lo primero es hacerles espacio,
- *     posicionándose al principio de la literal RGB a eliminar (ya sea
- *     de "background" o "color") y presionando 'ct;var()<Esc>' para luego
- *     repetirlo al principio de la siguiente literal.
- *     Ahora suba para copiar cualquiera de los colores que se van a poner
- *     dentro de "var()". Copielo con 'yiw' y posicionate en el paréntesis
- *     abierto de "var()" para pegarlo con 'p'. Haga los mismo para el color
- *     faltante.
- * }}}
  */
 
 :root {
@@ -38,7 +26,20 @@
   background: #E21414;
   color: #8251B4;
 }
+/* Respuesta sugerida {{{
+ *     La variable "--color-primario" debe asignarse a "background" y
+ *     "--color-contraste" a "color". Lo primero es crear un espacio para
+ *     posicionar las variables, moviéndote al principio de la literal RGB
+ *     a eliminar (ya sea de "background" o "color") y presionando
+ *     ct;var()<C-[> para luego repetirlo al principio de la siguiente
+ *     literal
+ *     Ahora sube para copiar cualquiera de los colores que se van a poner
+ *     dentro de "var()"
+ *     Cópialo con yiw y posicionate en el paréntesis abierto de "var()"
+ *     para pegarlo con p
+ *     Haga los mismo para el color faltante
+ * }}}
 /**v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v**/
 
-/* vim: sts=2 ts=2 sw=2 ai sta nu fdm=marker
+/* vim: sts=2 ts=2 sw=2 ai sta nu fdm=marker tw=75
  */

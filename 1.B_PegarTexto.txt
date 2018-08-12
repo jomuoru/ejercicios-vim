@@ -64,6 +64,8 @@ Respuesta sugerida {{{
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
+TODO: Añadir ejercicio de remplazo
+
 ===========================================================================
 
 Pegando desde modo comando

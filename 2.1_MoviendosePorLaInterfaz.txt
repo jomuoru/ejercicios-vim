@@ -11,3 +11,7 @@
 - Volver a la última posición de inserción
     gi
 
+H M L
+
+zz  zt    zb
+z.  z<CR> z-

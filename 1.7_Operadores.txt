@@ -1,25 +1,25 @@
-                    ** Operadores de vim **
+                          ** Operadores de vim **
 
-Los Operadores son las acciones que trabajan sobre el texto. Punto.
-Se pueden combinar con movimientos de vim y con objetos de texto lo cual los
+Los Operadores son las acciones que trabajan sobre el texto. Punto. Se
+pueden combinar con movimientos de vim y con objetos de texto lo cual los
 hace muy flexibles.
 
 ===========================================================================
 
-Operadores que guardan el texto en un registro.
+Operadores que guardan el texto en un registro:
 
     d  :  Operador "delete". Corta el texto
 
-    c  :  Operador "change". Corta el texto y entra en modo inserción.
+    c  :  Operador "change". Corta el texto y entra en modo inserción
 
-    y  :  Operador "yank". Copia el texto.
+    y  :  Operador "yank". Copia el texto
 
 
-Los siguientes operadores copian el texto elegido en el registro que se
-especifique. Por defecto se usa el "registro sin nombre"
+Estos operadores copian el texto elegido en el registro que se especifique.
+Por defecto se usa el "registro sin nombre"
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 1: (Abrir con 'gf' o 'gF')
+Ejercicio 1: (Abrir con gf o gF)
     1.7_Ejercicio1.c
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -36,13 +36,13 @@ Forme una figura similar a la anterior pero en grande.
 
                                         Aplicar operador sobre línea => _
 
-Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
-    Copia una línea con 'y_' y pégala repetidas veces con 'p' hasta
-    formar un poco más de la mitad de un cuadrado (aproximadamente).
-    Al principio de la última línea teclea 'dt#' para cortar los
-    asteriscos del principio y luego '$p' para pegarlos al final.
-    Nuevamente copia con 'y_' y pega hasta hacer la otra mitad del
-    cuadrado.
+Respuesta sugerida (Abrir con zo y cerrar con zc) {{{
+    Copia una línea con y_ y pégala repetidas veces con p hasta
+    formar un poco más de la mitad de un cuadrado (aproximadamente)
+    Al principio de la última línea teclea dt# para cortar los
+    asteriscos del principio y luego $p para pegarlos al final
+    Nuevamente copia con y_ y pega hasta hacer la otra mitad del
+    cuadrado
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -50,22 +50,22 @@ Respuesta sugerida (Abrir con 'zo' y cerrar con 'zc') {{{
 
 Operadores de formato de texto
 
-    =   :   Operador que "re-indenta" (solo si conoce el lenguaje con que
-            trabaja, cuando vim no conoce un lenguaje en particular
-            se tiene que añadir soporte mediante un plugin)
+    =   :   Operador que "re-indenta" (Los métodos para determinar la
+            indentación se le indican mediante un archivo de sintaxis. Vim
+            por defecto reconoce la sintaxis de +500 lenguajes)
 
     <   :   Elimina un nivel de sangría
     >   :   Añade un nivel de sangría
 
-    gq  :   Operador "formatea" usando 'formatexpr', 'formatprg' o a
-            través del formateado interno.
+    gq  :   Operador "formatea" usando 'formatexpr', 'formatprg' o a través
+            del formateado interno
 
-    gw  :   Formatea sin usar 'formatexpr' ni 'formatprg'
+    gw  :   Formatea (solo con el formateado interno)
 
-** Nota: La cantidad de espacios por sangría depende de 'shiftwidth' 'sw'
+** Nota: La cantidad de espacios por sangría depende de 'shiftwidth' ('sw')
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-Ejercicio 3: (Abrir con 'gF' pues la línea de inicio importa)
+Ejercicio 3: (Abrir con gF para entrar desde la línea 44)
         1.7_Ejercicio3.cs:44
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -87,16 +87,44 @@ Ejercicio 4: Descodificar el siguiente texto codificado en ROT13
         - N yn znaren vapbeerpgn"
                             Ivrwb cebireovb qr ybf flfnqzva
 
+                                    Aplicar operador en un párrafo => ip
+
+Respuesta sugerida (Abrir o cerrar con za) {{{
+    Sobre el área del párrafo: g?ip
+}}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
 ===========================================================================
 
-Extras (Cada uno de los cuales podría requerir su propia lección)
+Extras
 
     !   :   Filtrar a través de un programa externo
     zf  :   Crear un "dobles"
     g@  :   Llamar una función establecida por la opción 'operatorfunc'
 
+La función establecida en 'operatorfunc' es una función definida por el
+usuario por lo que al operador 'g@' lo llamaremos "el operador
+personalizado".
+
+(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+El siguiente es un ejemplo del uso del operador g@ para crear un operador
+personalizado para comentar/descomentar código de lenguajes estilo C
+
+    1.7_Script_OperadorPersonalizado.vim
+
+Abre e interpreta el archivo, tras lo cual tendrás un nuevo operador
+llamado "gc" cuyo significado será "comentar" (no se usó c dado que esa
+letra ya estaba tomada por el operador "cambiar").
+Ahora prueba el nuevo operador varias veces en el siguiente párrafo
+escribiendo gcip (comentar/descomentar dentro del párrafo) o seleccionando
+una parte y presionando gc:
+
+    Elit ex fuga omnis recusandae.
+    Lorem pariatur repellat laboriosam velit.
+    Adipisicing consequatur rem impedit doloremque!
+
+
+)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
 ===========================================================================
 
@@ -106,9 +134,9 @@ Usando 'op_' se puede aplicar 'op' en una línea. La mayoría de los
 operadores tiene un alias para hacer lo mismo más rápido: Repetir la
 última letra del operador:
 
-        dd   :  Igual a d_. Elimina línea actual
-        yy   :  Igual a y_. Copia línea actual
-        cc   :  Igual a c_. Elimina línea actual y entra en modo inserción
+        dd   :  Elimina línea actual
+        yy   :  Copia línea actual
+        cc   :  Elimina línea actual y entra en modo inserción
         ==   :  Re-indenta línea actual
         >>   :  Añade sangría a la línea actual
         <<   :  Quita sangría a la línea actual
@@ -126,14 +154,10 @@ Ejercicio 4: Reordene las siguientes líneas
     4. Amet debitis debitis quibusdam itaque accusantium
     1. Sit aut cum vero maiores quibusdam?
     3. Sit a in beatae voluptatem nobis.
-                                                    Pegar detrás: P
-                                                    Pegar enfrente: p
+                                                    Pegar detrás =>  P
+                                                    Pegar enfrente => p
 Respuesta sugerida {{{
-    Desde la primera línea: '2ddpjddp'
-
-    2ddp Corta dos líneas y las pega enfrente
-    j    Baja una posición
-    ddp  Corta una línea y la pega enfrente
+    Desde la primera línea escribe: 2ddpjddp
 }}}
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 
@@ -144,12 +168,11 @@ Operaciones de caracteres y operaciones de línea
 Tanto los comandos de movimiento como los operadores se pueden clasificar
 en comandos "de caracteres" (character-wise) y "de línea" (line-wise).
 
-Como ejemplos en cuanto a comandos de movimiento, los movimientos a los
-laterales 'h' y 'l' son "de caracteres" y los movimientos arriba y
-abajo 'j' y 'k' son "de línea".
+Por ejemplo, los movimientos laterales 'h' y 'l' son "de caracteres" y los
+movimientos arriba y abajo 'j' y 'k' son "de línea".
 
-Por el lado de los operadores, 'd', 'c', 'y', etc son operadores de
-carácter y '<' y '>' son operadores de línea.
+Por otro lado los operadores 'd', 'c', 'y', etc... son operadores de
+carácteres y '<' y '>' son operadores de línea.
 
 Al hacer una acción, si tanto el operador como el movimiento son
 comandos de caracteres, la operación opera justo en los elementos
@@ -158,7 +181,7 @@ entonces el resultado final opera sobre líneas completas.
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Ejercicio 5: Sobre el símbolo "|" del párrafo del ejercicio
-presiona 'j'.  Regrese al "|" y ahora presione '/z<Return>'. 
+presiona 'j'.  Regrese al "|" y ahora presione '/z<Return>'.
 Ambos movimientos deben posicionarlo en el mismo lugar.
 
 Por segunda vez vuelve a la posición marcada con "|" y presiona 'dj'.
@@ -195,7 +218,7 @@ igual que 'yy'.
 Para conservar la consistencia, puedes redefinir 'Y' para que copie
 hasta el fin de línea de la siguiente manera:
 
-    :nno[remap] Y y$
+    :nnoremap Y y$
 
 Esa línea se puede añadir a tu configuración de vim para gozar
 de consistencia en los operadores básicos.
@@ -204,6 +227,11 @@ de consistencia en los operadores básicos.
 Ejercicio 6:  1.7_Ejercicio6.c:11
 *v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*v*
 ___________________________________________________________________________
+Lecturas sugeridas:
+    :help operator
+    :help @g
+    :help operatorfunc
+    :help a:0
 
 Al igual que hay plugins que añaden nuevos objetos de texto. Hay otros
 que añaden operadores para que trabajen con los operadores. Algunos de
@@ -216,4 +244,4 @@ los mejores son:
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]
 
-vim: fdm=marker
+vim: fdm=marker tw=75
