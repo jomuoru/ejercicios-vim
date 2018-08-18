@@ -3,3 +3,5 @@
 
 - Exportar a html la vista de edición
     %TOhtml
+
+vim: fdm=marker tw=75

@@ -9,7 +9,10 @@
 - Copiar coincidencias de re en un registro
     :g/re/y [reg]
 
-- La "dot formula" mejorada
+Ack
+lvimgrep
+
+- La "dot formula" mejorada gN gn
 
 Añadir prefijo y sufijo a un texto
     :s/.*/PREFIX & SUFFIX/
@@ -18,3 +21,5 @@ Campos en expresiones regulares
     :%s/\(holas\)
 
 :help greedy
+
+vim: fdm=marker tw=75

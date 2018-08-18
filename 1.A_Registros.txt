@@ -1,9 +1,55 @@
-
-Registros de vim
+                          ** Registros de vim **
 
 Normalmente el texto que copias y pegas en cualquier programa es manejado
 por el sistema en un único espacio de almacenamiento también llamado el
 porta-papeles del sistema (clipboard).
+Vim toma un aproximación distinta manejando un grupo de espacios propios en
+lugar de uno compartido. A estos espacios se les conoce como "Registros".
+
+Para hacer que un comando opere sobre un registro específico se debe añadir
+al principio del mismo un "{reg} (comilla doble + {reg}), donde {reg} es el
+nombre del registro que se quiere usar.
+
+Por ejemplo, el comando daw sirve para cortar una palabra y poner el texto
+de la misma en el registro por defecto. Si en lugar de usar el registro por
+defecto se quisiera usar el registro X, se escribiría:
+
+    "Xdaw
+    (Comilla doble, letra equis mayúscula, daw)
+
+===========================================================================
+
+Registro sin nombre
+
+Por defecto, los operadores básicos hacen uso del registro sin nombre,
+también referido como " (comilla doble). El problema con este registro es
+que puede sobreescribirse fácilmente si se realiza una nueva operación.
+
+La notación:
+    {operador}{resto-comando}
+
+Es equivalente a:
+    ""{operador}{resto-comando}
+
+Solo que en el caso de la segunda forma, se está usando explícitamente el
+registro "
+
+===========================================================================
+
+Registros nombrados
+
+Para conservar un texto aún si se tienen que hacer más operaciones, se
+puede guardar el mismo en un registro diferente. Vim pone a nuestra
+disposición 26 registros de propósito general nombrados con las letras de
+la 'a' hasta la 'z'.
+Se pueden usar letras mayúsculas o minúsculas para referirse a los
+registros nombrados, siempre y cuando se tome en cuenta que al usar las
+versiones en minúscula se sobreescriben los contenidos del registro y al
+usar la mayúscula simplemente se añade texto al mismo.
+
+===========================================================================
+
+
 
 - "_ (Registro agujero negro)
 
@@ -12,3 +58,4 @@ porta-papeles del sistema (clipboard).
 - Operar con vim:
     <Ctrl-r>={expresion}
 
+vim: fdm=marker tw=75

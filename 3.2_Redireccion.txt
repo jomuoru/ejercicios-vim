@@ -8,3 +8,5 @@ puedes pedirlos dentro de vim:
 Editar en hexadecimal
     %!xxd
     %!xxd -r
+
+vim: fdm=marker tw=75

@@ -196,7 +196,12 @@ Pegar cosas sin soporte de clipboard
         rezar un poco por que no se vea horrible
         :set nopaste
 
-Plugins
+___________________________________________________________________________
+Lecturas sugeridos:
+    :help clipboard
+    :help paste
+
+Plugins para cortar-pegar:
     yank-ring
 
-vim: fdm=marker
+vim: fdm=marker tw=75

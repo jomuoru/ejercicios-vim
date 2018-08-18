@@ -95,7 +95,7 @@ puede usar los siguientes comandos:
 Usa estos comandos para moverte entre las secciones
 ___________________________________________________________________________
 
-Obteniendo más ayuda de vim
+Lecturas (y ejercicios) sugeridas:
     vimtutor         Comando para abrir el tutorial de vim
 
     :help {tópico}   Buscar ayuda del {tópico} buscado.  Si omites el
@@ -104,8 +104,6 @@ Obteniendo más ayuda de vim
 
     www.openvim.com  Tutorial de "vi" en un emulador en línea.  No tiene
                      soporte completo de vim
-
-
 
 Bienvenid@ al final del archivo.  En esta sección solo suele haber un par
 de anotaciones que te indican que comando se usar para ir al siguiente

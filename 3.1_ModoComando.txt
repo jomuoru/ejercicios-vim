@@ -14,3 +14,5 @@ Historial de cambios de una variable o mapeo
 
 Se pueden ejecutar comandos externos
     ![comando]
+
+vim: fdm=marker tw=75

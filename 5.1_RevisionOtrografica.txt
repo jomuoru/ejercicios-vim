@@ -4,3 +4,5 @@
 
 Plugins
     Vim You Autocorrect
+
+vim: fdm=marker tw=75

@@ -16,3 +16,5 @@ set undodir=~/.vim/undo-dir
 set undofile
 
 help undo-tree
+
+vim: fdm=marker tw=75

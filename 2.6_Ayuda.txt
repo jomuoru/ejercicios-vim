@@ -3,3 +3,5 @@
 :help if_tcl.txt
 :help if_lua.txt
 :help if_mzscheme.txt
+
+vim: fdm=marker tw=75

@@ -40,3 +40,4 @@ Facil manejo de cliente-servidor de edición:
     alias vims='vim --servername SAMPLESERVER'
     alias vimc='vim --servername SAMPLESERVER --remote-tab-silent'
 
+vim: fdm=marker tw=75

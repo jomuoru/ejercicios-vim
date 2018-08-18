@@ -12,3 +12,7 @@ secure
 
 
 .lvimrc
+
+:help vim-script-intro
+
+vim: fdm=marker tw=75

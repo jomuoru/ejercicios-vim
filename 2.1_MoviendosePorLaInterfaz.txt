@@ -15,3 +15,5 @@ H M L
 
 zz  zt    zb
 z.  z<CR> z-
+
+vim: fdm=marker tw=75

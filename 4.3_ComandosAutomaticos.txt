@@ -2,3 +2,5 @@
 autocmd CursorHold,CursorHoldI * update
 
 autowrite " Guardar cuando se ejecuta un comando texterno"
+
+vim: fdm=marker tw=75

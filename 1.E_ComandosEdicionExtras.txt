@@ -6,3 +6,4 @@ Insertar símbolo especial
     <Ctrl-k>{char}{char}
     <Ctrl-v>{numero}
 
+vim: fdm=marker tw=75

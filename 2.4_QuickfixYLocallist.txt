@@ -7,3 +7,5 @@ Ctags y vim
 
 Plugins
     taglist
+
+vim: fdm=marker tw=75

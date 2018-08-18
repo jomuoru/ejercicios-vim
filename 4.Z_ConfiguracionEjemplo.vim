@@ -53,6 +53,12 @@ if s:usar_plugins
         echomsg 'Descargando el plugin'
         !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+        if v:shell_error
+            echomsg 'No se pudo instalar el manejador de plugins'
+            let s:usar_plugins = 0
+            call getchar()
+        endif
+
         " Como se acaba de descargar el manejador de plugins lo cargamos
         " manualmente con la siguiente línea (De otro modo se requeriría
         " reiniciar vim)
@@ -64,8 +70,10 @@ endif
 " Activar detección del tipo de archivo
 filetype plugin indent on
 
-" Usar bash como shell predeterminada
-set shell=/bin/bash
+" Vim anterior al 704 no se lleva bien con la shell "fish"
+if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
+    set shell=/bin/bash
+endif
 " ### }}}
 
 " ##### Plugins y sus configuraciones (solo si se han habilitado) ##### {{{
@@ -135,13 +143,21 @@ if s:usar_plugins
     nnoremap <Leader>tgtb :TagbarToggle<Return>
     nnoremap <F6>         :TagbarToggle<Return>
 
-    "Plug 'xolox/vim-misc'                 " Requerimiento para el siguiente
-    "Plug 'xolox/vim-easytags'             " Generación y manejo de etiquetas
+    Plug 'xolox/vim-misc'                 " Requerimiento para el siguiente
+    Plug 'xolox/vim-easytags'             " Generación y manejo de etiquetas
+
     Plug 'kshenoy/vim-signature'          " Marcas visuales
     Plug 'tpope/vim-repeat'               " Repetir plugins con .
+    Plug 'terryma/vim-multiple-cursors'   " Cursores múltiples tipo sublime
     Plug 'godlygeek/Tabular'              " Funciones para alinear texto
-    Plug 'PeterRincker/vim-argumentative' " Objeto de texto 'argumento'
     Plug 'jiangmiao/auto-pairs'           " Completar pares de símbolos
+    let g:AutoPairs = {
+                \ '(' : ')', '[' : ']', '{' : '}',
+                \ '"' : '"', "'" : "'", '`' : '`',
+                \ '¿' : '?', '¡' : '!'
+                \}
+    Plug 'tpope/vim-endwise'              " Completar pares de palabras
+
     Plug 'KabbAmine/vCoolor.vim'          " Inserción de valores RGB
     nnoremap <leader>vc :VCoolor<return>
     Plug 'sedm0784/vim-you-autocorrect'   " Corrección de errores sintácticos
@@ -150,7 +166,9 @@ if s:usar_plugins
     Plug 'scrooloose/nerdcommenter'       " Utilidades para comentar código
 
     " Objetos de texto y operadores
+    Plug 'easymotion/vim-easymotion'      " Movimiento rápida caracteres
     Plug 'michaeljsmith/vim-indent-object' " Objeto de texto 'indentado'
+    Plug 'PeterRincker/vim-argumentative' " Objeto de texto 'argumento'
     Plug 'kana/vim-textobj-user'          " Requerimiento de los próximos
     Plug 'kana/vim-textobj-function'      " Objeto de texto 'función'
     Plug 'glts/vim-textobj-comment'       " Objeto de texto 'comentario'
@@ -163,6 +181,7 @@ if s:usar_plugins
     Plug 'rafi/awesome-vim-colorschemes'  " Paquete de temas de color
     Plug 'vim-airline/vim-airline'        " Línea de estado ligera
     Plug 'vim-airline/vim-airline-themes' " Temas de color para el plugin anterior
+    Plug 'Yggdroot/indentLine'            " Marcas de sangría visuales
     Plug 'gregsexton/MatchTag'            " Iluminar etiqueta hermana (html/xml)
     Plug 'ap/vim-css-color'               " Colorear valores RGB
     Plug 'sheerun/vim-polyglot'           " Paquete de archivos de sintaxis
@@ -200,7 +219,7 @@ set relativenumber    " Mostrar numeración relativa
 " Activar y desactivar relativenumber (toggle relativenumber number)
 nnoremap <Leader>trn :setlocal relativenumber!<Return>
 nnoremap <F3>        :setlocal relativenumber!<Return>
-set numberwidth=4     " Longitud de la sección de números
+set numberwidth=3     " Longitud de la sección de números
 
 " Mostrar la posición del cursor en la línea de estado
 set ruler
@@ -313,9 +332,9 @@ let s:envolver_lineas_largas = 1
 if s:envolver_lineas_largas
     set wrap              " Envolver líneas largas
     set linebreak         " Rompe la línea cuando se llega a la longitud máxima
+    set display+=lastline " No mostrar símbolos @ cuando la línea no cabe
     set showbreak=...\    " En lineas largas, se muestran ... de continuación
     set breakindent       " Aplica sangría en los tres puntos de continuación
-    set display+=lastline " No mostrar símbolos @ cuando la línea no cabe
 else
     set nowrap            " No envolver líneas largas
 
@@ -497,10 +516,10 @@ nnoremap <Leader>cd :cd %:p:h<Return>:pwd<Return>
 
 " +++ Movimiento en modo normal +++ {{{
 " Moverse por líneas visuales en lugar de lineas lógicas
-nnoremap <silent> <expr> j 'gj'
-nnoremap <silent> <expr> k 'gk'
-nnoremap <silent> <expr> gj 'j'
-nnoremap <silent> <expr> gk 'k'
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+nnoremap <silent> gj j
+nnoremap <silent> gk k
 
 " Moverse entre inicio/medio/final de la pantalla
 nnoremap <C-l> :call AlternarInicioMedioFinalComoEnEmacs()<return>
@@ -518,6 +537,7 @@ function! AlternarInicioMedioFinalComoEnEmacs()
         normal! z.
     endif
 
+    redraw
 endfunction
 
 " Cero (o en su defecto <Home>) alterna entre primer carácter visible y primer
@@ -558,6 +578,12 @@ cnoremap <A-f> <S-Right>
 cnoremap <C-d> <Del>
 cnoremap <A-d> <S-Right><C-w>
 cnoremap <A-D> <C-e><C-u>
+
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+cnoremap <Up>   <C-p>
+cnoremap <Down> <C-n>
 "   +++ }}}
 
 " +++ Dobleces (folds) +++ {{{
@@ -850,7 +876,7 @@ cmap <A-BS> <A-BS>
 
 " Aumentar la granularidad del undo
 inoremap <C-u> <C-g>u<C-u>
-"inoremap <Return> <C-g>u<Return>
+inoremap <Return> <C-g>u<Return>
 "   +++ }}}
 
 " +++ Objetos de texto +++ {{{
@@ -887,6 +913,7 @@ set ignorecase         " No diferenciar mayúsculas/minúsculas
 set smartcase          " Ignorecase si la palabra empieza por minúscula
 set hlsearch           " Al buscar texto se resaltan las coincidencias
 set magic              " Se usa el modo 'mágico' de búsqueda/reemplazo
+set gdefault           " Usar bandera 'g' por defecto en las sustituciones
 
 " Desactivar el resaltado de búsqueda
 nnoremap // :nohlsearch<Return>
@@ -897,8 +924,9 @@ nnoremap <Leader>hsc :nohlsearch<bar>let @/ = ''<Return>
 " Hacer que el comando . (repetir edición) funcione en modo visual
 xnoremap . :normal .<Return>
 
-" Hacer que el comando & (repetir remplazo) funcione en modo visual
-xnoremap & :s<Return>
+" Repitiendo sustituciones con todo y sus banderas
+nnoremap & :&&<Return>
+xnoremap & :&&<Return>
 
 " No moverse cuando se busca con * y #
 nnoremap * *N
@@ -931,7 +959,7 @@ nnoremap <Leader>gcw :lvimgrep<Space><C-r><C-w><Space>
 nnoremap <Leader>gcd :lvimgrep<Space><Space>./*<Left><Left><Left><Left>
 nnoremap <Leader>gwd :lvimgrep<Space><C-r><C-w><Space>./*<Return>
 
-" Buscar en todos los buffers abiertos
+" Buscar texto en todos los buffers abiertos
 command! -nargs=1 BuscarBuffers call BuscarBuffers(<q-args>)
 nnoremap <Leader>gob :BuscarBuffers<Space>
 
@@ -950,13 +978,14 @@ endfunction
 nnoremap <Leader>gsr :lopen<Return>
 
 " Reemplazar texto (replace [local | global | current-global])
-nnoremap <Leader>rl :s//g<Left><Left>
-nnoremap <Leader>rg :%s//g<Left><Left>
-nnoremap <Leader>rw :%s/\<<C-r><C-w>\>\C//g<Left><Left>
-nnoremap <Leader>rW :%s/\<<C-r>=expand("<cWORD>")<Return>\>\C//g<Left><Left>
-xnoremap <Leader>rl :s//g<Left><Left>
+" Recordar que 'gdefault' está activo, una g extra al final lo desactiva
+nnoremap <Leader>rl :s/
+nnoremap <Leader>rg :%s/
+nnoremap <Leader>rw :%s/\<<C-r><C-w>\>\C/
+nnoremap <Leader>rW :%s/\<<C-r>=expand("<cWORD>")<Return>\>\C/
+xnoremap <Leader>rl :s/
 xmap     <Leader>rg <Esc><Leader>rg
-xnoremap <Leader>rs :<C-u>call SeleccionVisual()<Return>:%s/<C-r>=@/<Return>//g<Left><Left>
+xnoremap <Leader>rs :<C-u>call SeleccionVisual()<Return>:%s/<C-r>=@/<Return>/
 
 " Saltar entre conflictos merge
 nnoremap <silent> <Leader>ml /\v^(\<\|\=\|\>){7}([^=].+)?$<Return>
@@ -983,10 +1012,8 @@ else
 endif
 
 " Crear sesión (con un nombre específico o con el nombre por defecto)
-if &sessionoptions =~# '\<options\>'
-    set sessionoptions-=options
-    set sessionoptions+=localoptions
-endif
+set sessionoptions-=options
+set sessionoptions+=localoptions
 nnoremap <Leader>ms  :mksession! ~/.vim/session/
 nnoremap <Leader>mds :mksession! ~/.vim/session/default<Return>
 nnoremap <Leader>cs  :source ~/.vim/session/
@@ -999,9 +1026,9 @@ endif
 "   +++ }}}
 
 " +++ Comandos y acciones automáticas para abrir, guardar y salir +++ {{{
-" Comandos para salir desde modo normal
-nnoremap ZG :wqa<Return>
-nnoremap ZA :qa<Return>
+" Comandos para salir de vim desde modo normal
+nnoremap ZG :exit all<Return>
+nnoremap ZA :quitall!<Return>
 " ZQ - Eliminar la ventana actual sin guardar
 " ZZ - Eliminar la ventana actual guardando
 
@@ -1022,14 +1049,14 @@ command! -bang Xa xa<bang>
 command! -bang XA xa<bang>
 
 " Usar Ctrl-s para guardar como en cualquier otro programa
-nnoremap <C-s> :write<Return>
-inoremap <C-s> <Esc>:write<Return>a
+nnoremap <C-s> :update<Return>
+inoremap <C-s> <Esc>:update<Return>a
 " Es preferible guardar desde modo normal. En modo inserción no se puede
 " garantizar (al menos no sin usar instrucciones más complejas) que el
 " cursor se quede en la posición inicial
 
 " Guardar con sudo (cuando entraste a vim sin sudo, se pedirá contraseña)
-cnoremap w!! !sudo tee % > /dev/null
+cnoremap w!! !sudo tee % > /dev/null<Return>
 
 augroup ComandosAutomaticosGuardarLeer
     autocmd!
@@ -1142,11 +1169,27 @@ augroup END
 
 augroup ConfiguracionesEspecificasLenguaje
     autocmd!
-    "Los guiones se toman como parte del identificador en css/html
-    autocmd Filetype css,html setlocal iskeyword+=-
-    " Los # no se toman como parte del identificador en vim
-    autocmd FileType vim setlocal iskeyword-=#
+    autocmd Filetype html,xml,jade,pug,htmldjango,css,scss,sass,php imap <buffer> <expr> <Tab> emmet#expandAbbrIntelligent("\<Tab>")
+    autocmd Filetype html,css,scss,sass,pug,php setlocal ts=2 sw=2 sts=2
+    " Los guiones normales forman parte del identificador en css
+    autocmd Filetype html,css,scss,sass,pug     setlocal iskeyword+=-
 augroup END
+
+" Configuración de la ayuda
+nnoremap <leader>tth :call ToggleTextAndHelpFiles()<Return>
+function! ToggleTextAndHelpFiles() abort
+    if &filetype ==# 'help'
+        let &filetype = 'text'
+    else
+        let &filetype = 'help'
+    endif
+endfunction
+
+augroup ConfiguracionComandoK
+    autocmd!
+    " Por defecto se usa el comando :Man a su vez llama al man del sistema
+    autocmd FileType vim setlocal keywordprg=:help
+augroup end
 "   +++ }}}
 " ### }}}
 
@@ -1220,7 +1263,12 @@ endfunction
 " ### }}}
 
 " ##### Completado, etiquetas, diccionarios y revisión ortográfica ##### {{{
-set complete+=i        " Completar palabras de archivos incluidos
+if s:usar_plugins
+    set complete-=i        " Dejar que los plugins se encarguen
+    set complete-=t
+else
+    set complete+=i        " Completar palabras de archivos incluidos
+endif
 
 " Generar etiquetas de definiciones y comando "go to definition"
 set tags=./tags;/,~/.vimtags
@@ -1232,7 +1280,7 @@ endif
 if s:usar_plugins
     nnoremap <Leader>ut :UpdateTags<Return>
 else
-    nnoremap <Leader>ut !ctags -R .&<Return>
+    nnoremap <Leader>ut :!ctags -R .&<Return>
 endif
   " <C-]> - Ir a la definición del objeto (solo si ya se generaron las etiquetas)
 

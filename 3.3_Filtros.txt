@@ -17,6 +17,8 @@ inserte el rango por nosotros.
 !     Operador filtrar: Operador de línea que sirve para seleccionar
       un rango mediante los métodos convencionales.
 
+:!!   Repetir filtro previo
+
 Ejercicio 1: Ordene alfabéticamente la siguiente lista de nombres:
     Jennie
     Cecil
@@ -84,4 +86,4 @@ ___________________________________________________________________________
 <----Archivo anterior                                Archivo siguiente---->
   :prev[ious]                                                     :n[ext]
 
-vim: fdm=marker
+vim: fdm=marker tw=75

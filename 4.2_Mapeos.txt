@@ -1,3 +1,7 @@
 
 No expandir abreviación:
     abreviación<C-v><space>
+
+:help keycodes
+
+vim: fdm=marker tw=75
